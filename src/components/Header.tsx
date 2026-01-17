@@ -6,10 +6,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
 
 const navLinks = [
-  { label: 'About Us', labelJP: '私たちについて', href: '/about' },
-  { label: 'Projects', labelJP: 'プロジェクト', href: '/projects' },
-  { label: 'News', labelJP: 'ニュース', href: '/news' },
-  { label: 'Support', labelJP: 'サポート', href: '/support' },
+  { label: 'About Us', href: '/about' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'News', href: '/news' },
+  { label: 'Support', href: '/support' },
 ];
 
 export default function Header() {
@@ -54,8 +54,8 @@ export default function Header() {
               href="/" 
               className="text-2xl md:text-3xl font-bold text-bluewood hover:text-neon-blue transition-colors"
             >
-              <span className="hidden sm:inline">ROVER PROJECT</span>
-              <span className="sm:hidden">ROVER</span>
+              <span className="hidden sm:inline">KARURA PROJECT</span>
+              <span className="sm:hidden">KARURA</span>
             </Link>
             
             {/* Desktop Navigation */}
@@ -121,7 +121,7 @@ export default function Header() {
                   >
                     {link.label}
                     <span className="block text-sm text-gray-500 mt-1">
-                      {link.labelJP}
+                    
                     </span>
                   </Link>
                 </motion.div>
