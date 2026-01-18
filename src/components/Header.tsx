@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
+import Image from 'next/image';
 
 const navLinks = [
   { label: 'About Us', href: '/about' },
@@ -16,7 +17,7 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Handle scroll effect
+  // Scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -50,13 +51,33 @@ export default function Header() {
         <nav className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link 
-              href="/" 
-              className="text-2xl md:text-3xl font-bold text-bluewood hover:text-neon-blue transition-colors"
-            >
-              <span className="hidden sm:inline">KARURA PROJECT</span>
-              <span className="sm:hidden">KARURA</span>
-            </Link>
+<Link
+  href="/"
+  className="flex items-center hover:opacity-90 transition-opacity"
+>
+  {/* Desktop logo */}
+  <span className="hidden sm:inline">
+    <Image
+      src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-462x174_webp_eeddf8f4-d769-4e9a-968b-9f9551bda5d7.webp"
+      alt="KARURA"
+      width={150}
+      height={40}
+      priority
+    />
+  </span>
+
+  {/* Mobile logo */}
+  <span className="sm:hidden">
+    <Image
+      src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-462x174_webp_eeddf8f4-d769-4e9a-968b-9f9551bda5d7.webp"
+      alt="KARURA"
+      width={120}
+      height={32}
+      priority
+    />
+  </span>
+</Link>
+
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
@@ -71,12 +92,12 @@ export default function Header() {
                 </Link>
               ))}
               
-              {/* CTA Button */}
+              {/* JP/ENG Button */}
               <Link
                 href="/support"
-                className="px-6 py-2 bg-neon-blue text-white rounded-lg hover:bg-opacity-90 transition-all transform hover:scale-105"
+                className="px-6 py-2 bg-neon-blue text-black rounded-lg hover:bg-opacity-90 transition-all transform hover:scale-105"
               >
-                Support Us
+                日本語 / EN
               </Link>
             </div>
 

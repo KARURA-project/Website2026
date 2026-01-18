@@ -9,12 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'neon-blue': '#00D9FF',
+        'neonblue': '#00D9FF',
         'bluewood': '#2C3E50',
         'bay': '#264653',
         'ghost': '#CED4DA',
         'flamingo': '#FC6C85',
-        'red-orange': '#FF4500',
+        'redorange': '#FF4500',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

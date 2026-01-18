@@ -64,6 +64,22 @@ export default function Home() {
     { id: '18', name: 'Sinsyo', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2154x236_v-frms_webp_316f9c06-5ada-4498-8776-b0159edc490d_small.webp' },
     { id: '19', name: 'Sugino', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2400x346_v-frms_webp_98a4e4ad-e8a8-4764-a861-b471d0281352_small.webp' },
     { id: '20', name: 'Japritech', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-610x97_v-fs_webp_a7dc40a6-bc2c-4fc2-a92b-03664e173b72_small.webp' },
+    //{ id: '21', name: 'Nikkan', logo: '/logo/karura-logo.png' },
+    //{ id: '22', name: 'Shinshu University', logo: '/logo/karura-logo.png' },
+    { id: '23', name: 'NC-Toyama', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-334x61_webp_716ef7e6-a45a-4d90-a695-c99cd429b4e7.webp' },
+    //{ id: '24', name: 'Wakasatokai', logo: '/logo/karura-logo.png' },
+    { id: '25', name: 'Uchubiz', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1500x279_v-fms_webp_de41bd6a-1dcc-4c1d-a96a-fb8c634fd8ab_small.webp' },
+    { id: '26', name: 'Sorae', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1920x480_v-frms_webp_601e4f16-3eb2-442b-b8b4-2a64277b460c_small.webp' },
+    { id: '27', name: 'Uchu-Banashi', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2009x460_v-frms_webp_2f46553c-1401-4a5a-b120-312a267561b0_small.webp' },
+    { id: '28', name: 'SPACE Media', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2400x715_v-frms_webp_fa8c543d-fa10-4945-90fd-d741124f764d_small.webp' },
+    { id: '29', name: 'Space Development Forum', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1425x595_v-fms_webp_ac9fdcb5-0676-4897-a792-980a765faf30_small.webp' },
+    //{ id: '30', name: 'ASE-Lab', logo: '/logo/karura-logo.png' },
+    { id: '31', name: 'LYNCS', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-256x256_webp_fda42e6f-6d4a-4682-a1c4-866a5028a965.webp' },
+    { id: '32', name: 'tohokuspaceelevato', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2400x1697_v-frms_webp_39fe14e6-8f7b-45ad-be8a-a4e7dc79fe0b_small.webp' },
+    { id: '33', name: 'LIFT - 自走式昇降機を用いた社会課題の解決-', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1020x1008_v-fs_webp_12e15f05-1cce-4a0c-807d-fa3dfcccf844_small.webp' },
+    { id: '34', name: 'TELSTAR', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2118x772_v-frms_webp_08f97322-7734-40c9-81a3-5a18da2465b0_small.webp' },
+   //{ id: '35', name: 'FSIFOfficial', logo: '/logo/karura-logo.png' },
+
     // ...
     // Add more sponsors
   ];
