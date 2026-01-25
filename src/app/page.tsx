@@ -2,6 +2,8 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import DepartmentCard from '@/components/DepartmentCard';
 import SponsorCarousel from '@/components/SponsorCarousel';
+import NewsGrid from '@/components/Newsgrid';
+import { NewsItem } from '@/components/NewsCard';
 import { FiCpu, FiZap, FiCode, FiTrendingUp, FiUsers } from 'react-icons/fi';
 
 export default function Home() {
@@ -83,6 +85,48 @@ export default function Home() {
     // ...
     // Add more sponsors
   ];
+
+const newsItems: NewsItem[] = [
+  {
+    id: '1',
+    title: 'KARURA Makes History as First Japanese Team in URC Finals',
+    description: 'In 2024, we became the first international and Japanese team to reach the finals of the University Rover Challenge, marking a historic achievement for our team and international space exploration.',
+    date: '2024-06-15',
+    imageUrl: 'http://localhost:3000/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fstudio-design-asset-files%2Fprojects%2FRQqJYAoZOg%2Fs-462x174_webp_eeddf8f4-d769-4e9a-968b-9f9551bda5d7.webp&w=384&q=75', // Replace with actual image path
+    imageAlt: 'KARURA team at URC Finals 2024',
+    category: 'Achievement',
+    link: '/news/urc-finals-2024',
+  },
+  {
+    id: '2',
+    title: 'Preparing for URC 2025: Our Winning Strategy',
+    description: 'The team is in the final stages of System Acceptance Review for our 2025 rover. With improvements in drilling systems and enhanced sample collection capabilities, we aim for victory.',
+    date: '2025-01-20',
+    imageUrl: '/images/rover-2025-prep.jpg',
+    imageAlt: 'KARURA 2025 rover preparation',
+    category: 'Competition',
+    link: '/news/urc-2025-preparation',
+  },
+  {
+    id: '3',
+    title: 'New Science Mission Capabilities',
+    description: 'Our science department has developed advanced systems using high-resolution cameras and electron microscopes to detect signs of life in Martian soil samples.',
+    date: '2025-01-10',
+    imageUrl: '/images/science-equipment.jpg',
+    imageAlt: 'KARURA science equipment',
+    category: 'Update',
+  },
+  {
+    id: '4',
+    title: 'International Collaboration: Japan & Texas A&M',
+    description: 'KARURA unites 60 students from Texas A&M and universities across Japan, advancing international space exploration through hands-on robotics research.',
+    date: '2024-12-01',
+    imageUrl: '/images/team-collaboration.jpg',
+    imageAlt: 'KARURA international team',
+    category: 'Team',
+  },
+];
+
 
   return (
     <main>
