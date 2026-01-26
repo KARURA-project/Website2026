@@ -148,6 +148,13 @@ const newsItems: NewsItem[] = [
       </section>
 
       <SponsorCarousel sponsors={sponsors} />
+
+      <NewsGrid 
+        newsItems={newsItems}
+        title="Latest News & Updates"
+        subtitle="Follow our journey to Mars and beyond"
+      />        
+      
     </main>
   );
 }
