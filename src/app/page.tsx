@@ -161,7 +161,7 @@ export default function Home() {
 function HeroWithRover() {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden">
-      <div className="absolute inset-0 opacity-30">
+      <div className="absolute inset-0">
         <Image
           src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
           alt="KARURA Mars Rover"
@@ -423,7 +423,7 @@ function SponsorsCarousel({ sponsors }: { sponsors: Array<{ id: string; name: st
             Our Sponsors
           </h2>
           <div className="w-16 h-1 bg-mars-red mx-auto mb-8"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg">
             Thank you to our valued partners who make our mission possible.
           </p>
         </div>
