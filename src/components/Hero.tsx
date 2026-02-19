@@ -1,44 +1,47 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Hero() {
   return (
-   <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-
-      {/* Background image */}
-      <div className="absolute inset-0 -z-10">
-        <Image
-          src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
-          alt="Mars rover background"
-          fill
-          priority
-          className="object-cover"
-        />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 text-center px-6">
-        <motion.h1
-          className="text-6xl md:text-8xl font-bold text-red-400 mb-6"
-          initial={{ opacity: 0, y: 30 }}
+    <section className="min-h-screen flex items-center justify-center bg-white px-6">
+      <div className="container mx-auto max-w-5xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
         >
-          KARURA PROJECT
-        </motion.h1>
-        
-        <motion.p
-          className="text-xl md:text-2xl text-red-400 mb-12 max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          We are an international student-led initiative
-based in Japan and the U.S. working to develop a Mars rover and further the development of space exploration.
-        </motion.p>
+          {/* Simple heading with red accent */}
+          <h1 className="text-6xl md:text-8xl font-bold text-charcoal mb-8 tracking-tight">
+            KARURA
+          </h1>
+          
+          <div className="w-16 h-1 bg-mars-red mx-auto mb-8"></div>
+          
+          <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+            International Mars Rover Development Team
+            <br />
+            <span className="text-gray-400">Japan × Texas A&M University</span>
+          </p>
 
+          {/* Simple CTA buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/about"
+              className="px-8 py-4 bg-charcoal text-white font-medium hover:bg-mars-red transition-colors duration-300"
+            >
+              Learn More
+            </Link>
+            <Link
+              href="/support"
+              className="px-8 py-4 border-2 border-charcoal text-charcoal font-medium hover:border-mars-red hover:text-mars-red transition-colors duration-300"
+            >
+              Support Us
+            </Link>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

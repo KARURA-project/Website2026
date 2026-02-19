@@ -1,14 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
-import type { Department } from '@/types';
+import Link from 'next/link';
 
 interface DepartmentCardProps {
-  department: Department;
+  department: string;
   title: string;
   description: string;
-  icon: React.ReactNode;
   members: number;
 }
 
@@ -16,42 +14,40 @@ export default function DepartmentCard({
   department, 
   title, 
   description, 
-  icon, 
   members 
 }: DepartmentCardProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
-
   return (
-    <motion.div
-      className="bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer border-2 border-transparent hover:border-neon-blue transition-all"
-      whileHover={{ y: -5 }}
-      onClick={() => setIsExpanded(!isExpanded)}
-    >
-      <div className="p-6">
-        <div className="flex items-center justify-between mb-4">
-          <div className="text-4xl text-neon-blue">{icon}</div>
-          <span className="text-sm text-gray-500">{members} members</span>
+    <Link href={`/about#${department}`}>
+      <motion.div
+        whileHover={{ y: -4 }}
+        className="group border border-gray-200 p-8 bg-white hover:border-mars-red transition-all duration-300 cursor-pointer"
+      >
+        {/* Simple number indicator */}
+        <div className="text-sm text-gray-400 mb-4 font-mono">
+          {members.toString().padStart(2, '0')}
         </div>
         
-        <h3 className="text-2xl font-bold text-bluewood mb-2">{title}</h3>
+        <h3 className="text-2xl font-bold text-charcoal mb-3 group-hover:text-mars-red transition-colors">
+          {title}
+        </h3>
         
-        <p className="text-gray-600">{description}</p>
+        <p className="text-gray-600 leading-relaxed mb-4">
+          {description}
+        </p>
         
-        {isExpanded && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            className="mt-4 pt-4 border-t border-gray-200"
+        {/* Minimal arrow indicator */}
+        <div className="flex items-center text-sm font-medium text-gray-400 group-hover:text-mars-red transition-colors">
+          <span>View Details</span>
+          <svg 
+            className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
           >
-            <h4 className="font-semibold mb-2">Responsibilities:</h4>
-            <ul className="list-disc list-inside text-gray-600 space-y-1">
-              <li>Design and development</li>
-              <li>Testing and validation</li>
-              <li>Competition preparation</li>
-            </ul>
-          </motion.div>
-        )}
-      </div>
-    </motion.div>
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+      </motion.div>
+    </Link>
   );
 }
