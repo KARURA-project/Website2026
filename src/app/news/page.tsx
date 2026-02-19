@@ -30,7 +30,7 @@ const allNews: (NewsItem & { content: string; tags: string[] })[] = [
     description:
       'The team is deep in System Acceptance Review for our 2025 rover, with major upgrades to autonomy, science payload, and mobility.',
     content:
-      'Building on the historic success of KARURA III, our engineering teams have been working around the clock to push the boundaries even further. This year's rover incorporates feedback from every task at URC 2024, focusing on improved terrain handling and a more robust science mission platform.',
+      'Building on the historic success of KARURA III, our engineering teams have been working around the clock to push the boundaries even further. This year\'s rover incorporates feedback from every task at URC 2024, focusing on improved terrain handling and a more robust science mission platform.',
     date: '2025-01-20',
     imageUrl:
       'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png',
@@ -45,7 +45,7 @@ const allNews: (NewsItem & { content: string; tags: string[] })[] = [
     description:
       'Our science department has developed advanced astrobiology detection systems using high-resolution spectrometers and improved sample collection protocols.',
     content:
-      'The Science Department has made significant strides in expanding KARURA\'s life-detection capabilities. The new instrument suite includes a portable spectrometer, improved soil sampling tools, and an onboard analysis protocol modeled after NASA's Mars Science Laboratory procedures.',
+      'The Science Department has made significant strides in expanding KARURA\'s life-detection capabilities. The new instrument suite includes a portable spectrometer, improved soil sampling tools, and an onboard analysis protocol modeled after NASA\'s Mars Science Laboratory procedures.',
     date: '2025-01-10',
     imageUrl:
       'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png',
@@ -75,7 +75,7 @@ const allNews: (NewsItem & { content: string; tags: string[] })[] = [
     description:
       'After months of testing, KARURA\'s autonomous navigation stack successfully completed a 500-meter run in a simulated Mars terrain environment.',
     content:
-      'The Software Department's autonomy team hit a major milestone — KARURA can now navigate rough terrain, detect and avoid obstacles, and reach GPS waypoints without any human input. This capability is critical for the URC Autonomous Navigation task.',
+      'The Software Department\'s autonomy team hit a major milestone — KARURA can now navigate rough terrain, detect and avoid obstacles, and reach GPS waypoints without any human input. This capability is critical for the URC Autonomous Navigation task.',
     date: '2024-11-14',
     imageUrl:
       'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png',
@@ -95,7 +95,7 @@ const allNews: (NewsItem & { content: string; tags: string[] })[] = [
     imageUrl:
       'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png',
     imageAlt: 'OptoSigma sponsorship announcement',
-    category: 'Sponsor',
+    category: 'Update',
     link: '/news/optosigma-partnership',
     tags: ['Sponsors', 'Partnership'],
   },
