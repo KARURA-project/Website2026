@@ -53,11 +53,7 @@ export default function Header() {
               href="/support"
               className="px-6 py-2 bg-mars-red text-white font-medium hover:bg-charcoal transition-colors"
             >
-<<<<<<< HEAD
-              Support
-=======
               日本語 / English
->>>>>>> rover
             </Link>
           </div>
 
