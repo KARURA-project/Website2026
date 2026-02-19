@@ -2,7 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
+<<<<<<< HEAD
 import DepartmentCard from '@/components/DepartmentCard';
+=======
+import MinimalDepartmentCard from '@/components/DepartmentCard';
+>>>>>>> rover
 import NewsGrid from '@/components/Newsgrid';
 import Footer from '@/components/Footer';
 import { NewsItem } from '@/components/NewsCard';
@@ -130,7 +134,11 @@ export default function Home() {
           <div className="flex justify-center">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
               {departments.map((dept) => (
+<<<<<<< HEAD
                 <DepartmentCard key={dept.department} {...dept} />
+=======
+                <MinimalDepartmentCard key={dept.department} {...dept} />
+>>>>>>> rover
               ))}
             </div>
           </div>
@@ -423,7 +431,11 @@ function SponsorsCarousel({ sponsors }: { sponsors: Array<{ id: string; name: st
             Our Sponsors
           </h2>
           <div className="w-16 h-1 bg-mars-red mx-auto mb-8"></div>
+<<<<<<< HEAD
           <p className="text-lg">
+=======
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+>>>>>>> rover
             Thank you to our valued partners who make our mission possible.
           </p>
         </div>
