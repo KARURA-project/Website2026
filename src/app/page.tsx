@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
-import MinimalDepartmentCard from '@/components/DepartmentCard';
+import DepartmentCard from '@/components/DepartmentCard';
 import NewsGrid from '@/components/Newsgrid';
 import Footer from '@/components/Footer';
 import { NewsItem } from '@/components/NewsCard';
@@ -130,7 +130,7 @@ export default function Home() {
           <div className="flex justify-center">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
               {departments.map((dept) => (
-                <MinimalDepartmentCard key={dept.department} {...dept} />
+                <DepartmentCard key={dept.department} {...dept} />
               ))}
             </div>
           </div>
