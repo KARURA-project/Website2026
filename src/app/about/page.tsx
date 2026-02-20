@@ -51,8 +51,8 @@ export default function AboutPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-white overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
+      <section className="relative min-h-[60vh] bg-white overflow-hidden">
+        <div className="absolute inset-0 opacity-100">
           <Image
             src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
             alt="KARURA Team"
@@ -64,18 +64,18 @@ export default function AboutPage() {
 
         <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/70 to-white"></div>
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20 py-32 w-full">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-12 md:px-12 lg:px-16 xl:px-16 py-32 w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-6xl md:text-8xl font-bold text-charcoal mb-8 tracking-tight">
+            <h1 className="text-6xl md:text-8xl font-bold text-charcoal mb-8">
               About KARURA
             </h1>
             <div className="w-24 h-1 bg-mars-red mx-auto mb-10"></div>
-            <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-700 mx-auto leading-relaxed">
               Pioneering international collaboration in Mars rover development
             </p>
           </motion.div>
@@ -94,7 +94,7 @@ export default function AboutPage() {
             <div className="w-16 h-1 bg-mars-red mx-auto mb-10"></div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-20 items-center max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-20 items-center mx-auto">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -151,7 +151,7 @@ export default function AboutPage() {
             <div className="w-16 h-1 bg-mars-red mx-auto"></div>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 mx-auto">
             {teamStats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -181,12 +181,12 @@ export default function AboutPage() {
               Partner Universities
             </h2>
             <div className="w-16 h-1 bg-mars-red mx-auto mb-8"></div>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 mx-auto">
               Students from leading institutions collaborate to make KARURA possible
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto">
             {universities.map((university, index) => (
               <motion.div
                 key={university}
@@ -215,7 +215,7 @@ export default function AboutPage() {
             <div className="w-16 h-1 bg-mars-red mx-auto"></div>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="mx-auto">
             {milestones.map((milestone, index) => (
               <motion.div
                 key={milestone.year}
@@ -251,7 +251,7 @@ export default function AboutPage() {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
             Join Our Mission
           </h2>
-          <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-300 mb-12 mx-auto">
             Interested in being part of KARURA? We're always looking for passionate students.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
