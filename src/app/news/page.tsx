@@ -95,9 +95,9 @@ const allNews: (NewsItem & { content: string; tags: string[] })[] = [
     imageUrl:
       'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png',
     imageAlt: 'OptoSigma sponsorship announcement',
-    category: 'Update',
+    category: 'Sponsor',
     link: '/news/optosigma-partnership',
-    tags: ['Sponsors', 'Partnership'],
+    tags: ['Sponsor', 'Partnership'],
   },
 ];
 

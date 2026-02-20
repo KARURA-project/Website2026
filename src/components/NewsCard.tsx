@@ -8,7 +8,7 @@ export interface NewsItem {
   date: string;
   imageUrl: string;
   imageAlt: string;
-  category?: 'Competition' | 'Team' | 'Achievement' | 'Update';
+  category?: 'Competition' | 'Team' | 'Achievement' | 'Update' | 'Sponsor';
   link?: string;
 }
 
