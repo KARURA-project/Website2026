@@ -252,11 +252,6 @@ export default function RoverPage() {
                   icon: '🤖',
                 },
                 {
-                  title: 'Power System',
-                  description: 'High-capacity batteries and power management',
-                  icon: '🔋',
-                },
-                {
                   title: 'Communications',
                   description: 'Real-time data transmission and remote control',
                   icon: '📡',
