@@ -1,5 +1,4 @@
 'use client';
-
 import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -71,7 +70,7 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-6xl md:text-8xl font-bold text-charcoal mb-8 tracking-tight">
+            <h1 className="text-6xl md:text-8xl font-bold text-charcoal mb-8">
               About KARURA
             </h1>
             <div className="w-24 h-1 bg-mars-red mx-auto mb-10"></div>
@@ -94,47 +93,50 @@ export default function AboutPage() {
             <div className="w-16 h-1 bg-mars-red mx-auto mb-10"></div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-20 items-center max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                KARURA is an international Mars rover development team that brings together 
-                passionate students from Texas A&M University and leading universities across 
-                Japan. Our mission is to advance space exploration technology through innovative 
-                engineering and international collaboration.
-              </p>
+          {/* Centered Grid Container */}
+          <div className="flex justify-center">
+            <div className="grid lg:grid-cols-2 gap-20 items-center max-w-6xl w-full">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                  KARURA is an international Mars rover development team that brings together 
+                  passionate students from Texas A&M University and leading universities across 
+                  Japan. Our mission is to advance space exploration technology through innovative 
+                  engineering and international collaboration.
+                </p>
 
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                We compete annually in the University Rover Challenge (URC), the world's premier 
-                robotics competition for university students. Through this challenge, we develop 
-                cutting-edge technologies that could one day be used on Mars.
-              </p>
+                <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                  We compete annually in the University Rover Challenge (URC), the world's premier 
+                  robotics competition for university students. Through this challenge, we develop 
+                  cutting-edge technologies that could one day be used on Mars.
+                </p>
 
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                Our team represents a unique bridge between Japanese and American engineering 
-                excellence, combining different perspectives and approaches to create innovative 
-                solutions for Mars exploration.
-              </p>
-            </motion.div>
+                <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                  Our team represents a unique bridge between Japanese and American engineering 
+                  excellence, combining different perspectives and approaches to create innovative 
+                  solutions for Mars exploration.
+                </p>
+              </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative h-[500px] w-full"
-            >
-              <Image
-                src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
-                alt="KARURA Rover"
-                fill
-                className="object-cover rounded-lg shadow-xl"
-              />
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="relative h-[500px] w-full"
+              >
+                <Image
+                  src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
+                  alt="KARURA Rover"
+                  fill
+                  className="object-cover rounded-lg shadow-xl"
+                />
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -151,22 +153,25 @@ export default function AboutPage() {
             <div className="w-16 h-1 bg-mars-red mx-auto"></div>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 max-w-5xl mx-auto">
-            {teamStats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="text-center"
-              >
-                <div className="text-5xl md:text-6xl font-bold text-mars-red mb-4">
-                  {stat.number}
-                </div>
-                <div className="text-lg text-gray-600">{stat.label}</div>
-              </motion.div>
-            ))}
+          {/* Centered Stats Grid */}
+          <div className="flex justify-center">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 max-w-5xl w-full">
+              {teamStats.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  className="text-center"
+                >
+                  <div className="text-5xl md:text-6xl font-bold text-mars-red mb-4">
+                    {stat.number}
+                  </div>
+                  <div className="text-lg text-gray-600">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -186,19 +191,22 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {universities.map((university, index) => (
-              <motion.div
-                key={university}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="bg-white p-8 rounded-lg border border-gray-200 hover:border-mars-red transition-colors duration-300 text-center"
-              >
-                <h3 className="text-xl font-bold text-charcoal">{university}</h3>
-              </motion.div>
-            ))}
+          {/* Centered Universities Grid */}
+          <div className="flex justify-center">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl w-full">
+              {universities.map((university, index) => (
+                <motion.div
+                  key={university}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  className="bg-white p-8 rounded-lg border border-gray-200 hover:border-mars-red transition-colors duration-300 text-center"
+                >
+                  <h3 className="text-xl font-bold text-charcoal">{university}</h3>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -215,30 +223,33 @@ export default function AboutPage() {
             <div className="w-16 h-1 bg-mars-red mx-auto"></div>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            {milestones.map((milestone, index) => (
-              <motion.div
-                key={milestone.year}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="relative pl-8 pb-16 border-l-2 border-gray-300 last:pb-0"
-              >
-                <div className="absolute -left-3 top-0 w-6 h-6 bg-mars-red rounded-full"></div>
-                <div className="bg-gray-50 p-8 rounded-lg">
-                  <span className="inline-block px-4 py-1 bg-mars-red text-white text-sm font-bold mb-4">
-                    {milestone.year}
-                  </span>
-                  <h3 className="text-2xl font-bold text-charcoal mb-3">
-                    {milestone.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {milestone.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+          {/* Centered Timeline */}
+          <div className="flex justify-center">
+            <div className="max-w-4xl w-full">
+              {milestones.map((milestone, index) => (
+                <motion.div
+                  key={milestone.year}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="relative pl-8 pb-16 border-l-2 border-gray-300 last:pb-0"
+                >
+                  <div className="absolute -left-3 top-0 w-6 h-6 bg-mars-red rounded-full"></div>
+                  <div className="bg-gray-50 p-8 rounded-lg">
+                    <span className="inline-block px-4 py-1 bg-mars-red text-white text-sm font-bold mb-4">
+                      {milestone.year}
+                    </span>
+                    <h3 className="text-2xl font-bold text-charcoal mb-3">
+                      {milestone.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {milestone.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
