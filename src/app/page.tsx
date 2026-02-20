@@ -56,7 +56,6 @@ export default function Home() {
     { id: '10', name: 'Gutenberg', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1540x146_v-fms_webp_aa43e6b3-9a3b-4b50-8c88-5390ab14c413_small.webp' },
     { id: '11', name: 'Innovation City', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1188x568_v-fs_webp_9ed63bcb-6917-4760-9158-4461e22c4ae4_small.webp' },
     { id: '12', name: 'terminal.O', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-900x900_v-fs_webp_f39876b7-01b8-4f2a-aa81-8bc0b983fc95_small.webp' },
-    { id: '13', name: 'IDDK', logo: 'https://drive.google.com/file/d/1WwEbFIyT8jG7N0LrcemwfI_2z-BwplMn/view?usp=sharing' },
   ];
 
   const newsItems: NewsItem[] = [
