@@ -49,37 +49,37 @@ export default function AboutPage() {
     <main className="bg-white min-h-screen">
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-white overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <Image
-            src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
-            alt="KARURA Team"
-            fill
-            priority
-            className="object-cover"
-          />
-        </div>
+{/* Hero Section */}
+<section className="relative min-h-[60vh] flex items-center justify-center bg-white overflow-hidden pt-24 md:pt-32">
+  <div className="absolute inset-0 opacity-20">
+    <Image
+      src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
+      alt="KARURA Team"
+      fill
+      priority
+      className="object-cover"
+    />
+  </div>
 
-        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/70 to-white"></div>
+  <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/70 to-white"></div>
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20 py-32 w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h1 className="text-6xl md:text-8xl font-bold text-charcoal mb-8">
-              About KARURA
-            </h1>
-            <div className="w-24 h-1 bg-mars-red mx-auto mb-10"></div>
-            <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Pioneering international collaboration in Mars rover development
-            </p>
-          </motion.div>
-        </div>
-      </section>
+  <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20 py-32 w-full">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="text-center"
+    >
+      <h1 className="text-6xl md:text-8xl font-bold text-charcoal mb-8">
+        About KARURA
+      </h1>
+      <div className="w-24 h-1 bg-mars-red mx-auto mb-10"></div>
+      <p className="text-xl md:text-2xl text-gray-700 max-w-12xl mx-auto leading-relaxed">
+        Pioneering international collaboration in Mars rover development
+      </p>
+    </motion.div>
+  </div>
+</section>
 
       <div className="py-16"></div>
 
