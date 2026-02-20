@@ -117,8 +117,8 @@ export default function NewsPage() {
     <main className="bg-white min-h-screen">
       <Header />
 
-      {/* Hero */}
-      <section className="relative min-h-[50vh] flex items-center justify-center bg-white overflow-hidden">
+      {/* Hero - Added pt-24 md:pt-32 for header spacing */}
+      <section className="relative min-h-[50vh] flex items-center justify-center bg-white overflow-hidden pt-24 md:pt-32">
         <div className="absolute inset-0 opacity-20">
           <Image
             src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
@@ -129,6 +129,7 @@ export default function NewsPage() {
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/70 to-white" />
+        
         <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20 py-32 w-full text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <h1 className="text-6xl md:text-8xl font-bold text-charcoal mb-8 tracking-tight">News</h1>
@@ -143,7 +144,7 @@ export default function NewsPage() {
       <div className="py-16" />
 
       {/* Category Filter */}
-      <section className="py-8 bg-white border-b border-gray-200 sticky top-0 z-20">
+      <section className="py-8 bg-white border-b border-gray-200 sticky top-16 z-20">
         <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20">
           <div className="flex flex-wrap gap-4 justify-center">
             {categories.map((cat) => (
@@ -165,7 +166,7 @@ export default function NewsPage() {
 
       <div className="py-16" />
 
-      {/* Featured Article */}
+      {/* Featured Article - Wrapped in flex justify-center */}
       {featured && (
         <section className="py-16 bg-white">
           <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20">
@@ -173,57 +174,65 @@ export default function NewsPage() {
               <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">Featured Story</h2>
               <div className="w-16 h-1 bg-mars-red mx-auto" />
             </div>
-            <Link href={featured.link || '#'}>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto group cursor-pointer"
-              >
-                <div className="relative h-[420px] w-full overflow-hidden rounded-lg shadow-xl">
-                  <Image
-                    src={featured.imageUrl}
-                    alt={featured.imageAlt || featured.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-4 left-4 px-4 py-1 bg-mars-red text-white text-sm font-bold">
-                    {featured.category}
+
+            <div className="flex justify-center">
+              <Link href={featured.link || '#'} className="w-full max-w-6xl">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="grid lg:grid-cols-2 gap-16 items-center group cursor-pointer"
+                >
+                  <div className="relative h-[420px] w-full overflow-hidden rounded-lg shadow-xl">
+                    <Image
+                      src={featured.imageUrl}
+                      alt={featured.imageAlt || featured.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-4 left-4 px-4 py-1 bg-mars-red text-white text-sm font-bold">
+                      {featured.category}
+                    </div>
                   </div>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500 mb-4">
-                    {new Date(featured.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                  </p>
-                  <h3 className="text-3xl md:text-4xl font-bold text-charcoal mb-6 group-hover:text-mars-red transition-colors">
-                    {featured.title}
-                  </h3>
-                  <p className="text-lg text-gray-600 leading-relaxed mb-6">{featured.description}</p>
-                  <p className="text-gray-500 leading-relaxed mb-8">{featured.content}</p>
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {featured.tags.map((tag) => (
-                      <span key={tag} className="px-3 py-1 bg-gray-100 text-gray-600 text-sm font-medium">
-                        #{tag}
-                      </span>
-                    ))}
+
+                  <div>
+                    <p className="text-sm text-gray-500 mb-4">
+                      {new Date(featured.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </p>
+                    <h3 className="text-3xl md:text-4xl font-bold text-charcoal mb-6 group-hover:text-mars-red transition-colors">
+                      {featured.title}
+                    </h3>
+                    <p className="text-lg text-gray-600 leading-relaxed mb-6">{featured.description}</p>
+                    <p className="text-gray-500 leading-relaxed mb-8">{featured.content}</p>
+                    <div className="flex flex-wrap gap-2 mb-8">
+                      {featured.tags.map((tag) => (
+                        <span key={tag} className="px-3 py-1 bg-gray-100 text-gray-600 text-sm font-medium">
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                    <span className="inline-flex items-center text-charcoal group-hover:text-mars-red font-medium transition-colors">
+                      Read More
+                      <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </span>
                   </div>
-                  <span className="inline-flex items-center text-charcoal group-hover:text-mars-red font-medium transition-colors">
-                    Read More
-                    <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </span>
-                </div>
-              </motion.div>
-            </Link>
+                </motion.div>
+              </Link>
+            </div>
           </div>
         </section>
       )}
 
       <div className="py-16" />
 
-      {/* Article Grid */}
+      {/* Article Grid - Wrapped in flex justify-center */}
       {rest.length > 0 && (
         <section className="py-32 bg-gray-50">
           <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20">
@@ -231,52 +240,61 @@ export default function NewsPage() {
               <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">More Stories</h2>
               <div className="w-16 h-1 bg-mars-red mx-auto" />
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
-              {rest.map((article, index) => (
-                <Link href={article.link || '#'} key={article.id}>
-                  <motion.article
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1, duration: 0.6 }}
-                    className="bg-white rounded-lg overflow-hidden border border-gray-200 hover:border-mars-red hover:shadow-xl transition-all duration-300 group cursor-pointer h-full flex flex-col"
-                  >
-                    <div className="relative h-56 w-full overflow-hidden">
-                      <Image
-                        src={article.imageUrl}
-                        alt={article.imageAlt || article.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute top-3 left-3 px-3 py-1 bg-mars-red text-white text-xs font-bold">
-                        {article.category}
+
+            <div className="flex justify-center">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl w-full">
+                {rest.map((article, index) => (
+                  <Link href={article.link || '#'} key={article.id}>
+                    <motion.article
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1, duration: 0.6 }}
+                      className="bg-white rounded-lg overflow-hidden border border-gray-200 hover:border-mars-red hover:shadow-xl transition-all duration-300 group cursor-pointer h-full flex flex-col"
+                    >
+                      <div className="relative h-56 w-full overflow-hidden">
+                        <Image
+                          src={article.imageUrl}
+                          alt={article.imageAlt || article.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute top-3 left-3 px-3 py-1 bg-mars-red text-white text-xs font-bold">
+                          {article.category}
+                        </div>
                       </div>
-                    </div>
-                    <div className="p-8 flex flex-col flex-1">
-                      <p className="text-sm text-gray-400 mb-3">
-                        {new Date(article.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                      </p>
-                      <h3 className="text-xl font-bold text-charcoal mb-4 group-hover:text-mars-red transition-colors leading-snug">
-                        {article.title}
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed flex-1">{article.description}</p>
-                      <div className="flex flex-wrap gap-2 mt-6">
-                        {article.tags.map((tag) => (
-                          <span key={tag} className="px-2 py-1 bg-gray-100 text-gray-500 text-xs font-medium">
-                            #{tag}
-                          </span>
-                        ))}
+
+                      <div className="p-8 flex flex-col flex-1">
+                        <p className="text-sm text-gray-400 mb-3">
+                          {new Date(article.date).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                          })}
+                        </p>
+                        <h3 className="text-xl font-bold text-charcoal mb-4 group-hover:text-mars-red transition-colors leading-snug">
+                          {article.title}
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed flex-1">{article.description}</p>
+                        <div className="flex flex-wrap gap-2 mt-6">
+                          {article.tags.map((tag) => (
+                            <span key={tag} className="px-2 py-1 bg-gray-100 text-gray-500 text-xs font-medium">
+                              #{tag}
+                            </span>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  </motion.article>
-                </Link>
-              ))}
+                    </motion.article>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </section>
       )}
 
       <div className="py-16" />
+
       <Footer />
     </main>
   );
