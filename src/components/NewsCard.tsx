@@ -8,7 +8,7 @@ export interface NewsItem {
   date: string;
   imageUrl: string;
   imageAlt: string;
-  category?: 'Competition' | 'Team' | 'Achievement' | 'Update';
+  category?: 'Competition' | 'Team' | 'Achievement' | 'Update' | 'Sponsor';
   link?: string;
 }
 
@@ -23,6 +23,7 @@ export default function NewsCard({ news, featured = false }: NewsCardProps) {
     Team: 'bg-blue-500',
     Achievement: 'bg-yellow-500',
     Update: 'bg-green-500',
+    Sponsor: 'bg-purple-500',
   };
 
   const CardContent = (
