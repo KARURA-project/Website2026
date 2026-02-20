@@ -88,8 +88,8 @@ export default function SupportPage() {
     <main className="bg-white min-h-screen">
       <Header />
 
-      {/* Hero */}
-      <section className="relative min-h-[50vh] flex items-center justify-center bg-white overflow-hidden">
+      {/* Hero - Added pt-24 md:pt-32 for header spacing */}
+      <section className="relative min-h-[50vh] flex items-center justify-center bg-white overflow-hidden pt-24 md:pt-32">
         <div className="absolute inset-0 opacity-20">
           <Image
             src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
@@ -100,11 +100,12 @@ export default function SupportPage() {
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/70 to-white" />
+        
         <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20 py-32 w-full text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <h1 className="text-6xl md:text-8xl font-bold text-charcoal mb-8 tracking-tight">Support Us</h1>
             <div className="w-24 h-1 bg-mars-red mx-auto mb-10" />
-            <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-700 max-w-12xl mx-auto leading-relaxed">
               Help us push the boundaries of Mars exploration technology
             </p>
           </motion.div>
@@ -113,60 +114,64 @@ export default function SupportPage() {
 
       <div className="py-16" />
 
-      {/* Why Sponsor */}
+      {/* Why Sponsor - Wrapped in flex justify-center */}
       <section className="py-32 bg-gray-50">
         <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">Why Partner with KARURA?</h2>
             <div className="w-16 h-1 bg-mars-red mx-auto mb-8" />
           </div>
-          <div className="grid lg:grid-cols-2 gap-20 items-center max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                KARURA represents a unique opportunity to associate your brand with cutting-edge space technology and international academic excellence. Our team made history at URC 2024 as the first Japanese and international team to reach the finals — and we are just getting started.
-              </p>
-              <p className="text-lg text-gray-700 mb-10 leading-relaxed">
-                Your sponsorship directly funds rover components, competition entry fees, travel, and the development of the next generation of aerospace engineers across two countries.
-              </p>
-              <div className="grid grid-cols-3 gap-8">
-                {[
-                  { number: '46+', label: 'Engineers' },
-                  { number: '2', label: 'Countries' },
-                  { number: '3+', label: 'Years of Innovation' },
-                ].map((stat) => (
-                  <div key={stat.label} className="text-center">
-                    <div className="text-4xl font-bold text-mars-red mb-2">{stat.number}</div>
-                    <div className="text-sm text-gray-600">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative h-[440px] w-full"
-            >
-              <Image
-                src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
-                alt="KARURA Rover"
-                fill
-                className="object-cover rounded-lg shadow-xl"
-              />
-            </motion.div>
+
+          <div className="flex justify-center">
+            <div className="grid lg:grid-cols-2 gap-20 items-center max-w-6xl w-full">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                  KARURA represents a unique opportunity to associate your brand with cutting-edge space technology and international academic excellence. Our team made history at URC 2024 as the first Japanese and international team to reach the finals — and we are just getting started.
+                </p>
+                <p className="text-lg text-gray-700 mb-10 leading-relaxed">
+                  Your sponsorship directly funds rover components, competition entry fees, travel, and the development of the next generation of aerospace engineers across two countries.
+                </p>
+                <div className="grid grid-cols-3 gap-8">
+                  {[
+                    { number: '46+', label: 'Engineers' },
+                    { number: '2', label: 'Countries' },
+                    { number: '3+', label: 'Years of Innovation' },
+                  ].map((stat) => (
+                    <div key={stat.label} className="text-center">
+                      <div className="text-4xl font-bold text-mars-red mb-2">{stat.number}</div>
+                      <div className="text-sm text-gray-600">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="relative h-[440px] w-full"
+              >
+                <Image
+                  src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
+                  alt="KARURA Rover"
+                  fill
+                  className="object-cover rounded-lg shadow-xl"
+                />
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
       <div className="py-16" />
 
-      {/* Sponsorship Tiers */}
+      {/* Sponsorship Tiers - Wrapped in flex justify-center */}
       <section className="py-32 bg-white">
         <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20">
           <div className="text-center mb-20">
@@ -174,37 +179,40 @@ export default function SupportPage() {
             <div className="w-16 h-1 bg-mars-red mx-auto mb-8" />
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">Choose a partnership level that works for your organization</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {sponsorTiers.map((tier, index) => (
-              <motion.div
-                key={tier.tier}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                className={`bg-white border-2 ${tier.color} rounded-lg p-8 hover:shadow-xl transition-shadow duration-300 flex flex-col`}
-              >
-                <div className={`inline-block px-4 py-1 rounded-full text-sm font-bold mb-4 ${tier.badge} self-start`}>
-                  {tier.tier}
-                </div>
-                <div className="text-2xl font-bold text-charcoal mb-6">{tier.amount}</div>
-                <ul className="space-y-3 flex-1">
-                  {tier.perks.map((perk) => (
-                    <li key={perk} className="flex items-start gap-3 text-gray-600 text-sm leading-relaxed">
-                      <div className="w-1.5 h-1.5 bg-mars-red rounded-full mt-2 shrink-0" />
-                      {perk}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
+
+          <div className="flex justify-center">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl w-full">
+              {sponsorTiers.map((tier, index) => (
+                <motion.div
+                  key={tier.tier}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  className={`bg-white border-2 ${tier.color} rounded-lg p-8 hover:shadow-xl transition-shadow duration-300 flex flex-col`}
+                >
+                  <div className={`inline-block px-4 py-1 rounded-full text-sm font-bold mb-4 ${tier.badge} self-start`}>
+                    {tier.tier}
+                  </div>
+                  <div className="text-2xl font-bold text-charcoal mb-6">{tier.amount}</div>
+                  <ul className="space-y-3 flex-1">
+                    {tier.perks.map((perk) => (
+                      <li key={perk} className="flex items-start gap-3 text-gray-600 text-sm leading-relaxed">
+                        <div className="w-1.5 h-1.5 bg-mars-red rounded-full mt-2 shrink-0" />
+                        {perk}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       <div className="py-16" />
 
-      {/* Current Sponsors */}
+      {/* Current Sponsors - Wrapped in flex justify-center */}
       <section className="py-32 bg-gray-50">
         <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20">
           <div className="text-center mb-20">
@@ -212,27 +220,30 @@ export default function SupportPage() {
             <div className="w-16 h-1 bg-mars-red mx-auto mb-8" />
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">Thank you to the partners who make our mission possible</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            {currentSponsors.map((sponsor, index) => (
-              <motion.div
-                key={sponsor.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05, duration: 0.3 }}
-                className="group"
-              >
-                <div className="relative h-24 w-full bg-white border border-gray-200 rounded-lg p-4 flex items-center justify-center hover:border-mars-red transition-colors duration-300">
-                  <Image
-                    src={sponsor.logo}
-                    alt={sponsor.name}
-                    fill
-                    className="object-contain p-3 filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                  />
-                </div>
-                <p className="text-center text-xs text-gray-400 mt-2">{sponsor.tier}</p>
-              </motion.div>
-            ))}
+
+          <div className="flex justify-center">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl w-full">
+              {currentSponsors.map((sponsor, index) => (
+                <motion.div
+                  key={sponsor.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05, duration: 0.3 }}
+                  className="group"
+                >
+                  <div className="relative h-24 w-full bg-white border border-gray-200 rounded-lg p-4 flex items-center justify-center hover:border-mars-red transition-colors duration-300">
+                    <Image
+                      src={sponsor.logo}
+                      alt={sponsor.name}
+                      fill
+                      className="object-contain p-3 filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    />
+                  </div>
+                  <p className="text-center text-xs text-gray-400 mt-2">{sponsor.tier}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -245,104 +256,114 @@ export default function SupportPage() {
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">Get In Touch</h2>
             <div className="w-16 h-1 bg-mars-red mx-auto mb-8" />
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-12xl mx-auto">
               Interested in partnering with us? Send us a message and our team will get back to you.
             </p>
           </div>
 
-          <div className="max-w-2xl mx-auto">
-            {submitted ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="text-center py-20 bg-gray-50 rounded-lg border border-gray-200"
-              >
-                <div className="text-5xl mb-6">🚀</div>
-                <h3 className="text-3xl font-bold text-charcoal mb-4">Message Received!</h3>
-                <p className="text-gray-600 text-lg">Thank you for your interest in supporting KARURA. We'll be in touch soon.</p>
-              </motion.div>
-            ) : (
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="space-y-6"
-              >
-                <div className="grid md:grid-cols-2 gap-6">
+          {/* FIX: wrap in flex justify-center so the form is truly centered */}
+          <div className="flex justify-center">
+            <div className="max-w-3xl w-full px-6 md:px-8">
+              {submitted ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center py-20 bg-gray-50 rounded-lg border border-gray-200"
+                >
+                  <div className="text-5xl mb-6">🚀</div>
+                  <h3 className="text-3xl font-bold text-charcoal mb-4">Message Received!</h3>
+                  <p className="text-gray-600 text-lg">Thank you for your interest in supporting KARURA. We'll be in touch soon.</p>
+                </motion.div>
+              ) : (
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="space-y-6"
+                >
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-charcoal mb-2">Name</label>
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border border-gray-300 focus:border-mars-red focus:outline-none transition-colors"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-charcoal mb-2">Email</label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border border-gray-300 focus:border-mars-red focus:outline-none transition-colors"
+                        placeholder="your@email.com"
+                      />
+                    </div>
+                  </div>
+
                   <div>
-                    <label className="block text-sm font-medium text-charcoal mb-2">Name</label>
+                    <label className="block text-sm font-medium text-charcoal mb-2">Organization</label>
                     <input
                       type="text"
-                      name="name"
-                      value={formData.name}
+                      name="organization"
+                      value={formData.organization}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 focus:border-mars-red focus:outline-none transition-colors"
-                      placeholder="Your name"
+                      placeholder="Company or university"
                     />
                   </div>
+
                   <div>
-                    <label className="block text-sm font-medium text-charcoal mb-2">Email</label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
+                    <label className="block text-sm font-medium text-charcoal mb-2">Sponsorship Tier of Interest</label>
+                    <select
+                      name="tier"
+                      value={formData.tier}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 focus:border-mars-red focus:outline-none transition-colors"
-                      placeholder="your@email.com"
+                      className="w-full px-4 py-3 border border-gray-300 focus:border-mars-red focus:outline-none transition-colors bg-white"
+                    >
+                      <option value="">Select a tier</option>
+                      {sponsorTiers.map((t) => (
+                        <option key={t.tier} value={t.tier}>
+                          {t.tier} — {t.amount}
+                        </option>
+                      ))}
+                      <option value="custom">Custom / In-kind contribution</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-charcoal mb-2">Message</label>
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      rows={5}
+                      className="w-full px-4 py-3 border border-gray-300 focus:border-mars-red focus:outline-none transition-colors resize-none"
+                      placeholder="Tell us about your organization and how you'd like to collaborate..."
                     />
                   </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-charcoal mb-2">Organization</label>
-                  <input
-                    type="text"
-                    name="organization"
-                    value={formData.organization}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 focus:border-mars-red focus:outline-none transition-colors"
-                    placeholder="Company or university"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-charcoal mb-2">Sponsorship Tier of Interest</label>
-                  <select
-                    name="tier"
-                    value={formData.tier}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 focus:border-mars-red focus:outline-none transition-colors bg-white"
+
+                  <button
+                    onClick={handleSubmit}
+                    className="w-full py-4 bg-charcoal text-charcoal font-medium hover:bg-mars-red transition-colors duration-300 text-lg"
                   >
-                    <option value="">Select a tier</option>
-                    {sponsorTiers.map((t) => (
-                      <option key={t.tier} value={t.tier}>{t.tier} — {t.amount}</option>
-                    ))}
-                    <option value="custom">Custom / In-kind contribution</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-charcoal mb-2">Message</label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 focus:border-mars-red focus:outline-none transition-colors resize-none"
-                    placeholder="Tell us about your organization and how you'd like to collaborate..."
-                  />
-                </div>
-                <button
-                  onClick={handleSubmit}
-                  className="w-full py-4 bg-charcoal text-white font-medium hover:bg-mars-red transition-colors duration-300 text-lg"
-                >
-                  Send Message
-                </button>
-              </motion.div>
-            )}
+                    Send Message
+                  </button>
+                </motion.div>
+              )}
+            </div>
           </div>
         </div>
       </section>
 
       <div className="py-16" />
+
       <Footer />
     </main>
   );
