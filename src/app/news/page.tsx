@@ -134,7 +134,7 @@ export default function NewsPage() {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <h1 className="text-6xl md:text-8xl font-bold text-charcoal mb-8 tracking-tight">News</h1>
             <div className="w-24 h-1 bg-mars-red mx-auto mb-10" />
-            <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-700 max-w-12xl mx-auto leading-relaxed">
               Updates, milestones, and stories from the KARURA team
             </p>
           </motion.div>
