@@ -117,7 +117,7 @@ export default function Home() {
       {/* Added more vertical spacing */}
       <div className="py-16"></div>
       
-      {/* Departments Section with increased padding */}
+      {/* Departments Section*/}
       <section className="py-32 bg-gray-50">
         <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20">
           <div className="mb-20 text-center">
@@ -458,7 +458,7 @@ function SponsorsCarousel({ sponsors }: { sponsors: Array<{ id: string; name: st
                     src={sponsor.logo}
                     alt={sponsor.name}
                     fill
-                    className="object-contain p-4 filter grayscale hover:grayscale-0 transition-all duration-300"
+                    className="object-contain p-4 transition-all duration-300"
                   />
                 </div>
               </div>
@@ -485,7 +485,7 @@ function SponsorsCarousel({ sponsors }: { sponsors: Array<{ id: string; name: st
         {/* View All Button */}
         <div className="flex justify-center mt-16">
           <a
-            href="/sponsors"
+            href="/support"
             className="inline-flex items-center px-10 py-4 border-2 border-charcoal text-charcoal font-medium hover:border-mars-red hover:text-mars-red transition-colors duration-300"
           >
             View All Sponsors
