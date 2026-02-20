@@ -158,7 +158,6 @@ export default function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="inline-block px-8 py-3 bg-neon-blue text-white rounded-lg text-xl font-semibold hover:bg-opacity-90 transition-all"
                 >
-                  Support Us
                 </Link>
               </motion.div>
             </div>
