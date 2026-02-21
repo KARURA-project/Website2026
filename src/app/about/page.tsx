@@ -223,7 +223,7 @@ export default function AboutPage() {
             <div className="w-16 h-1 bg-mars-red mx-auto"></div>
           </div>
 
-          {/* Centered Timeline */}
+          {/* Timeline Elements */}
           <div className="flex justify-center">
             <div className="max-w-4xl w-full">
               {milestones.map((milestone, index) => (
@@ -237,7 +237,7 @@ export default function AboutPage() {
                 >
                   <div className="absolute -left-3 top-0 w-6 h-6 bg-mars-red rounded-full"></div>
                   <div className="bg-gray-50 p-8 rounded-lg">
-                    <span className="inline-block px-4 py-1 bg-mars-red text-white text-sm font-bold mb-4">
+                    <span className="inline-block px-4 py-1 bg-mars-red text-charcoal text-sm font-bold mb-4">
                       {milestone.year}
                     </span>
                     <h3 className="text-2xl font-bold text-charcoal mb-3">
