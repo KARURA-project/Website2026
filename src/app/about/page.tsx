@@ -51,7 +51,7 @@ export default function AboutPage() {
 
 {/* Hero Section */}
 <section className="relative min-h-[60vh] flex items-center justify-center bg-white overflow-hidden pt-24 md:pt-32">
-  <div className="absolute inset-0 opacity-20">
+  <div className="absolute inset-0 opacity-100">
     <Image
       src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
       alt="KARURA Team"
