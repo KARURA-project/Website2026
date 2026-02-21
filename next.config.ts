@@ -7,6 +7,11 @@ const nextConfig = {
         hostname: "storage.googleapis.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "drive.google.com",
+        pathname: "/**",
+      },
       // If you need localhost images in development
       {
         protocol: "http",

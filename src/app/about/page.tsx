@@ -51,7 +51,7 @@ export default function AboutPage() {
 
 {/* Hero Section */}
 <section className="relative min-h-[60vh] flex items-center justify-center bg-white overflow-hidden pt-24 md:pt-32">
-  <div className="absolute inset-0 opacity-20">
+  <div className="absolute inset-0 opacity-100">
     <Image
       src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
       alt="KARURA Team"
@@ -223,7 +223,7 @@ export default function AboutPage() {
             <div className="w-16 h-1 bg-mars-red mx-auto"></div>
           </div>
 
-          {/* Centered Timeline */}
+          {/* Timeline Elements */}
           <div className="flex justify-center">
             <div className="max-w-4xl w-full">
               {milestones.map((milestone, index) => (
@@ -237,7 +237,7 @@ export default function AboutPage() {
                 >
                   <div className="absolute -left-3 top-0 w-6 h-6 bg-mars-red rounded-full"></div>
                   <div className="bg-gray-50 p-8 rounded-lg">
-                    <span className="inline-block px-4 py-1 bg-mars-red text-white text-sm font-bold mb-4">
+                    <span className="inline-block px-4 py-1 bg-mars-red text-charcoal text-sm font-bold mb-4">
                       {milestone.year}
                     </span>
                     <h3 className="text-2xl font-bold text-charcoal mb-3">

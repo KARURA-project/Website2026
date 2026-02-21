@@ -88,9 +88,9 @@ export default function SupportPage() {
     <main className="bg-white min-h-screen">
       <Header />
 
-      {/* Hero - Added pt-24 md:pt-32 for header spacing */}
+      {/* Hero */}
       <section className="relative min-h-[50vh] flex items-center justify-center bg-white overflow-hidden pt-24 md:pt-32">
-        <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 opacity-100">
           <Image
             src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
             alt="Support KARURA"
@@ -114,7 +114,7 @@ export default function SupportPage() {
 
       <div className="py-16" />
 
-      {/* Why Sponsor - Wrapped in flex justify-center */}
+      {/* Why Sponsor */}
       <section className="py-32 bg-gray-50">
         <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20">
           <div className="text-center mb-20">
@@ -171,7 +171,7 @@ export default function SupportPage() {
 
       <div className="py-16" />
 
-      {/* Sponsorship Tiers - Wrapped in flex justify-center */}
+      {/* Sponsorship Tiers */}
       <section className="py-32 bg-white">
         <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20">
           <div className="text-center mb-20">
@@ -212,7 +212,7 @@ export default function SupportPage() {
 
       <div className="py-16" />
 
-      {/* Current Sponsors - Wrapped in flex justify-center */}
+      {/* Current Sponsors */}
       <section className="py-32 bg-gray-50">
         <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20">
           <div className="text-center mb-20">
@@ -237,7 +237,7 @@ export default function SupportPage() {
                       src={sponsor.logo}
                       alt={sponsor.name}
                       fill
-                      className="object-contain p-3 filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                      className="object-contain p-3 filter transition-all duration-300"
                     />
                   </div>
                   <p className="text-center text-xs text-gray-400 mt-2">{sponsor.tier}</p>
@@ -261,7 +261,6 @@ export default function SupportPage() {
             </p>
           </div>
 
-          {/* FIX: wrap in flex justify-center so the form is truly centered */}
           <div className="flex justify-center">
             <div className="max-w-3xl w-full px-6 md:px-8">
               {submitted ? (
