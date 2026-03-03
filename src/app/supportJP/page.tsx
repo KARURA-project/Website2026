@@ -61,7 +61,7 @@ const sponsorTiers = [
   },
   {
     tier: 'シルバー',
-    amount: '$30万円',
+    amount: '30万円',
     color: 'border-gray-300',
     badge: 'bg-gray-100 text-gray-700',
     perks: [
