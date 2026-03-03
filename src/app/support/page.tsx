@@ -177,7 +177,7 @@ export default function SupportPage() {
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">Sponsorship Tiers</h2>
             <div className="w-16 h-1 bg-mars-red mx-auto mb-8" />
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Choose a partnership level that works for your organization</p>
+            <p className="text-lg text-gray-600 max-w-12xl mx-auto">Choose a partnership level that works for your organization</p>
           </div>
 
           <div className="flex justify-center">
