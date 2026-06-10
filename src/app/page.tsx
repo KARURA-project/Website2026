@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import DepartmentCard from '@/components/DepartmentCard';
 import NewsGrid from '@/components/Newsgrid';
 import Footer from '@/components/Footer';
+import SponsorMarquee from '@/components/SponsorCard';
 import { NewsItem } from '@/components/NewsCard';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -107,19 +108,19 @@ export default function Home() {
       <HeroWithRover />
       
       {/* Added more vertical spacing with py-32 */}
-      <div className="py-16"></div>
+      <div className="py-24"></div>
       
       {/* Team Introduction Section */}
       <TeamIntroduction />
       
       {/* Added more vertical spacing */}
-      <div className="py-16"></div>
+      <div className="py-24"></div>
       
       {/* Rover History Section */}
       <RoverHistory />
       
       {/* Added more vertical spacing */}
-      <div className="py-16"></div>
+      <div className="py-24"></div>
       
       {/* Departments Section*/}
       <section className="py-32 bg-gray-50">
@@ -142,7 +143,7 @@ export default function Home() {
       </section>
 
       {/* Added more vertical spacing */}
-      <div className="py-16"></div>
+      <div className="py-24"></div>
       
       {/* News Section */}
       <NewsGrid newsItems={newsItems} />
@@ -150,11 +151,14 @@ export default function Home() {
       {/* Added more vertical spacing */}
       <div className="py-16"></div>
       
-      {/* Sponsors Carousel Section */}
-      <SponsorsCarousel sponsors={sponsors} />
+      {/* Sponsors Marquee Section */}
+      <SponsorMarquee 
+        title="Our Sponsors" 
+        sponsors={sponsors.map(s => ({ name: s.name, logoSrc: s.logo, websiteUrl: '/support' }))} 
+      />
       
       {/* Added more vertical spacing before footer */}
-      <div className="py-16"></div>
+      <div className="py-24"></div>
       
       <Footer />
     </main>
@@ -202,13 +206,13 @@ function HeroWithRover() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <a
               href="/about"
-              className="px-10 py-5 bg-charcoal text-white font-medium hover:bg-mars-red transition-colors duration-300 text-center"
+              className="px-10 py-4 bg-charcoal text-white rounded-full font-medium hover:bg-mars-red shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 text-center"
             >
               Learn More
             </a>
             <a
               href="/support"
-              className="px-10 py-5 border-2 border-charcoal text-charcoal font-medium hover:border-mars-red hover:text-mars-red transition-colors duration-300 text-center"
+              className="px-10 py-4 border-2 border-charcoal text-charcoal rounded-full font-medium hover:border-mars-red hover:text-mars-red shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 text-center"
             >
               Support Us
             </a>
@@ -396,109 +400,4 @@ function RoverHistory() {
   );
 }
 
-// Sponsors Carousel Component
-function SponsorsCarousel({ sponsors }: { sponsors: Array<{ id: string; name: string; logo: string }> }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  // Double the sponsors array for infinite loop effect
-  const extendedSponsors = [...sponsors, ...sponsors];
-  const sponsorsPerView = 6;
-
-  useEffect(() => {
-    if (!isAutoPlaying) return;
-
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => {
-        const next = prev + 1;
-        // Reset to 0 when we've scrolled through the first set
-        return next >= sponsors.length ? 0 : next;
-      });
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [isAutoPlaying, sponsors.length]);
-
-  return (
-    <section className="py-32 bg-white border-t border-gray-200">
-      <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">
-            Our Sponsors
-          </h2>
-          <div className="w-16 h-1 bg-mars-red mx-auto mb-8"></div>
-          <p className="text-lg">
-            Thank you to our valued partners who make our mission possible.
-          </p>
-        </div>
-
-        {/* Carousel Container */}
-        <div 
-          className="relative overflow-hidden"
-          onMouseEnter={() => setIsAutoPlaying(false)}
-          onMouseLeave={() => setIsAutoPlaying(true)}
-        >
-          <motion.div
-            className="flex gap-8"
-            animate={{
-              x: `-${(currentIndex * 100) / sponsorsPerView}%`,
-            }}
-            transition={{
-              duration: 0.8,
-              ease: 'easeInOut',
-            }}
-            style={{
-              width: `${(extendedSponsors.length * 100) / sponsorsPerView}%`,
-            }}
-          >
-            {extendedSponsors.map((sponsor, index) => (
-              <div
-                key={`${sponsor.id}-${index}`}
-                className="flex-shrink-0"
-                style={{ width: `${100 / extendedSponsors.length}%` }}
-              >
-                <div className="relative h-32 bg-gray-50 border border-gray-200 rounded-lg p-6 flex items-center justify-center hover:border-mars-red transition-colors duration-300 mx-2">
-                  <Image
-                    src={sponsor.logo}
-                    alt={sponsor.name}
-                    fill
-                    className="object-contain p-4 transition-all duration-300"
-                  />
-                </div>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Navigation Dots */}
-        <div className="flex justify-center gap-3 mt-12">
-          {sponsors.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                currentIndex === index
-                  ? 'bg-mars-red w-8'
-                  : 'bg-gray-300 hover:bg-gray-400'
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
-
-        {/* View All Button */}
-        <div className="flex justify-center mt-16">
-          <a
-            href="/support"
-            className="inline-flex items-center px-10 py-4 border-2 border-charcoal text-charcoal font-medium hover:border-mars-red hover:text-mars-red transition-colors duration-300"
-          >
-            View All Sponsors
-            <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}

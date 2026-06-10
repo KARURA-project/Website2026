@@ -6,6 +6,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
+import InfoCard from '@/components/InfoCard';
+import SponsorMarquee from '@/components/SponsorCard';
 
 const sponsorTiers = [
   {
@@ -123,47 +125,14 @@ export default function SupportPage() {
           </div>
 
           <div className="flex justify-center">
-            <div className="grid lg:grid-cols-2 gap-20 items-center max-w-6xl w-full">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                  KARURA represents a unique opportunity to associate your brand with cutting-edge space technology and international academic excellence. Our team made history at URC 2024 as the first Japanese and international team to reach the finals — and we are just getting started.
-                </p>
-                <p className="text-lg text-gray-700 mb-10 leading-relaxed">
-                  Your sponsorship directly funds rover components, competition entry fees, travel, and the development of the next generation of aerospace engineers across two countries.
-                </p>
-                <div className="grid grid-cols-3 gap-8">
-                  {[
-                    { number: '46+', label: 'Engineers' },
-                    { number: '2', label: 'Countries' },
-                    { number: '3+', label: 'Years of Innovation' },
-                  ].map((stat) => (
-                    <div key={stat.label} className="text-center">
-                      <div className="text-4xl font-bold text-mars-red mb-2">{stat.number}</div>
-                      <div className="text-sm text-gray-600">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="relative h-[440px] w-full"
-              >
-                <Image
-                  src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
-                  alt="KARURA Rover"
-                  fill
-                  className="object-cover rounded-lg shadow-xl"
-                />
-              </motion.div>
+            <div className="max-w-6xl w-full">
+              <InfoCard
+                title="Support Next-Gen Aerospace Leaders"
+                subtitle="Why Sponsor Us"
+                description="KARURA represents a unique opportunity to associate your brand with cutting-edge space technology and international academic excellence. Our team made history at URC 2024 as the first Japanese and international team to reach the finals — and we are just getting started. Your sponsorship directly funds rover components, competition entry fees, travel, and the development of the next generation of aerospace engineers across two countries: 46+ Engineers, 2 Countries, 3+ Years of Innovation."
+                imageSrc="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
+                imageAlt="KARURA Rover"
+              />
             </div>
           </div>
         </div>
@@ -213,40 +182,14 @@ export default function SupportPage() {
       <div className="py-16" />
 
       {/* Current Sponsors */}
-      <section className="py-32 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">Our Current Sponsors</h2>
-            <div className="w-16 h-1 bg-mars-red mx-auto mb-8" />
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Thank you to the partners who make our mission possible</p>
-          </div>
-
-          <div className="flex justify-center">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl w-full">
-              {currentSponsors.map((sponsor, index) => (
-                <motion.div
-                  key={sponsor.id}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05, duration: 0.3 }}
-                  className="group"
-                >
-                  <div className="relative h-24 w-full bg-white border border-gray-200 rounded-lg p-4 flex items-center justify-center hover:border-mars-red transition-colors duration-300">
-                    <Image
-                      src={sponsor.logo}
-                      alt={sponsor.name}
-                      fill
-                      className="object-contain p-3 filter transition-all duration-300"
-                    />
-                  </div>
-                  <p className="text-center text-xs text-gray-400 mt-2">{sponsor.tier}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <SponsorMarquee
+        title="Our Current Sponsors"
+        sponsors={currentSponsors.map(s => ({
+          name: s.name,
+          logoSrc: s.logo,
+          websiteUrl: '#'
+        }))}
+      />
 
       <div className="py-16" />
 

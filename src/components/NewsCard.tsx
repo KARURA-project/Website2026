@@ -19,11 +19,11 @@ interface NewsCardProps {
 
 export default function NewsCard({ news, featured = false }: NewsCardProps) {
   const categoryColors = {
-    Competition: 'bg-red-500',
-    Team: 'bg-blue-500',
-    Achievement: 'bg-yellow-500',
-    Update: 'bg-green-500',
-    Sponsor: 'bg-purple-500',
+    Competition: 'bg-mars-red',
+    Team: 'bg-slate-gray',
+    Achievement: 'bg-amber-500',
+    Update: 'bg-emerald-600',
+    Sponsor: 'bg-indigo-600',
   };
 
   const CardContent = (
@@ -69,7 +69,7 @@ export default function NewsCard({ news, featured = false }: NewsCardProps) {
 
         {/* Title */}
         <h3
-          className={`mt-2 font-bold text-gray-900 transition-colors group-hover:text-red-600 ${
+          className={`mt-2 font-bold text-charcoal transition-colors group-hover:text-mars-red ${
             featured ? 'text-2xl md:text-3xl' : 'text-xl'
           }`}
         >
@@ -87,7 +87,7 @@ export default function NewsCard({ news, featured = false }: NewsCardProps) {
 
         {/* Read More Link */}
         {news.link && (
-          <div className="mt-4 flex items-center text-sm font-semibold text-red-600 transition-colors hover:text-red-700">
+          <div className="mt-4 flex items-center text-sm font-semibold text-mars-red transition-colors hover:text-deep-red">
             Read More
             <svg
               className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"

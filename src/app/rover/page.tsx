@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import { useState } from 'react';
+import InfoCard from '@/components/InfoCard';
 
 export default function RoverPage() {
   const [selectedRover, setSelectedRover] = useState('karura-3');
@@ -229,50 +230,40 @@ export default function RoverPage() {
           </div>
 
           <div className="flex justify-center">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl w-full">
+            <div className="grid md:grid-cols-2 gap-8 max-w-6xl w-full">
               {[
                 {
                   title: 'Mobility System',
                   description: 'Advanced suspension and drive system for rough terrain navigation',
-                  icon: '🚗',
+                  subtitle: 'Mechanical',
                 },
                 {
                   title: 'Robotic Arm',
                   description: 'Multi-degree-of-freedom arm for manipulation and sampling',
-                  icon: '🦾',
+                  subtitle: 'Hardware / Electrical',
                 },
                 {
                   title: 'Science Station',
                   description: 'Analysis equipment for detecting signs of life',
-                  icon: '🔬',
+                  subtitle: 'Science',
                 },
                 {
                   title: 'Autonomous Navigation',
                   description: 'Computer vision and AI for self-driving capabilities',
-                  icon: '🤖',
+                  subtitle: 'Software',
                 },
                 {
                   title: 'Communications',
                   description: 'Real-time data transmission and remote control',
-                  icon: '📡',
+                  subtitle: 'Electrical / Software',
                 },
               ].map((subsystem, index) => (
-                <motion.div
+                <InfoCard
                   key={subsystem.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
-                  className="bg-gray-50 p-8 rounded-lg hover:shadow-xl transition-shadow duration-300"
-                >
-                  <div className="text-5xl mb-6">{subsystem.icon}</div>
-                  <h3 className="text-2xl font-bold text-charcoal mb-4">
-                    {subsystem.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {subsystem.description}
-                  </p>
-                </motion.div>
+                  title={subsystem.title}
+                  subtitle={subsystem.subtitle}
+                  description={subsystem.description}
+                />
               ))}
             </div>
           </div>

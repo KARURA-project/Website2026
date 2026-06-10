@@ -85,17 +85,17 @@ export default function Header() {
     <Link
       key={link.href}
       href={link.href}
-      className="group relative text-bluewood hover:text-neon-blue transition-colors font-medium"
+      className="group relative text-charcoal hover:text-mars-red transition-colors font-medium"
     >
       {link.label}
-      <span className="absolute bottom-0 left-0.5 w-0.5 h-0.5 bg-neon-blue group-hover:w-full transition-all duration-300" />
+      <span className="absolute bottom-0 left-0.5 w-0.5 h-0.5 bg-mars-red group-hover:w-full transition-all duration-300" />
     </Link>
   ))}
   
   {/* JP/ENG Button */}
   <Link
     href="/support"
-    className="px-6 py-2 bg-neon-blue text-black rounded-lg hover:bg-opacity-90 transition-all transform hover:scale-105"
+    className="px-6 py-2.5 bg-charcoal text-white rounded-full hover:bg-mars-red shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 font-medium"
   >
     日本語 / EN
   </Link>
@@ -104,7 +104,7 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-bluewood hover:text-neon-blue transition-colors p-2"
+              className="md:hidden text-charcoal hover:text-mars-red transition-colors p-2"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
@@ -138,7 +138,7 @@ export default function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-3xl font-bold text-bluewood hover:text-neon-blue transition-colors"
+                    className="text-3xl font-bold text-charcoal hover:text-mars-red transition-colors"
                   >
                     {link.label}
                     <span className="block text-sm text-gray-500 mt-1">
@@ -156,7 +156,7 @@ export default function Header() {
                 <Link
                   href="/support"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="inline-block px-8 py-3 bg-neon-blue text-white rounded-lg text-xl font-semibold hover:bg-opacity-90 transition-all"
+                  className="inline-block px-8 py-3.5 bg-charcoal text-white rounded-full text-xl font-semibold hover:bg-mars-red shadow-md active:scale-95 transition-all duration-300"
                 >
                 </Link>
               </motion.div>

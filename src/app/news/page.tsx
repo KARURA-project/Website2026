@@ -211,7 +211,7 @@ export default function NewsPage() {
                     <p className="text-gray-500 leading-relaxed mb-8">{featured.content}</p>
                     <div className="flex flex-wrap gap-2 mb-8">
                       {featured.tags.map((tag) => (
-                        <span key={tag} className="px-3 py-1 bg-gray-100 text-gray-600 text-sm font-medium">
+                        <span key={tag} className="px-3 py-1 bg-gray-100 text-slate-gray text-xs font-semibold rounded-full uppercase tracking-wide">
                           #{tag}
                         </span>
                       ))}
@@ -250,7 +250,7 @@ export default function NewsPage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1, duration: 0.6 }}
-                      className="bg-white rounded-lg overflow-hidden border border-gray-200 hover:border-mars-red hover:shadow-xl transition-all duration-300 group cursor-pointer h-full flex flex-col"
+                      className="bg-white rounded-xl overflow-hidden border border-gray-200 hover:border-mars-red/50 hover:shadow-xl transition-all duration-300 group cursor-pointer h-full flex flex-col"
                     >
                       <div className="relative h-56 w-full overflow-hidden">
                         <Image
@@ -278,7 +278,7 @@ export default function NewsPage() {
                         <p className="text-gray-600 leading-relaxed flex-1">{article.description}</p>
                         <div className="flex flex-wrap gap-2 mt-6">
                           {article.tags.map((tag) => (
-                            <span key={tag} className="px-2 py-1 bg-gray-100 text-gray-500 text-xs font-medium">
+                            <span key={tag} className="px-2.5 py-0.5 bg-gray-100 text-slate-gray text-xs font-semibold rounded-full uppercase tracking-wide">
                               #{tag}
                             </span>
                           ))}

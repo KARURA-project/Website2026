@@ -20,7 +20,7 @@ export default function DepartmentCard({
     <Link href={`/about#${department}`}>
       <motion.div
         whileHover={{ y: -4 }}
-        className="group border border-gray-200 p-8 bg-white hover:border-mars-red transition-all duration-300 cursor-pointer"
+        className="group border border-gray-200 p-8 bg-white rounded-xl shadow-md hover:border-mars-red/50 hover:shadow-lg transition-all duration-300 cursor-pointer"
       >
         {/* Simple number indicator */}
         <div className="text-sm text-gray-400 mb-4 font-mono">

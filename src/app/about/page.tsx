@@ -4,6 +4,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
+import InfoCard from '@/components/InfoCard';
+import MemberCard from '@/components/MemberCard';
 
 export default function AboutPage() {
   const teamStats = [
@@ -11,6 +13,30 @@ export default function AboutPage() {
     { number: '5', label: 'Departments' },
     { number: '2', label: 'Countries' },
     { number: '3', label: 'Years Active' },
+  ];
+
+  const coreLeaders = [
+    {
+      name: 'John Doe',
+      role: 'Project Manager (US)',
+      department: 'Management',
+      bio: 'Aerospace Engineering senior at Texas A&M with a passion for systems engineering.',
+      avatarSrc: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200',
+    },
+    {
+      name: 'Yuki Tanaka',
+      role: 'Project Manager (JP)',
+      department: 'Management',
+      bio: 'Robotics master student at University of Tokyo coordinating international collaboration.',
+      avatarSrc: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200',
+    },
+    {
+      name: 'Sarah Jenkins',
+      role: 'Software Lead',
+      department: 'Software',
+      bio: 'Computer Science major developing ROS2 autonomous navigation stacks.',
+      avatarSrc: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200',
+    },
   ];
 
   const universities = [
@@ -81,7 +107,7 @@ export default function AboutPage() {
   </div>
 </section>
 
-      <div className="py-16"></div>
+      <div className="py-24"></div>
 
       {/* Mission Statement */}
       <section className="py-32 bg-gray-50">
@@ -95,53 +121,20 @@ export default function AboutPage() {
 
           {/* Centered Grid Container */}
           <div className="flex justify-center">
-            <div className="grid lg:grid-cols-2 gap-20 items-center max-w-6xl w-full">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                  KARURA is an international Mars rover development team that brings together 
-                  passionate students from Texas A&M University and leading universities across 
-                  Japan. Our mission is to advance space exploration technology through innovative 
-                  engineering and international collaboration.
-                </p>
-
-                <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                  We compete annually in the University Rover Challenge (URC), the world's premier 
-                  robotics competition for university students. Through this challenge, we develop 
-                  cutting-edge technologies that could one day be used on Mars.
-                </p>
-
-                <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                  Our team represents a unique bridge between Japanese and American engineering 
-                  excellence, combining different perspectives and approaches to create innovative 
-                  solutions for Mars exploration.
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="relative h-[500px] w-full"
-              >
-                <Image
-                  src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
-                  alt="KARURA Rover"
-                  fill
-                  className="object-cover rounded-lg shadow-xl"
-                />
-              </motion.div>
+            <div className="max-w-6xl w-full">
+              <InfoCard
+                title="Pioneering International Space Tech"
+                subtitle="About Our Mission"
+                description="KARURA is an international Mars rover development team that brings together passionate students from Texas A&M University and leading universities across Japan. Our mission is to advance space exploration technology through innovative engineering and international collaboration. We compete annually in the University Rover Challenge (URC), the world's premier robotics competition for university students. Through this challenge, we develop cutting-edge technologies that could one day be used on Mars. Our team represents a unique bridge between Japanese and American engineering excellence, combining different perspectives and approaches to create innovative solutions for Mars exploration."
+                imageSrc="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
+                imageAlt="KARURA Rover"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      <div className="py-16"></div>
+      <div className="py-24"></div>
 
       {/* Stats Section */}
       <section className="py-32 bg-white">
@@ -176,7 +169,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div className="py-16"></div>
+      <div className="py-24"></div>
 
       {/* Partner Universities */}
       <section className="py-32 bg-gray-50">
@@ -211,7 +204,39 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div className="py-16"></div>
+      <div className="py-24"></div>
+
+      {/* Team Leadership */}
+      <section className="py-32 bg-white">
+        <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">
+              Team Leadership
+            </h2>
+            <div className="w-16 h-1 bg-mars-red mx-auto mb-8"></div>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Meet the student leaders guiding our international collaboration.
+            </p>
+          </div>
+
+          <div className="flex justify-center">
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl w-full">
+              {coreLeaders.map((leader) => (
+                <MemberCard
+                  key={leader.name}
+                  name={leader.name}
+                  role={leader.role}
+                  department={leader.department}
+                  bio={leader.bio}
+                  avatarSrc={leader.avatarSrc}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="py-24"></div>
 
       {/* Timeline */}
       <section className="py-32 bg-white">
@@ -254,7 +279,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div className="py-16"></div>
+      <div className="py-24"></div>
 
       {/* CTA Section */}
       <section className="py-32 bg-charcoal">
@@ -268,13 +293,13 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link
               href="/support"
-              className="px-10 py-5 bg-mars-red text-white font-medium hover:bg-white hover:text-mars-red transition-colors duration-300"
+              className="px-10 py-4 bg-mars-red text-white rounded-full font-medium hover:bg-white hover:text-mars-red shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 text-center"
             >
               Support Us
             </Link>
             <Link
               href="/contact"
-              className="px-10 py-5 border-2 border-white text-white font-medium hover:bg-white hover:text-charcoal transition-colors duration-300"
+              className="px-10 py-4 border-2 border-white text-white rounded-full font-medium hover:bg-white hover:text-charcoal shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 text-center"
             >
               Contact Us
             </Link>
