@@ -17,32 +17,21 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Scroll effect
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'unset';
   }, [isMobileMenuOpen]);
 
   return (
     <>
       <motion.header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-white/95 backdrop-blur-sm shadow-lg' 
-            : 'bg-transparent'
+          isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -51,67 +40,56 @@ export default function Header() {
         <nav className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-<Link
-  href="/"
-  className="flex items-center hover:opacity-90 transition-opacity"
->
-  {/* Desktop logo */}
-  <span className="hidden sm:inline">
-    <Image
-      src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-462x174_webp_eeddf8f4-d769-4e9a-968b-9f9551bda5d7.webp"
-      alt="KARURA"
-      width={150}
-      height={40}
-      priority
-    />
-  </span>
+            <Link href="/" className="flex items-center hover:opacity-90 transition-opacity">
+              <span className="hidden sm:inline">
+                <Image
+                  src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-462x174_webp_eeddf8f4-d769-4e9a-968b-9f9551bda5d7.webp"
+                  alt="KARURA"
+                  width={150}
+                  height={40}
+                  priority
+                />
+              </span>
+              <span className="sm:hidden">
+                <Image
+                  src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-462x174_webp_eeddf8f4-d769-4e9a-968b-9f9551bda5d7.webp"
+                  alt="KARURA"
+                  width={120}
+                  height={32}
+                  priority
+                />
+              </span>
+            </Link>
 
-  {/* Mobile logo */}
-  <span className="sm:hidden">
-    <Image
-      src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-462x174_webp_eeddf8f4-d769-4e9a-968b-9f9551bda5d7.webp"
-      alt="KARURA"
-      width={120}
-      height={32}
-      priority
-    />
-  </span>
-</Link>
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-16">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="group relative text-bluewood hover:text-mars-red transition-colors font-medium"
+                >
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-mars-red group-hover:w-full transition-all duration-300" />
+                </Link>
+              ))}
 
-            
-{/* Desktop Navigation */}
-<div className="hidden md:flex items-center gap-16">
-  {navLinks.map((link) => (
-    <Link
-      key={link.href}
-      href={link.href}
-      className="group relative text-charcoal hover:text-mars-red transition-colors font-medium"
-    >
-      {link.label}
-      <span className="absolute bottom-0 left-0.5 w-0.5 h-0.5 bg-mars-red group-hover:w-full transition-all duration-300" />
-    </Link>
-  ))}
-  
-  {/* JP/ENG Button */}
-  <Link
-    href="/support"
-    className="px-6 py-2.5 bg-charcoal text-white rounded-full hover:bg-mars-red shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 font-medium"
-  >
-    日本語 / EN
-  </Link>
-</div>
+              {/* Language toggle — links to /lang as a placeholder route */}
+              <Link
+                href="/lang"
+                className="px-6 py-2 border border-charcoal text-charcoal font-medium hover:border-mars-red hover:text-mars-red transition-colors duration-300 text-sm"
+              >
+                日本語 / EN
+              </Link>
+            </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-charcoal hover:text-mars-red transition-colors p-2"
+              className="md:hidden text-bluewood hover:text-mars-red transition-colors p-2"
               aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? (
-                <HiX className="w-7 h-7" />
-              ) : (
-                <HiMenu className="w-7 h-7" />
-              )}
+              {isMobileMenuOpen ? <HiX className="w-7 h-7" /> : <HiMenu className="w-7 h-7" />}
             </button>
           </div>
         </nav>
@@ -138,16 +116,13 @@ export default function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-3xl font-bold text-charcoal hover:text-mars-red transition-colors"
+                    className="text-3xl font-bold text-bluewood hover:text-mars-red transition-colors"
                   >
                     {link.label}
-                    <span className="block text-sm text-gray-500 mt-1">
-                    
-                    </span>
                   </Link>
                 </motion.div>
               ))}
-              
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -156,8 +131,9 @@ export default function Header() {
                 <Link
                   href="/support"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="inline-block px-8 py-3.5 bg-charcoal text-white rounded-full text-xl font-semibold hover:bg-mars-red shadow-md active:scale-95 transition-all duration-300"
+                  className="inline-block px-8 py-3 bg-mars-red text-white text-xl font-semibold hover:bg-deep-red transition-colors"
                 >
+                  Support Us
                 </Link>
               </motion.div>
             </div>

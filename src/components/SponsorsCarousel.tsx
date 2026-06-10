@@ -1,39 +1,18 @@
+"use client";
+
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
-interface Sponsor {
-  id?: string;
-  name: string;
-  logo?: string; // some callers use `logo`
-  logoSrc?: string; // others use `logoSrc`
-  websiteUrl?: string;
-}
-
-interface SponsorMarqueeProps {
-  sponsors?: Sponsor[];
-}
-
-// Carousel implementation (keeps default export name so imports remain unchanged)
-export default function SponsorMarquee({ sponsors = [] }: SponsorMarqueeProps) {
-  if (!sponsors || sponsors.length === 0) return null;
-
+export default function SponsorsCarousel({ sponsors }: { sponsors: Array<{ id: string; name: string; logo: string }> }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [cardWidth, setCardWidth] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
 
-  // Normalize sponsors to have id and logo fields
-  const normalized = sponsors.map((s, i) => ({
-    id: s.id ?? `${i}`,
-    name: s.name,
-    logo: s.logo ?? s.logoSrc ?? '',
-    websiteUrl: s.websiteUrl ?? '/support',
-  }));
-
   // Double for infinite loop
-  const extendedSponsors = [...normalized, ...normalized];
+  const extendedSponsors = [...sponsors, ...sponsors];
   const sponsorsPerView = 6;
 
   // Measure a single card's width on mount and resize
@@ -52,10 +31,10 @@ export default function SponsorMarquee({ sponsors = [] }: SponsorMarqueeProps) {
   useEffect(() => {
     if (!isAutoPlaying) return;
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1 >= normalized.length ? 0 : prev + 1));
+      setCurrentIndex((prev) => (prev + 1 >= sponsors.length ? 0 : prev + 1));
     }, 3000);
     return () => clearInterval(interval);
-  }, [isAutoPlaying, normalized.length]);
+  }, [isAutoPlaying, sponsors.length]);
 
   return (
     <section className="py-32 bg-white border-t border-gray-200">
@@ -100,7 +79,7 @@ export default function SponsorMarquee({ sponsors = [] }: SponsorMarqueeProps) {
 
         {/* Navigation Dots */}
         <div className="flex justify-center gap-3 mt-12">
-          {normalized.map((_, index) => (
+          {sponsors.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}

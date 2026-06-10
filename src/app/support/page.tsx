@@ -107,7 +107,7 @@ export default function SupportPage() {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <h1 className="text-6xl md:text-8xl font-bold text-charcoal mb-8 tracking-tight">Support Us</h1>
             <div className="w-24 h-1 bg-mars-red mx-auto mb-10" />
-            <p className="text-xl md:text-2xl text-gray-700 max-w-12xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
               Help us push the boundaries of Mars exploration technology
             </p>
           </motion.div>
@@ -199,7 +199,7 @@ export default function SupportPage() {
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">Get In Touch</h2>
             <div className="w-16 h-1 bg-mars-red mx-auto mb-8" />
-            <p className="text-lg text-gray-600 max-w-12xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Interested in partnering with us? Send us a message and our team will get back to you.
             </p>
           </div>
@@ -290,10 +290,10 @@ export default function SupportPage() {
                       placeholder="Tell us about your organization and how you'd like to collaborate..."
                     />
                   </div>
-
+                  
                   <button
                     onClick={handleSubmit}
-                    className="w-full py-4 bg-charcoal text-charcoal font-medium hover:bg-mars-red transition-colors duration-300 text-lg"
+                    className="w-full py-4 bg-charcoal text-white font-medium hover:bg-mars-red transition-colors duration-300 text-lg"
                   >
                     Send Message
                   </button>

@@ -1,14 +1,12 @@
-'use client';
-
-import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import DepartmentCard from '@/components/DepartmentCard';
 import NewsGrid from '@/components/Newsgrid';
 import Footer from '@/components/Footer';
-import SponsorMarquee from '@/components/SponsorCard';
+import SponsorsCarousel from '@/components/SponsorsCarousel';
 import { NewsItem } from '@/components/NewsCard';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+
 
 export default function Home() {
   const departments = [
@@ -151,10 +149,9 @@ export default function Home() {
       {/* Added more vertical spacing */}
       <div className="py-16"></div>
       
-      {/* Sponsors Marquee Section */}
-      <SponsorMarquee 
-        title="Our Sponsors" 
-        sponsors={sponsors.map(s => ({ name: s.name, logoSrc: s.logo, websiteUrl: '/support' }))} 
+      {/* Sponsors Carousel Section */}
+      <SponsorsCarousel
+        sponsors={sponsors.map((s) => ({ id: s.id, name: s.name, logo: s.logo }))}
       />
       
       {/* Added more vertical spacing before footer */}

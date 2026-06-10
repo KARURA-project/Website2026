@@ -17,25 +17,25 @@ export default function AboutPage() {
 
   const coreLeaders = [
     {
-      name: 'John Doe',
-      role: 'Project Manager (US)',
+      name: 'Elizabeth Person',
+      role: 'Hardware Lead',
       department: 'Management',
-      bio: 'Aerospace Engineering senior at Texas A&M with a passion for systems engineering.',
-      avatarSrc: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200',
+      bio: 'Aerospace Engineering junior at Texas A&M',
+      avatarSrc: '',
     },
     {
-      name: 'Yuki Tanaka',
+      name: 'Haruka Morishima',
       role: 'Project Manager (JP)',
       department: 'Management',
-      bio: 'Robotics master student at University of Tokyo coordinating international collaboration.',
-      avatarSrc: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200',
+      bio: '',
+      avatarSrc: '',
     },
     {
-      name: 'Sarah Jenkins',
+      name: 'Zachary Renkema',
       role: 'Software Lead',
-      department: 'Software',
-      bio: 'Computer Science major developing ROS2 autonomous navigation stacks.',
-      avatarSrc: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200',
+      department: 'Management',
+      bio: 'Computer Science senior at Texas A&M',
+      avatarSrc: '',
     },
   ];
 
@@ -100,7 +100,7 @@ export default function AboutPage() {
         About KARURA
       </h1>
       <div className="w-24 h-1 bg-mars-red mx-auto mb-10"></div>
-      <p className="text-xl md:text-2xl text-gray-700 max-w-12xl mx-auto leading-relaxed">
+      <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
         Pioneering international collaboration in Mars rover development
       </p>
     </motion.div>

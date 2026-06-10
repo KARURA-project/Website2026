@@ -10,11 +10,11 @@ export interface Member {
   bio: string;
 }
 
-export type Department = 
-  | 'mechanical' 
-  | 'electrical' 
-  | 'software' 
-  | 'science' 
+export type Department =
+  | 'mechanical'
+  | 'electrical'
+  | 'software'
+  | 'science'
   | 'business';
 
 export interface Rover {
@@ -34,11 +34,12 @@ export interface Rover {
 export interface NewsItem {
   id: string;
   title: string;
+  description: string;
   date: string;
-  category: string;
-  excerpt: string;
-  content: string;
-  image?: string;
+  imageUrl: string;
+  imageAlt: string;
+  category?: 'Competition' | 'Team' | 'Achievement' | 'Update' | 'Sponsor';
+  link?: string;
 }
 
 export interface Sponsor {

@@ -109,7 +109,7 @@ export default function RoverPage() {
               The Rover
             </h1>
             <div className="w-24 h-1 bg-mars-red mx-auto mb-10"></div>
-            <p className="text-xl md:text-2xl text-gray-700 max-w-12xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
               Engineering excellence meets Mars exploration
             </p>
           </motion.div>
@@ -224,7 +224,7 @@ export default function RoverPage() {
               Rover Subsystems
             </h2>
             <div className="w-16 h-1 bg-mars-red mx-auto mb-8"></div>
-            <p className="text-lg text-gray-600 max-w-12xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Complex engineering systems working together
             </p>
           </div>
