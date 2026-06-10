@@ -182,14 +182,18 @@ export default function SupportPage() {
       <div className="py-16" />
 
       {/* Current Sponsors */}
-      <SponsorMarquee
-        title="Our Current Sponsors"
-        sponsors={currentSponsors.map(s => ({
-          name: s.name,
-          logoSrc: s.logo,
-          websiteUrl: '#'
-        }))}
-      />
+      <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20">
+        <div className="text-center mb-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">Our Current Sponsors</h2>
+        </div>
+        <SponsorMarquee
+          sponsors={currentSponsors.map(s => ({
+            name: s.name,
+            logoSrc: s.logo,
+            websiteUrl: '#'
+          }))}
+        />
+      </div>
 
       <div className="py-16" />
 
