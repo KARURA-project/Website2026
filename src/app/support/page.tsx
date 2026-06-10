@@ -182,14 +182,40 @@ export default function SupportPage() {
       <div className="py-16" />
 
       {/* Current Sponsors */}
-      <SponsorMarquee
-        title="Our Current Sponsors"
-        sponsors={currentSponsors.map(s => ({
-          name: s.name,
-          logoSrc: s.logo,
-          websiteUrl: '#'
-        }))}
-      />
+      <section className="py-32 bg-gray-50">
+        <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">Our Current Sponsors</h2>
+            <div className="w-16 h-1 bg-mars-red mx-auto mb-8" />
+            <p className="text-lg text-gray-600 max-w-12xl mx-auto">Thank you to the partners who make our mission possible</p>
+          </div>
+
+          <div className="flex justify-center">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl w-full">
+              {currentSponsors.map((sponsor, index) => (
+                <motion.div
+                  key={sponsor.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05, duration: 0.3 }}
+                  className="group"
+                >
+                  <div className="relative h-24 w-full bg-white border border-gray-200 rounded-lg p-4 flex items-center justify-center hover:border-mars-red transition-colors duration-300">
+                    <Image
+                      src={sponsor.logo}
+                      alt={sponsor.name}
+                      fill
+                      className="object-contain p-3 filter transition-all duration-300"
+                    />
+                  </div>
+                  <p className="text-center text-xs text-gray-400 mt-2">{sponsor.tier}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       <div className="py-16" />
 
