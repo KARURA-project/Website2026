@@ -111,6 +111,28 @@ export default function Home() {
       
       {/* Team Introduction Section */}
       <TeamIntroduction />
+
+      {/* Members Teaser */}
+          <div className="py-24"></div>
+          <section className="py-32 bg-gray-50">
+            <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20 text-center">
+              <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">Meet the Team</h2>
+              <div className="w-16 h-1 bg-mars-red mx-auto mb-8" />
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-12">
+                From founders to subteam leads — meet the students driving KARURA forward across Japan and the United States.
+              </p>
+              
+              <a
+                href="/members"
+                className="inline-flex items-center px-10 py-4 bg-charcoal text-white rounded-full font-medium hover:bg-mars-red shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95"
+              >
+                View All Members
+                <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
+          </section>
       
       {/* Added more vertical spacing */}
       <div className="py-24"></div>
