@@ -4,8 +4,9 @@ import NewsGrid from '@/components/Newsgrid';
 import Footer from '@/components/Footer';
 import SponsorsCarousel from '@/components/SponsorsCarousel';
 import { NewsItem } from '@/components/NewsCard';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import HeroWithRover from '@/components/HeroWithRover';
+import TeamIntroduction from '@/components/TeamIntroduction';
+import RoverHistory from '@/components/RoverHistory';
 
 
 export default function Home() {
