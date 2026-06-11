@@ -2,45 +2,145 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function HeroWithRover() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden">
-      <div className="absolute inset-0">
+    <section className="relative min-h-screen bg-[#FAFAFA] overflow-hidden">
+      {/* Two-column split: left editorial text, right sharp hardware image */}
+      <div className="relative z-10 min-h-screen grid lg:grid-cols-[1fr_45%] items-stretch">
+
+        {/* LEFT — Editorial text column */}
+        <div className="flex flex-col justify-center px-8 md:px-16 lg:px-20 xl:px-28 pt-32 pb-20 lg:py-0">
+
+          {/* Classification label */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex items-center gap-3 mb-10"
+          >
+            <span className="w-8 h-px bg-[#E63946]" />
+            <span className="font-mono text-xs tracking-[0.2em] uppercase text-[#0A0A0A]/50">
+              URC 2024 — Historic Milestone
+            </span>
+          </motion.div>
+
+          {/* Main headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="font-display text-[clamp(2.8rem,6vw,5.5rem)] font-bold leading-[0.95] tracking-tight text-[#0A0A0A] mb-8"
+          >
+            In 2024,<br />
+            we made<br />
+            <span className="text-[#E63946]">history.</span>
+          </motion.h1>
+
+          {/* Sub-headline */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="font-display text-[clamp(1rem,2vw,1.4rem)] font-medium text-[#0A0A0A]/70 leading-snug max-w-[480px] mb-6"
+          >
+            First international team — and first Japanese team — to reach the URC Finals.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="text-[#0A0A0A]/50 text-base leading-relaxed max-w-[420px] mb-12"
+          >
+            KARURA unites students from Texas A&M University and leading universities across Japan,
+            pushing the boundaries of Mars exploration technology together.
+          </motion.p>
+
+          {/* Telemetry stats row */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="flex flex-wrap gap-8 mb-14 border-t border-[#0A0A0A]/10 pt-8"
+          >
+            {[
+              { value: '46+', label: 'Team Members' },
+              { value: '2', label: 'Countries' },
+              { value: '5', label: 'Departments' },
+            ].map((stat) => (
+              <div key={stat.label}>
+                <div className="font-mono text-2xl font-bold text-[#0A0A0A]">{stat.value}</div>
+                <div className="font-mono text-[10px] tracking-[0.15em] uppercase text-[#0A0A0A]/40 mt-0.5">{stat.label}</div>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.55 }}
+            className="flex flex-wrap gap-4"
+          >
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#0A0A0A] text-white text-sm font-medium tracking-wide hover:bg-[#E63946] transition-colors duration-300"
+            >
+              Our Story
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+            <Link
+              href="/support"
+              className="inline-flex items-center gap-2 px-8 py-3.5 border border-[#0A0A0A]/20 text-[#0A0A0A] text-sm font-medium tracking-wide hover:border-[#0A0A0A] transition-colors duration-300"
+            >
+              Support Us
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* RIGHT — Hardware image, full bleed, no overlay */}
+        <motion.div
+          initial={{ opacity: 0, scale: 1.03 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+          className="relative hidden lg:block"
+        >
+          <Image
+            src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
+            alt="KARURA Mars Rover — hardware detail"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+          {/* Thin left-edge fade to white only */}
+          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#FAFAFA] to-transparent pointer-events-none" />
+
+          {/* Hardware classification overlay badge */}
+          <div className="absolute bottom-8 left-8 right-8">
+            <div className="bg-[#0A0A0A]/80 backdrop-blur-sm px-5 py-3 flex items-center justify-between">
+              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/60">
+                KARURA — URC Finals 2024
+              </span>
+              <span className="font-mono text-[10px] text-[#E63946] tracking-wider">
+                FINALIST
+              </span>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Mobile image — below text on small screens */}
+      <div className="lg:hidden relative h-72 mx-8 mb-16">
         <Image
           src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
           alt="KARURA Mars Rover"
           fill
-          priority
           className="object-cover"
         />
-      </div>
-
-      <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/70 to-white"></div>
-
-      <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20 py-32 w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="flex flex-col items-center text-center"
-        >
-          <h1 className="text-7xl md:text-9xl font-bold text-charcoal mb-8 tracking-tight">KARURA</h1>
-
-          <div className="w-24 h-1 bg-mars-red mb-10"></div>
-
-          <p className="text-2xl md:text-3xl text-gray-700 mb-8 font-light max-w-4xl">International Mars Rover Development</p>
-
-          <p className="text-lg text-gray-600 mb-16 max-w-3xl leading-relaxed">
-            We are an international student-led initiative based in Japan and the U.S. 
-            working to develop a Mars rover and further the development of space exploration.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <a href="/about" className="px-10 py-4 bg-charcoal text-white rounded-full font-medium hover:bg-mars-red shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 text-center">Learn More</a>
-            <a href="/support" className="px-10 py-4 border-2 border-charcoal text-charcoal rounded-full font-medium hover:border-mars-red hover:text-mars-red shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 text-center">Support Us</a>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
