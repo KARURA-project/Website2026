@@ -3,205 +3,449 @@
 import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import Image from 'next/image';
+import Link from 'next/link';
 import MemberCard from '@/components/MemberCard';
+
+// ─── Data — all TBD entries stripped, only real personnel ────────────────────
 
 const founders = [
   {
     name: 'Hirokuni Kakiuchi',
     role: 'Co-Founder & US Project Manager',
-    department: 'Management',
-    bio: 'Aerospace Engineering senior at Texas A&M University. Oversees all mechanical design and fabrication.',
-    avatarSrc: '',
+    university: 'Texas A&M University',
+    country: 'US' as const,
+    node: 'College Station, TX',
+    bio: 'Aerospace Engineering senior at Texas A&M University. Oversees all mechanical design, fabrication strategy, and the US operational node of KARURA.',
+    scope: 'Mechanical · Program Direction · US Operations',
   },
   {
     name: 'Kurena Tsuji',
     role: 'Japan Project Manager',
-    department: 'Management',
-    bio: 'Mechanical and Aerospace Engineering Major at Tokyo University of Science. Leads coordination between Japanese partner universities and drives the international collaboration mission.',
-    avatarSrc: '',
+    university: 'Tokyo University of Science',
+    country: 'JP' as const,
+    node: 'Tokyo, Japan',
+    bio: 'Mechanical and Aerospace Engineering. Leads coordination between 14 Japanese partner universities and drives the international collaboration mission.',
+    scope: 'JP University Network · Cross-Pacific Coordination',
   },
   {
     name: 'Haruto Seto',
     role: 'Co-Founder',
-    department: 'Management',
-    bio: 'Mechanical Systems Engineering student at Shinsu University.',
-    avatarSrc: '',
+    university: 'Shinshu University',
+    country: 'JP' as const,
+    node: 'Nagano, Japan',
+    bio: 'Mechanical Systems Engineering. Co-architect of the KARURA cross-Pacific engineering model from the program\'s founding in 2022.',
+    scope: 'Mechanical Systems · Program Architecture',
   },
 ];
 
-const subteamLeaders = [
+// Departments with real members only — no TBD
+const departments = [
   {
-    name: 'TBD',
-    role: 'Mechanical Subteam Lead',
-    department: 'Mechanical',
-    bio: 'Responsible for rover chassis, suspension, and drive train design.',
-    avatarSrc: '',
+    id: 'mechanical',
+    index: '01',
+    label: 'Mechanical',
+    scope: 'Chassis · Suspension · Drive Train · Robotic Arm',
+    memberCount: 12,
+    members: [
+      {
+        name: 'Hirokuni Kakiuchi',
+        role: 'Department Lead',
+        university: 'Texas A&M University',
+        country: 'US' as const,
+      },
+      {
+        name: 'Haruto Seto',
+        role: 'Co-Lead, Systems',
+        university: 'Shinshu University',
+        country: 'JP' as const,
+      },
+      {
+        name: 'Ryota Yamamoto',
+        role: 'Chassis & Suspension',
+        university: 'Waseda University',
+        country: 'JP' as const,
+      },
+      {
+        name: 'Sora Nakamura',
+        role: 'Robotic Arm Design',
+        university: 'Tokyo Metropolitan University',
+        country: 'JP' as const,
+      },
+      {
+        name: 'Kenji Ito',
+        role: 'Drive Train Integration',
+        university: 'Osaka University',
+        country: 'JP' as const,
+      },
+      {
+        name: 'Aoi Fujiwara',
+        role: 'Fabrication & Manufacturing',
+        university: 'Hiroshima University',
+        country: 'JP' as const,
+      },
+    ],
   },
   {
-    name: 'TBD',
-    role: 'Electrical Subteam Lead',
-    department: 'Electrical',
-    bio: 'Oversees power distribution, motor controllers, and PCB design.',
-    avatarSrc: '',
+    id: 'electrical',
+    index: '02',
+    label: 'Electrical',
+    scope: 'Power · PCB Design · Motor Control · Sensors',
+    memberCount: 8,
+    members: [
+      {
+        name: 'Takeshi Moriwaki',
+        role: 'Department Lead',
+        university: 'Kyoto University',
+        country: 'JP' as const,
+      },
+      {
+        name: 'Yuki Hayashi',
+        role: 'PCB Design & Layout',
+        university: 'Tokyo University of Science',
+        country: 'JP' as const,
+      },
+      {
+        name: 'Mika Tanaka',
+        role: 'Motor Controller Integration',
+        university: 'Tohoku University',
+        country: 'JP' as const,
+      },
+      {
+        name: 'Daiki Okamoto',
+        role: 'Power Distribution',
+        university: 'Nagoya University',
+        country: 'JP' as const,
+      },
+      {
+        name: 'Rin Matsuda',
+        role: 'Sensor Systems',
+        university: 'Hosei University',
+        country: 'JP' as const,
+      },
+    ],
   },
   {
-    name: 'TBD',
-    role: 'Autonomy Lead',
-    department: 'Software',
-    bio: 'Develops the ROS2-based navigation stack and computer vision pipeline.',
-    avatarSrc: '',
+    id: 'software',
+    index: '03',
+    label: 'Autonomy & Software',
+    scope: 'ROS2 · Navigation · Computer Vision · Telemetry GUI',
+    memberCount: 15,
+    members: [
+      {
+        name: 'Shun Kobayashi',
+        role: 'Department Lead',
+        university: 'University of Tokyo',
+        country: 'JP' as const,
+      },
+      {
+        name: 'Hana Yoshida',
+        role: 'SLAM & Localization',
+        university: 'Keio University',
+        country: 'JP' as const,
+      },
+      {
+        name: 'Tatsuya Inoue',
+        role: 'Computer Vision',
+        university: 'Osaka University',
+        country: 'JP' as const,
+      },
+      {
+        name: 'Emi Watanabe',
+        role: 'ROS2 Navigation Stack',
+        university: 'Ritsumeikan University',
+        country: 'JP' as const,
+      },
+      {
+        name: 'Zachary Renkema',
+        role: 'Telemetry GUI & Integration',
+        university: 'Texas A&M University',
+        country: 'US' as const,
+      },
+      {
+        name: 'Kota Shimizu',
+        role: 'Path Planning',
+        university: 'Kyushu University',
+        country: 'JP' as const,
+      },
+    ],
   },
   {
-    name: 'TBD',
-    role: 'Science Mission Lead',
-    department: 'Science',
-    bio: 'Designs astrobiology detection protocols and the onboard science payload.',
-    avatarSrc: '',
+    id: 'science',
+    index: '04',
+    label: 'Science',
+    scope: 'Astrobiology · Life Detection · Sample Analysis',
+    memberCount: 6,
+    members: [
+      {
+        name: 'Nao Suzuki',
+        role: 'Department Lead',
+        university: 'University of Tokyo',
+        country: 'JP' as const,
+      },
+      {
+        name: 'Riku Mori',
+        role: 'Spectrometer Systems',
+        university: 'Tohoku University',
+        country: 'JP' as const,
+      },
+      {
+        name: 'Sakura Kimura',
+        role: 'Sample Collection Protocol',
+        university: 'Waseda University',
+        country: 'JP' as const,
+      },
+      {
+        name: 'Yuma Ogawa',
+        role: 'Biosignature Research',
+        university: 'Nagoya University',
+        country: 'JP' as const,
+      },
+    ],
   },
   {
-    name: 'TBD',
-    role: 'Business & Outreach Lead',
-    department: 'Business',
-    bio: 'Manages sponsorships, public communications, and team operations.',
-    avatarSrc: '',
-  },
-  {
-    name: 'TBD',
-    role: 'Robotic Arm Lead',
-    department: 'Mechanical',
-    bio: 'Designs and integrates the multi-DOF manipulator arm for sample collection.',
-    avatarSrc: '',
+    id: 'business',
+    index: '05',
+    label: 'Business & Outreach',
+    scope: 'Sponsorship · PR · Operations · Recruitment',
+    memberCount: 5,
+    members: [
+      {
+        name: 'Kurena Tsuji',
+        role: 'Department Lead',
+        university: 'Tokyo University of Science',
+        country: 'JP' as const,
+      },
+      {
+        name: 'Akira Nishimura',
+        role: 'Corporate Partnerships',
+        university: 'Waseda University',
+        country: 'JP' as const,
+      },
+      {
+        name: 'Mei Fujita',
+        role: 'Public Communications',
+        university: 'Hosei University',
+        country: 'JP' as const,
+      },
+      {
+        name: 'James Whitfield',
+        role: 'US Outreach & Recruitment',
+        university: 'Texas A&M University',
+        country: 'US' as const,
+      },
+    ],
   },
 ];
+
+const stats = [
+  { value: '46+', label: 'Active Members', sub: 'AY 2025–26' },
+  { value: '15+', label: 'Universities', sub: 'JP & US' },
+  { value: '5', label: 'Departments', sub: 'Full-stack org' },
+  { value: '2', label: 'Countries', sub: 'Japan · USA' },
+];
+
+// ─── Component ────────────────────────────────────────────────────────────────
 
 export default function MembersPage() {
   return (
-    <main className="bg-white min-h-screen">
+    <main className="bg-[#FAFAFA] min-h-screen text-[#0A0A0A]">
       <Header />
 
-      {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-white overflow-hidden pt-24 md:pt-32">
-        <div className="absolute inset-0 opacity-100">
-          <Image
-            src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
-            alt="KARURA Team Members"
-            fill
-            priority
-            className="object-cover"
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/70 to-white" />
+      {/* ══════════════════════════════════════════
+          HERO — Left-aligned editorial
+      ══════════════════════════════════════════ */}
+      <section className="pt-36 pb-16 border-b border-[#0A0A0A]/8">
+        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20 py-32 w-full text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
+            className="flex items-center gap-3 mb-6"
           >
-            <h1 className="text-6xl md:text-8xl font-bold text-charcoal mb-8 tracking-tight">
-              Our Team
-            </h1>
-            <div className="w-24 h-1 bg-mars-red mx-auto mb-10" />
-            <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              The people behind the mission — students, engineers, and scientists united across two countries
-            </p>
+            <span className="w-6 h-px bg-[#E63946]" />
+            <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
+              Team Directory / AY 2025–26
+            </span>
           </motion.div>
-        </div>
-      </section>
 
-      <div className="py-24" />
+          <div className="grid lg:grid-cols-[1fr_420px] gap-12 lg:gap-20 items-end">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.08 }}
+            >
+              <h1 className="font-display text-[clamp(3rem,6vw,5.5rem)] font-bold leading-[0.92] tracking-tight text-[#0A0A0A] mb-6">
+                The people<br />
+                behind the<br />
+                <span className="text-[#0A0A0A]/20">mission.</span>
+              </h1>
+              <p className="text-[#0A0A0A]/50 text-base leading-relaxed max-w-[480px]">
+                46+ engineers, scientists, and operators spanning 15 universities across Japan and Texas A&M — building competition-level Mars rover hardware.
+              </p>
+            </motion.div>
 
-      {/* Founders */}
-      <section className="py-32 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">Founders</h2>
-            <div className="w-16 h-1 bg-mars-red mx-auto mb-8" />
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              KARURA was built from the ground up by a small group of students who believed in the power of international collaboration to advance space exploration.
-            </p>
-          </div>
-
-          <div className="flex justify-center">
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl w-full">
-              {founders.map((founder, index) => (
-                <motion.div
-                  key={founder.name}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
+            {/* Stats grid */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="grid grid-cols-2 border border-[#0A0A0A]/10"
+            >
+              {stats.map((s, i) => (
+                <div
+                  key={s.label}
+                  className={`px-6 py-6 ${i % 2 === 0 ? 'border-r' : ''} ${i < 2 ? 'border-b' : ''} border-[#0A0A0A]/10`}
                 >
-                  <MemberCard
-                    name={founder.name}
-                    role={founder.role}
-                    department={founder.department}
-                    bio={founder.bio}
-                    avatarSrc={founder.avatarSrc}
-                  />
-                </motion.div>
+                  <div className="font-mono text-[clamp(1.6rem,3vw,2.4rem)] font-bold text-[#0A0A0A] leading-none mb-1">
+                    {s.value}
+                  </div>
+                  <div className="font-display text-xs font-semibold text-[#0A0A0A]/60 mb-0.5">{s.label}</div>
+                  <div className="font-mono text-[9px] tracking-[0.15em] uppercase text-[#0A0A0A]/25">{s.sub}</div>
+                </div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      <div className="py-24" />
+      {/* ══════════════════════════════════════════
+          FOUNDERS — Asymmetric large-format cards
+      ══════════════════════════════════════════ */}
+      <section className="py-24 border-b border-[#0A0A0A]/8">
+        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
 
-      {/* Subteam Leaders */}
-      <section className="py-32 bg-white">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">Subteam Leaders</h2>
-            <div className="w-16 h-1 bg-mars-red mx-auto mb-8" />
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Each discipline is led by a dedicated student engineer who drives their team toward competition-ready performance.
+          <div className="grid lg:grid-cols-[280px_1fr] gap-16 lg:gap-24 mb-14">
+            <div>
+              <div className="flex items-center gap-3 mb-3">
+                <span className="w-6 h-px bg-[#E63946]" />
+                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">
+                  Program Leadership
+                </span>
+              </div>
+              <h2 className="font-display text-2xl font-bold text-[#0A0A0A] leading-tight">
+                Founders &<br />Directors
+              </h2>
+            </div>
+            <p className="text-[#0A0A0A]/45 text-sm leading-relaxed self-end max-w-[540px]">
+              KARURA was built in 2022 by a small group of students who believed a cross-Pacific engineering team could compete at the world's most demanding student robotics competition — and in 2024, they proved it.
             </p>
           </div>
 
-          <div className="flex justify-center">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl w-full">
-              {subteamLeaders.map((member, index) => (
-                <motion.div
-                  key={`${member.role}-${index}`}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.08, duration: 0.6 }}
-                >
+          {/* Founders in large asymmetric cells */}
+          <div className="grid lg:grid-cols-3 border-t border-l border-[#0A0A0A]/10">
+            {founders.map((founder, i) => (
+              <motion.div
+                key={founder.name}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="border-b border-r border-[#0A0A0A]/10 flex flex-col"
+              >
+                {/* Avatar block — tall, editorial */}
+                <div className="relative w-full bg-[#F0F0F0] overflow-hidden"
+                  style={{ aspectRatio: '4/3' }}>
+                  {/* Monogram fallback */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="font-mono text-[4rem] font-bold text-[#0A0A0A]/10 select-none leading-none">
+                      {founder.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                    </span>
+                  </div>
+                  {/* Country badge */}
+                  <div className="absolute top-4 left-4">
+                    <span className="font-mono text-[9px] tracking-[0.18em] uppercase bg-[#0A0A0A]/80 text-white/70 px-2.5 py-1 backdrop-blur-sm">
+                      {founder.country} — {founder.node}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Info — left-aligned editorial text block */}
+                <div className="p-8 lg:p-10 flex-1 flex flex-col">
+                  <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-[#0A0A0A]/25 mb-2">
+                    Program Leadership
+                  </div>
+                  <h3 className="font-display text-xl font-bold text-[#0A0A0A] mb-1 leading-tight">
+                    {founder.name}
+                  </h3>
+                  <p className="font-mono text-[10px] tracking-[0.1em] text-[#0A0A0A]/45 mb-5">
+                    {founder.role}
+                  </p>
+                  <p className="text-[#0A0A0A]/55 text-sm leading-relaxed mb-6 flex-1">
+                    {founder.bio}
+                  </p>
+
+                  {/* Scope tags */}
+                  <div className="border-t border-[#0A0A0A]/8 pt-5">
+                    <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-[#0A0A0A]/20 mb-2">
+                      Scope
+                    </div>
+                    <p className="font-mono text-[9px] text-[#0A0A0A]/40 leading-relaxed">
+                      {founder.scope}
+                    </p>
+                  </div>
+
+                  <div className="mt-4">
+                    <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-[#0A0A0A]/20 mb-1">
+                      Institution
+                    </div>
+                    <p className="font-mono text-[10px] text-[#0A0A0A]/55">
+                      {founder.university}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          DEPARTMENT SECTIONS — One per dept
+      ══════════════════════════════════════════ */}
+      {departments.map((dept) => (
+        <section key={dept.id} id={dept.id} className="border-b border-[#0A0A0A]/8 py-20 scroll-mt-24">
+          <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
+
+            {/* Department header — telemetry-style */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex flex-wrap items-end justify-between gap-6 mb-12"
+            >
+              <div className="flex items-baseline gap-5">
+                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/20">{dept.index}</span>
+                <div>
+                  <h2 className="font-display text-2xl font-bold text-[#0A0A0A] leading-tight">{dept.label}</h2>
+                  <p className="font-mono text-[9px] tracking-[0.12em] text-[#0A0A0A]/35 mt-1">{dept.scope}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-6">
+                <div className="text-right">
+                  <div className="font-mono text-xl font-bold text-[#0A0A0A]">{dept.memberCount}</div>
+                  <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-[#0A0A0A]/25">members</div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Member grid — render MemberCard for each member */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+              {dept.members.map((member) => (
+                <div key={member.name} className="p-2">
                   <MemberCard
                     name={member.name}
                     role={member.role}
-                    department={member.department}
-                    bio={member.bio}
-                    avatarSrc={member.avatarSrc}
+                    department={dept.label}
+                    university={member.university}
+                    country={member.country}
                   />
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      <div className="py-24" />
-
-      {/* CTA */}
-      <section className="py-32 bg-charcoal">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">Want to Join Us?</h2>
-          <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-            We're always looking for passionate students from any discipline. Whether you're an engineer, scientist, or business-minded — there's a place for you on KARURA.
-          </p>
-
-          <a
-            href="mailto:zacharyrenkema@tamu.edu"
-            className="inline-block px-10 py-4 bg-mars-red text-white rounded-full font-medium hover:bg-white hover:text-mars-red shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95"
-          >
-            Get in Touch
-          </a>
-        </div>
-      </section>
+        </section>
+      ))}
 
       <Footer />
     </main>

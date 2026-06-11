@@ -49,7 +49,7 @@ const rovers = [
     callsign: 'K-II',
     cycle: '2023 — 2024',
     status: 'RETIRED',
-    statusClass: 'text-white/40',
+    statusClass: 'text-[#0A0A0A]/30',
     milestone: 'URC System Acceptance Review — Qualified',
     description:
       'Second-generation build focused on reliability and mobility improvements following lessons from KARURA I. Introduced a dedicated electrical architecture with centralized CAN-bus communication and an upgraded 5-DOF arm.',
@@ -82,7 +82,7 @@ const rovers = [
     callsign: 'K-I',
     cycle: '2022 — 2023',
     status: 'ARCHIVED',
-    statusClass: 'text-white/25',
+    statusClass: 'text-[#0A0A0A]/20',
     milestone: 'Program Launch — First Prototype Complete',
     description:
       "Founding prototype that established KARURA's core engineering framework and demonstrated the viability of the Japan–USA co-development model. Manual operation with basic sensing and a simple 3-DOF arm.",
@@ -206,11 +206,11 @@ export default function RoverPage() {
   const current = rovers.find((r) => r.id === activeRover) || rovers[0];
 
   return (
-    <main className="bg-[#0A0A0A] min-h-screen text-[#FAFAFA]">
+    <main className="bg-[#FAFAFA] min-h-screen text-[#0A0A0A]">
       <Header />
 
       {/* ══════════════════════════════════════════
-          HERO — Dark cinematic reveal
+          HERO — Light editorial split
       ══════════════════════════════════════════ */}
       <section className="relative min-h-screen grid lg:grid-cols-[1fr_48%] overflow-hidden">
 
@@ -224,7 +224,7 @@ export default function RoverPage() {
             className="flex items-center gap-3 mb-6"
           >
             <span className="w-6 h-px bg-[#E63946]" />
-            <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-white/30">
+            <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
               Engineering / Rover Program
             </span>
           </motion.div>
@@ -233,17 +233,17 @@ export default function RoverPage() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.08 }}
-            className="font-display text-[clamp(3rem,6vw,5.5rem)] font-bold leading-[0.92] tracking-tight text-[#FAFAFA] mb-8"
+            className="font-display text-[clamp(3rem,6vw,5.5rem)] font-bold leading-[0.92] tracking-tight text-[#0A0A0A] mb-8"
           >
             Mission<br />Hardware<br />
-            <span className="text-white/20">Documentation</span>
+            <span className="text-[#0A0A0A]/15">Documentation</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.22 }}
-            className="text-white/40 text-sm leading-relaxed max-w-[400px] mb-10"
+            className="text-[#0A0A0A]/50 text-sm leading-relaxed max-w-[400px] mb-10"
           >
             Three generations of competition-proven Mars rover hardware.
             Engineered across two countries, tested in Utah, refined for the next launch window.
@@ -254,7 +254,7 @@ export default function RoverPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.35 }}
-            className="flex flex-wrap gap-6 border-t border-white/8 pt-8"
+            className="flex flex-wrap gap-6 border-t border-[#0A0A0A]/10 pt-8"
           >
             {[
               { label: 'ACTIVE PLATFORM', value: 'KARURA III' },
@@ -262,8 +262,8 @@ export default function RoverPage() {
               { label: 'BUILD STATUS', value: 'IN PROGRESS' },
             ].map((item) => (
               <div key={item.label}>
-                <div className="font-mono text-[8px] tracking-[0.22em] uppercase text-white/25 mb-1">{item.label}</div>
-                <div className="font-mono text-sm font-bold text-white/80">{item.value}</div>
+                <div className="font-mono text-[8px] tracking-[0.22em] uppercase text-[#0A0A0A]/30 mb-1">{item.label}</div>
+                <div className="font-mono text-sm font-bold text-[#0A0A0A]/80">{item.value}</div>
               </div>
             ))}
           </motion.div>
@@ -274,7 +274,7 @@ export default function RoverPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2 }}
-          className="relative hidden lg:block"
+          className="relative hidden lg:block bg-[#F0F0F0]"
         >
           <Image
             src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
@@ -283,279 +283,213 @@ export default function RoverPage() {
             priority
             className="object-cover object-center"
           />
-          {/* Left vignette — blends into dark canvas */}
-          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0A0A0A] to-transparent pointer-events-none" />
-          {/* Top vignette for header clearance */}
-          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0A0A0A] to-transparent pointer-events-none" />
+          {/* Left vignette — blends into light canvas */}
+          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#FAFAFA] to-transparent pointer-events-none" />
 
-          {/* Classification overlay */}
-          <div className="absolute bottom-8 right-8 left-8">
-            <div className="border border-white/10 px-5 py-3 flex items-center justify-between bg-[#0A0A0A]/60 backdrop-blur-sm">
-              <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-white/30">KARURA III — Platform K-III</span>
-              <span className="font-mono text-[9px] text-[#E63946] tracking-wider">URC FINALIST · 2024</span>
+          {/* Hardware classification overlay badge */}
+          <div className="absolute bottom-8 left-8 right-8">
+            <div className="bg-[#0A0A0A]/80 backdrop-blur-sm px-5 py-3 flex items-center justify-between">
+              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/60">
+                KARURA — URC Finals 2024
+              </span>
+              <span className="font-mono text-[10px] text-[#E63946] tracking-wider">
+                FINALIST
+              </span>
             </div>
           </div>
         </motion.div>
       </section>
 
       {/* ══════════════════════════════════════════
-          GENERATION SELECTOR + SPEC MATRIX
+          GENERATION SELECTOR — tab strip
       ══════════════════════════════════════════ */}
-      <section className="border-t border-white/8 py-24">
+      <div className="border-y border-[#0A0A0A]/8 bg-[#FAFAFA] sticky top-[64px] z-30">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
-
-          {/* Section header */}
-          <div className="mb-14">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="w-6 h-px bg-[#E63946]" />
-              <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-white/30">Platform Registry</span>
-            </div>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#FAFAFA]">Rover Generations</h2>
-          </div>
-
-          {/* Generation selector tabs */}
-          <div className="flex flex-wrap gap-px mb-0 bg-white/8">
+          <div className="flex items-stretch divide-x divide-[#0A0A0A]/8 overflow-x-auto">
             {rovers.map((r) => (
               <button
                 key={r.id}
                 onClick={() => setActiveRover(r.id)}
-                className={`flex-1 min-w-[140px] px-6 py-4 text-left transition-colors duration-200 ${
+                className={`flex-shrink-0 flex flex-col gap-0.5 px-6 py-5 text-left transition-colors duration-200 ${
                   activeRover === r.id
-                    ? 'bg-[#FAFAFA] text-[#0A0A0A]'
-                    : 'bg-[#0A0A0A] text-white/40 hover:text-white/70 hover:bg-white/5'
+                    ? 'bg-[#0A0A0A] text-[#FAFAFA]'
+                    : 'hover:bg-[#0A0A0A]/4 text-[#0A0A0A]'
                 }`}
               >
-                <div className={`font-mono text-[8px] tracking-[0.2em] uppercase mb-1 ${activeRover === r.id ? 'text-[#0A0A0A]/40' : 'text-white/25'}`}>
-                  {r.cycle}
-                </div>
-                <div className={`font-display text-sm font-bold ${activeRover === r.id ? 'text-[#0A0A0A]' : ''}`}>
-                  {r.designation}
-                </div>
+                <span className={`font-mono text-[8px] tracking-[0.22em] uppercase ${activeRover === r.id ? 'text-white/40' : 'text-[#0A0A0A]/30'}`}>
+                  {r.callsign}
+                </span>
+                <span className="font-display text-sm font-bold">{r.designation}</span>
+                <span className={`font-mono text-[9px] ${r.statusClass} ${activeRover === r.id && r.status !== 'ACTIVE BUILD' ? 'opacity-50' : ''}`}>
+                  {r.status}
+                </span>
               </button>
             ))}
           </div>
-
-          {/* Rover detail panel */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={current.id}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.35 }}
-              className="border border-white/8 border-t-0 grid lg:grid-cols-[1fr_380px]"
-            >
-              {/* Left: image + badge */}
-              <div className="relative h-[360px] lg:h-[480px] overflow-hidden bg-[#111111]">
-                <Image
-                  src={current.image}
-                  alt={current.designation}
-                  fill
-                  className="object-cover object-center opacity-80"
-                />
-                {/* Bottom-left status */}
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="bg-[#0A0A0A]/80 backdrop-blur-sm px-5 py-4">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <div className="font-display text-xl font-bold text-white mb-1">{current.designation}</div>
-                        <div className="font-mono text-[9px] tracking-[0.15em] uppercase text-white/40">{current.milestone}</div>
-                      </div>
-                      <div className={`font-mono text-[9px] tracking-[0.18em] uppercase font-bold whitespace-nowrap ${current.statusClass}`}>
-                        {current.status}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right: spec matrix + subsystems */}
-              <div className="border-l border-white/8 flex flex-col">
-
-                {/* Description */}
-                <div className="px-7 py-6 border-b border-white/8">
-                  <p className="text-white/50 text-xs leading-relaxed">{current.description}</p>
-                </div>
-
-                {/* Parameter matrix */}
-                <div className="px-7 py-5 border-b border-white/8">
-                  <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-white/25 mb-4">System Parameters</div>
-                  <div className="space-y-0 divide-y divide-white/5">
-                    {current.params.map((p) => (
-                      <div key={p.label} className="grid grid-cols-[1fr_auto] gap-4 py-2.5">
-                        <span className="font-mono text-[9px] tracking-[0.12em] uppercase text-white/30">{p.label}</span>
-                        <div className="text-right">
-                          <span className="font-mono text-[10px] font-bold text-[#FAFAFA]">{p.value}</span>
-                          {p.unit && (
-                            <span className="font-mono text-[8px] text-white/20 ml-1.5">{p.unit}</span>
-                          )}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Subsystems */}
-                <div className="px-7 py-5 flex-1">
-                  <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-white/25 mb-3">Active Subsystems</div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {current.subsystems.map((s) => (
-                      <span
-                        key={s}
-                        className="font-mono text-[8px] tracking-[0.1em] uppercase px-2.5 py-1 border border-white/10 text-white/40"
-                      >
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
         </div>
-      </section>
+      </div>
 
       {/* ══════════════════════════════════════════
-          GENERATION TIMELINE — Vertical precision
+          ACTIVE ROVER DETAIL — Parameter grid
       ══════════════════════════════════════════ */}
-      <section className="border-t border-white/8 py-24">
+      <AnimatePresence mode="wait">
+        <motion.section
+          key={current.id}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.4 }}
+          className="py-20 border-b border-[#0A0A0A]/8"
+        >
+          <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
+
+            <div className="grid lg:grid-cols-[1fr_420px] gap-12 lg:gap-20 items-start">
+
+              {/* Left — specs */}
+              <div>
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="w-6 h-px bg-[#E63946]" />
+                  <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">{current.cycle}</span>
+                </div>
+                <h2 className="font-display text-[clamp(2rem,4.5vw,3.8rem)] font-bold text-[#0A0A0A] leading-tight mb-2">
+                  {current.designation}
+                </h2>
+                <p className={`font-mono text-sm mb-8 ${current.statusClass}`}>{current.milestone}</p>
+                <p className="text-[#0A0A0A]/55 text-sm leading-relaxed max-w-[500px] mb-10">
+                  {current.description}
+                </p>
+
+                {/* Parameter table */}
+                <div className="border-t border-[#0A0A0A]/8">
+                  {current.params.map((p, i) => (
+                    <div key={i} className="grid grid-cols-[140px_1fr_auto] gap-4 items-baseline py-3.5 border-b border-[#0A0A0A]/6">
+                      <span className="font-mono text-[8px] tracking-[0.18em] uppercase text-[#0A0A0A]/25">{p.label}</span>
+                      <span className="font-mono text-sm font-bold text-[#0A0A0A]">{p.value}</span>
+                      {p.unit && <span className="font-mono text-[9px] text-[#0A0A0A]/30 text-right">{p.unit}</span>}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right — image + subsystems */}
+              <div className="flex flex-col gap-8">
+                <div className="relative aspect-[4/5] overflow-hidden bg-[#F0F0F0]">
+                  <Image
+                    src={current.image}
+                    alt={current.designation}
+                    fill
+                    className="object-cover object-center"
+                  />
+                </div>
+
+                {/* Subsystems checklist */}
+                <div className="border border-[#0A0A0A]/8 p-6">
+                  <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30 mb-5">Active Subsystems</div>
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-2.5">
+                    {current.subsystems.map((sys) => (
+                      <div key={sys} className="flex items-center gap-2">
+                        <span className="w-1 h-1 bg-[#E63946] rounded-full shrink-0" />
+                        <span className="font-mono text-[10px] text-[#0A0A0A]/60">{sys}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+      </AnimatePresence>
+
+      {/* ══════════════════════════════════════════
+          GENERATION TIMELINE
+      ══════════════════════════════════════════ */}
+      <section className="border-b border-[#0A0A0A]/8 py-20">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
 
-          <div className="grid lg:grid-cols-[280px_1fr] gap-16 lg:gap-24">
+          <div className="flex items-center gap-3 mb-12">
+            <span className="w-6 h-px bg-[#E63946]" />
+            <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">Program History</span>
+          </div>
 
-            <div>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="w-6 h-px bg-[#E63946]" />
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-white/30">Build History</span>
-              </div>
-              <h2 className="font-display text-2xl font-bold text-[#FAFAFA] leading-tight">
-                Platform<br />Progression
-              </h2>
-              <p className="text-white/30 text-xs leading-relaxed mt-4 max-w-[200px]">
-                Each generation introduces compounding capability improvements over the prior build.
-              </p>
-            </div>
-
-            {/* Timeline rail */}
-            <div className="relative">
-              <div className="absolute left-0 top-0 bottom-0 w-px bg-white/8 hidden md:block" />
-
-              <div className="space-y-0 divide-y divide-white/8">
-                {generationTimeline.map((gen, i) => (
-                  <motion.div
-                    key={gen.year}
-                    initial={{ opacity: 0, x: 16 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1, duration: 0.45 }}
-                    className="relative grid sm:grid-cols-[100px_80px_1fr_80px] gap-4 lg:gap-8 items-start py-8 md:pl-10"
-                  >
-                    {/* Dot on rail */}
-                    <div
-                      className={`absolute left-0 top-9 w-1.5 h-1.5 -translate-x-[calc(50%+0.5px)] hidden md:block ${
-                        gen.status === 'IN DEV' ? 'bg-[#E63946]' : 'bg-white/20'
-                      }`}
-                    />
-
-                    {/* Year */}
-                    <div className="font-mono text-[clamp(1.2rem,2.5vw,1.8rem)] font-bold text-[#FAFAFA]/80 leading-none">
-                      {gen.year}
-                    </div>
-
-                    {/* Gen label */}
-                    <div>
-                      <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-white/20 mb-1">{gen.label}</div>
-                      <div className="font-mono text-[9px] tracking-[0.1em] text-white/50">{gen.designation}</div>
-                    </div>
-
-                    {/* Note */}
-                    <p className="text-white/40 text-xs leading-relaxed">{gen.note}</p>
-
-                    {/* Status badge */}
-                    <div className="text-right">
-                      <span
-                        className={`font-mono text-[8px] tracking-[0.15em] uppercase px-2 py-1 border ${
-                          gen.status === 'IN DEV'
-                            ? 'border-[#E63946]/40 text-[#E63946]'
-                            : gen.status === 'COMPETED'
-                            ? 'border-white/20 text-white/50'
-                            : 'border-white/8 text-white/20'
-                        }`}
-                      >
-                        {gen.status}
-                      </span>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+          <div className="grid md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-[#0A0A0A]/8 border border-[#0A0A0A]/8">
+            {generationTimeline.map((gen, i) => (
+              <motion.div
+                key={gen.year}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.07 }}
+                className="px-8 py-8"
+              >
+                <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-[#0A0A0A]/25 mb-1">{gen.label}</div>
+                <div className="font-mono text-2xl font-bold text-[#0A0A0A] mb-1">{gen.year}</div>
+                <div className="font-display text-sm font-bold text-[#0A0A0A] mb-3">{gen.designation}</div>
+                <p className="text-[#0A0A0A]/45 text-xs leading-relaxed mb-4">{gen.note}</p>
+                <span className={`font-mono text-[9px] tracking-[0.15em] uppercase ${gen.status === 'IN DEV' ? 'text-[#E63946]' : 'text-[#0A0A0A]/25'}`}>
+                  {gen.status}
+                </span>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════
-          URC TASK EXPLAINER — Subsystem grid
+          URC TASKS — Competition brief
       ══════════════════════════════════════════ */}
-      <section className="border-t border-white/8 py-24">
+      <section className="border-b border-[#0A0A0A]/8 py-24">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
 
-          {/* Header */}
           <div className="grid lg:grid-cols-[280px_1fr] gap-16 lg:gap-24 mb-16">
             <div>
               <div className="flex items-center gap-3 mb-3">
                 <span className="w-6 h-px bg-[#E63946]" />
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-white/30">Competition</span>
+                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">Competition</span>
               </div>
-              <h2 className="font-display text-2xl font-bold text-[#FAFAFA] leading-tight">
-                URC<br />Task Matrix
+              <h2 className="font-display text-2xl font-bold text-[#0A0A0A] leading-tight">
+                URC Task<br />Breakdown
               </h2>
             </div>
-            <div className="flex items-end">
-              <p className="text-white/35 text-sm leading-relaxed max-w-[560px]">
-                The University Rover Challenge comprises four scored tasks designed to simulate a functional Mars mission. Each task is directly mapped to a set of onboard hardware systems engineered to meet competition requirements.
-              </p>
-            </div>
+            <p className="text-[#0A0A0A]/50 text-sm leading-relaxed self-end max-w-[560px]">
+              The University Rover Challenge scores teams across four mission categories. Each task is evaluated against Mars-analog conditions in the Utah desert, with scoring weighted by task completion percentage and time.
+            </p>
           </div>
 
-          {/* Task cards — dense specification blocks */}
-          <div className="grid md:grid-cols-2 gap-px bg-white/8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-l border-[#0A0A0A]/8">
             {urcTasks.map((task, i) => (
               <motion.div
                 key={task.index}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="bg-[#0A0A0A] p-8 lg:p-10"
+                transition={{ delay: i * 0.07 }}
+                className="border-b border-r border-[#0A0A0A]/8 p-8 flex flex-col"
               >
-                {/* Task header */}
-                <div className="flex items-start justify-between gap-4 mb-6">
+                <div className="flex items-start justify-between mb-6">
                   <div>
-                    <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-white/20 mb-2">
+                    <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-[#0A0A0A]/25 mb-2">
                       TASK {task.index}
                     </div>
-                    <h3 className="font-display text-lg font-bold text-[#FAFAFA] leading-snug">
+                    <h3 className="font-display text-lg font-bold text-[#0A0A0A] leading-snug">
                       {task.name}
                     </h3>
                   </div>
-                  <span className="font-mono text-[28px] font-bold text-white/5 leading-none select-none">
+                  <span className="font-mono text-[28px] font-bold text-[#0A0A0A]/5 leading-none select-none">
                     {task.index}
                   </span>
                 </div>
 
-                {/* Description */}
-                <p className="text-white/45 text-xs leading-relaxed mb-2">{task.description}</p>
-                <p className="text-white/25 text-[10px] leading-relaxed mb-7 italic">{task.challenge}</p>
+                <p className="text-[#0A0A0A]/50 text-xs leading-relaxed mb-2">{task.description}</p>
+                <p className="text-[#0A0A0A]/30 text-[10px] leading-relaxed mb-7 italic">{task.challenge}</p>
 
-                {/* Telemetry readouts */}
-                <div className="border-t border-white/8 pt-5 space-y-0 divide-y divide-white/5">
-                  <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-white/20 pb-3">
+                <div className="border-t border-[#0A0A0A]/8 pt-5 space-y-0 divide-y divide-[#0A0A0A]/6 mt-auto">
+                  <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-[#0A0A0A]/20 pb-3">
                     Responsible Systems
                   </div>
                   {task.systems.map((sys) => (
                     <div key={sys.label} className="grid grid-cols-[1fr_auto] gap-4 py-2">
-                      <span className="font-mono text-[9px] tracking-[0.1em] uppercase text-white/25">{sys.label}</span>
-                      <span className="font-mono text-[9px] font-bold text-[#FAFAFA]/70 text-right">{sys.value}</span>
+                      <span className="font-mono text-[9px] tracking-[0.1em] uppercase text-[#0A0A0A]/25">{sys.label}</span>
+                      <span className="font-mono text-[9px] font-bold text-[#0A0A0A]/60 text-right">{sys.value}</span>
                     </div>
                   ))}
                 </div>
@@ -568,7 +502,7 @@ export default function RoverPage() {
       {/* ══════════════════════════════════════════
           SUBSYSTEMS OVERVIEW — Full inventory
       ══════════════════════════════════════════ */}
-      <section className="border-t border-white/8 py-24">
+      <section className="border-b border-[#0A0A0A]/8 py-24">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
 
           <div className="grid lg:grid-cols-[280px_1fr] gap-16 lg:gap-24">
@@ -576,14 +510,14 @@ export default function RoverPage() {
             <div>
               <div className="flex items-center gap-3 mb-3">
                 <span className="w-6 h-px bg-[#E63946]" />
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-white/30">Architecture</span>
+                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">Architecture</span>
               </div>
-              <h2 className="font-display text-2xl font-bold text-[#FAFAFA] leading-tight">
+              <h2 className="font-display text-2xl font-bold text-[#0A0A0A] leading-tight">
                 Subsystem<br />Inventory
               </h2>
             </div>
 
-            <div className="divide-y divide-white/8 border-t border-b border-white/8">
+            <div className="divide-y divide-[#0A0A0A]/8 border-t border-b border-[#0A0A0A]/8">
               {[
                 {
                   id: 'mobility',
@@ -630,16 +564,16 @@ export default function RoverPage() {
                   transition={{ delay: i * 0.07 }}
                   className="grid md:grid-cols-[80px_180px_1fr_120px] gap-6 lg:gap-10 items-start py-7 scroll-mt-24"
                 >
-                  <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-white/20 pt-1">{sub.label}</div>
+                  <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-[#0A0A0A]/20 pt-1">{sub.label}</div>
                   <div>
-                    <div className="font-display text-sm font-bold text-[#FAFAFA] mb-1">{sub.title}</div>
-                    <div className="font-mono text-[8px] tracking-[0.1em] uppercase text-white/25">{sub.dept}</div>
+                    <div className="font-display text-sm font-bold text-[#0A0A0A] mb-1">{sub.title}</div>
+                    <div className="font-mono text-[8px] tracking-[0.1em] uppercase text-[#0A0A0A]/25">{sub.dept}</div>
                   </div>
-                  <p className="text-white/40 text-xs leading-relaxed">{sub.systems}</p>
+                  <p className="text-[#0A0A0A]/45 text-xs leading-relaxed">{sub.systems}</p>
                   <div className="md:text-right">
                     <Link
                       href={`/about#${sub.id === 'arm' ? 'mechanical' : sub.id === 'mobility' ? 'mechanical' : sub.id === 'electrical' ? 'electrical' : sub.id === 'software' ? 'software' : 'science'}`}
-                      className="font-mono text-[8px] tracking-[0.15em] uppercase text-white/20 hover:text-white/50 transition-colors flex md:justify-end items-center gap-1.5 group"
+                      className="font-mono text-[8px] tracking-[0.15em] uppercase text-[#0A0A0A]/20 hover:text-[#0A0A0A]/50 transition-colors flex md:justify-end items-center gap-1.5 group"
                     >
                       <span className="w-3 h-px bg-current" />
                       Team
@@ -654,19 +588,18 @@ export default function RoverPage() {
 
       {/* ══════════════════════════════════════════
           CTA — Contact / Sponsors
-          (Mars-red used here, once, for primary CTA)
       ══════════════════════════════════════════ */}
-      <section className="border-t border-white/8 py-20">
+      <section className="border-b border-[#0A0A0A]/8 py-20">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
           <div className="grid md:grid-cols-2 gap-12 items-end">
             <div>
-              <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-white/25 mb-5">Technical Partnership</div>
-              <h2 className="font-display text-[clamp(1.6rem,3.5vw,2.8rem)] font-bold text-[#FAFAFA] leading-tight">
+              <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/25 mb-5">Technical Partnership</div>
+              <h2 className="font-display text-[clamp(1.6rem,3.5vw,2.8rem)] font-bold text-[#0A0A0A] leading-tight">
                 Partner with KARURA's<br />Engineering Program
               </h2>
             </div>
             <div className="flex flex-col gap-4">
-              <p className="text-white/35 text-sm leading-relaxed max-w-sm">
+              <p className="text-[#0A0A0A]/45 text-sm leading-relaxed max-w-sm">
                 Technical sponsors gain direct access to a cross-Pacific engineering team building competition-level hardware. Logo placement, SAR review access, and team presentations available.
               </p>
               <div className="flex flex-wrap gap-3 mt-2">
@@ -681,7 +614,7 @@ export default function RoverPage() {
                 </Link>
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-2 px-7 py-3 border border-white/15 text-white/50 text-sm font-medium hover:border-white/30 hover:text-white/80 transition-colors duration-200"
+                  className="inline-flex items-center gap-2 px-7 py-3 border border-[#0A0A0A]/15 text-[#0A0A0A]/60 text-sm font-medium hover:border-[#0A0A0A]/30 hover:text-[#0A0A0A] transition-colors duration-200"
                 >
                   About the Team
                 </Link>

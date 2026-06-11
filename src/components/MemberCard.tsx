@@ -1,67 +1,76 @@
 import React from 'react';
 
-interface SocialLink {
-  platform: string;
-  url: string;
-}
-
 interface MemberCardProps {
   avatarSrc?: string;
   name: string;
   role: string;
   department: string;
+  university?: string;
+  country?: 'JP' | 'US';
   bio?: string;
-  socialLinks?: SocialLink[];
 }
 
-/**
- * MemberCard component optimized for departmental grids.
- */
-export default function MemberCard({ 
-  avatarSrc, 
-  name, 
-  role, 
-  department, 
-  bio, 
-  socialLinks = [] 
+export default function MemberCard({
+  avatarSrc,
+  name,
+  role,
+  department,
+  university,
+  country,
+  bio,
 }: MemberCardProps) {
+  const initials = name
+    .split(' ')
+    .map((n) => n[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2);
+
   return (
-    <div className="flex flex-col items-center text-center p-5 bg-white border border-gray-200 rounded-xl shadow-md group hover:border-mars-red/50 transition-all">
-      <div className="relative w-32 h-32 mb-4 rounded-full overflow-hidden border-2 border-gray-200 group-hover:border-mars-red transition-colors bg-gray-100">
-        <img 
-          src={avatarSrc || "/placeholder-avatar.png"} 
-          alt={name} 
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
+    <div className="border border-[#0A0A0A]/10 bg-[#FAFAFA] flex flex-col group hover:border-[#0A0A0A]/30 transition-colors duration-200">
+      {/* Avatar block */}
+      <div className="relative w-full aspect-square bg-[#F0F0F0] overflow-hidden">
+        {avatarSrc ? (
+          <img
+            src={avatarSrc}
+            alt={name}
+            className="w-full h-full object-cover object-top"
+            loading="lazy"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center">
+            <span className="font-mono text-3xl font-bold text-[#0A0A0A]/20 select-none">
+              {initials}
+            </span>
+          </div>
+        )}
       </div>
-      <span className="px-2.5 py-0.5 mb-2 text-xs font-semibold bg-gray-100 text-slate-gray rounded-full uppercase tracking-wide">
-        {department}
-      </span>
-      <h4 className="text-lg font-bold text-charcoal">{name}</h4>
-      <p className="text-xs text-mars-red font-medium mb-2">{role}</p>
-      {bio && (
-        <p className="text-xs text-gray-600 line-clamp-3 mb-4 max-w-xs px-2">
-          {bio}
-        </p>
-      )}
-      {socialLinks.length > 0 && (
-        <div className="flex space-x-3 mt-auto pt-2">
-          {socialLinks.map((link, idx) => (
-            <a 
-              key={idx} 
-              href={link.url} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-slate-gray hover:text-charcoal transition-colors"
-              title={link.platform}
-            >
-              <span className="sr-only">{link.platform}</span>
-              <span className="text-xs font-mono underline">{link.platform.substring(0,2).toUpperCase()}</span>
-            </a>
-          ))}
+
+      {/* Info block */}
+      <div className="p-5 flex flex-col flex-1 border-t border-[#0A0A0A]/8">
+        <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-[#0A0A0A]/30 mb-2">
+          {department}
+          {country && (
+            <span className="ml-2 text-[#0A0A0A]/20">· {country}</span>
+          )}
         </div>
-      )}
+        <h4 className="font-display text-sm font-bold text-[#0A0A0A] leading-snug mb-1">
+          {name}
+        </h4>
+        <p className="font-mono text-[9px] tracking-[0.1em] text-[#0A0A0A]/45 mb-3">
+          {role}
+        </p>
+        {university && (
+          <p className="font-mono text-[9px] text-[#0A0A0A]/30 mt-auto pt-3 border-t border-[#0A0A0A]/6">
+            {university}
+          </p>
+        )}
+        {bio && !university && (
+          <p className="text-[#0A0A0A]/45 text-[10px] leading-relaxed mt-auto pt-3 border-t border-[#0A0A0A]/6 line-clamp-2">
+            {bio}
+          </p>
+        )}
+      </div>
     </div>
   );
 }
