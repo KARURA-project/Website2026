@@ -8,11 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import TransmissionHero from '@/components/TransmissionHero';
 import TransmissionArchive from '@/components/TransmissionArchive';
-import { NewsItem } from '@/components/NewsCard';
-
-const allNews: (NewsItem & { content: string; tags: string[] })[] = [
-  // KEEP YOUR EXISTING allNews ARRAY EXACTLY AS IT IS
-];
+import transmissions from '@/data/transmissions';
 
 const categories = [
   'All',
@@ -27,8 +23,12 @@ export default function NewsPage() {
   const [activeCategory, setActiveCategory] = useState('All');
 
 
-  const filtered = activeCategory === 'All' ? allNews : allNews.filter((n) => n.category === activeCategory);
-  const [featured, ...rest] = filtered;
+const filtered =
+  activeCategory === 'All'
+    ? transmissions
+    : transmissions.filter(
+        n => n.category === activeCategory
+      );  const [featured, ...rest] = filtered;
 
   return (
     <main className="bg-[#FAFAFA] min-h-screen">

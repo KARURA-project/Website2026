@@ -36,6 +36,30 @@ export const transmissions: Transmission[] = [
     readTime: '4 MIN',
     campaign: 'URC 2025',
   },
+  {
+  id: 'desert-field-test',
+  title: 'Desert Systems Validation',
+  description:
+    'The rover completed a full systems validation.',
+  content: `
+    <p>
+      KARURA conducted a weekend field deployment...
+    </p>
+
+    <h2>Mobility</h2>
+
+    <p>
+      The rover exceeded expectations...
+    </p>
+  `,
+  date: '2026-03-12',
+  imageUrl: '/images/desert.jpg',
+  imageAlt: 'Field testing',
+  category: 'Competition',
+  link: '/news/desert-field-test',
+  tags: ['Field Test', 'URC'],
+  readTime: '4 MIN',
+}
 ];
 
 export default transmissions;
