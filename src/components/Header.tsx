@@ -9,7 +9,7 @@ export default function Header() {
 
   const navLinks = [
     { href: '/about', label: 'About' },
-    { href: '/rover', label: 'Rover Specs' },
+    { href: '/rover', label: 'Rover' },
     { href: '/members', label: 'Members' },
     { href: '/news', label: 'News' },
     { href: '/join', label: 'Join' },

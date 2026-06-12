@@ -12,7 +12,6 @@ interface TimeLeft {
   hours: number;
   minutes: number;
   seconds: number;
-  ms: number;
 }
 
 function getTimeLeft(): TimeLeft {
@@ -20,7 +19,7 @@ function getTimeLeft(): TimeLeft {
   const diff = URC_DATE.getTime() - now;
 
   if (diff <= 0) {
-    return { days: 0, hours: 0, minutes: 0, seconds: 0, ms: 0 };
+    return { days: 0, hours: 0, minutes: 0, seconds: 0};
   }
 
   return {
@@ -28,7 +27,6 @@ function getTimeLeft(): TimeLeft {
     hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
     minutes: Math.floor((diff / (1000 * 60)) % 60),
     seconds: Math.floor((diff / 1000) % 60),
-    ms: Math.floor((diff % 1000) / 10), // centiseconds
   };
 }
 
@@ -37,7 +35,7 @@ function pad(n: number, digits = 2) {
 }
 
 export default function TelemetryCountdown() {
-  const [time, setTime] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0, ms: 0 });
+  const [time, setTime] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -53,7 +51,6 @@ export default function TelemetryCountdown() {
     { label: 'HRS', value: pad(time.hours), large: true },
     { label: 'MIN', value: pad(time.minutes), large: true },
     { label: 'SEC', value: pad(time.seconds), large: true },
-    { label: 'CS', value: pad(time.ms), large: false },
   ];
 
   return (
