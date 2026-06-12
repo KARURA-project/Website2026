@@ -1,198 +1,550 @@
+// src/app/join/page.tsx
 'use client';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { motion } from 'framer-motion';
 
-const subTeamTasks = [
+const standings = [
   {
-    team: 'AUTONOMY & SOFTWARE',
-    mission: 'Develop the localized intelligence, sensor-fusion pipelines, and pathfinding stacks to complete complex navigation objectives without manual human intervention.',
-    coreTasks: [
-      'Architect ROS2 navigation nodes and customize Nav2 plugins to execute path planning and precise obstacle avoidance maneuvers.',
-      'Deploy custom computer vision models (such as YOLO or specialized OpenCV wrappers) onto edge computers for real-time terrain mapping and AR tag detection.',
-      'Construct high-fidelity Gazebo or Isaac Sim environments to reliably test sensor fusion and localization scripts in simulated Martian topography.',
-      'Maintain reliable Git version control strategies, optimizing CMake profiles, and streamlining remote build configurations across distributed nodes.'
-    ]
+    year: '2022',
+    final: '42.1',
+    science: '10.2',
+    delivery: '9.0',
+    equipment: '8.3',
+    autonomy: '14.6',
+    standing: '31ST',
   },
   {
-    team: 'MECHANICAL DESIGN',
-    mission: 'Conceptualize, test, and manufacture the robust physical infrastructure, specialized deployment linkages, and mechanical drive systems of the rover framework.',
-    coreTasks: [
-      'Model structural chassis geometry and complex multi-axis robotic linkages using SolidWorks, verifying integrity via Finite Element Analysis (FEA).',
-      'Optimize localized rocker-bogie suspension systems to maintain standard wheel-to-ground contact over uneven, rocky inclines.',
-      'Mill, turn, and 3D-print high-tolerance custom parts using aerospace-grade light alloys, carbon composites, and specialized polymers.',
-      'Execute continuous physical stress verification protocols, ensuring structural assemblies survive high-impact kinetic drops and environmental load testing.'
-    ]
+    year: '2023',
+    final: '67.9',
+    science: '15.4',
+    delivery: '12.2',
+    equipment: '17.1',
+    autonomy: '23.2',
+    standing: '14TH',
   },
   {
-    team: 'ELECTRICAL POWER SYSTEMS',
-    mission: 'Engineer the core power distribution matrix, safety isolation layers, and high-speed communication infrastructure linking all onboard computational payloads.',
-    coreTasks: [
-      'Design, layout, and debug custom multi-layer PCBs utilizing Altium Designer to manage clean power rails and isolate delicate signaling paths.',
-      'Integrate dense, high-capacity battery management systems (BMS) with dedicated voltage regulators to protect against current spikes.',
-      'Wire and test hardware communication buses (CAN, SPI, I2C, UART) linking main microcontrollers to high-torque brushless motor controllers.',
-      'Implement explicit physical and digital kill-switches, thermal monitoring grids, and robust EMI shielding strategies to secure vital telemetric uptime.'
-    ]
+    year: '2024',
+    final: '82.4',
+    science: '18.9',
+    delivery: '16.7',
+    equipment: '20.1',
+    autonomy: '26.7',
+    standing: 'FINALS',
   },
   {
-    team: 'SCIENCE STRATEGY & ASTROBIOLOGY',
-    mission: 'Formulate field sampling strategies and develop remote instrument payloads to accurately detect geological anomalies and biomarkers of extinct or extant life.',
-    coreTasks: [
-      'Select, calibrate, and isolate specialized spectrometers, microscopic imaging arrays, and environmental sensor payloads.',
-      'Establish clean, contamination-free collection mechanics to extract and analyze soil cores without compromising localized samples.',
-      'Apply advanced statistical datasets, Bayes\' Theorem, and defect analysis to translate real-time field readings into empirical reports.',
-      'Author formal scientific justification protocols detailing targeted astrobiology findings for competitive review panels.'
-    ]
+    year: '2026',
+    final: 'ACTIVE',
+    science: '--',
+    delivery: '--',
+    equipment: '--',
+    autonomy: '--',
+    standing: 'TBD',
   },
-  {
-    team: 'BUSINESS OPERATIONS & OUTREACH',
-    mission: 'Direct international resource pipelines, coordinate brand asset portfolios, and manage capital workflows to maintain cross-pacific operations.',
-    coreTasks: [
-      'Build and pitch comprehensive corporate sponsorship packages to secure financial backing and enterprise engineering licenses.',
-      'Coordinate complex logistical and financial operations, tracking manufacturing pipelines, grant submissions, and multi-currency project budgets.',
-      'Maintain clear cross-pacific communication infrastructure, scheduling international collaborative sprints across multiple distinct time zones.',
-      'Produce professional digital outreach collateral, brand design guidelines, and public-facing updates documenting current development cycles.'
-    ]
-  }
 ];
 
-const workflowSteps = [
+const positions = [
   {
-    id: 'PHASE-01',
-    title: 'Core Track Assignment & Screening',
-    desc: 'Candidates undergo initial engineering alignment reviews. Sub-team leads evaluate your mechanical portfolio, coding backgrounds, scientific concepts, or management history to match you with critical open issues.',
-    runtime: 'T+0 to T+7 Days'
+    id: '01',
+    department: 'AUTONOMY',
+    openings: '03',
+    commitment: '6–10 HRS/WK',
+    location: 'REMOTE + TEXAS',
+    responsibilities: [
+      'ROS2 Navigation',
+      'SLAM & Localization',
+      'Computer Vision',
+      'Simulation',
+    ],
   },
   {
-    id: 'PHASE-02',
-    title: 'Collaborative Simulation Sprint',
-    desc: 'Applicants sync into localized testing branches or sandbox environments. You will work through an actual diagnostic or design task—such as tuning a mock control loop, analyzing a sample dataset, or optimizing a CAD sub-assembly.',
-    runtime: 'T+14 Days'
+    id: '02',
+    department: 'MECHANICAL',
+    openings: '04',
+    commitment: '6–12 HRS/WK',
+    location: 'REMOTE + TEXAS',
+    responsibilities: [
+      'SolidWorks',
+      'FEA',
+      'Suspension Design',
+      'Manufacturing',
+    ],
   },
   {
-    id: 'PHASE-03',
-    title: 'Integrated Hardware & Roster Onboarding',
-    desc: 'Validated contributors are fully provisioned into active workspaces. You gain direct access to production repositories, physical prototyping labs, target testbeds, and international operational stand-ups.',
-    runtime: 'Active Cycle Continuous'
-  }
+    id: '03',
+    department: 'ELECTRICAL',
+    openings: '02',
+    commitment: '5–10 HRS/WK',
+    location: 'REMOTE + TEXAS',
+    responsibilities: [
+      'PCB Design',
+      'CAN Integration',
+      'Power Systems',
+      'Embedded Debugging',
+    ],
+  },
+  {
+    id: '04',
+    department: 'SCIENCE',
+    openings: '02',
+    commitment: '4–8 HRS/WK',
+    location: 'REMOTE',
+    responsibilities: [
+      'Astrobiology',
+      'Spectrometry',
+      'Sampling Protocols',
+      'Field Validation',
+    ],
+  },
+  {
+    id: '05',
+    department: 'BUSINESS',
+    openings: '02',
+    commitment: '4–6 HRS/WK',
+    location: 'REMOTE',
+    responsibilities: [
+      'Sponsors',
+      'Grant Writing',
+      'Operations',
+      'Outreach',
+    ],
+  },
 ];
 
-export default function JoinPortal() {
+const pipeline = [
+  {
+    id: '01',
+    title: 'APPLICATION',
+    body:
+      'Submit your application and identify your preferred department and technical interests.',
+  },
+  {
+    id: '02',
+    title: 'SCREENING',
+    body:
+      'Sub-team leads review portfolios, coursework, projects, and prior experience.',
+  },
+  {
+    id: '03',
+    title: 'SHADOW SPRINT',
+    body:
+      'Complete a short real-world engineering exercise alongside active members.',
+  },
+  {
+    id: '04',
+    title: 'NODE ASSIGNMENT',
+    body:
+      'Students are assigned to Texas deployment crews or remote Japanese collaboration nodes.',
+  },
+  {
+    id: '05',
+    title: 'TOOLCHAIN ACCESS',
+    body:
+      'Receive GitHub, Discord, CAD, documentation, and communication infrastructure access.',
+  },
+  {
+    id: '06',
+    title: 'ACTIVE OPERATIONS',
+    body:
+      'Transition directly into the competition cycle and contribute to hardware.',
+  },
+];
+
+export default function JoinPage() {
   return (
-    <main className="bg-[#FAFAFA] min-h-screen text-[#0A0A0A]">
+    <main className="bg-[#FAFAFA] min-h-screen">
       <Header />
 
-      {/* Hero Header Frame */}
-      <section className="pt-36 pb-12 border-b border-[#0A0A0A]">
+      {/* HERO */}
+      <section className="pt-36 pb-20 border-b border-[#0A0A0A]/8">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
-          <span className="font-mono text-[10px] tracking-[0.25em] text-[#0A0A0A]/40 uppercase block mb-3">
-            SYSTEM PARAMETER // SUB-TEAM ALIGNMENT MATRIX
-          </span>
-          <h1 className="font-display text-[clamp(2.8rem,6vw,5.5rem)] font-bold tracking-tight uppercase leading-[0.9] text-[#0A0A0A]">
-            JOIN<span className="text-[#E63946]">.</span>
-          </h1>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center gap-3 mb-6"
+          >
+            <span className="w-6 h-px bg-[#0A0A0A]" />
+
+            <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
+              Recruitment & Competition Hub
+            </span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.08 }}
+            className="font-display text-[clamp(3rem,7vw,6rem)] font-bold leading-[0.92] tracking-tight text-[#0A0A0A]"
+          >
+            JOIN THE
+            <br />
+            TEAM
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.16 }}
+            className="max-w-[520px] mt-8 text-sm leading-relaxed text-[#0A0A0A]/50"
+          >
+            Build competition-proven Mars rover systems alongside students
+            across Japan and Texas. Explore open roles, understand our
+            international workflow, and become part of the next URC campaign.
+          </motion.p>
+
         </div>
       </section>
 
-      {/* Main Structural Layout Splits: 60 / 40 Asymmetric Engineering Architecture */}
-      <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28 grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-px bg-[#0A0A0A]/10 border-b border-[#0A0A0A]">
-        
-        {/* LEFT COLUMN PANEL: SUB-TEAM ROLES & RESPONSIBILITIES */}
-        <div className="bg-[#FAFAFA] py-16 lg:pr-12 flex flex-col gap-20">
-          
-          {/* Section 1: Detailed Sub-Team Operational Tasks */}
-          <section id="subteam-breakdown">
-            <div className="flex items-center gap-3 mb-8">
-              <span className="w-5 h-px bg-[#0A0A0A]" />
-              <span className="font-mono text-[10px] tracking-[0.2em] text-[#0A0A0A]/50 uppercase">
-                01 / OPERATIONAL TASK MATRIX BY SPECIALIZATION
-              </span>
-            </div>
+      {/* 60 / 40 SPLIT */}
+      <section>
+        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
 
-            <div className="space-y-16">
-              {subTeamTasks.map((track) => (
-                <div key={track.team} className="border-l border-[#0A0A0A] pl-6 group">
-                  <h3 className="font-mono text-sm font-bold tracking-widest text-[#0A0A0A] mb-2 uppercase bg-[#0A0A0A]/5 px-2 py-1 inline-block group-hover:bg-[#E63946] group-hover:text-white transition-colors duration-200">
-                    {track.team}
-                  </h3>
-                  <p className="text-xs text-[#0A0A0A]/70 font-mono mb-4 leading-relaxed max-w-2xl italic">
-                    {track.mission}
-                  </p>
-                  
-                  <div className="mt-4">
-                    <span className="font-mono text-[10px] font-bold text-[#0A0A0A]/40 tracking-wider block mb-2 uppercase">Core System Responsibilities:</span>
-                    <ul className="space-y-3 font-mono text-xs text-[#0A0A0A]/80 leading-relaxed max-w-2xl">
-                      {track.coreTasks.map((task, i) => (
-                        <li key={i} className="flex items-start gap-2.5">
-                          <span className="text-[#E63946] font-bold shrink-0">[{i + 1}]</span>
-                          <span>{task}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+          <div className="grid lg:grid-cols-[1.4fr_0.9fr] gap-16 py-24">
+
+            {/* LEFT COLUMN */}
+            <div>
+
+              {/* HISTORICAL STANDINGS */}
+              <section className="mb-24">
+
+                <div className="flex items-center gap-3 mb-5">
+                  <span className="w-6 h-px bg-[#0A0A0A]" />
+
+                  <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
+                    Historical Standings Hub
+                  </span>
                 </div>
-              ))}
+
+                <h2 className="font-display text-3xl font-bold mb-8">
+                  Competition Metrics
+                </h2>
+
+                <div className="border border-[#0A0A0A]/10">
+
+                  <div className="grid grid-cols-7 border-b border-[#0A0A0A]/10 bg-[#0A0A0A]/[0.03]">
+
+                    {[
+                      'YEAR',
+                      'FINAL',
+                      'SCI',
+                      'DEL',
+                      'EQ',
+                      'AUTO',
+                      'STAND',
+                    ].map((item) => (
+                      <div
+                        key={item}
+                        className="px-4 py-4 font-mono text-[10px] tracking-[0.18em] uppercase text-[#0A0A0A]/40"
+                      >
+                        {item}
+                      </div>
+                    ))}
+
+                  </div>
+
+                  {standings.map((row) => (
+                    <div
+                      key={row.year}
+                      className="grid grid-cols-7 border-b last:border-b-0 border-[#0A0A0A]/10"
+                    >
+                      <div className="px-4 py-5 font-mono font-bold">
+                        {row.year}
+                      </div>
+
+                      <div className="px-4 py-5 font-mono">
+                        {row.final}
+                      </div>
+
+                      <div className="px-4 py-5 font-mono">
+                        {row.science}
+                      </div>
+
+                      <div className="px-4 py-5 font-mono">
+                        {row.delivery}
+                      </div>
+
+                      <div className="px-4 py-5 font-mono">
+                        {row.equipment}
+                      </div>
+
+                      <div className="px-4 py-5 font-mono">
+                        {row.autonomy}
+                      </div>
+
+                      <div className="px-4 py-5 font-mono font-bold">
+                        {row.standing}
+                      </div>
+                    </div>
+                  ))}
+
+                </div>
+
+              </section>
+
+              {/* OPEN POSITIONS */}
+              <section>
+
+                <div className="flex items-center gap-3 mb-5">
+                  <span className="w-6 h-px bg-[#0A0A0A]" />
+
+                  <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
+                    Open Positions Funnel
+                  </span>
+                </div>
+
+                <h2 className="font-display text-3xl font-bold mb-10">
+                  Current Recruitment Tracks
+                </h2>
+
+                <div className="divide-y divide-[#0A0A0A]/10 border-y border-[#0A0A0A]/10">
+
+                  {positions.map((position) => (
+                    <div
+                      key={position.id}
+                      className="grid md:grid-cols-[80px_1fr_150px] gap-8 py-8"
+                    >
+                      <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#0A0A0A]/30">
+                        {position.id}
+                      </div>
+
+                      <div>
+                        <h3 className="font-display text-lg font-bold mb-4">
+                          {position.department}
+                        </h3>
+
+                        <div className="flex flex-wrap gap-2">
+                          {position.responsibilities.map((item) => (
+                            <span
+                              key={item}
+                              className="px-3 py-2 border border-[#0A0A0A]/10 font-mono text-[10px] tracking-[0.15em] uppercase"
+                            >
+                              {item}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="space-y-4">
+
+                        <div>
+                          <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30">
+                            Openings
+                          </div>
+
+                          <div className="font-mono text-xl font-bold">
+                            {position.openings}
+                          </div>
+                        </div>
+
+                        <div>
+                          <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30">
+                            Commitment
+                          </div>
+
+                          <div className="font-mono text-xs">
+                            {position.commitment}
+                          </div>
+                        </div>
+
+                        <div>
+                          <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30">
+                            Location
+                          </div>
+
+                          <div className="font-mono text-xs">
+                            {position.location}
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  ))}
+
+                </div>
+
+              </section>
+
             </div>
-          </section>
+            {/* RIGHT COLUMN */}
+            <aside className="space-y-16">
+
+              {/* STICKY PORTAL */}
+              <div className="lg:sticky lg:top-28">
+
+                <div className="border border-[#0A0A0A]/10 p-8">
+
+                  <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35 mb-4">
+                    Recruitment Portal
+                  </div>
+
+                  <h2 className="font-display text-3xl font-bold leading-tight mb-6">
+                    Build the next generation of Martian systems.
+                  </h2>
+
+                  <p className="text-sm leading-relaxed text-[#0A0A0A]/50 mb-8">
+                    From autonomous navigation and science instrumentation
+                    to sponsorship strategy and field operations, every
+                    subsystem contributes directly to competition readiness.
+                  </p>
+
+                  <div className="space-y-5 border-y border-[#0A0A0A]/10 py-6">
+
+                    <div className="flex justify-between items-center">
+                      <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#0A0A0A]/35">
+                        Campaign
+                      </span>
+
+                      <span className="font-mono text-xs">
+                        URC 2026
+                      </span>
+                    </div>
+
+                    <div className="flex justify-between items-center">
+                      <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#0A0A0A]/35">
+                        Collaboration Nodes
+                      </span>
+
+                      <span className="font-mono text-xs">
+                        TX / JP
+                      </span>
+                    </div>
+
+                    <div className="flex justify-between items-center">
+                      <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#0A0A0A]/35">
+                        Positions Open
+                      </span>
+
+                      <span className="font-mono text-xs">
+                        13 ACTIVE
+                      </span>
+                    </div>
+
+                    <div className="flex justify-between items-center">
+                      <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#0A0A0A]/35">
+                        Deployment
+                      </span>
+
+                      <span className="font-mono text-xs">
+                        COLLEGE STATION
+                      </span>
+                    </div>
+
+                  </div>
+
+                  {/* ONLY MARS RED ELEMENT */}
+                  <a
+                    href="https://forms.gle/karuraRecruitment2026"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-8 block w-full bg-[#E63946] text-white text-center px-6 py-4 font-display font-semibold tracking-wide transition-transform duration-200 hover:-translate-y-0.5"
+                  >
+                    SUBMIT APPLICATION
+                  </a>
+
+                </div>
+
+              </div>
+
+              {/* PIPELINE */}
+              <section>
+
+                <div className="flex items-center gap-3 mb-5">
+                  <span className="w-6 h-px bg-[#0A0A0A]" />
+
+                  <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
+                    Cross-Institutional Pipeline
+                  </span>
+                </div>
+
+                <h2 className="font-display text-3xl font-bold mb-10">
+                  How We Operate Across Oceans
+                </h2>
+
+                <div className="relative">
+
+                  {/* Vertical Rail */}
+                  <div className="absolute left-[18px] top-0 bottom-0 w-px bg-[#0A0A0A]/10" />
+
+                  <div className="space-y-10">
+
+                    {pipeline.map((step) => (
+                      <div
+                        key={step.id}
+                        className="relative pl-16"
+                      >
+
+                        <div className="absolute left-0 top-0 w-9 h-9 border border-[#0A0A0A] bg-[#FAFAFA] flex items-center justify-center font-mono text-[10px] tracking-[0.15em]">
+                          {step.id}
+                        </div>
+
+                        <div>
+
+                          <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#0A0A0A]/35 mb-2">
+                            {step.title}
+                          </div>
+
+                          <p className="text-sm leading-relaxed text-[#0A0A0A]/55">
+                            {step.body}
+                          </p>
+
+                        </div>
+
+                      </div>
+                    ))}
+
+                  </div>
+
+                </div>
+
+              </section>
+
+            </aside>
+
+          </div>
 
         </div>
+      </section>
 
-        {/* RIGHT COLUMN PANEL: PORTAL EVALUATION STACK */}
-        <div className="bg-[#FAFAFA] py-16 lg:pl-12 border-t lg:border-t-0 border-[#0A0A0A]/10 flex flex-col gap-12">
-          
-          <div className="sticky top-28 bg-[#FAFAFA] border border-[#0A0A0A] p-8">
-            <div className="flex items-center justify-between border-b border-[#0A0A0A] pb-4 mb-6">
-              <span className="font-mono text-[11px] font-bold tracking-widest uppercase">
-                PORTAL PIPELINE STEPS
-              </span>
-              <span className="w-2 h-2 bg-[#E63946] rounded-full animate-pulse" />
+      {/* FINAL SECTION */}
+      <section className="border-t border-[#0A0A0A]/8 py-24">
+
+        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
+
+          <div className="grid lg:grid-cols-[1fr_auto] gap-12 items-center">
+
+            <div>
+
+              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35 mb-4">
+                Engineering Momentum
+              </div>
+
+              <h2 className="font-display text-4xl md:text-5xl font-bold leading-tight max-w-3xl">
+                Build hardware that competes.
+                <br />
+                Join a team that scales globally.
+              </h2>
+
             </div>
 
-            {/* Workflow Timeline */}
-            <div className="relative border-l border-[#0A0A0A]/20 ml-3 pl-6 space-y-10 mb-8">
-              {workflowSteps.map((step) => (
-                <div key={step.id} className="relative">
-                  <div className="absolute -left-[31px] top-0 bg-[#FAFAFA] border border-[#0A0A0A] font-mono text-[8px] font-bold p-0.5 px-1 leading-none">
-                    {step.id.split('-')[1]}
-                  </div>
-                  
-                  <div className="flex flex-col gap-1">
-                    <span className="font-mono text-[9px] tracking-wider font-semibold text-[#0A0A0A]/40 uppercase">
-                      {step.runtime}
-                    </span>
-                    <h4 className="font-display text-sm font-bold text-[#0A0A0A]">
-                      {step.title}
-                    </h4>
-                    <p className="text-xs text-[#0A0A0A]/50 leading-relaxed font-mono mt-1">
-                      {step.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* SUBMISSION TRIGGER KEY */}
             <a
-              href="https://forms.gle/karuraRecruitment2026" 
-              target="_blank" 
+              href="https://forms.gle/karuraRecruitment2026"
+              target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center bg-[#E63946] text-white font-mono text-xs font-bold tracking-[0.2em] uppercase py-4 border border-[#0A0A0A] hover:bg-[#C1121F] transition-colors shadow-[4px_4px_0px_0px_rgba(10,10,10,1)]"
+              className="border border-[#0A0A0A] px-8 py-4 font-mono text-[11px] tracking-[0.22em] uppercase hover:bg-[#0A0A0A] hover:text-white transition-colors duration-200"
             >
-              INITIALIZE APPLICATION
+              Learn More
             </a>
-            
-            <div className="mt-4 text-center">
-              <span className="font-mono text-[8px] text-[#0A0A0A]/30 tracking-wider block uppercase">
-                SECURE TELEMETRY PIPE // INTAKE GATEWAY STABLE
-              </span>
-            </div>
+
           </div>
 
         </div>
 
-      </div>
+      </section>
 
       <Footer />
+
     </main>
   );
 }

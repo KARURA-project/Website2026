@@ -134,4 +134,50 @@
     text-transform: uppercase;
     color: rgba(10,10,10,0.35);
   }
+
+  /* Recruitment telemetry utilities */
+
+.metric-cell {
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  padding: 1rem;
+}
+
+.metric-label {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(10, 10, 10, 0.35);
+}
+
+.metric-value {
+  font-family: var(--font-mono);
+  color: #0A0A0A;
+}
+
+.pipeline-rail {
+  position: relative;
+}
+
+.pipeline-rail::before {
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(10, 10, 10, 0.1);
+}
+
+.telemetry-table {
+  border: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+.telemetry-row {
+  border-bottom: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+.telemetry-row:last-child {
+  border-bottom: none;
+}
 }
