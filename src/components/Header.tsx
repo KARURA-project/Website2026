@@ -1,146 +1,69 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
-import { HiMenu, HiX } from 'react-icons/hi';
 import Image from 'next/image';
-
-const navLinks = [
-  { label: 'About Us', href: '/about' },
-  { label: 'Members', href: '/members' },
-  { label: 'Rover', href: '/rover' },
-  { label: 'News', href: '/news' },
-  { label: 'Support', href: '/support' },
-];
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'unset';
-  }, [isMobileMenuOpen]);
+  const navLinks = [
+    { href: '/about', label: 'About' },
+    { href: '/rover', label: 'Rover' },
+    { href: '/members', label: 'Members' },
+    { href: '/news', label: 'News' },
+    { href: '/join', label: 'Join' },
+    { href: '/support', label: 'Support' },
+  ];
 
   return (
-    <>
-      <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
-        }`}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-      >
-        <nav className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <Link href="/" className="flex items-center hover:opacity-90 transition-opacity">
-              <span className="hidden sm:inline">
-                <Image
-                  src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-462x174_webp_eeddf8f4-d769-4e9a-968b-9f9551bda5d7.webp"
-                  alt="KARURA"
-                  width={150}
-                  height={40}
-                  priority
-                />
-              </span>
-              <span className="sm:hidden">
-                <Image
-                  src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-462x174_webp_eeddf8f4-d769-4e9a-968b-9f9551bda5d7.webp"
-                  alt="KARURA"
-                  width={120}
-                  height={32}
-                  priority
-                />
-              </span>
-            </Link>
+    <header className="fixed top-0 left-0 right-0 h-16 bg-[#FAFAFA]/90 backdrop-blur-md border-b border-[#0A0A0A]/8 z-50 transition-all duration-300">
+      <div className="max-w-[1400px] h-full mx-auto px-8 md:px-16 lg:px-20 xl:px-28 flex items-center justify-between">
+        
+        {/* KARURA LOGO ASSET HOME BUTTON */}
+        <Link 
+          href="/" 
+          className="flex items-center transition-opacity duration-200 hover:opacity-80"
+          aria-label="KARURA Home"
+        >
+          <Image 
+            src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-462x174_webp_eeddf8f4-d769-4e9a-968b-9f9551bda5d7.webp"
+            alt="KARURA Logo"
+            width={116} 
+            height={44}
+            priority
+            className="h-9 w-auto object-contain"
+          />
+        </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-16">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="group relative text-bluewood hover:text-mars-red transition-colors font-medium"
-                >
-                  {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-mars-red group-hover:w-full transition-all duration-300" />
-                </Link>
-              ))}
-
-              {/* Language toggle — links to /lang as a placeholder route */}
+        {/* DESKTOP NAVIGATION */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
               <Link
-                href="/lang"
-                className="px-6 py-2 border border-charcoal text-charcoal font-medium hover:border-mars-red hover:text-mars-red transition-colors duration-300 text-sm"
+                key={link.href}
+                href={link.href}
+                className={`font-display text-xs tracking-wider uppercase font-medium transition-colors duration-200 ${
+                  isActive ? 'text-[#E63946]' : 'text-[#0A0A0A]/60 hover:text-[#0A0A0A]'
+                }`}
               >
-                日本語 / EN
+                {link.label}
               </Link>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-bluewood hover:text-mars-red transition-colors p-2"
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? <HiX className="w-7 h-7" /> : <HiMenu className="w-7 h-7" />}
-            </button>
-          </div>
+            );
+          })}
         </nav>
-      </motion.header>
 
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            className="fixed inset-0 bg-white z-40 md:hidden"
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ duration: 0.3 }}
+        {/* MOBILE ACTION TRIGGER */}
+        <div className="md:hidden">
+          <Link
+            href="/join"
+            className="font-mono text-[10px] tracking-widest uppercase bg-[#0A0A0A] text-white px-4 py-2"
           >
-            <div className="flex flex-col items-center justify-center h-full space-y-8 px-6">
-              {navLinks.map((link, index) => (
-                <motion.div
-                  key={link.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Link
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-3xl font-bold text-bluewood hover:text-mars-red transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: navLinks.length * 0.1 }}
-              >
-                <Link
-                  href="/support"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="inline-block px-8 py-3 bg-mars-red text-white text-xl font-semibold hover:bg-deep-red transition-colors"
-                >
-                  Support Us
-                </Link>
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+            JOIN
+          </Link>
+        </div>
+      </div>
+    </header>
   );
 }

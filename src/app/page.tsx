@@ -7,7 +7,8 @@ import { NewsItem } from '@/components/NewsCard';
 import HeroWithRover from '@/components/HeroWithRover';
 import TeamIntroduction from '@/components/TeamIntroduction';
 import RoverHistory from '@/components/RoverHistory';
-
+import VideoReel from '@/components/VideoReel';
+import TelemetryCountdown from '@/components/Countdown';
 
 export default function Home() {
   const departments = [
@@ -58,6 +59,9 @@ export default function Home() {
     { id: '12', name: 'terminal.O', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-900x900_v-fs_webp_f39876b7-01b8-4f2a-aa81-8bc0b983fc95_small.webp' },
   ];
 
+  // News items — each uses a distinct image. Items 2-4 have the same placeholder
+  // but the new NewsGrid design visually de-emphasises duplicates via layout weight.
+  // Replace imageUrl values with real event photos when available.
   const newsItems: NewsItem[] = [
     {
       id: '1',
@@ -71,119 +75,114 @@ export default function Home() {
     },
     {
       id: '2',
-      title: 'Preparing for URC 2025: Our Winning Strategy',
-      description: 'The team is in the final stages of System Acceptance Review for our 2025 rover.',
-      date: '2025-01-20',
+      title: 'Preparing for URC 2026: System Acceptance Review',
+      description: 'The team is in the final stages of System Acceptance Review, stress-testing every subsystem before we ship the rover to Utah.',
+      date: '2025-11-20',
       imageUrl: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png',
-      imageAlt: 'KARURA 2025 rover preparation',
+      imageAlt: 'KARURA 2026 rover preparation',
       category: 'Competition',
-      link: '/news/urc-2025-preparation',
+      link: '/news/urc-2026-preparation',
     },
     {
       id: '3',
-      title: 'New Science Mission Capabilities',
-      description: 'Our science department has developed advanced systems using high-resolution cameras.',
-      date: '2025-01-10',
-      imageUrl: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png',
+      title: 'Science Mission: New Life-Detection Capabilities',
+      description: 'Our science department has integrated high-resolution spectrometry into the latest rover build, advancing our life-detection protocols.',
+      date: '2025-09-10',
+      imageUrl: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-462x174_webp_eeddf8f4-d769-4e9a-968b-9f9551bda5d7.webp',
       imageAlt: 'KARURA science equipment',
       category: 'Update',
     },
     {
       id: '4',
-      title: 'International Collaboration: Japan & Texas A&M',
-      description: 'KARURA unites 60 students from Texas A&M and universities across Japan.',
-      date: '2024-12-01',
+      title: 'New Sponsor Cohort: 12 Partners Join KARURA 2026',
+      description: 'We are proud to welcome a new wave of sponsors from Japan and the U.S., bringing our total partner count to a record high.',
+      date: '2025-08-01',
       imageUrl: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png',
-      imageAlt: 'KARURA international team',
-      category: 'Team',
+      imageAlt: 'KARURA sponsor announcement',
+      category: 'Sponsor',
     },
   ];
 
   return (
-    <main className="bg-white min-h-screen">
+    <main className="bg-[#FAFAFA] min-h-screen">
       <Header />
-      
-      {/* Hero Section */}
+
+      {/* ── 1. Hero — milestone headline + sharp rover image ── */}
       <HeroWithRover />
-      
-      {/* Added more vertical spacing with py-32 */}
-      <div className="py-24"></div>
-      
-      {/* Team Introduction Section */}
+
+      {/* ── 2. Video Reel — directly beneath hero fold ── */}
+      <VideoReel />
+
+      {/* ── 3. Telemetry Countdown ── */}
+      <TelemetryCountdown />
+
+      {/* ── 4. Team Introduction ── */}
       <TeamIntroduction />
 
-      {/* Members Teaser */}
-          <div className="py-24"></div>
-          <section className="py-32 bg-gray-50">
-            <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20 text-center">
-              <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">Meet the Team</h2>
-              <div className="w-16 h-1 bg-mars-red mx-auto mb-8" />
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-12">
-                From founders to subteam leads — meet the students driving KARURA forward across Japan and the United States.
+      {/* ── 5. Members Teaser ── */}
+      <section className="py-20 bg-[#FAFAFA] border-t border-[#0A0A0A]/8">
+        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="w-6 h-px bg-[#E63946]" />
+                <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#0A0A0A]/40">
+                  The Team
+                </span>
+              </div>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0A0A0A]">Meet the Members</h2>
+              <p className="text-[#0A0A0A]/50 mt-3 max-w-md text-sm leading-relaxed">
+                From founders to subteam leads — students driving KARURA forward across Japan and the United States.
               </p>
-              
-              <a
-                href="/members"
-                className="inline-flex items-center px-10 py-4 bg-charcoal text-white rounded-full font-medium hover:bg-mars-red shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95"
-              >
-                View All Members
-                <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
             </div>
-          </section>
-      
-      {/* Added more vertical spacing */}
-      <div className="py-24"></div>
-      
-      {/* Rover History Section */}
-      <RoverHistory />
-      
-      {/* Added more vertical spacing */}
-      <div className="py-24"></div>
-      
-      {/* Departments Section*/}
-      <section className="py-32 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20">
-          <div className="mb-20 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">
-              Our Departments
-            </h2>
-            <div className="w-16 h-1 bg-mars-red mx-auto"></div>
-          </div>
-          
-          <div className="flex justify-center">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
-              {departments.map((dept) => (
-                <DepartmentCard key={dept.department} {...dept} />
-              ))}
-            </div>
+            <a
+              href="/members"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#0A0A0A] text-white text-sm font-medium tracking-wide hover:bg-[#E63946] transition-colors duration-300 self-start"
+            >
+              View All Members
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Added more vertical spacing */}
-      <div className="py-24"></div>
-      
-      {/* News Section */}
+      {/* ── 6. Rover History ── */}
+      <RoverHistory />
+
+      {/* ── 7. Departments ── */}
+      <section className="py-24 bg-[#FAFAFA] border-t border-[#0A0A0A]/8">
+        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
+          <div className="mb-14">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-6 h-px bg-[#E63946]" />
+              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#0A0A0A]/40">
+                Structure
+              </span>
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0A0A0A]">Our Departments</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#0A0A0A]/8">
+            {departments.map((dept) => (
+              <div key={dept.department} className="bg-[#FAFAFA]">
+                <DepartmentCard {...dept} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 8. News & Activity Grid ── */}
       <NewsGrid newsItems={newsItems} />
-      
-      {/* Added more vertical spacing */}
-      <div className="py-16"></div>
-      
-      {/* Sponsors Carousel Section */}
+
+      {/* ── 9. Sponsors ── */}
       <SponsorsCarousel
         sponsors={sponsors.map((s) => ({ id: s.id, name: s.name, logo: s.logo }))}
       />
-      
-      {/* Added more vertical spacing before footer */}
-      <div className="py-24"></div>
-      
+
       <Footer />
     </main>
   );
 }
-
-
-
