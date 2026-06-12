@@ -32,17 +32,6 @@ export default function TransmissionPage({
       <section className="pb-24">
         <div className="max-w-[900px] mx-auto px-8">
 
-          <div className="flex flex-wrap gap-2 mb-8">
-            {transmission.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-2 border border-[#0A0A0A]/10 font-mono text-[10px] tracking-[0.15em] uppercase"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
           <article
             className="prose prose-neutral max-w-none"
             dangerouslySetInnerHTML={{

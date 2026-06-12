@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function VideoReel() {
   // YouTube embed ID — replace with KARURA's actual competition highlight reel
-  const YOUTUBE_ID = 'dQw4w9WgXcQ'; // placeholder — swap with real reel
+  const YOUTUBE_ID = 'MaB6N6yUZZI'; // updated reel ID
 
   return (
     <section className="bg-[#0A0A0A] py-0">

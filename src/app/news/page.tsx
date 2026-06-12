@@ -132,126 +132,119 @@ const filtered =
             </h2>
 
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="grid lg:grid-cols-[1.4fr_0.9fr] border border-[#0A0A0A]/10"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="grid lg:grid-cols-[1.4fr_0.9fr] border border-[#0A0A0A]/10 items-stretch"
+          >
+
+            {/* IMAGE */}
+            <Link
+              href={featured.link || '#'}
+              className="relative min-h-[520px] overflow-hidden group"
             >
+              <Image
+                src={featured.imageUrl}
+                alt={featured.imageAlt}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
 
-              {/* IMAGE */}
-              <Link
-                href={featured.link || '#'}
-                className="relative h-[420px] lg:h-[560px] overflow-hidden group"
-              >
-                <Image
-                  src={featured.imageUrl}
-                  alt={featured.imageAlt}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
+            </Link>
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
-              </Link>
+            {/* META */}
+            <div className="border-l border-[#0A0A0A]/10 p-8 lg:p-10 flex flex-col h-full">
 
-              {/* META */}
-              <div className="border-l border-[#0A0A0A]/10 p-8 lg:p-10 flex flex-col justify-between">
+              <div>
 
-                <div>
+                <div className="grid grid-cols-2 gap-x-8 gap-y-6 mb-10">
 
-                  <div className="grid grid-cols-2 gap-8 mb-10">
-
-                    <div>
-                      <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/35 mb-2">
-                        Date
-                      </div>
-
-                      <div className="font-mono text-xs">
-                        {new Date(featured.date).toLocaleDateString(
-                          'en-US',
-                          {
-                            year: 'numeric',
-                            month: '2-digit',
-                            day: '2-digit',
-                          }
-                        )}
-                      </div>
+                  <div>
+                    <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/35 mb-2">
+                      Date
                     </div>
 
-                    <div>
-                      <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/35 mb-2">
-                        Category
-                      </div>
-
-                      <div className="font-mono text-xs">
-                        {featured.category}
-                      </div>
+                    <div className="font-mono text-xs">
+                      {new Date(featured.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit',
+                      })}
                     </div>
-
-                    <div>
-                      <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/35 mb-2">
-                        Read Time
-                      </div>
-
-                      <div className="font-mono text-xs">
-                        5 MIN
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/35 mb-2">
-                        Status
-                      </div>
-
-                      <div className="font-mono text-xs">
-                        ARCHIVED
-                      </div>
-                    </div>
-
                   </div>
 
-                  <h3 className="font-display text-3xl font-bold leading-tight mb-6">
-                    {featured.title}
-                  </h3>
+                  <div>
+                    <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/35 mb-2">
+                      Category
+                    </div>
 
-                  <p className="text-sm leading-relaxed text-[#0A0A0A]/55 mb-6">
-                    {featured.description}
-                  </p>
+                    <div className="font-mono text-xs">
+                      {featured.category}
+                    </div>
+                  </div>
 
-                  <p className="text-sm leading-relaxed text-[#0A0A0A]/45">
-                    {featured.content}
-                  </p>
+                  <div>
+                    <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/35 mb-2">
+                      Read Time
+                    </div>
+
+                    <div className="font-mono text-xs">
+                      {featured.readTime ?? '5 MIN'}
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/35 mb-2">
+                      Status
+                    </div>
+
+                    <div className="font-mono text-xs">
+                      ARCHIVED
+                    </div>
+                  </div>
 
                 </div>
 
-                <div>
+                <h3 className="font-display text-3xl font-bold leading-tight mb-6">
+                  {featured.title}
+                </h3>
 
-                  <div className="flex flex-wrap gap-2 mb-8">
-
-                    {featured.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-2 border border-[#0A0A0A]/10 font-mono text-[10px] tracking-[0.15em] uppercase"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-
-                  </div>
-
-                  <Link
-                    href={featured.link || '#'}
-                    className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.18em] uppercase text-[#0A0A0A] hover:text-[#E63946] transition-colors group"
-                  >
-                    <span className="w-6 h-px bg-current transition-all group-hover:w-10" />
-
-                    Read Article
-                  </Link>
-
-                </div>
+                <p className="text-sm leading-relaxed text-[#0A0A0A]/55">
+                  {featured.description}
+                </p>
 
               </div>
 
-            </motion.div>
+              <div className="mt-auto pt-10">
+
+                <div className="flex flex-wrap gap-2 mb-8">
+
+                  {featured.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-2 border border-[#0A0A0A]/10 font-mono text-[10px] tracking-[0.15em] uppercase"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+
+                </div>
+
+                <Link
+                  href={featured.link || '#'}
+                  className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.18em] uppercase text-[#0A0A0A] hover:text-[#E63946] transition-colors group"
+                >
+                  <span className="w-6 h-px bg-current transition-all group-hover:w-10" />
+
+                  Read Article
+                </Link>
+
+              </div>
+
+            </div>
+
+          </motion.div>
 
           </div>
 

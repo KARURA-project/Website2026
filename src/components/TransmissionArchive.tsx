@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Transmission } from '@/data/transmissions';
+import { Transmission } from '../data/transmissions';
 
 export default function TransmissionArchive({ items }: { items: Transmission[] }) {
   return (
