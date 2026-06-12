@@ -23,9 +23,9 @@ const rovers = [
     image:
       'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png',
     params: [
-      { label: 'CONFIGURATION', value: '6-WHEEL DRIVE', unit: '' },
+      { label: 'CONFIGURATION', value: '4-WHEEL DRIVE', unit: '' },
       { label: 'SUSPENSION', value: 'ROCKER-BOGIE', unit: '' },
-      { label: 'DRIVE MOTORS', value: '6 × BRUSHLESS DC', unit: '' },
+      { label: 'DRIVE MOTORS', value: '4 × BRUSHLESS DC', unit: '' },
       { label: 'ARM DOF', value: '5', unit: 'degrees of freedom' },
       { label: 'LOCOMOTION', value: 'DIFFERENTIAL', unit: 'steering geometry' },
       { label: 'COMMS', value: '5.8 GHz', unit: 'RF + ROS2 bridge' },
@@ -145,8 +145,8 @@ const urcTasks = [
       'Navigate extreme terrain gradients and narrow passages to retrieve a cache object from a designated location and return it to base.',
     challenge: 'Maximum slope angles exceed 40°. Terrain designed to challenge all 6 wheels simultaneously.',
     systems: [
-      { label: 'SUSPENSION', value: 'ROCKER-BOGIE 6-WHEEL' },
-      { label: 'TRACTION', value: 'BRUSHLESS DC × 6 INDEPENDENT' },
+      { label: 'SUSPENSION', value: 'ROCKER-BOGIE 4-WHEEL' },
+      { label: 'TRACTION', value: 'BRUSHLESS DC × 4 INDEPENDENT' },
       { label: 'SLOPE LIMIT', value: 'DESIGN TARGET: 45°' },
       { label: 'TERRAIN TYPE', value: 'LOOSE SEDIMENT / ROCK FIELD' },
       { label: 'RETRIEVAL', value: '5-DOF ARM + CLOSED GRIPPER' },
