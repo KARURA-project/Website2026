@@ -24,7 +24,6 @@ export default function SponsorMarquee({ sponsors = [] }: SponsorMarqueeProps) {
   const [cardWidth, setCardWidth] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
 
-  // Normalize sponsors to have id and logo fields
   const normalized = sponsors.map((s, i) => ({
     id: s.id ?? `${i}`,
     name: s.name,
@@ -32,11 +31,9 @@ export default function SponsorMarquee({ sponsors = [] }: SponsorMarqueeProps) {
     websiteUrl: s.websiteUrl ?? '/support',
   }));
 
-  // Double for infinite loop
   const extendedSponsors = [...normalized, ...normalized];
   const sponsorsPerView = 6;
 
-  // Measure a single card's width on mount and resize
   useEffect(() => {
     const measure = () => {
       if (trackRef.current) {

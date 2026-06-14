@@ -18,7 +18,6 @@ export default function TransmissionHero({
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-6 h-px bg-[#E63946]" />
-
                 <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#0A0A0A]/40">
                   Mission Archive
                 </span>
@@ -39,7 +38,6 @@ export default function TransmissionHero({
                 <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30 mb-2">
                   Published
                 </div>
-
                 <div className="font-mono text-xs text-[#0A0A0A]/70">
                   {new Date(item.date).toLocaleDateString('en-US', {
                     year: 'numeric',
@@ -54,7 +52,6 @@ export default function TransmissionHero({
                   <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30 mb-2">
                     Read Time
                   </div>
-
                   <div className="font-mono text-xs text-[#0A0A0A]/70">
                     {item.readTime}
                   </div>
@@ -66,7 +63,6 @@ export default function TransmissionHero({
                   <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30 mb-2">
                     Campaign
                   </div>
-
                   <div className="font-mono text-xs text-[#0A0A0A]/70">
                     {item.campaign}
                   </div>
@@ -78,7 +74,6 @@ export default function TransmissionHero({
 
           {/* RIGHT PANEL */}
           <div className="relative border-l border-[#0A0A0A]/8 min-h-[420px]">
-
             <Image
               src={item.imageUrl}
               alt={item.imageAlt}
@@ -87,7 +82,6 @@ export default function TransmissionHero({
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 420px"
             />
-
           </div>
 
         </div>

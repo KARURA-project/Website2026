@@ -1,14 +1,11 @@
-import Header from '@/components/Header';
-import DepartmentCard from '@/components/DepartmentCard';
-import NewsGrid from '@/components/Newsgrid';
-import Footer from '@/components/Footer';
-import SponsorsCarousel from '@/components/SponsorsCarousel';
-import { NewsItem } from '@/components/NewsCard';
-import HeroWithRover from '@/components/HeroWithRover';
-import TeamIntroduction from '@/components/TeamIntroduction';
-import RoverHistory from '@/components/RoverHistory';
-import VideoReel from '@/components/VideoReel';
-import TelemetryCountdown from '@/components/Countdown';
+// src/app/page.tsx
+import Header from '@/components/layout/Header';
+import DepartmentCard from '@/components/members/DepartmentCard';
+import { HomeTransmissions } from '@/components/home';
+import Footer from '@/components/layout/Footer';
+import SponsorsCarousel from '@/components/sponsors/SponsorsCarousel';
+import { HeroWithRover, RoverHistory, VideoReel, TeamIntroduction, Countdown as TelemetryCountdown } from '@/components/home';
+import transmissions from '@/data/transmissions';
 
 export default function Home() {
   const departments = [
@@ -59,50 +56,6 @@ export default function Home() {
     { id: '12', name: 'terminal.O', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-900x900_v-fs_webp_f39876b7-01b8-4f2a-aa81-8bc0b983fc95_small.webp' },
   ];
 
-  // News items — each uses a distinct image. Items 2-4 have the same placeholder
-  // but the new NewsGrid design visually de-emphasises duplicates via layout weight.
-  // Replace imageUrl values with real event photos when available.
-  const newsItems: NewsItem[] = [
-    {
-      id: '1',
-      title: 'KARURA Makes History as First Japanese Team in URC Finals',
-      description: 'In 2024, we became the first international and Japanese team to reach the finals of the University Rover Challenge.',
-      date: '2024-06-15',
-      imageUrl: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-462x174_webp_eeddf8f4-d769-4e9a-968b-9f9551bda5d7.webp',
-      imageAlt: 'KARURA at URC Finals',
-      category: 'Achievement',
-      link: '/news/urc-finals-2024',
-    },
-    {
-      id: '2',
-      title: 'Preparing for URC 2026: System Acceptance Review',
-      description: 'The team is in the final stages of System Acceptance Review, stress-testing every subsystem before we ship the rover to Utah.',
-      date: '2025-11-20',
-      imageUrl: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png',
-      imageAlt: 'KARURA 2026 rover preparation',
-      category: 'Competition',
-      link: '/news/urc-2026-preparation',
-    },
-    {
-      id: '3',
-      title: 'Science Mission: New Life-Detection Capabilities',
-      description: 'Our science department has integrated high-resolution spectrometry into the latest rover build, advancing our life-detection protocols.',
-      date: '2025-09-10',
-      imageUrl: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-462x174_webp_eeddf8f4-d769-4e9a-968b-9f9551bda5d7.webp',
-      imageAlt: 'KARURA science equipment',
-      category: 'Update',
-    },
-    {
-      id: '4',
-      title: 'New Sponsor Cohort: 12 Partners Join KARURA 2026',
-      description: 'We are proud to welcome a new wave of sponsors from Japan and the U.S., bringing our total partner count to a record high.',
-      date: '2025-08-01',
-      imageUrl: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png',
-      imageAlt: 'KARURA sponsor announcement',
-      category: 'Sponsor',
-    },
-  ];
-
   return (
     <main className="bg-[#FAFAFA] min-h-screen">
       <Header />
@@ -135,6 +88,7 @@ export default function Home() {
                 From founders to subteam leads — students driving KARURA forward across Japan and the United States.
               </p>
             </div>
+            
             <a
               href="/members"
               className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#0A0A0A] text-white text-sm font-medium tracking-wide hover:bg-[#E63946] transition-colors duration-300 self-start"
@@ -174,8 +128,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 8. News & Activity Grid ── */}
-      <NewsGrid newsItems={newsItems} />
+      {/* ── 8. News & Transmissions — synced with news page style ── */}
+      <HomeTransmissions transmissions={transmissions} />
 
       {/* ── 9. Sponsors ── */}
       <SponsorsCarousel

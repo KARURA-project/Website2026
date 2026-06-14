@@ -7,13 +7,9 @@ import Link from 'next/link';
 export default function HeroWithRover() {
   return (
     <section className="relative min-h-screen bg-[#FAFAFA] overflow-hidden">
-      {/* Two-column split: left editorial text, right sharp hardware image */}
       <div className="relative z-10 min-h-screen grid lg:grid-cols-[1fr_45%] items-stretch">
 
-        {/* LEFT — Editorial text column */}
         <div className="flex flex-col justify-center px-8 md:px-16 lg:px-20 xl:px-28 pt-32 pb-20 lg:py-0">
-
-          {/* Classification label */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -26,7 +22,6 @@ export default function HeroWithRover() {
             </span>
           </motion.div>
 
-          {/* Main headline */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -38,7 +33,6 @@ export default function HeroWithRover() {
             <span className="text-[#E63946]">history.</span>
           </motion.h1>
 
-          {/* Sub-headline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -58,26 +52,6 @@ export default function HeroWithRover() {
             pushing the boundaries of Mars exploration technology together.
           </motion.p>
 
-          {/* Telemetry stats row */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45 }}
-            className="flex flex-wrap gap-8 mb-14 border-t border-[#0A0A0A]/10 pt-8"
-          >
-            {[
-              { value: '46+', label: 'Team Members' },
-              { value: '2', label: 'Countries' },
-              { value: '5', label: 'Departments' },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <div className="font-mono text-2xl font-bold text-[#0A0A0A]">{stat.value}</div>
-                <div className="font-mono text-[10px] tracking-[0.15em] uppercase text-[#0A0A0A]/40 mt-0.5">{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -102,7 +76,6 @@ export default function HeroWithRover() {
           </motion.div>
         </div>
 
-        {/* RIGHT — Hardware image, full bleed, no overlay */}
         <motion.div
           initial={{ opacity: 0, scale: 1.03 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -116,10 +89,7 @@ export default function HeroWithRover() {
             priority
             className="object-cover object-center"
           />
-          {/* Thin left-edge fade to white only */}
           <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#FAFAFA] to-transparent pointer-events-none" />
-
-          {/* Hardware classification overlay badge */}
           <div className="absolute bottom-8 left-8 right-8">
             <div className="bg-[#0A0A0A]/80 backdrop-blur-sm px-5 py-3 flex items-center justify-between">
               <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/60">
@@ -133,7 +103,6 @@ export default function HeroWithRover() {
         </motion.div>
       </div>
 
-      {/* Mobile image — below text on small screens */}
       <div className="lg:hidden relative h-72 mx-8 mb-16">
         <Image
           src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
