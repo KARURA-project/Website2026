@@ -1,14 +1,10 @@
 // src/app/page.tsx
 import Header from '@/components/Header';
 import DepartmentCard from '@/components/DepartmentCard';
-import HomeTransmissions from '@/components/HomeTransmissions';
+import { HomeTransmissions } from '@/components/home';
 import Footer from '@/components/Footer';
 import SponsorsCarousel from '@/components/SponsorsCarousel';
-import HeroWithRover from '@/components/HeroWithRover';
-import TeamIntroduction from '@/components/TeamIntroduction';
-import RoverHistory from '@/components/RoverHistory';
-import VideoReel from '@/components/VideoReel';
-import TelemetryCountdown from '@/components/Countdown';
+import { HeroWithRover, RoverHistory, VideoReel, TeamIntroduction, Countdown as TelemetryCountdown } from '@/components/home';
 import transmissions from '@/data/transmissions';
 
 export default function Home() {

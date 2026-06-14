@@ -1,4 +1,4 @@
-// src/components/HomeTransmissions.tsx
+// src/components/home/HomeTransmissions.tsx
 'use client';
 
 import { motion } from 'framer-motion';
