@@ -2,12 +2,12 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
-import TransmissionHero from '@/components/TransmissionHero';
-import TransmissionArchive from '@/components/TransmissionArchive';
+import TransmissionHero from '@/components/news/TransmissionHero';
+import TransmissionArchive from '@/components/news/TransmissionArchive';
 import transmissions from '@/data/transmissions';
 
 const categories = [

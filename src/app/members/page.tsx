@@ -1,10 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 import Link from 'next/link';
-import MemberCard from '@/components/MemberCard';
+import MemberCard from '@/components/members/MemberCard';
 
 // ─── Data — all TBD entries stripped, only real personnel ────────────────────
 

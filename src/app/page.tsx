@@ -1,9 +1,9 @@
 // src/app/page.tsx
-import Header from '@/components/Header';
-import DepartmentCard from '@/components/DepartmentCard';
+import Header from '@/components/layout/Header';
+import DepartmentCard from '@/components/members/DepartmentCard';
 import { HomeTransmissions } from '@/components/home';
-import Footer from '@/components/Footer';
-import SponsorsCarousel from '@/components/SponsorsCarousel';
+import Footer from '@/components/layout/Footer';
+import SponsorsCarousel from '@/components/sponsors/SponsorsCarousel';
 import { HeroWithRover, RoverHistory, VideoReel, TeamIntroduction, Countdown as TelemetryCountdown } from '@/components/home';
 import transmissions from '@/data/transmissions';
 

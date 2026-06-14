@@ -11,8 +11,12 @@ export default function TransmissionArchive({ items }: { items: Transmission[] }
               <h3 className="font-display font-bold text-lg mb-2">{it.title}</h3>
               <p className="text-sm text-[#0A0A0A]/60 mb-4">{it.description}</p>
               <div className="flex items-center justify-between">
-                <div className="font-mono text-xs text-[#0A0A0A]/40">{new Date(it.date).toLocaleDateString()}</div>
-                <Link href={`/news/${it.id}`} className="text-sm text-[#E63946] font-medium">Read</Link>
+                <div className="font-mono text-xs text-[#0A0A0A]/40">
+                  {new Date(it.date).toLocaleDateString()}
+                </div>
+                <Link href={`/news/${it.id}`} className="text-sm text-[#E63946] font-medium">
+                  Read
+                </Link>
               </div>
             </article>
           ))}
