@@ -9,29 +9,43 @@ import { orgStats } from '@/data/stats';
 import { generationTimeline } from '@/data/rovers';
 
 // ─── Data ───────────────────────────────────────────────────────────────────
-// Stats (orgStats) and program timeline (generationTimeline) now live in
-// src/data/stats.ts and src/data/rovers.ts — shared with the home page
-// and /rover. Only content unique to this page (universities, department
-// descriptions) stays local.
 
 const universities = [
+  // US first
+  { name: 'Texas A&M University', city: 'College Station, TX' },
+  { name: 'University of Texas at Austin', city: 'Austin, TX' },
+  { name: 'Georgia Institute of Technology', city: 'Atlanta, GA' },
+  { name: 'Mount Holyoke College', city: 'South Hadley, MA' },
   // Japan
-  { name: 'Waseda University', country: 'JP', city: 'Tokyo' },
-  { name: 'Hiroshima University', country: 'JP', city: 'Hiroshima' },
-  { name: 'Hosei University', country: 'JP', city: 'Tokyo' },
-  { name: 'Ritsumeikan University', country: 'JP', city: 'Kyoto' },
-  { name: 'Tokyo Metropolitan University', country: 'JP', city: 'Tokyo' },
-  { name: 'Tokyo University of Science', country: 'JP', city: 'Tokyo' },
-  { name: 'Shinshu University', country: 'JP', city: 'Nagano' },
-  { name: 'University of Tokyo', country: 'JP', city: 'Tokyo' },
-  { name: 'Kyoto University', country: 'JP', city: 'Kyoto' },
-  { name: 'Tohoku University', country: 'JP', city: 'Sendai' },
-  { name: 'Osaka University', country: 'JP', city: 'Osaka' },
-  { name: 'Keio University', country: 'JP', city: 'Tokyo' },
-  { name: 'Nagoya University', country: 'JP', city: 'Nagoya' },
-  { name: 'Kyushu University', country: 'JP', city: 'Fukuoka' },
-  // USA
-  { name: 'Texas A&M University', country: 'US', city: 'College Station, TX' },
+  { name: 'University of Tokyo', city: 'Tokyo' },
+  { name: 'Waseda University', city: 'Tokyo' },
+  { name: 'Tohoku University', city: 'Sendai' },
+  { name: 'Hiroshima University', city: 'Hiroshima' },
+  { name: 'Tokyo University of Science', city: 'Tokyo' },
+  { name: 'Osaka University', city: 'Osaka' },
+  { name: 'Kyoto University', city: 'Kyoto' },
+  { name: 'Keio University', city: 'Tokyo' },
+  { name: 'Nagoya University', city: 'Nagoya' },
+  { name: 'Kyushu University', city: 'Fukuoka' },
+  { name: 'Ritsumeikan University', city: 'Kyoto' },
+  { name: 'Hosei University', city: 'Tokyo' },
+  { name: 'Tokyo Metropolitan University', city: 'Tokyo' },
+  { name: 'Shinshu University', city: 'Nagano' },
+  { name: 'Okayama University', city: 'Okayama' },
+  { name: 'Nihon University', city: 'Tokyo' },
+  { name: 'Shibaura Institute of Technology', city: 'Tokyo' },
+  { name: 'Chuo University', city: 'Tokyo' },
+  { name: 'Takushoku University', city: 'Tokyo' },
+  { name: 'Kokugakuin University', city: 'Tokyo' },
+  { name: 'Juntendo University', city: 'Tokyo' },
+  { name: 'Musashino Art University', city: 'Tokyo' },
+  { name: 'University of Nagano', city: 'Nagano' },
+  { name: 'Tokyo University of Agriculture and Technology', city: 'Tokyo' },
+  { name: 'Nat. Inst. of Technology (KOSEN), Toyama College', city: 'Toyama' },
+  // Secondary / high school
+  { name: 'Aomori Kenoh-hoshi High School', city: 'Aomori' },
+  { name: 'Yokohama Science Frontier High School', city: 'Yokohama' },
+  { name: 'Metropolitan Musashi High School', city: 'Tokyo' },
 ];
 
 const departments = [
@@ -41,7 +55,7 @@ const departments = [
     title: 'Mechanical',
     scope: 'Chassis · Suspension · Drive Train · Robotic Arm',
     body: 'Structural and kinematic design of the rover frame, six-wheel drive system, rocker-bogie suspension, and multi-DOF manipulator arm for terrain traversal and sample collection.',
-    members: 12,
+    members: 32,
   },
   {
     id: 'electrical',
@@ -49,7 +63,7 @@ const departments = [
     title: 'Electrical',
     scope: 'Power · PCB Design · Motor Control · Sensors',
     body: 'Custom PCB design, power distribution architecture, brushless motor controllers, and sensor integration. Ensures system reliability under competition and environmental stress.',
-    members: 8,
+    members: 29,
   },
   {
     id: 'software',
@@ -57,7 +71,7 @@ const departments = [
     title: 'Software / Autonomy',
     scope: 'ROS2 · Navigation · Computer Vision · Telemetry',
     body: 'ROS2-based control stack, SLAM-driven autonomous navigation, computer vision for obstacle avoidance and task completion, and real-time telemetry UI.',
-    members: 15,
+    members: 24,
   },
   {
     id: 'science',
@@ -65,7 +79,7 @@ const departments = [
     title: 'Science',
     scope: 'Astrobiology · Life Detection · Sample Analysis',
     body: 'Designs and validates scientific protocols for detecting biosignatures and soil chemistry. Manages the onboard spectrometry and microscopy payload.',
-    members: 6,
+    members: 17,
   },
   {
     id: 'business',
@@ -73,7 +87,7 @@ const departments = [
     title: 'Business & Outreach',
     scope: 'Sponsorship · PR · Operations · Recruitment',
     body: 'Drives sponsorship acquisition, public communications, brand identity, and team logistics. Manages cross-cultural coordination between Japan and US nodes.',
-    members: 5,
+    members: 25,
   },
 ];
 
@@ -122,7 +136,7 @@ export default function AboutPage() {
             className="text-[#0A0A0A]/50 text-base leading-relaxed max-w-[460px]"
           >
             KARURA unites students from{' '}
-            <span className="text-[#0A0A0A]/80 font-medium">15+ universities</span> across Japan and the U.S. to build, test, and compete with a Mars rover, and to show that international engineering collaboration at the student level is both possible and world-class.
+            <span className="text-[#0A0A0A]/80 font-medium">30+ institutions</span> across Japan and the U.S. to build, test, and compete with a Mars rover, and to show that international engineering collaboration at the student level is both possible and world-class.
           </motion.p>
         </div>
 
@@ -253,7 +267,7 @@ export default function AboutPage() {
                 {
                   index: '03',
                   title: 'Academic Network Depth',
-                  body: '15+ partner institutions across Japan, from Waseda to Kyushu, giving KARURA unrivaled access to diverse engineering talent and research resources.',
+                  body: '30+ partner institutions across Japan and the U.S., giving KARURA unrivaled access to diverse engineering talent and research resources.',
                 },
               ].map((item) => (
                 <div key={item.index} className="px-0 sm:px-8 py-8 first:pl-0 last:pr-0">
@@ -268,7 +282,7 @@ export default function AboutPage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          UNIVERSITY NETWORK — Dense academic grid
+          ACADEMIC NETWORK — Single flat grid
       ══════════════════════════════════════════ */}
       <section className="py-24 lg:py-32 border-t border-[#0A0A0A]/8">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
@@ -282,95 +296,46 @@ export default function AboutPage() {
                 <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">Academic Network</span>
               </div>
               <h2 className="font-display text-2xl font-bold text-[#0A0A0A] leading-tight mb-6">
-                Partner<br />Universities
+                Partner<br />Institutions
               </h2>
               <p className="text-[#0A0A0A]/45 text-xs leading-relaxed mb-8 max-w-[220px]">
                 Students from these institutions form the engineering backbone of KARURA across all five departments.
               </p>
-              {/* Country breakdown */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between border-b border-[#0A0A0A]/8 pb-3">
                   <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-[#0A0A0A]/40">Japan</span>
-                  <span className="font-mono text-sm font-bold text-[#0A0A0A]">14</span>
+                  <span className="font-mono text-sm font-bold text-[#0A0A0A]">27</span>
                 </div>
                 <div className="flex items-center justify-between border-b border-[#0A0A0A]/8 pb-3">
                   <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-[#0A0A0A]/40">United States</span>
-                  <span className="font-mono text-sm font-bold text-[#0A0A0A]">1</span>
+                  <span className="font-mono text-sm font-bold text-[#0A0A0A]">4</span>
                 </div>
                 <div className="flex items-center justify-between pt-1">
                   <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-[#0A0A0A]/40">Total</span>
-                  <span className="font-mono text-sm font-bold text-[#E63946]">15+</span>
+                  <span className="font-mono text-sm font-bold text-[#E63946]">31</span>
                 </div>
               </div>
             </div>
 
-            {/* Right: dense grid of university cells */}
-            <div>
-              {/* Japan block */}
-              <div className="mb-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#0A0A0A]/30">Japan — JP</span>
-                  <span className="flex-1 h-px bg-[#0A0A0A]/8" />
-                  <span className="font-mono text-[9px] text-[#0A0A0A]/25">14 institutions</span>
-                </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-px bg-[#0A0A0A]/8">
-                  {universities
-                    .filter((u) => u.country === 'JP')
-                    .map((u, i) => (
-                      <motion.div
-                        key={u.name}
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.03 }}
-                        className="bg-[#FAFAFA] px-4 py-4 group hover:bg-[#0A0A0A] transition-colors duration-200"
-                      >
-                        <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-[#0A0A0A]/25 group-hover:text-white/25 mb-1.5 transition-colors">
-                          {u.city}
-                        </div>
-                        <div className="font-display text-xs font-semibold text-[#0A0A0A] group-hover:text-white leading-snug transition-colors">
-                          {u.name}
-                        </div>
-                      </motion.div>
-                    ))}
-                </div>
-              </div>
-
-              {/* USA block */}
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#0A0A0A]/30">United States — US</span>
-                  <span className="flex-1 h-px bg-[#0A0A0A]/8" />
-                  <span className="font-mono text-[9px] text-[#0A0A0A]/25">1 institution</span>
-                </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-px bg-[#0A0A0A]/8">
-                  {universities
-                    .filter((u) => u.country === 'US')
-                    .map((u, i) => (
-                      <motion.div
-                        key={u.name}
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.03 }}
-                        className="bg-[#FAFAFA] px-4 py-4 group hover:bg-[#0A0A0A] transition-colors duration-200"
-                      >
-                        <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-[#0A0A0A]/25 group-hover:text-white/25 mb-1.5 transition-colors">
-                          {u.city}
-                        </div>
-                        <div className="font-display text-xs font-semibold text-[#0A0A0A] group-hover:text-white leading-snug transition-colors">
-                          {u.name}
-                        </div>
-                      </motion.div>
-                    ))}
-                  {/* Filler "open" cell */}
-                  <div className="bg-[#F0F0F0] px-4 py-4 flex items-center justify-center col-span-1">
-                    <span className="font-mono text-[8px] tracking-[0.15em] uppercase text-[#0A0A0A]/20 text-center">
-                      More<br />2026
-                    </span>
+            {/* Right: single flat grid, Texas A&M first, no country dividers */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-px bg-[#0A0A0A]/8">
+              {universities.map((u, i) => (
+                <motion.div
+                  key={`${u.name}-${i}`}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.02 }}
+                  className="bg-[#FAFAFA] px-4 py-4 group hover:bg-[#0A0A0A] transition-colors duration-200"
+                >
+                  <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-[#0A0A0A]/25 group-hover:text-white/25 mb-1.5 transition-colors">
+                    {u.city}
                   </div>
-                </div>
-              </div>
+                  <div className="font-display text-xs font-semibold text-[#0A0A0A] group-hover:text-white leading-snug transition-colors">
+                    {u.name}
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
@@ -387,7 +352,7 @@ export default function AboutPage() {
             <div className="lg:pt-2">
               <div className="flex items-center gap-3 mb-3">
                 <span className="w-6 h-px bg-[#E63946]" />
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">History</span>
+                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">Schedule</span>
               </div>
               <h2 className="font-display text-2xl font-bold text-[#0A0A0A] leading-tight">
                 Program<br />Timeline
@@ -446,28 +411,21 @@ export default function AboutPage() {
             {departments.map((dept, i) => (
               <motion.div
                 key={dept.id}
-                id={dept.id}                        // ← anchor ID for smooth-scroll nav
+                id={dept.id}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.07 }}
                 className="grid md:grid-cols-[80px_200px_1fr_100px] gap-6 lg:gap-10 items-start py-8 scroll-mt-24"
               >
-                {/* Index */}
                 <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#0A0A0A]/25 pt-1">
                   {dept.index}
                 </div>
-
-                {/* Title + scope */}
                 <div>
                   <h3 className="font-display text-base font-bold text-[#0A0A0A] mb-1">{dept.title}</h3>
                   <p className="font-mono text-[9px] tracking-[0.1em] text-[#0A0A0A]/35 leading-relaxed">{dept.scope}</p>
                 </div>
-
-                {/* Body */}
                 <p className="text-[#0A0A0A]/50 text-sm leading-relaxed">{dept.body}</p>
-
-                {/* Member count */}
                 <div className="text-right">
                   <div className="font-mono text-xl font-bold text-[#0A0A0A]">{dept.members}</div>
                   <div className="font-mono text-[8px] tracking-[0.15em] uppercase text-[#0A0A0A]/25">members</div>
@@ -486,50 +444,6 @@ export default function AboutPage() {
                 {dept.title}
               </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════
-          CTA — Support / Contact
-      ══════════════════════════════════════════ */}
-      <section className="py-20 border-t border-[#0A0A0A]/8 bg-[#0A0A0A]">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
-
-          <div className="grid md:grid-cols-2 gap-12 items-end">
-            <div>
-              <div className="flex items-center gap-3 mb-5">
-                <span className="w-6 h-px bg-[#E63946]" />
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-white/25">Join the Mission</span>
-              </div>
-              <h2 className="font-display text-[clamp(1.8rem,4vw,3.2rem)] font-bold text-white leading-tight">
-                Build the future<br />of space exploration<br />with us.
-              </h2>
-            </div>
-
-            <div className="flex flex-col gap-4 md:items-start">
-              <p className="text-white/40 text-sm leading-relaxed max-w-sm">
-                Whether you're a student engineer, a potential sponsor, or a researcher, there's a place for you in KARURA's international network.
-              </p>
-              <div className="flex flex-wrap gap-3 mt-2">
-                <Link
-                  href="/support"
-                  className="inline-flex items-center gap-2 px-7 py-3 bg-[#E63946] text-white text-sm font-medium tracking-wide hover:bg-[#C1121F] transition-colors duration-200"
-                >
-                  Support KARURA
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-
-                <a
-                  href="mailto:zacharyrenkema@tamu.edu"
-                  className="inline-flex items-center gap-2 px-7 py-3 border border-white/15 text-white/60 text-sm font-medium hover:border-white/40 hover:text-white transition-colors duration-200"
-                >
-                  Contact Us
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </section>

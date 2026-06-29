@@ -12,7 +12,7 @@ export interface Stat {
 // - app/members/page.tsx        (subset: members, universities, departments, countries)
 export const orgStats: Stat[] = [
   { value: '100+', label: 'Active Members', sub: 'AY 2025–26' },
-  { value: '15+', label: 'Universities', sub: 'JP & US' },
+  { value: '30+', label: 'Universities', sub: 'JP & US' },
   { value: '5', label: 'Departments', sub: 'Full-stack org' },
   { value: '2', label: 'Countries', sub: 'Japan · USA' },
   { value: '4', label: 'Competition Cycles', sub: '2022–2027' },

@@ -13,19 +13,19 @@ export default function Home() {
       department: 'mechanical',
       title: 'Mechanical',
       description: 'Designing and fabricating the physical structure and mobility systems.',
-      members: 12,
+      members: 32,
     },
     {
       department: 'electrical',
       title: 'Electrical',
       description: 'Developing power distribution and electronic communication systems.',
-      members: 8,
+      members: 29,
     },
     {
       department: 'software',
       title: 'Software',
       description: 'Creating autonomous navigation and control algorithms.',
-      members: 15,
+      members: 24,
     },
   ];
 
@@ -34,13 +34,13 @@ export default function Home() {
       department: 'science',
       title: 'Science',
       description: 'Conducting research on astrobiology and life-detection protocols.',
-      members: 6,
+      members: 17,
     },
     {
       department: 'business',
       title: 'Business',
       description: 'Marketing, sponsorship, finance, and team engagement.',
-      members: 5,
+      members: 25,
     },
   ];
 

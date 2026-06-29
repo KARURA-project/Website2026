@@ -26,17 +26,17 @@ export interface Rover {
 
 export const rovers: Rover[] = [
   {
-    id: 'karura-3',
-    designation: 'KARURA III',
-    callsign: 'K-III',
-    year: 2024,
-    cycle: '2024 to 2026',
+    id: 'karura-4',
+    designation: 'KARURA IV',
+    callsign: 'K-IV',
+    year: 2027,
+    cycle: '2026 to 2027',
     status: 'ACTIVE BUILD',
     statusClass: 'text-[#E63946]',
     achievement: 'Historic URC Finals: first Japanese team',
     milestone: 'Historic URC Finals: first Japanese and international team',
     description:
-      'Third-generation competition platform built for the URC 2024 Finals. Features a fully autonomous navigation stack, 5-DOF manipulation arm, and modular science payload. Competed as the first international and first Japanese team to reach the URC Finals.',
+      'Fourth-generation competition platform built for the URC 2027 Finals. Features a fully autonomous navigation stack, 5-DOF manipulation arm, and modular science payload.',
     image:
       'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png',
     params: [
@@ -61,23 +61,22 @@ export const rovers: Rover[] = [
     ],
   },
   {
-    id: 'karura-2',
-    designation: 'KARURA II',
-    callsign: 'K-II',
-    year: 2023,
-    cycle: '2023 to 2024',
+    id: 'karura-3',
+    designation: 'KARURA III',
+    callsign: 'K-III',
+    year: 2026,
+    cycle: '2025 to 2026',
     status: 'RETIRED',
     statusClass: 'text-[#0A0A0A]/30',
     achievement: 'URC Qualifiers Success',
     milestone: 'URC System Acceptance Review: qualified',
     description:
-      'Second-generation build focused on reliability and mobility improvements following lessons from KARURA I. Introduced a dedicated electrical architecture with centralized CAN-bus communication and an upgraded 5-DOF arm.',
+      'Second-generation build focused on reliability and mobility improvements following lessons from KARURA II. Introduced a dedicated electrical architecture with centralized CAN-bus communication and an upgraded 5-DOF arm.',
     image:
       'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png',
     params: [
-      { label: 'CONFIGURATION', value: '6-WHEEL DRIVE', unit: '' },
-      { label: 'SUSPENSION', value: 'ROCKER-BOGIE', unit: '' },
-      { label: 'DRIVE MOTORS', value: '6 × BRUSHLESS DC', unit: '' },
+      { label: 'CONFIGURATION', value: '4-WHEEL DRIVE', unit: '' },
+      { label: 'DRIVE MOTORS', value: '4 × BRUSHLESS DC', unit: '' },
       { label: 'ARM DOF', value: '5', unit: 'degrees of freedom' },
       { label: 'COMMS', value: 'CAN-BUS', unit: 'centralized architecture' },
       { label: 'COMPUTE', value: 'RASPBERRY PI', unit: '+ co-processors' },
@@ -96,17 +95,17 @@ export const rovers: Rover[] = [
     ],
   },
   {
-    id: 'karura-1',
-    designation: 'KARURA I',
-    callsign: 'K-I',
-    year: 2022,
-    cycle: '2022 to 2023',
+    id: 'karura-2',
+    designation: 'KARURA II',
+    callsign: 'K-II',
+    year: 2025,
+    cycle: '2024 to 2025',
     status: 'ARCHIVED',
     statusClass: 'text-[#0A0A0A]/20',
     achievement: 'Team Formation & First Prototype',
     milestone: 'Program launch: first prototype complete',
     description:
-      "Founding prototype that established KARURA's core engineering framework and demonstrated the viability of the Japan–USA co-development model. Manual operation with basic sensing and a simple 3-DOF arm.",
+      "First prototype that established KARURA's core engineering framework and demonstrated the viability of the Japan–USA co-development model. Manual operation with basic sensing and a simple 3-DOF arm.",
     image:
       'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png',
     params: [
@@ -146,32 +145,32 @@ export interface GenerationMilestone {
 
 export const generationTimeline: GenerationMilestone[] = [
   {
-    year: '2022',
-    label: 'GEN 01',
-    designation: 'KARURA I',
-    note: 'Program launch. First cross-Pacific co-development. 3-DOF prototype arm. Manual RC operation.',
-    status: 'ARCHIVED',
+    year: 'Phase I',
+    label: 'Summer',
+    designation: 'Plan',
+    note: 'Define subsystem requirements, establish Hardware/Software models, and budgets',
+    status: 'In Progress',
   },
   {
-    year: '2023',
-    label: 'GEN 02',
-    designation: 'KARURA II',
-    note: 'CAN-bus electrical architecture. 5-DOF arm. GPS navigation. SAR qualification achieved.',
-    status: 'RETIRED',
+    year: 'Phase II',
+    label: 'Fall',
+    designation: 'Develop',
+    note: 'Machines mechanical components, manufactures custom PCBs, and writes autonomous navigation and control software to fully assemble the rover.',
+    status: 'TBD',
   },
   {
-    year: '2024',
-    label: 'GEN 03',
-    designation: 'KARURA III',
-    note: 'ROS2 stack. SLAM autonomy. URC Finals: a historic milestone. Full science payload integration.',
-    status: 'COMPETED',
+    year: 'Phase III',
+    label: 'Winter',
+    designation: 'Test',
+    note: 'Run hardware stress tests and field simulations to validate sensor feedback, debug software, and fix failure points before deployment.',
+    status: 'TBD',
   },
   {
-    year: '2026',
-    label: 'GEN 04',
-    designation: 'KARURA IV',
-    note: 'In active development. Upgraded autonomy, redesigned arm, next-gen science instruments.',
-    status: 'IN DEV',
+    year: 'Phase IV',
+    label: 'Spring',
+    designation: 'Compete',
+    note: 'Prepare for and pass technical inspections process, then operate and maintain the rover in international competitions.',
+    status: 'TBD',
   },
 ];
 

@@ -131,8 +131,8 @@ export default function RoverPage() {
             className="flex flex-wrap gap-6 border-t border-[#0A0A0A]/10 pt-8"
           >
             {[
-              { label: 'ACTIVE PLATFORM', value: 'KARURA III' },
-              { label: 'NEXT COMPETITION', value: 'URC 2026' },
+              { label: 'ACTIVE PLATFORM', value: 'KARURA VI' },
+              { label: 'NEXT COMPETITION', value: 'URC 2027' },
               { label: 'BUILD STATUS', value: 'IN PROGRESS' },
             ].map((item) => (
               <div key={item.label}>
@@ -164,7 +164,7 @@ export default function RoverPage() {
           <div className="absolute bottom-8 left-8 right-8">
             <div className="bg-[#0A0A0A]/80 backdrop-blur-sm px-5 py-3 flex items-center justify-between">
               <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/60">
-                KARURA: URC Finals 2024
+                KARURA: URC Finals 2026
               </span>
               <span className="font-mono text-[10px] text-[#E63946] tracking-wider">
                 FINALIST
@@ -282,7 +282,7 @@ export default function RoverPage() {
 
           <div className="flex items-center gap-3 mb-12">
             <span className="w-6 h-px bg-[#E63946]" />
-            <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">Program History</span>
+            <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">Program Timeline</span>
           </div>
 
           <div className="grid md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-[#0A0A0A]/8 border border-[#0A0A0A]/8">
@@ -455,44 +455,6 @@ export default function RoverPage() {
                   </div>
                 </motion.div>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════
-          CTA — Contact / Sponsors
-      ══════════════════════════════════════════ */}
-      <section className="border-b border-[#0A0A0A]/8 py-20">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
-          <div className="grid md:grid-cols-2 gap-12 items-end">
-            <div>
-              <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/25 mb-5">Technical Partnership</div>
-              <h2 className="font-display text-[clamp(1.6rem,3.5vw,2.8rem)] font-bold text-[#0A0A0A] leading-tight">
-                Partner with KARURA's<br />Engineering Program
-              </h2>
-            </div>
-            <div className="flex flex-col gap-4">
-              <p className="text-[#0A0A0A]/45 text-sm leading-relaxed max-w-sm">
-                Technical sponsors gain direct access to a cross-Pacific engineering team building competition-level hardware. Logo placement, SAR review access, and team presentations available.
-              </p>
-              <div className="flex flex-wrap gap-3 mt-2">
-                <Link
-                  href="/support"
-                  className="inline-flex items-center gap-2 px-7 py-3 bg-[#E63946] text-white text-sm font-medium tracking-wide hover:bg-[#C1121F] transition-colors duration-200"
-                >
-                  Become a Technical Sponsor
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-                <Link
-                  href="/about"
-                  className="inline-flex items-center gap-2 px-7 py-3 border border-[#0A0A0A]/15 text-[#0A0A0A]/60 text-sm font-medium hover:border-[#0A0A0A]/30 hover:text-[#0A0A0A] transition-colors duration-200"
-                >
-                  About the Team
-                </Link>
-              </div>
             </div>
           </div>
         </div>

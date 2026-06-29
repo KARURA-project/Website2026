@@ -20,7 +20,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-[#0A0A0A]/40 text-xs max-w-sm leading-relaxed font-mono">
-              Cross-Pacific Engineering Organization. Connecting 15+ technical cohorts across the world.
+              Cross-Pacific Engineering Organization. Connecting 30+ technical cohorts across the world.
             </p>
           </div>
 

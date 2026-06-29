@@ -507,42 +507,6 @@ export default function JoinPage() {
         </div>
       </section>
 
-      {/* FINAL SECTION */}
-      <section className="border-t border-[#0A0A0A]/8 py-24">
-
-        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
-
-          <div className="grid lg:grid-cols-[1fr_auto] gap-12 items-center">
-
-            <div>
-
-              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35 mb-4">
-                Engineering Momentum
-              </div>
-
-              <h2 className="font-display text-4xl md:text-5xl font-bold leading-tight max-w-3xl">
-                Build hardware that competes.
-                <br />
-                Join a team that scales globally.
-              </h2>
-
-            </div>
-
-            <a
-              href="https://forms.gle/karuraRecruitment2026"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-[#0A0A0A] px-8 py-4 font-mono text-[11px] tracking-[0.22em] uppercase hover:bg-[#0A0A0A] hover:text-white transition-colors duration-200"
-            >
-              Learn More
-            </a>
-
-          </div>
-
-        </div>
-
-      </section>
-
       <Footer />
 
     </main>
