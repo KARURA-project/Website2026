@@ -215,7 +215,7 @@ export default function AboutPage() {
               </div>
               <div>
                 <p className="text-[#0A0A0A]/55 text-sm leading-relaxed mb-5">
-                  Our mission is not limited to competition podiums. Every system we engineer, every student who joins from a new university, and every sponsor partnership we build moves the needle on international space collaboration as a practical, replicable model.
+                  Our mission is not limited to competition podiums. Every system we engineer, every student who joins from a new university, and every sponsor sponsorship we build moves the needle on international space collaboration as a practical, replicable model.
                 </p>
                 <p className="text-[#0A0A0A]/55 text-sm leading-relaxed">
                   KARURA connects Japanese engineering excellence with the American aerospace research ecosystem at Texas A&M, combining complementary perspectives to solve hard engineering problems.
@@ -267,7 +267,7 @@ export default function AboutPage() {
                 {
                   index: '03',
                   title: 'Academic Network Depth',
-                  body: '30+ partner institutions across Japan and the U.S., giving KARURA unrivaled access to diverse engineering talent and research resources.',
+                  body: '30+ institutions across Japan and the U.S., giving KARURA unrivaled access to diverse engineering talent and research resources.',
                 },
               ].map((item) => (
                 <div key={item.index} className="px-0 sm:px-8 py-8 first:pl-0 last:pr-0">
@@ -296,7 +296,7 @@ export default function AboutPage() {
                 <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">Academic Network</span>
               </div>
               <h2 className="font-display text-2xl font-bold text-[#0A0A0A] leading-tight mb-6">
-                Partner<br />Institutions
+                Institutions
               </h2>
               <p className="text-[#0A0A0A]/45 text-xs leading-relaxed mb-8 max-w-[220px]">
                 Students from these institutions form the engineering backbone of KARURA across all five departments.

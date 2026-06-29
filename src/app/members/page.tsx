@@ -11,21 +11,12 @@ import MemberCard from '@/components/members/MemberCard';
 const founders = [
   {
     name: 'Hirokuni Kakiuchi',
-    role: 'Co-Founder & US Project Manager',
+    role: 'Co-Founder',
     university: 'Texas A&M University',
     country: 'US' as const,
     node: 'College Station, TX',
     bio: 'Aerospace Engineering senior at Texas A&M University. Oversees all mechanical design, fabrication strategy, and the US operational node of KARURA.',
     scope: 'Mechanical · Program Direction · US Operations',
-  },
-  {
-    name: 'Kurena Tsuji',
-    role: 'Japan Project Manager',
-    university: 'Tokyo University of Science',
-    country: 'JP' as const,
-    node: 'Tokyo, Japan',
-    bio: 'Mechanical and Aerospace Engineering. Leads coordination between 14 Japanese partner universities and drives the international collaboration mission.',
-    scope: 'JP University Network · Cross-Pacific Coordination',
   },
   {
     name: 'Haruto Seto',
@@ -48,40 +39,40 @@ const departments = [
     memberCount: 32,
     members: [
       {
-        name: 'INSERT NAME HERE1',
-        role: 'Department Lead',
+        name: 'Ellie Person',
+        role: 'US Project Co-Manager & US Executive Director of Hardware',
         university: 'Texas A&M University',
         country: 'US' as const,
       },
       {
-        name: 'INSERT NAME HERE2',
-        role: 'Co-Lead, Systems',
-        university: 'Shinshu University',
-        country: 'JP' as const,
+        name: 'MJ Seelke',
+        role: 'Mechanical Arm Lead',
+        university: 'Texas A&M University',
+        country: 'US' as const,
       },
       {
-        name: 'INSERT NAME HERE3',
-        role: 'Chassis & Suspension',
-        university: 'Waseda University',
-        country: 'JP' as const,
+        name: 'JZ Zabolio',
+        role: 'Mechanical Arm Member',
+        university: 'Texas A&M University',
+        country: 'US' as const,
       },
       {
-        name: 'INSERT NAME HERE4',
-        role: 'Robotic Arm Design',
-        university: 'Tokyo Metropolitan University',
-        country: 'JP' as const,
+        name: 'Praharshini Nernuru',
+        role: 'Mechanical Arm Member',
+        university: 'Texas A&M University',
+        country: 'US' as const,
       },
       {
-        name: 'INSERT NAME HERE5',
-        role: 'Drive Train Integration',
-        university: 'Osaka University',
-        country: 'JP' as const,
+        name: 'Carter Boland',
+        role: 'CAD Specialist & Drone Manager',
+        university: 'Texas A&M University',
+        country: 'US' as const,
       },
       {
-        name: 'INSERT NAME HERE6',
-        role: 'Fabrication & Manufacturing',
-        university: 'Hiroshima University',
-        country: 'JP' as const,
+        name: 'Sean B',
+        role: 'Mechanical Mobility Member',
+        university: 'Texas A&M University',
+        country: 'US' as const,
       },
     ],
   },
@@ -93,79 +84,85 @@ const departments = [
     memberCount: 29,
     members: [
       {
-        name: 'INSERT NAME HERE7',
-        role: 'Department Lead',
-        university: 'Kyoto University',
-        country: 'JP' as const,
+        name: 'Nic Medina Deleon',
+        role: 'Executive Director of Electrical Systems',
+        university: 'Texas A&M University',
+        country: 'US' as const,
       },
       {
-        name: 'INSERT NAME HERE8',
-        role: 'PCB Design & Layout',
-        university: 'Tokyo University of Science',
-        country: 'JP' as const,
+        name: 'Atharva Agarwal',
+        role: 'Power Distribution Members',
+        university: 'Texas A&M University',
+        country: 'US' as const,
       },
       {
-        name: 'INSERT NAME HERE9',
-        role: 'Motor Controller Integration',
-        university: 'Tohoku University',
-        country: 'JP' as const,
+        name: 'Siddharth Rajasekaran',
+        role: 'Arm Embedded Systems Member',
+        university: 'Texas A&M University',
+        country: 'US' as const,
       },
       {
-        name: 'INSERT NAME HERE10',
-        role: 'Power Distribution',
-        university: 'Nagoya University',
-        country: 'JP' as const,
+        name: 'Pranav Kalaiselvan',
+        role: 'Arm Embedded Systems Member',
+        university: 'Texas A&M University',
+        country: 'US' as const,
       },
       {
-        name: 'INSERT NAME HERE11',
-        role: 'Sensor Systems',
-        university: 'Hosei University',
-        country: 'JP' as const,
+        name: 'Gavin Cervantez',
+        role: 'Science Embedded Systems Member',
+        university: 'Texas A&M University',
+        country: 'US' as const,
+      },
+      {
+        name: 'Anshi Ravula',
+        role: 'Science Embedded Systems Member',
+        university: 'Texas A&M University',
+        country: 'US' as const,
       },
     ],
   },
   {
     id: 'software',
     index: '03',
-    label: 'Autonomy & Software',
+    label: 'Software',
     scope: 'ROS2 · Navigation · Computer Vision · Telemetry GUI',
     memberCount: 24,
     members: [
       {
-        name: 'INSERT NAME HERE12',
-        role: 'Department Lead',
-        university: 'University of Tokyo',
-        country: 'JP' as const,
-      },
-      {
-        name: 'INSERT NAME HERE13',
-        role: 'SLAM & Localization',
-        university: 'Keio University',
-        country: 'JP' as const,
-      },
-      {
-        name: 'INSERT NAME HERE14',
-        role: 'Computer Vision',
-        university: 'Osaka University',
-        country: 'JP' as const,
-      },
-      {
-        name: 'INSERT NAME HERE15',
-        role: 'ROS2 Navigation Stack',
-        university: 'Ritsumeikan University',
-        country: 'JP' as const,
-      },
-      {
-        name: 'INSERT NAME HERE16',
-        role: 'Telemetry GUI & Integration',
+        name: 'Zachary Renkema',
+        role: 'Project Co-Manger & Executive Director of Software',
         university: 'Texas A&M University',
         country: 'US' as const,
       },
       {
-        name: 'INSERT NAME HERE17',
-        role: 'Path Planning',
-        university: 'Kyushu University',
-        country: 'JP' as const,
+        name: 'William Clymire',
+        role: 'Autonomous Navigation Lead',
+        university: 'Texas A&M University',
+        country: 'US' as const,
+      },
+      {
+        name: 'Ethan Do',
+        role: 'Control Station Lead & KARURA AI Lead',
+        university: 'Texas A&M University',
+        country: 'US' as const,
+      },
+      {
+        name: 'Ikaika Mendoza',
+        role: 'KARURA AI Member',
+        university: 'Texas A&M University',
+        country: 'US' as const,
+      },
+      {
+        name: 'Matthew Culver',
+        role: 'Communications Member',
+        university: 'Texas A&M University',
+        country: 'US' as const,
+      },
+      {
+        name: 'Oliver Hankins',
+        role: 'Control Station Member',
+        university: 'Texas A&M University',
+        country: 'US' as const,
       },
     ],
   },
@@ -177,28 +174,28 @@ const departments = [
     memberCount: 17,
     members: [
       {
-        name: 'INSERT NAME HERE18',
-        role: 'Department Lead',
-        university: 'University of Tokyo',
-        country: 'JP' as const,
+        name: 'Shakti Sridhar',
+        role: 'Director of Life Sciences',
+        university: 'Texas A&M University',
+        country: 'US' as const,
       },
       {
-        name: 'INSERT NAME HERE19',
-        role: 'Spectrometer Systems',
-        university: 'Tohoku University',
-        country: 'JP' as const,
+        name: 'Camille Cordell',
+        role: 'Flourescense Lead',
+        university: 'Texas A&M University',
+        country: 'US' as const,
       },
       {
-        name: 'INSERT NAME HERE20',
-        role: 'Sample Collection Protocol',
-        university: 'Waseda University',
-        country: 'JP' as const,
+        name: 'Alex Jonasz',
+        role: 'Geology Member',
+        university: 'Texas A&M University',
+        country: 'US' as const,
       },
       {
-        name: 'INSERT NAME HERE21',
-        role: 'Biosignature Research',
-        university: 'Nagoya University',
-        country: 'JP' as const,
+        name: 'Robb Gass',
+        role: 'Geology Member',
+        university: 'Texas A&M University',
+        country: 'US' as const,
       },
     ],
   },
@@ -210,26 +207,20 @@ const departments = [
     memberCount: 25,
     members: [
       {
-        name: 'INSERT NAME HERE22',
-        role: 'Department Lead',
-        university: 'Tokyo University of Science',
-        country: 'JP' as const,
+        name: 'Brady Wood',
+        role: 'Executive Director of Business Operations',
+        university: 'Texas A&M University',
+        country: 'US' as const,
       },
       {
-        name: 'INSERT NAME HERE23',
-        role: 'Corporate Partnerships',
-        university: 'Waseda University',
-        country: 'JP' as const,
+        name: 'Fareed Badamosi',
+        role: 'Finance Lead',
+        university: 'Texas A&M University',
+        country: 'US' as const,
       },
       {
-        name: 'INSERT NAME HERE24',
-        role: 'Public Communications',
-        university: 'Hosei University',
-        country: 'JP' as const,
-      },
-      {
-        name: 'INSERT NAME HERE25',
-        role: 'US Outreach & Recruitment',
+        name: 'Victoria Corral',
+        role: 'Marketing Lead',
         university: 'Texas A&M University',
         country: 'US' as const,
       },
@@ -238,7 +229,7 @@ const departments = [
 ];
 
 const stats = [
-  { value: '100+', label: 'Active Members', sub: 'AY 2025–26' },
+  { value: '100+', label: 'Active Members', sub: 'AY 2026–27' },
   { value: '30+', label: 'Universities', sub: 'JP & US' },
   { value: '5', label: 'Departments', sub: 'Full-stack org' },
   { value: '2', label: 'Countries', sub: 'Japan · USA' },
@@ -324,7 +315,7 @@ export default function MembersPage() {
                 </span>
               </div>
               <h2 className="font-display text-2xl font-bold text-[#0A0A0A] leading-tight">
-                Founders &<br />Directors
+                Founders
               </h2>
             </div>
             <p className="text-[#0A0A0A]/45 text-sm leading-relaxed self-end max-w-[540px]">
@@ -333,7 +324,7 @@ export default function MembersPage() {
           </div>
 
           {/* Founders in large asymmetric cells */}
-          <div className="grid lg:grid-cols-3 border-t border-l border-[#0A0A0A]/10">
+          <div className="grid lg:grid-cols-2 border-t border-l border-[#0A0A0A]/10">
             {founders.map((founder, i) => (
               <motion.div
                 key={founder.name}

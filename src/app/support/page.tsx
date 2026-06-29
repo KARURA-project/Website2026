@@ -8,108 +8,311 @@ import Image from 'next/image';
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
-const sponsorTiers = [
-  {
-    tier: 'Platinum',
-    slug: 'platinum',
-    amount: '$10,000+',
-    scale: 'lg', // large card
-    accent: 'border-[#0A0A0A]',
-    tagBg: 'bg-[#0A0A0A] text-[#FAFAFA]',
-    perks: [
-      { label: 'Rover Placement', value: 'Logo on rover chassis + arm' },
-      { label: 'Uniform Branding', value: 'All competition jerseys' },
-      { label: 'Annual Report', value: 'Full-page feature' },
-      { label: 'Speaking Slot', value: 'Team events + SAR review' },
-      { label: 'Website Priority', value: 'Homepage + support hero' },
-      { label: 'Social Campaign', value: 'Dedicated spotlight series' },
-      { label: 'Exclusive Demo', value: 'Live rover walkthrough' },
-    ],
-  },
-  {
-    tier: 'Gold',
-    slug: 'gold',
-    amount: '$5,000–$9,999',
-    scale: 'md',
-    accent: 'border-[#0A0A0A]/40',
-    tagBg: 'bg-[#0A0A0A]/8 text-[#0A0A0A]',
-    perks: [
-      { label: 'Rover Placement', value: 'Logo on rover chassis' },
-      { label: 'Annual Report', value: 'Half-page feature' },
-      { label: 'Website Listing', value: 'Sponsorship page' },
-      { label: 'Social Recognition', value: 'Partner posts + stories' },
-      { label: 'Team Q&A', value: 'Virtual engineering session' },
-    ],
-  },
-  {
-    tier: 'Silver',
-    slug: 'silver',
-    amount: '$1,000–$4,999',
-    scale: 'md',
-    accent: 'border-[#0A0A0A]/25',
-    tagBg: 'bg-[#0A0A0A]/5 text-[#0A0A0A]',
-    perks: [
-      { label: 'Uniform Branding', value: 'Logo on team uniforms' },
-      { label: 'Annual Report', value: 'Sponsor mention' },
-      { label: 'Website Listing', value: 'Sponsors section' },
-      { label: 'Social Recognition', value: 'Thank-you post' },
-    ],
-  },
-  {
-    tier: 'Bronze',
-    slug: 'bronze',
-    amount: '$500–$999',
-    scale: 'sm',
-    accent: 'border-[#0A0A0A]/15',
-    tagBg: 'bg-[#0A0A0A]/4 text-[#0A0A0A]/70',
-    perks: [
-      { label: 'Website Listing', value: 'Name + logo' },
-      { label: 'Social Recognition', value: 'Digital acknowledgment' },
-      { label: 'Annual Report', value: 'Acknowledgment section' },
-    ],
-  },
-];
-
 const currentSponsors = [
-  { id: '1', name: 'Sanso', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2400x740_v-frms_webp_47ab9e3a-894f-4fa5-ae7e-e04e6f6ff0a7_small.webp' },
-  { id: '2', name: 'Kikusui', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-738x150_v-fs_webp_35ab6be7-00ff-45b5-b575-6589198d4233_small.webp' },
-  { id: '3', name: 'Tenchijin', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1482x370_v-fms_webp_392f814c-2b0f-4bfa-9b98-a4c136832d54_small.webp' },
-  { id: '4', name: 'Crecia', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2400x900_v-frms_webp_e4afed17-bd2a-46bb-bc4d-ac6e68d37be9_small.webp' },
-  { id: '5', name: 'Hiwin', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-738x150_v-fs_webp_a7752d8d-06eb-465b-bcac-89b642aeef58_small.webp' },
-  { id: '6', name: 'Spacegoods', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-800x209_v-fs_webp_5abd98f2-f13a-48f4-924d-29d9c0312265_small.webp' },
-  { id: '7', name: 'OptoSigma', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1812x452_v-frms_webp_db352a0c-c6d2-4509-9518-9d34e1c6636a_small.webp' },
-  { id: '8', name: 'Amulapo', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-666x140_v-fs_webp_c2904793-5b05-4517-8245-9c3657d440e2_small.webp' },
-  { id: '9', name: 'Argo', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1088x228_v-fs_webp_68261acd-1c79-40e8-8a5c-2d016f970f3b_small.webp' },
-  { id: '10', name: 'Gutenberg', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1540x146_v-fms_webp_aa43e6b3-9a3b-4b50-8c88-5390ab14c413_small.webp' },
-  { id: '11', name: 'Innovation City', logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1188x568_v-fs_webp_9ed63bcb-6917-4760-9158-4461e22c4ae4_small.webp' },
+  {
+    id: '1',
+    name: 'Sanso',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2400x740_v-frms_webp_47ab9e3a-894f-4fa5-ae7e-e04e6f6ff0a7_small.webp',
+    url: 'https://www.sanso.co.jp',           // ← replace with actual URL
+  },
+  {
+    id: '2',
+    name: 'Kikusui',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-738x150_v-fs_webp_35ab6be7-00ff-45b5-b575-6589198d4233_small.webp',
+    url: 'https://www.kikusui.co.jp',
+  },
+    {
+    id: '3',
+    name: 'Gutenberg',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1540x146_v-fms_webp_aa43e6b3-9a3b-4b50-8c88-5390ab14c413_small.webp',
+    url: 'https://gutenberg.co.jp',        // ← replace with actual URL
+  },
+  {
+    id: '4',
+    name: 'Thor Labs',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-295x50_webp_be9895b1-b65e-402e-9bb0-240a65478fca.png',
+    url: 'https://www.thorlabs.com/',
+  },
+  {
+    id: '5',
+    name: 'rd-stuff',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-258x58_webp_24894403-8386-407c-9d6d-ef5b9594dc47.jpg',
+    url: 'https://www.rd-stuff.com/',
+  },
+  {
+    id: '6',
+    name: 'Yoshida',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-584x365_webp_52b3622e-bbc4-4f49-b4e4-50b5b1acb0f8.jpg',
+    url: 'https://yoshidanet.com/',
+  },
+  {
+    id: '7',
+    name: 'Sunhayato',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1290x210_v-fms_webp_9decbc0e-4bd0-4a93-9aa0-71eaa5db8cfa.png',
+    url: 'https://www.sunhayato.co.jp/',
+  },
+  {
+    id: '8',
+    name: 'Hiwin',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-738x150_v-fs_webp_a7752d8d-06eb-465b-bcac-89b642aeef58.png',
+    url: 'https://www.hiwin.co.jp/',
+  },
+  {
+    id: '9',
+    name: 'Argo',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1602x500_v-fms_webp_37610fe1-46c9-438c-b91c-1004de53bc83.jpg',
+    url: 'https://www.argocorp.com/',
+  },
+  {
+    id: '10',
+    name: 'Tenchijin',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1482x370_v-fms_webp_392f814c-2b0f-4bfa-9b98-a4c136832d54.png',
+    url: 'https://tenchijin.co.jp/?hl=ja',             // ← replace with actual URL
+  },
+  {
+    id: '11',
+    name: 'Crecia',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2400x900_v-frms_webp_e4afed17-bd2a-46bb-bc4d-ac6e68d37be9.png',
+    url: 'https://pro.crecia.co.jp/',      // ← replace with actual URL
+  },
+    {
+    id: '12',
+    name: 'Daico',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3200x1000_v-frms_webp_7fe4f299-a096-4575-ac41-7a20efddc9ca.jpg',
+    url: 'https://www.daico.co.jp/',      // ← replace with actual URL
+  },
+    {
+    id: '13',
+    name: 'Igus',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2279x1182_v-frms_webp_6c74e893-da00-41e0-9e2f-bf2c784d07cf.jpg',
+    url: 'https://www.igus.co.jp/',      // ← replace with actual URL
+  },
+    {
+    id: '14',
+    name: 'Spacegoods',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-800x209_v-fs_webp_5abd98f2-f13a-48f4-924d-29d9c0312265.jpg',
+    url: 'https://spacegoods.net/',      // ← replace with actual URL
+  },
+    {
+    id: '15',
+    name: 'OptoSigma',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2048x512_v-frms_webp_553eb8dc-01cd-4074-80e0-ea1b8a0853f7.png',
+    url: 'https://www.sigma-koki.com/',      // ← replace with actual URL
+  },
+    {
+    id: '16',
+    name: 'EMDgroup',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1632x306_v-fms_webp_f59ffa9a-87d1-4a09-82ab-a8135b4d55a4.png',
+    url: 'https://www.emdgroup.com/en/',           // ← replace with actual URL
+  },
+  {
+    id: '17',
+    name: 'Ni',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-175x132_webp_da483921-1bf0-406f-b34b-fbf224087591.jpg',
+    url: 'https://www.ni.com/en.html',
+  },
+    {
+    id: '18',
+    name: 'Aerodiode',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-841x595_v-fs_webp_d5e15445-4abb-487c-b0b9-b88e7d251d0c.png',
+    url: 'https://www.aerodiode.com/',        // ← replace with actual URL
+  },
+  {
+    id: '19',
+    name: 'IDDK',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-850x850_v-fs_webp_e3e4575e-1057-4143-a29e-bde7a9ff5ea1.png',
+    url: 'https://iddk.co.jp/app-def/S-102/iddk_wp/',
+  },
+  {
+    id: '20',
+    name: 'JA Pritech',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-610x97_v-fs_webp_a7dc40a6-bc2c-4fc2-a92b-03664e173b72.png',
+    url: 'http://www.japritech.co.jp/',
+  },
+  {
+    id: '21',
+    name: 'Maimanelectronics',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1240x315_v-fms_webp_2e90833f-321b-422a-bd35-fdc71833dbe1.png',
+    url: 'https://www.maimanelectronics.com/',
+  },
+  {
+    id: '22',
+    name: 'Makita',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-591x197_webp_4a09a182-0ac1-498b-b287-61b17fa44b41.jpg',
+    url: 'https://www.makita.co.jp/',
+  },
+  {
+    id: '23',
+    name: 'Haneda Innovation City',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1188x568_v-fs_webp_9ed63bcb-6917-4760-9158-4461e22c4ae4.png',
+    url: 'https://haneda-innovation-city.com/',
+  },
+  {
+    id: '24',
+    name: 'Terminal 0',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-900x900_v-fs_webp_f39876b7-01b8-4f2a-aa81-8bc0b983fc95.jpg',
+    url: 'https://www.tokyo-airport-bldg.co.jp/terminal0/',
+  },
+  {
+    id: '25',
+    name: 'Hull Precision Instrument',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2400x1354_v-frms_webp_43068a6f-92c5-44d7-ba69-3453867f0c6b.png',
+    url: 'https://hullprecisioninstrument.com/',             // ← replace with actual URL
+  },
+  {
+    id: '26',
+    name: 'Amulapo',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-666x140_v-fs_webp_c2904793-5b05-4517-8245-9c3657d440e2.png',
+    url: 'https://www.amulapo-inc.com/',      // ← replace with actual URL
+  },
+    {
+    id: '27',
+    name: 'Hanpu',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-967x300_v-fs_webp_438232d1-0256-4f1f-8401-f83b5fafbea8.jpg',
+    url: 'https://hanpu.jp/',      // ← replace with actual URL
+  },
+    {
+    id: '28',
+    name: 'Sinsyo',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2154x236_v-frms_webp_316f9c06-5ada-4498-8776-b0159edc490d.jpg',
+    url: 'https://sinsyo-kk.co.jp/',      // ← replace with actual URL
+  },
+    {
+    id: '29',
+    name: 'Sugino',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2400x346_v-frms_webp_98a4e4ad-e8a8-4764-a861-b471d0281352.png',
+    url: 'https://www.sugino.com/',      // ← replace with actual URL
+  },
+    {
+    id: '30',
+    name: 'Task-Inc',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2103x855_v-frms_webp_fe6d0445-7cce-4fc3-9d9d-96b9e683d51c.jpg',
+    url: 'https://task-inc.tech/',      // ← replace with actual URL
+  },
+    {
+    id: '31',
+    name: 'Nikkan',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-850x108_v-fs_webp_0765e15f-61ca-47e4-b38f-8eb37689c551.png',
+    url: 'https://corp.nikkan.co.jp/',           // ← replace with actual URL
+  },
+  {
+    id: '32',
+    name: 'Shinsu University',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-594x420_webp_13670535-e5d8-4813-9b82-346ff9d348f5.jpg',
+    url: 'https://www.shinshu-u.ac.jp/',
+  },
+    {
+    id: '33',
+    name: 'Toyama College',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-334x61_webp_716ef7e6-a45a-4d90-a695-c99cd429b4e7.png',
+    url: 'https://www.nc-toyama.ac.jp/',        // ← replace with actual URL
+  },
+  {
+    id: '34',
+    name: 'Wakasatokai Shinsu University Engineering Alumni',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2400x614_v-frms_webp_c860e2b5-c352-4469-a960-4785968e3e98.png',
+    url: 'https://wakasatokai.jp/official/',
+  },
+  {
+    id: '35',
+    name: 'UchuBiz',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1500x279_v-fms_webp_de41bd6a-1dcc-4c1d-a96a-fb8c634fd8ab.png',
+    url: 'https://uchubiz.com/',
+  },
+  {
+    id: '36',
+    name: 'Sorae',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1920x480_v-frms_webp_601e4f16-3eb2-442b-b8b4-2a64277b460c.png',
+    url: 'https://sorae.info/',
+  },
+  {
+    id: '37',
+    name: '佐々木亮の宇宙ばなし',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2009x460_v-frms_webp_2f46553c-1401-4a5a-b120-312a267561b0.png',
+    url: 'https://podcasts.apple.com/jp/podcast/%E4%BD%90%E3%80%85%E6%9C%A8%E4%BA%AE%E3%81%AE%E5%AE%87%E5%AE%99%E3%81%B0%E3%81%AA%E3%81%97/id1530818711',
+  },
+  {
+    id: '38',
+    name: 'Spacemedia',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2400x715_v-frms_webp_fa8c543d-fa10-4945-90fd-d741124f764d.png',
+    url: 'https://spacemedia.jp/',
+  },
+  {
+    id: '39',
+    name: 'Space Development Forum',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1425x595_v-fms_webp_ac9fdcb5-0676-4897-a792-980a765faf30.png',
+    url: 'https://www.sdfec.org/',
+  },
+  {
+    id: '40',
+    name: 'ASE-Lab',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1367x646_v-fms_webp_1fa915d6-1c48-4ed1-a601-4526eac61692.png',
+    url: 'https://www.ase-lab.space/',             // ← replace with actual URL
+  },
+  {
+    id: '41',
+    name: 'Innovation City',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-256x256_webp_fda42e6f-6d4a-4682-a1c4-866a5028a965.jpg',
+    url: 'https://innovationcity.jp',      // ← replace with actual URL
+  },
+  {
+    id: '42',
+    name: 'Lyncs',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1188x568_v-fs_webp_9ed63bcb-6917-4760-9158-4461e22c4ae4_small.webp',
+    url: 'https://lyncs-keio.net/',      // ← replace with actual URL
+  },
+  {
+    id: '43',
+    name: 'TohokuSpaceElevato',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2400x1697_v-frms_webp_39fe14e6-8f7b-45ad-be8a-a4e7dc79fe0b.png',
+    url: 'https://tohokuspaceelevato.wixsite.com/mysite',      // ← replace with actual URL
+  },
+  {
+    id: '44',
+    name: 'Lift',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1020x1008_v-fs_webp_12e15f05-1cce-4a0c-807d-fa3dfcccf844.png',
+    url: 'https://x.com/lift_select',      // ← replace with actual URL
+  },
+  {
+    id: '45',
+    name: 'TelStar',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2118x772_v-frms_webp_08f97322-7734-40c9-81a3-5a18da2465b0.jpg',
+    url: 'https://spacemgz-telstar.com/',      // ← replace with actual URL
+  },
+  {
+    id: '46',
+    name: 'FSIF',
+    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2048x2048_v-frms_webp_04afcf22-41a7-468c-8e61-966fa996210d.jpg',
+    url: 'https://fsifofficial.wixsite.com/future-space-industr',      // ← replace with actual URL
+  },
 ];
 
 const testimonials = [
   {
     quote: 'OptoSigma provided the precision optical sensors that enabled our autonomous navigation stack at URC. Their engineering traveled to the desert with us.',
     company: 'OptoSigma',
-    role: 'Optics / Navigation Partner',
+    role: 'Optics / Navigation Sponsor',
     result: 'Stereo depth perception system enabling sub-5cm obstacle detection at 2 m/s traverse speed.',
   },
   {
     quote: 'Hiwin\'s linear actuators gave our robotic arm the positional accuracy we needed to pass the equipment servicing task at Finals. Off-the-shelf parts, competition-grade performance.',
     company: 'Hiwin',
-    role: 'Motion Control Partner',
+    role: 'Motion Control Sponsor',
     result: 'Sub-millimeter joint repeatability across 5 DOF under field conditions in the Utah desert.',
   },
   {
     quote: 'Kikusui\'s power supply units powered the entire test bench for KARURA III\'s electrical validation. When we shipped to Hanksville, our power architecture was battle-tested.',
     company: 'Kikusui',
-    role: 'Power Systems Partner',
+    role: 'Power Systems Sponsor',
     result: 'Zero electrical failures during the 4-day competition. Full power subsystem validation achieved pre-deployment.',
   },
 ];
 
 const impactMetrics = [
   { value: '$180K+', label: 'Hardware Funded', sub: 'across all generations' },
-  { value: '11', label: 'Active Partners', sub: 'AY 2025–26' },
+  { value: '11', label: 'Active Sponsors', sub: '2026–27' },
   { value: '1st', label: 'International Finalists', sub: 'URC history' },
-  { value: '2026', label: 'Next Competition', sub: 'Hanksville, Utah' },
+  { value: '2027', label: 'Next Competition', sub: 'Tottori, Japan' },
 ];
 
 // ─── Component ───────────────────────────────────────────────────────────────
@@ -119,7 +322,6 @@ export default function SupportPage() {
     name: '',
     email: '',
     organization: '',
-    tier: '',
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
@@ -144,7 +346,6 @@ export default function SupportPage() {
       ══════════════════════════════════════════ */}
       <section className="relative min-h-[80vh] grid lg:grid-cols-[1fr_42%] overflow-hidden">
 
-        {/* Left: text column */}
         <div className="flex flex-col justify-end px-8 md:px-16 lg:px-20 xl:px-28 pt-36 pb-16 lg:pb-20">
 
           <motion.div
@@ -155,7 +356,7 @@ export default function SupportPage() {
           >
             <span className="w-6 h-px bg-[#E63946]" />
             <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
-              Corporate Partnership / 2025–26
+              Sponsorship / 2026–27
             </span>
           </motion.div>
 
@@ -165,9 +366,8 @@ export default function SupportPage() {
             transition={{ duration: 0.7, delay: 0.08 }}
             className="font-display text-[clamp(2.8rem,5.5vw,5rem)] font-bold leading-[0.93] tracking-tight text-[#0A0A0A] mb-6"
           >
-            Fund the hardware<br />
-            going to<br />
-            <span className="text-[#E63946]">Utah.</span>
+            We don't do<br />
+            <span className="text-[#E63946]">Tier Tables.</span>
           </motion.h1>
 
           <motion.p
@@ -176,10 +376,10 @@ export default function SupportPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-[#0A0A0A]/55 text-base leading-relaxed max-w-[480px] mb-10"
           >
-            In 2024, KARURA became the first Japanese and international team in URC history to reach the Finals. Your corporate partnership directly funds the physical hardware heading to the Utah desert in 2026.
+            Each sponsorship opportunity is developed on a case-by-case basis, ensuring that every collaboration aligns with your organization's objectives, audience, and desired impact. We work closely with partners to create meaningful opportunities that deliver value for both your brand and our mission.
           </motion.p>
 
-          {/* Key stats strip */}
+          {/* Impact metrics strip */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -196,7 +396,7 @@ export default function SupportPage() {
           </motion.div>
         </div>
 
-        {/* Right: rover image, full-bleed */}
+        {/* Right: rover image */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -205,17 +405,16 @@ export default function SupportPage() {
         >
           <Image
             src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
-            alt="KARURA Rover URC Finals hardware"
+            alt="KARURA Rover — URC Finals hardware"
             fill
             priority
             className="object-cover object-center"
           />
           <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#FAFAFA] to-transparent pointer-events-none" />
-          {/* Classification badge */}
           <div className="absolute bottom-8 left-8 right-8">
             <div className="bg-[#0A0A0A]/80 backdrop-blur-sm px-5 py-3 flex items-center justify-between">
               <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/60">
-                KARURA III: URC Finals 2024
+                KARURA III — URC Finals 2024
               </span>
               <span className="font-mono text-[10px] text-[#E63946] tracking-wider flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#E63946] animate-pulse inline-block" />
@@ -227,42 +426,117 @@ export default function SupportPage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          PARTNER LOGO MARQUEE — Pure CSS, no JS
+          CONTACT NOTE — First element post-hero
       ══════════════════════════════════════════ */}
-      <div className="border-y border-[#0A0A0A]/8">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28 py-6">
-          <span className="font-mono text-[9px] tracking-[0.22em] uppercase text-[#0A0A0A]/25">
-            Current Partners
-          </span>
-        </div>
-        <div className="overflow-hidden border-t border-[#0A0A0A]/8">
-          <div
-            className="flex w-max"
-            style={{ animation: 'marquee 28s linear infinite' }}
-            onMouseEnter={(e) => (e.currentTarget.style.animationPlayState = 'paused')}
-            onMouseLeave={(e) => (e.currentTarget.style.animationPlayState = 'running')}
-          >
-            {[...currentSponsors, ...currentSponsors].map((sponsor, index) => (
-              <div
-                key={`${sponsor.id}-${index}`}
-                className="flex-shrink-0 w-44 h-16 border-r border-[#0A0A0A]/8 flex items-center justify-center px-6"
-              >
-                <div className="relative w-full h-8">
-                  <Image
-                    src={sponsor.logo}
-                    alt={sponsor.name}
-                    fill
-                    className="object-contain grayscale opacity-40 hover:opacity-70 hover:grayscale-0 transition-all duration-300"
-                  />
-                </div>
+      <section className="border-y border-[#0A0A0A]/8 bg-[#0A0A0A]">
+        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
+          <div className="grid lg:grid-cols-[1fr_1fr] divide-y lg:divide-y-0 lg:divide-x divide-white/8">
+
+            <div className="py-12 lg:pr-16">
+              <div className="flex items-center gap-3 mb-5">
+                <span className="w-6 h-px bg-[#E63946]" />
+                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-white/30">
+                  Direct Contact
+                </span>
               </div>
-            ))}
+              <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-[440px]">
+                Our business team responds to all inquiries within 48 hours. Every sponsorship is scoped individually around your organization's goals.
+              </p>
+              <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-white/20 mb-2">
+                Business Lead
+              </div>
+              <a
+                href="mailto:Karura.urc.us@gmail.com"
+                className="font-display text-lg font-bold text-white hover:text-[#E63946] transition-colors duration-200"
+              >
+                Karura.urc.us@gmail.com
+              </a>
+              <div className="font-mono text-[9px] text-white/25 mt-1">
+                Brady Wood — Business Lead, KARURA Project
+              </div>
+            </div>
+
+            <div className="py-12 lg:pl-16 flex flex-col justify-center">
+              <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-white/20 mb-6">
+                Sponsorship Scope
+              </div>
+              <div className="space-y-3">
+                {[
+                  'Hardware & component funding',
+                  'In-kind material contributions',
+                  'Engineering mentorship hours',
+                  'Co-branding & field presence',
+                  'Talent pipeline access',
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3">
+                    <span className="w-3 h-px bg-[#E63946] flex-shrink-0" />
+                    <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-white/45">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* ══════════════════════════════════════════
-          WHY PARTNER — Proof narrative
+          CURRENT SPONSORS — Static full-color grid
+          To add a sponsor: append an entry to
+          currentSponsors above with name, logo, url.
+      ══════════════════════════════════════════ */}
+      <section className="border-b border-[#0A0A0A]/8 py-24">
+        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
+
+          <div className="grid lg:grid-cols-[280px_1fr] gap-16 lg:gap-24 mb-14">
+            <div>
+              <div className="flex items-center gap-3 mb-3">
+                <span className="w-6 h-px bg-[#E63946]" />
+                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">
+                  Current Sponsors
+                </span>
+              </div>
+              <h2 className="font-display text-2xl font-bold text-[#0A0A0A] leading-tight mb-4">
+                2026–27<br />Sponsors
+              </h2>
+              <p className="text-[#0A0A0A]/40 text-xs leading-relaxed max-w-[220px]">
+                Click any logo to visit the sponsor's website.
+              </p>
+            </div>
+
+            {/* Sponsor grid — add entries to currentSponsors to expand */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-px bg-[#0A0A0A]/8">
+              {currentSponsors.map((sponsor, i) => (
+                <motion.a
+                  key={sponsor.id}
+                  href={sponsor.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.04 }}
+                  className="group bg-white flex items-center justify-center px-8 py-8 min-h-[100px] hover:bg-[#FAFAFA] transition-colors duration-200 relative"
+                  title={sponsor.name}
+                >
+                  <div className="relative w-full h-10">
+                    <Image
+                      src={sponsor.logo}
+                      alt={sponsor.name}
+                      fill
+                      className="object-contain transition-opacity duration-200 group-hover:opacity-80"
+                    />
+                  </div>
+                  {/* Subtle hover indicator */}
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-[#E63946] scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
+                </motion.a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          WHY SPONSOR — Proof narrative
       ══════════════════════════════════════════ */}
       <section className="border-b border-[#0A0A0A]/8 py-24">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
@@ -271,29 +545,28 @@ export default function SupportPage() {
             <div>
               <div className="flex items-center gap-3 mb-3">
                 <span className="w-6 h-px bg-[#E63946]" />
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">Why Partner</span>
+                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">Why Sponsor</span>
               </div>
               <h2 className="font-display text-2xl font-bold text-[#0A0A0A] leading-tight">
                 The case<br />for KARURA
               </h2>
             </div>
             <p className="text-[#0A0A0A]/50 text-sm leading-relaxed self-end max-w-[580px]">
-              Corporate partnerships with KARURA are not just logo placements. They are engineering deployments. Your components, your technology, and your brand travel to one of the world's most demanding robotics competitions.
+              Sponsorships with KARURA are not logo placements, they are engineering deployments. Your components, your technology, and your brand travel to one of the world's most demanding robotics competitions.
             </p>
           </div>
 
-          {/* Three-column ROI grid */}
           <div className="grid md:grid-cols-3 border-t border-l border-[#0A0A0A]/8">
             {[
               {
                 index: '01',
                 title: 'Real-world field testing',
-                body: 'Your technology operates in Mars-analog terrain, including extreme UV, loose sediment, and temperature swings. It gives a student-engineering partner some of the most credible field validation available.',
+                body: 'Your technology operates in Mars-like terrain, extreme UV, loose sediment, and temperature swings. It is the most credible field validation available to a student-engineering sponsor.',
               },
               {
                 index: '02',
                 title: 'Cross-Pacific talent pipeline',
-                body: '46+ engineers from 15+ universities across Japan and Texas A&M. Partners gain direct access to a bilingual, internationally collaborative engineering cohort before they enter industry.',
+                body: '100+ engineers from 30+ universities across Japan and Texas A&M. Sponsors gain direct access to a bilingual, internationally collaborative engineering cohort before they enter industry.',
               },
               {
                 index: '03',
@@ -319,119 +592,7 @@ export default function SupportPage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          SPONSORSHIP TIERS — Dynamic scale cards
-      ══════════════════════════════════════════ */}
-      <section className="border-b border-[#0A0A0A]/8 py-24">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
-
-          <div className="mb-14">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="w-6 h-px bg-[#E63946]" />
-              <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">Partnership Tiers</span>
-            </div>
-            <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold text-[#0A0A0A] leading-tight">
-              Choose your level<br />of commitment
-            </h2>
-          </div>
-
-          {/* Asymmetric tier layout — Platinum full-width, then 3-col */}
-          <div className="space-y-0">
-
-            {/* Platinum — full bleed featured card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="border border-[#0A0A0A] p-0 grid lg:grid-cols-[1fr_340px]"
-            >
-              {/* Left content */}
-              <div className="p-10 lg:p-14 border-b lg:border-b-0 lg:border-r border-[#0A0A0A]/15">
-                <div className="flex items-start justify-between gap-6 mb-8">
-                  <div>
-                    <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] uppercase bg-[#0A0A0A] text-[#FAFAFA] px-3 py-1.5 mb-4">
-                      Platinum
-                    </span>
-                    <div className="font-mono text-[clamp(2rem,4vw,3.5rem)] font-bold text-[#0A0A0A] leading-none">
-                      $10,000<span className="text-[#0A0A0A]/30 text-2xl">+</span>
-                    </div>
-                  </div>
-                  <div className="text-right hidden md:block">
-                    <div className="font-mono text-[9px] tracking-[0.15em] uppercase text-[#0A0A0A]/25 mb-1">Availability</div>
-                    <div className="font-mono text-sm font-bold text-[#0A0A0A]">2 Slots / Year</div>
-                  </div>
-                </div>
-                <p className="text-[#0A0A0A]/55 text-sm leading-relaxed max-w-lg mb-10">
-                  Maximum visibility on every piece of hardware that reaches the competition. Rover chassis, arm, uniforms, and all digital surfaces. Your engineering partnership travels to Utah.
-                </p>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-0 border-t border-[#0A0A0A]/10 pt-8 divide-y divide-[#0A0A0A]/6">
-                  {sponsorTiers[0].perks.map((perk) => (
-                    <div key={perk.label} className="py-3.5">
-                      <div className="font-mono text-[8px] tracking-[0.15em] uppercase text-[#0A0A0A]/25 mb-1">{perk.label}</div>
-                      <div className="font-display text-xs font-semibold text-[#0A0A0A]/70">{perk.value}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right: image panel */}
-              <div className="relative min-h-[260px] bg-[#0A0A0A] hidden lg:block">
-                <Image
-                  src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
-                  alt="Rover at competition"
-                  fill
-                  className="object-cover object-center opacity-70"
-                />
-                <div className="absolute inset-0 flex flex-col justify-end p-8">
-                  <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-white/40 block mb-1">
-                    Your logo here
-                  </span>
-                  <span className="font-mono text-xs text-white/70">
-                    On hardware competing at URC 2026
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Gold / Silver / Bronze — 3 column */}
-            <div className="grid md:grid-cols-3 border-l border-[#0A0A0A]/10">
-              {sponsorTiers.slice(1).map((tier, i) => (
-                <motion.div
-                  key={tier.tier}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
-                  className={`border-b border-r border-[#0A0A0A]/10 p-8 lg:p-10 flex flex-col ${
-                    tier.tier === 'Gold' ? 'bg-white' : ''
-                  }`}
-                >
-                  <div className="mb-6">
-                    <span className={`inline-flex font-mono text-[9px] tracking-[0.18em] uppercase px-2.5 py-1 mb-3 ${tier.tagBg}`}>
-                      {tier.tier}
-                    </span>
-                    <div className="font-mono text-2xl font-bold text-[#0A0A0A] leading-none">
-                      {tier.amount}
-                    </div>
-                  </div>
-
-                  <div className="flex-1 divide-y divide-[#0A0A0A]/6 border-t border-[#0A0A0A]/8">
-                    {tier.perks.map((perk) => (
-                      <div key={perk.label} className="py-3">
-                        <div className="font-mono text-[8px] tracking-[0.15em] uppercase text-[#0A0A0A]/20 mb-0.5">{perk.label}</div>
-                        <div className="font-display text-xs font-semibold text-[#0A0A0A]/60">{perk.value}</div>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════
-          PARTNER TESTIMONIALS — Hardware impact
+          Sponsor TESTIMONIALS
       ══════════════════════════════════════════ */}
       <section className="border-b border-[#0A0A0A]/8 py-24 bg-white">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
@@ -439,7 +600,7 @@ export default function SupportPage() {
           <div className="flex items-center gap-3 mb-14">
             <span className="w-6 h-px bg-[#E63946]" />
             <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">
-              Partner Impact
+              Sponsor Impact
             </span>
           </div>
 
@@ -453,228 +614,20 @@ export default function SupportPage() {
                 transition={{ delay: i * 0.1 }}
                 className="border-b border-r border-[#0A0A0A]/8 p-8 lg:p-10 flex flex-col"
               >
-                {/* Quote mark */}
                 <div className="font-mono text-5xl text-[#0A0A0A]/8 leading-none mb-4 select-none">&ldquo;</div>
-
                 <p className="text-[#0A0A0A]/70 text-sm leading-relaxed mb-8 flex-1 italic">
                   {t.quote}
                 </p>
-
-                {/* Outcome callout */}
                 <div className="bg-[#FAFAFA] border border-[#0A0A0A]/8 p-4 mb-6">
                   <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-[#0A0A0A]/25 mb-1">Field Result</div>
                   <p className="font-display text-xs font-semibold text-[#0A0A0A]/70 leading-snug">{t.result}</p>
                 </div>
-
                 <div>
                   <div className="font-display text-sm font-bold text-[#0A0A0A]">{t.company}</div>
                   <div className="font-mono text-[9px] tracking-[0.12em] uppercase text-[#0A0A0A]/30 mt-0.5">{t.role}</div>
                 </div>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════
-          SOCIAL PROOF — Urgency block above form
-      ══════════════════════════════════════════ */}
-      <section className="border-b border-[#0A0A0A]/8 py-20 bg-[#FAFAFA]">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
-          <div className="grid lg:grid-cols-[1fr_380px] gap-12 lg:gap-20 items-center">
-
-            {/* Left: bold statement */}
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <span className="w-6 h-px bg-[#E63946]" />
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">
-                  2026 Campaign: open now
-                </span>
-              </div>
-              <h2 className="font-display text-[clamp(1.8rem,4vw,3.2rem)] font-bold text-[#0A0A0A] leading-tight mb-6">
-                In 2024, KARURA became the first Japanese and international team in URC history to reach the Finals.
-              </h2>
-              <p className="text-[#0A0A0A]/55 text-base leading-relaxed max-w-[520px]">
-                Your corporate partnership directly funds the physical hardware heading to Utah in 2026. Components, travel, entry, and the engineering hours of 46+ students across Japan and Texas A&M.
-              </p>
-            </div>
-
-            {/* Right: validation cells */}
-            <div className="border border-[#0A0A0A]/10 divide-y divide-[#0A0A0A]/8">
-              {[
-                { label: 'Competition', value: 'University Rover Challenge', sub: 'Hanksville, Utah · 2026' },
-                { label: 'Team Status', value: 'URC 2024 Finalists', sub: 'First international team in URC history' },
-                { label: 'Team Size', value: '46+ Engineers', sub: '15+ universities · Japan + USA' },
-                { label: 'Partnership Slots', value: 'Open for 2025–26', sub: 'Platinum: 2 available · Gold: 4 available' },
-              ].map((item) => (
-                <div key={item.label} className="px-6 py-4 grid grid-cols-[100px_1fr] gap-4 items-start">
-                  <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-[#0A0A0A]/25 pt-0.5">{item.label}</div>
-                  <div>
-                    <div className="font-display text-sm font-semibold text-[#0A0A0A]">{item.value}</div>
-                    <div className="font-mono text-[9px] text-[#0A0A0A]/35 mt-0.5">{item.sub}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════
-          CORPORATE INQUIRY FORM
-      ══════════════════════════════════════════ */}
-      <section className="border-b border-[#0A0A0A]/8 py-24 bg-white">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
-
-          <div className="grid lg:grid-cols-[380px_1fr] gap-16 lg:gap-24 items-start">
-
-            {/* Left: context */}
-            <div className="lg:sticky lg:top-28">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-6 h-px bg-[#E63946]" />
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">
-                  Corporate Inquiry
-                </span>
-              </div>
-              <h2 className="font-display text-[clamp(1.6rem,3vw,2.4rem)] font-bold text-[#0A0A0A] leading-tight mb-5">
-                Start the conversation
-              </h2>
-              <p className="text-[#0A0A0A]/50 text-sm leading-relaxed mb-8">
-                Our business team responds to all inquiries within 48 hours. Sponsorship packages can be tailored to include in-kind hardware contributions, mentorship hours, or custom co-branding arrangements.
-              </p>
-
-              {/* Contact note */}
-              <div className="border border-[#0A0A0A]/10 p-6">
-                <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-[#0A0A0A]/25 mb-3">Direct Contact</div>
-                
-                <a
-                  href="mailto:zacharyrenkema@tamu.edu"
-                  className="font-display text-sm font-semibold text-[#0A0A0A] hover:text-[#E63946] transition-colors"
-                >
-                  zacharyrenkema@tamu.edu
-                </a>
-                <div className="font-mono text-[9px] text-[#0A0A0A]/30 mt-1">Business Lead, KARURA Project</div>
-              </div>
-            </div>
-
-            {/* Right: form */}
-            <div>
-              {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.97 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="border border-[#0A0A0A]/10 p-16 text-center"
-                >
-                  <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#0A0A0A]/30 mb-4">
-                    Transmission Received
-                  </div>
-                  <h3 className="font-display text-3xl font-bold text-[#0A0A0A] mb-4">
-                    We&rsquo;ll be in touch.
-                  </h3>
-                  <p className="text-[#0A0A0A]/50 text-sm max-w-xs mx-auto">
-                    Our business team will respond within 48 hours with a tailored partnership proposal.
-                  </p>
-                </motion.div>
-              ) : (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="space-y-0 border border-[#0A0A0A]/10"
-                >
-                  {/* Form fields in bordered cell layout */}
-                  <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#0A0A0A]/8 border-b border-[#0A0A0A]/8">
-                    <div className="p-6">
-                      <label className="block font-mono text-[9px] tracking-[0.18em] uppercase text-[#0A0A0A]/35 mb-2">
-                        Full Name
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        className="w-full bg-transparent text-[#0A0A0A] text-sm font-display placeholder:text-[#0A0A0A]/25 border-0 outline-none focus:ring-0"
-                        placeholder="Your full name"
-                      />
-                    </div>
-                    <div className="p-6">
-                      <label className="block font-mono text-[9px] tracking-[0.18em] uppercase text-[#0A0A0A]/35 mb-2">
-                        Work Email
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="w-full bg-transparent text-[#0A0A0A] text-sm font-display placeholder:text-[#0A0A0A]/25 border-0 outline-none focus:ring-0"
-                        placeholder="you@company.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#0A0A0A]/8 border-b border-[#0A0A0A]/8">
-                    <div className="p-6">
-                      <label className="block font-mono text-[9px] tracking-[0.18em] uppercase text-[#0A0A0A]/35 mb-2">
-                        Organization
-                      </label>
-                      <input
-                        type="text"
-                        name="organization"
-                        value={formData.organization}
-                        onChange={handleChange}
-                        className="w-full bg-transparent text-[#0A0A0A] text-sm font-display placeholder:text-[#0A0A0A]/25 border-0 outline-none focus:ring-0"
-                        placeholder="Company or institution"
-                      />
-                    </div>
-                    <div className="p-6">
-                      <label className="block font-mono text-[9px] tracking-[0.18em] uppercase text-[#0A0A0A]/35 mb-2">
-                        Partnership Tier
-                      </label>
-                      <select
-                        name="tier"
-                        value={formData.tier}
-                        onChange={handleChange}
-                        className="w-full bg-transparent text-[#0A0A0A] text-sm font-display border-0 outline-none focus:ring-0 cursor-pointer"
-                      >
-                        <option value="">Select tier</option>
-                        {sponsorTiers.map((t) => (
-                          <option key={t.tier} value={t.tier}>
-                            {t.tier}: {t.amount}
-                          </option>
-                        ))}
-                        <option value="custom">Custom / In-kind contribution</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="p-6 border-b border-[#0A0A0A]/8">
-                    <label className="block font-mono text-[9px] tracking-[0.18em] uppercase text-[#0A0A0A]/35 mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows={5}
-                      className="w-full bg-transparent text-[#0A0A0A] text-sm font-display placeholder:text-[#0A0A0A]/25 border-0 outline-none focus:ring-0 resize-none"
-                      placeholder="Tell us about your organization and how you'd like to collaborate..."
-                    />
-                  </div>
-
-                  {/* CTA — mars-red, the only red element on the page */}
-                  <button
-                    onClick={handleSubmit}
-                    className="w-full py-5 bg-[#E63946] text-white font-display font-semibold text-sm tracking-wide hover:bg-[#C1121F] transition-colors duration-200 flex items-center justify-center gap-3"
-                  >
-                    Submit Corporate Inquiry
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </button>
-                </motion.div>
-              )}
-            </div>
           </div>
         </div>
       </section>

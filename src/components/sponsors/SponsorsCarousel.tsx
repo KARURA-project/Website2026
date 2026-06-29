@@ -44,7 +44,7 @@ export default function SponsorsCarousel({ sponsors }: { sponsors: Sponsor[] }) 
       <div className="overflow-hidden border-y border-[#0A0A0A]/8">
         <div
           className="flex w-max"
-          style={{ animation: 'marquee 32s linear infinite' }}
+          style={{ animation: 'marquee 64s linear infinite' }}
         >
           {track.map((sponsor, index) => (
             <div

@@ -275,40 +275,6 @@ export default function RoverPage() {
       </AnimatePresence>
 
       {/* ══════════════════════════════════════════
-          GENERATION TIMELINE
-      ══════════════════════════════════════════ */}
-      <section className="border-b border-[#0A0A0A]/8 py-20">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
-
-          <div className="flex items-center gap-3 mb-12">
-            <span className="w-6 h-px bg-[#E63946]" />
-            <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">Program Timeline</span>
-          </div>
-
-          <div className="grid md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-[#0A0A0A]/8 border border-[#0A0A0A]/8">
-            {generationTimeline.map((gen, i) => (
-              <motion.div
-                key={gen.year}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.07 }}
-                className="px-8 py-8"
-              >
-                <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-[#0A0A0A]/25 mb-1">{gen.label}</div>
-                <div className="font-mono text-2xl font-bold text-[#0A0A0A] mb-1">{gen.year}</div>
-                <div className="font-display text-sm font-bold text-[#0A0A0A] mb-3">{gen.designation}</div>
-                <p className="text-[#0A0A0A]/45 text-xs leading-relaxed mb-4">{gen.note}</p>
-                <span className={`font-mono text-[9px] tracking-[0.15em] uppercase ${gen.status === 'IN DEV' ? 'text-[#E63946]' : 'text-[#0A0A0A]/25'}`}>
-                  {gen.status}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════
           URC TASKS — Competition brief
       ══════════════════════════════════════════ */}
       <section className="border-b border-[#0A0A0A]/8 py-24">

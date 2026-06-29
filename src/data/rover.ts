@@ -33,8 +33,8 @@ export const rovers: Rover[] = [
     cycle: '2026 to 2027',
     status: 'ACTIVE BUILD',
     statusClass: 'text-[#E63946]',
-    achievement: 'Historic URC Finals: first Japanese team',
-    milestone: 'Historic URC Finals: first Japanese and international team',
+    achievement: 'In Development',
+    milestone: '',
     description:
       'Fourth-generation competition platform built for the URC 2027 Finals. Features a fully autonomous navigation stack, 5-DOF manipulation arm, and modular science payload.',
     image:
@@ -71,7 +71,7 @@ export const rovers: Rover[] = [
     achievement: 'URC Qualifiers Success',
     milestone: 'URC System Acceptance Review: qualified',
     description:
-      'Second-generation build focused on reliability and mobility improvements following lessons from KARURA II. Introduced a dedicated electrical architecture with centralized CAN-bus communication and an upgraded 5-DOF arm.',
+      'Third-generation platform refining the proven KARURA II architecture with an emphasis on robustness, maintainability, and autonomous capability. Retained the centralized CAN-bus electrical system and 5-DOF arm while integrating enhanced navigation, sensing, and system redundancy features.',
     image:
       'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png',
     params: [
@@ -102,10 +102,10 @@ export const rovers: Rover[] = [
     cycle: '2024 to 2025',
     status: 'ARCHIVED',
     statusClass: 'text-[#0A0A0A]/20',
-    achievement: 'Team Formation & First Prototype',
-    milestone: 'Program launch: first prototype complete',
+    achievement: 'URC Finals Historic: first Japanese team',
+    milestone: 'Historic URC Finals: first Japanese team',
     description:
-      "First prototype that established KARURA's core engineering framework and demonstrated the viability of the Japan–USA co-development model. Manual operation with basic sensing and a simple 3-DOF arm.",
+      'Second-generation build focused on reliability and mobility improvements following lessons from KARURA II. Introduced a dedicated electrical architecture with centralized CAN-bus communication and an upgraded 5-DOF arm.',
     image:
       'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png',
     params: [
