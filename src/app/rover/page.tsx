@@ -151,7 +151,7 @@ export default function RoverPage() {
           className="relative hidden lg:block bg-[#F0F0F0]"
         >
           <Image
-            src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
+            src="/Images/IMG_9105.webp"
             alt="KARURA Mars Rover hardware"
             fill
             priority

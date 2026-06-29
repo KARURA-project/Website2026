@@ -95,7 +95,7 @@ export default function JoinPage() {
       {/* ══════════════════════════════════════════
           HERO — Split layout matching about page
       ══════════════════════════════════════════ */}
-      <section className="relative min-h-[72vh] grid lg:grid-cols-[1fr_40%] overflow-hidden border-b border-[#0A0A0A]/8">
+      <section className="relative min-h-[72vh] grid lg:grid-cols-[1fr_60%] overflow-hidden border-b border-[#0A0A0A]/8">
 
         {/* Left: text */}
         <div className="flex flex-col justify-end px-8 md:px-16 lg:px-20 xl:px-28 pt-36 pb-16 lg:pb-20">
@@ -141,7 +141,7 @@ export default function JoinPage() {
           className="relative hidden lg:block bg-[#0A0A0A]"
         >
           <Image
-            src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
+            src="/Images/Copy of IMG_9569.webp"
             alt="KARURA Mars Rover"
             fill
             priority

@@ -38,7 +38,7 @@ export const rovers: Rover[] = [
     description:
       'Fourth-generation competition platform built for the URC 2027 Finals. Features a fully autonomous navigation stack, 5-DOF manipulation arm, and modular science payload.',
     image:
-      'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png',
+      '/Images/Copy of IMG_9585.webp',
     params: [
       { label: 'CONFIGURATION', value: '4-WHEEL DRIVE', unit: '' },
       { label: 'SUSPENSION', value: 'ROCKER-BOGIE', unit: '' },
@@ -73,7 +73,7 @@ export const rovers: Rover[] = [
     description:
       'Third-generation platform refining the proven KARURA II architecture with an emphasis on robustness, maintainability, and autonomous capability. Retained the centralized CAN-bus electrical system and 5-DOF arm while integrating enhanced navigation, sensing, and system redundancy features.',
     image:
-      'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png',
+      '/Images/Copy of IMG_9076.webp',
     params: [
       { label: 'CONFIGURATION', value: '4-WHEEL DRIVE', unit: '' },
       { label: 'DRIVE MOTORS', value: '4 × BRUSHLESS DC', unit: '' },
