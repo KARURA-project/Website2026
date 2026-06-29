@@ -281,7 +281,7 @@ export default function MembersPage() {
                 <span className="text-[#0A0A0A]/20">mission.</span>
               </h1>
               <p className="text-[#0A0A0A]/50 text-base leading-relaxed max-w-[480px]">
-                46+ engineers, scientists, and operators spanning 15 universities across Japan and Texas A&M — building competition-level Mars rover hardware.
+                46+ engineers, scientists, and operators span 15 universities across Japan and Texas A&M as they build competition-level Mars rover hardware.
               </p>
             </motion.div>
 
@@ -328,7 +328,7 @@ export default function MembersPage() {
               </h2>
             </div>
             <p className="text-[#0A0A0A]/45 text-sm leading-relaxed self-end max-w-[540px]">
-              KARURA was built in 2022 by a small group of students who believed a cross-Pacific engineering team could compete at the world's most demanding student robotics competition — and in 2024, they proved it.
+              KARURA started in 2022 with a small group of students who believed a cross-Pacific engineering team could compete in the world's most demanding student robotics competition, and in 2024 they proved it.
             </p>
           </div>
 

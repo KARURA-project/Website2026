@@ -5,15 +5,14 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
+import { orgStats } from '@/data/stats';
+import { generationTimeline } from '@/data/rovers';
 
 // ─── Data ───────────────────────────────────────────────────────────────────
-
-const stats = [
-  { value: '46+', label: 'Active Members', sub: 'AY 2025–26' },
-  { value: '15+', label: 'Partner Universities', sub: 'JP & US' },
-  { value: '2', label: 'Countries', sub: 'Japan · USA' },
-  { value: '3', label: 'Competition Cycles', sub: '2022–2025' },
-];
+// Stats (orgStats) and program timeline (generationTimeline) now live in
+// src/data/stats.ts and src/data/rovers.ts — shared with the home page
+// and /rover. Only content unique to this page (universities, department
+// descriptions) stays local.
 
 const universities = [
   // Japan
@@ -33,33 +32,6 @@ const universities = [
   { name: 'Kyushu University', country: 'JP', city: 'Fukuoka' },
   // USA
   { name: 'Texas A&M University', country: 'US', city: 'College Station, TX' },
-];
-
-const milestones = [
-  {
-    year: '2022',
-    label: 'FOUNDED',
-    title: 'KARURA Established',
-    body: 'International collaboration between Japanese and American students begins. First cross-Pacific engineering team in URC history.',
-  },
-  {
-    year: '2023',
-    label: 'PROTOTYPE',
-    title: 'KARURA I — First Build',
-    body: 'KARURA I successfully completes initial testing, qualifies for URC. Validates the international co-development model.',
-  },
-  {
-    year: '2024',
-    label: 'HISTORIC',
-    title: 'KARURA III — URC Finals',
-    body: 'First international team and first Japanese team to reach the University Rover Challenge Finals. A milestone for global student space engineering.',
-  },
-  {
-    year: '2026',
-    label: 'NEXT',
-    title: 'KARURA IV — In Development',
-    body: 'Advanced autonomous navigation, upgraded robotic arm, and fully redesigned science payload for URC 2026.',
-  },
 ];
 
 const departments = [
@@ -150,7 +122,7 @@ export default function AboutPage() {
             className="text-[#0A0A0A]/50 text-base leading-relaxed max-w-[460px]"
           >
             KARURA unites students from{' '}
-            <span className="text-[#0A0A0A]/80 font-medium">15+ universities</span> across Japan and Texas A&M University to build, test, and compete with a Mars rover — and to prove that international engineering collaboration at the student level is not only possible, but world-class.
+            <span className="text-[#0A0A0A]/80 font-medium">15+ universities</span> across Japan and the U.S. to build, test, and compete with a Mars rover, and to show that international engineering collaboration at the student level is both possible and world-class.
           </motion.p>
         </div>
 
@@ -178,20 +150,22 @@ export default function AboutPage() {
       <div className="border-y border-[#0A0A0A]/8 bg-[#FAFAFA]">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#0A0A0A]/8">
-            {stats.map((s, i) => (
-              <motion.div
-                key={s.label}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.07 }}
-                className="px-8 py-8"
-              >
-                <div className="font-mono text-[clamp(2rem,4vw,3rem)] font-bold text-[#0A0A0A] leading-none mb-1">{s.value}</div>
-                <div className="font-display text-sm font-semibold text-[#0A0A0A]/70 mb-0.5">{s.label}</div>
-                <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30">{s.sub}</div>
-              </motion.div>
-            ))}
+            {orgStats
+              .filter((s) => s.label !== 'Departments')
+              .map((s, i) => (
+                <motion.div
+                  key={s.label}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.07 }}
+                  className="px-8 py-8"
+                >
+                  <div className="font-mono text-[clamp(2rem,4vw,3rem)] font-bold text-[#0A0A0A] leading-none mb-1">{s.value}</div>
+                  <div className="font-display text-sm font-semibold text-[#0A0A0A]/70 mb-0.5">{s.label}</div>
+                  <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30">{s.sub}</div>
+                </motion.div>
+              ))}
           </div>
         </div>
       </div>
@@ -219,10 +193,10 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <p className="font-display text-[1.15rem] font-semibold text-[#0A0A0A] leading-snug mb-4">
-                  The University Rover Challenge is the world's most demanding robotics competition for university students — held annually on Mars-analog terrain in Utah.
+                  The University Rover Challenge is the world's most demanding robotics competition for university students, held every year on Mars-analog terrain in Utah.
                 </p>
                 <p className="text-[#0A0A0A]/55 text-sm leading-relaxed">
-                  KARURA was built on a simple thesis: that the most advanced rover on the field should also be the most internationally diverse team on the field. We compete annually at URC, and in 2024, we proved that thesis correct — reaching the Finals as the first Japanese and first international team in competition history.
+                  KARURA was built on a simple thesis: the most advanced rover on the field should also be the most internationally diverse team on the field. We compete at URC every year, and in 2024 we proved that thesis true by reaching the Finals as the first Japanese and first international team in competition history.
                 </p>
               </div>
               <div>
@@ -230,7 +204,7 @@ export default function AboutPage() {
                   Our mission is not limited to competition podiums. Every system we engineer, every student who joins from a new university, and every sponsor partnership we build moves the needle on international space collaboration as a practical, replicable model.
                 </p>
                 <p className="text-[#0A0A0A]/55 text-sm leading-relaxed">
-                  KARURA represents a unique bridge between Japanese engineering excellence and the American aerospace research ecosystem at Texas A&M — combining complementary perspectives to solve hard engineering problems.
+                  KARURA connects Japanese engineering excellence with the American aerospace research ecosystem at Texas A&M, combining complementary perspectives to solve hard engineering problems.
                 </p>
                 <div className="mt-8 pt-6 border-t border-[#0A0A0A]/8">
                   <Link
@@ -269,12 +243,12 @@ export default function AboutPage() {
                 {
                   index: '01',
                   title: 'True Cross-Pacific Structure',
-                  body: 'Not an exchange program — a permanent dual-node organization with engineering operations running simultaneously in Japan and Texas.',
+                  body: 'We are not an exchange program. We are a permanent dual-node organization with engineering operations running in Japan and Texas at the same time.',
                 },
                 {
                   index: '02',
                   title: 'Competition-Proven Hardware',
-                  body: 'Every subsystem has been field-tested at URC on Mars-analog desert terrain. Our 2024 build reached the Finals — hardware that performs under pressure.',
+                  body: 'Every subsystem has been field-tested at URC on Mars-analog desert terrain. Our 2024 build reached the Finals, and the hardware performs under pressure.',
                 },
                 {
                   index: '03',
@@ -425,9 +399,9 @@ export default function AboutPage() {
               <div className="absolute left-0 top-2 bottom-2 w-px bg-[#0A0A0A]/8 hidden md:block" />
 
               <div className="space-y-0 md:pl-10">
-                {milestones.map((m, i) => (
+                {generationTimeline.map((gen, i) => (
                   <motion.div
-                    key={m.year}
+                    key={gen.year}
                     initial={{ opacity: 0, x: 16 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -438,12 +412,12 @@ export default function AboutPage() {
                     <div className="absolute left-0 top-9 w-2 h-2 bg-[#0A0A0A]/20 -translate-x-[calc(50%+0.5px)] hidden md:block" />
 
                     <div>
-                      <div className="font-mono text-[clamp(1.4rem,3vw,2rem)] font-bold text-[#0A0A0A] leading-none">{m.year}</div>
-                      <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30 mt-1">{m.label}</div>
+                      <div className="font-mono text-[clamp(1.4rem,3vw,2rem)] font-bold text-[#0A0A0A] leading-none">{gen.year}</div>
+                      <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30 mt-1">{gen.label}</div>
                     </div>
                     <div>
-                      <h3 className="font-display text-lg font-bold text-[#0A0A0A] mb-2">{m.title}</h3>
-                      <p className="text-[#0A0A0A]/50 text-sm leading-relaxed">{m.body}</p>
+                      <h3 className="font-display text-lg font-bold text-[#0A0A0A] mb-2">{gen.designation}</h3>
+                      <p className="text-[#0A0A0A]/50 text-sm leading-relaxed">{gen.note}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -504,13 +478,13 @@ export default function AboutPage() {
 
           <div className="mt-10 flex flex-wrap gap-3">
             {departments.map((dept) => (
-              <a
+              <Link
                 key={dept.id}
                 href={`#${dept.id}`}
                 className="font-mono text-[9px] tracking-[0.15em] uppercase px-4 py-2 border border-[#0A0A0A]/12 text-[#0A0A0A]/40 hover:border-[#0A0A0A]/30 hover:text-[#0A0A0A] transition-colors duration-200"
               >
                 {dept.title}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -535,7 +509,7 @@ export default function AboutPage() {
 
             <div className="flex flex-col gap-4 md:items-start">
               <p className="text-white/40 text-sm leading-relaxed max-w-sm">
-                Whether you're a student engineer, a potential sponsor, or a researcher — there's a place for you in KARURA's international network.
+                Whether you're a student engineer, a potential sponsor, or a researcher, there's a place for you in KARURA's international network.
               </p>
               <div className="flex flex-wrap gap-3 mt-2">
                 <Link
@@ -547,6 +521,7 @@ export default function AboutPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
+
                 <a
                   href="mailto:zacharyrenkema@tamu.edu"
                   className="inline-flex items-center gap-2 px-7 py-3 border border-white/15 text-white/60 text-sm font-medium hover:border-white/40 hover:text-white transition-colors duration-200"
