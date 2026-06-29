@@ -101,7 +101,7 @@ export default function AboutPage() {
       {/* ══════════════════════════════════════════
           HERO — Editorial split, no gradient wash
       ══════════════════════════════════════════ */}
-      <section className="relative min-h-[72vh] grid lg:grid-cols-[1fr_40%] overflow-hidden">
+      <section className="relative min-h-[72vh] grid lg:grid-cols-[1fr_60%] overflow-hidden">
 
         {/* Left: text */}
         <div className="flex flex-col justify-end px-8 md:px-16 lg:px-20 xl:px-28 pt-36 pb-16 lg:pb-20">

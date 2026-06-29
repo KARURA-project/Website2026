@@ -85,7 +85,7 @@ export default function TeamIntroduction() {
           {/* Image panel — large, fills available space */}
           <div className="relative h-[420px] sm:h-[520px] lg:h-[640px] border-b lg:border-b-0 lg:border-r border-[#0A0A0A]/10">
             <Image
-              src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
+              src="/Images/Copy of IMG_9586.webp"
               alt="KARURA Team"
               fill
               className="object-cover object-center"

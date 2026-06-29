@@ -344,7 +344,7 @@ export default function SupportPage() {
       {/* ══════════════════════════════════════════
           HERO — Editorial asymmetric split
       ══════════════════════════════════════════ */}
-      <section className="relative min-h-[80vh] grid lg:grid-cols-[1fr_42%] overflow-hidden">
+      <section className="relative min-h-[80vh] grid lg:grid-cols-[1fr_52%] overflow-hidden">
 
         <div className="flex flex-col justify-end px-8 md:px-16 lg:px-20 xl:px-28 pt-36 pb-16 lg:pb-20">
 
@@ -404,7 +404,7 @@ export default function SupportPage() {
           className="relative hidden lg:block bg-[#F0F0F0]"
         >
           <Image
-            src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
+            src="/Images/IMG_9088.webp"
             alt="KARURA Rover — URC Finals hardware"
             fill
             priority
@@ -414,11 +414,11 @@ export default function SupportPage() {
           <div className="absolute bottom-8 left-8 right-8">
             <div className="bg-[#0A0A0A]/80 backdrop-blur-sm px-5 py-3 flex items-center justify-between">
               <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/60">
-                KARURA III — URC Finals 2024
+                KARURA III — URC Finals 2026
               </span>
               <span className="font-mono text-[10px] text-[#E63946] tracking-wider flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#E63946] animate-pulse inline-block" />
-                ACTIVE BUILD
+                ARCHIVED
               </span>
             </div>
           </div>
@@ -479,59 +479,62 @@ export default function SupportPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════
-          CURRENT SPONSORS — Static full-color grid
-          To add a sponsor: append an entry to
-          currentSponsors above with name, logo, url.
+  {/* ══════════════════════════════════════════
+         CURRENT SPONSORS — Static full-color grid
+         To add a sponsor: append an entry to
+         currentSponsors above with name, logo, url.
       ══════════════════════════════════════════ */}
       <section className="border-b border-[#0A0A0A]/8 py-24">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
 
-          <div className="grid lg:grid-cols-[280px_1fr] gap-16 lg:gap-24 mb-14">
-            <div>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="w-6 h-px bg-[#E63946]" />
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">
-                  Current Sponsors
-                </span>
-              </div>
-              <h2 className="font-display text-2xl font-bold text-[#0A0A0A] leading-tight mb-4">
-                2026–27<br />Sponsors
-              </h2>
-              <p className="text-[#0A0A0A]/40 text-xs leading-relaxed max-w-[220px]">
-                Click any logo to visit the sponsor's website.
-              </p>
+          {/* Centered Header Section */}
+          <div className="max-w-[900px] mx-auto flex flex-col items-center text-center mb-16">
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <span className="w-8 h-px bg-[#E63946]" />
+              <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
+                Current Sponsors
+              </span>
+              <span className="w-8 h-px bg-[#E63946]" />
             </div>
-
-            {/* Sponsor grid — add entries to currentSponsors to expand */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-px bg-[#0A0A0A]/8">
-              {currentSponsors.map((sponsor, i) => (
-                <motion.a
-                  key={sponsor.id}
-                  href={sponsor.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.04 }}
-                  className="group bg-white flex items-center justify-center px-8 py-8 min-h-[100px] hover:bg-[#FAFAFA] transition-colors duration-200 relative"
-                  title={sponsor.name}
-                >
-                  <div className="relative w-full h-10">
-                    <Image
-                      src={sponsor.logo}
-                      alt={sponsor.name}
-                      fill
-                      className="object-contain transition-opacity duration-200 group-hover:opacity-80"
-                    />
-                  </div>
-                  {/* Subtle hover indicator */}
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-[#E63946] scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
-                </motion.a>
-              ))}
-            </div>
+            
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0A0A0A] leading-tight mb-4">
+              2026–27 Sponsors
+            </h2>
+            
+            <p className="text-[#0A0A0A]/50 text-sm md:text-base leading-relaxed max-w-[420px] mx-auto">
+              Click any logo to visit the sponsor's website.
+            </p>
           </div>
+
+          {/* Sponsor grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 pl-px pt-px">
+            {currentSponsors.map((sponsor, i) => (
+              <motion.a
+                key={sponsor.id}
+                href={sponsor.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.04 }}
+                className="group bg-white flex items-center justify-center px-10 py-12 min-h-[140px] md:min-h-[160px] border border-[#0A0A0A]/8 -ml-px -mt-px hover:bg-[#FAFAFA] hover:z-10 transition-colors duration-200 relative"
+                title={sponsor.name}
+              >
+                <div className="relative w-full h-16 md:h-20">
+                  <Image
+                    src={sponsor.logo}
+                    alt={sponsor.name}
+                    fill
+                    className="object-contain transition-opacity duration-200 group-hover:opacity-80"
+                  />
+                </div>
+                {/* Subtle hover indicator */}
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-[#E63946] scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center" />
+              </motion.a>
+            ))}
+          </div>
+          
         </div>
       </section>
 
