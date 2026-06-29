@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 // URC 2025 typically runs late May/early June in Utah. Set exact date when confirmed.
 // Adjust this to the actual competition start datetime:
-const URC_DATE = new Date('2027-05-28T08:00:00-07:00'); // MDT
+const URC_DATE = new Date('2027-03-19T08:00:00-07:00'); // MDT
 
 interface TimeLeft {
   days: number;
@@ -86,7 +86,7 @@ export default function TelemetryCountdown() {
             transition={{ delay: 0.2 }}
             className="font-mono text-xs text-[#0A0A0A]/40 mt-2 tracking-wider"
           >
-            T-MINUS // URC 2027 — Hanksville, Utah
+            T-minus // TRC 2027 in Tottori, Japan
           </motion.p>
         </div>
 
@@ -141,7 +141,7 @@ export default function TelemetryCountdown() {
             <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30 block mb-1">
               Venue
             </span>
-            <span className="font-mono text-sm text-[#0A0A0A]/60">Mars Desert Research Station, Utah</span>
+            <span className="font-mono text-sm text-[#0A0A0A]/60">Tottori Luna Terrace, Japan</span>
           </div>
           <div>
             <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30 block mb-1">

@@ -45,7 +45,7 @@ const departments = [
     index: '01',
     label: 'Mechanical',
     scope: 'Chassis · Suspension · Drive Train · Robotic Arm',
-    memberCount: 12,
+    memberCount: 32,
     members: [
       {
         name: 'INSERT NAME HERE1',
@@ -90,7 +90,7 @@ const departments = [
     index: '02',
     label: 'Electrical',
     scope: 'Power · PCB Design · Motor Control · Sensors',
-    memberCount: 8,
+    memberCount: 29,
     members: [
       {
         name: 'INSERT NAME HERE7',
@@ -129,7 +129,7 @@ const departments = [
     index: '03',
     label: 'Autonomy & Software',
     scope: 'ROS2 · Navigation · Computer Vision · Telemetry GUI',
-    memberCount: 15,
+    memberCount: 24,
     members: [
       {
         name: 'INSERT NAME HERE12',
@@ -174,7 +174,7 @@ const departments = [
     index: '04',
     label: 'Science',
     scope: 'Astrobiology · Life Detection · Sample Analysis',
-    memberCount: 6,
+    memberCount: 17,
     members: [
       {
         name: 'INSERT NAME HERE18',
@@ -207,7 +207,7 @@ const departments = [
     index: '05',
     label: 'Business & Outreach',
     scope: 'Sponsorship · PR · Operations · Recruitment',
-    memberCount: 5,
+    memberCount: 25,
     members: [
       {
         name: 'INSERT NAME HERE22',
@@ -238,8 +238,8 @@ const departments = [
 ];
 
 const stats = [
-  { value: '46+', label: 'Active Members', sub: 'AY 2025–26' },
-  { value: '15+', label: 'Universities', sub: 'JP & US' },
+  { value: '100+', label: 'Active Members', sub: 'AY 2025–26' },
+  { value: '30+', label: 'Universities', sub: 'JP & US' },
   { value: '5', label: 'Departments', sub: 'Full-stack org' },
   { value: '2', label: 'Countries', sub: 'Japan · USA' },
 ];
@@ -265,7 +265,7 @@ export default function MembersPage() {
           >
             <span className="w-6 h-px bg-[#E63946]" />
             <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
-              Team Directory / AY 2025–26
+              Team Directory / AY 2026–27
             </span>
           </motion.div>
 
@@ -281,7 +281,7 @@ export default function MembersPage() {
                 <span className="text-[#0A0A0A]/20">mission.</span>
               </h1>
               <p className="text-[#0A0A0A]/50 text-base leading-relaxed max-w-[480px]">
-                46+ engineers, scientists, and operators spanning 15 universities across Japan and Texas A&M — building competition-level Mars rover hardware.
+                100+ engineers, scientists, and operators span 15 universities across Japan and Texas A&M as they build competition-level Mars rover hardware.
               </p>
             </motion.div>
 
@@ -328,7 +328,7 @@ export default function MembersPage() {
               </h2>
             </div>
             <p className="text-[#0A0A0A]/45 text-sm leading-relaxed self-end max-w-[540px]">
-              KARURA was built in 2022 by a small group of students who believed a cross-Pacific engineering team could compete at the world's most demanding student robotics competition — and in 2024, they proved it.
+              KARURA started in 2022 with a small group of students who believed a cross-Pacific engineering team could compete in the world's most demanding student robotics competition, and in 2024 they proved it.
             </p>
           </div>
 

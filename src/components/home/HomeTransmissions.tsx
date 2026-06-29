@@ -96,7 +96,7 @@ export default function HomeTransmissions({ transmissions }: HomeTransmissionsPr
               </div>
               <div>
                 <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30 mb-1.5">Category</div>
-                <div className="font-mono text-xs text-[#0A0A0A]">{featured.category ?? '—'}</div>
+                <div className="font-mono text-xs text-[#0A0A0A]">{featured.category ?? 'Pending'}</div>
               </div>
               <div>
                 <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30 mb-1.5">Read Time</div>
@@ -174,7 +174,7 @@ export default function HomeTransmissions({ transmissions }: HomeTransmissionsPr
                         Category
                       </div>
                       <div className="font-mono text-xs text-[#0A0A0A]">
-                        {article.category ?? '—'}
+                        {article.category ?? 'Pending'}
                       </div>
                     </div>
 

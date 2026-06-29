@@ -18,7 +18,7 @@ export default function HeroWithRover() {
           >
             <span className="w-8 h-px bg-[#E63946]" />
             <span className="font-mono text-xs tracking-[0.2em] uppercase text-[#0A0A0A]/50">
-              URC 2024 — Historic Milestone
+              URC 2024: Historic milestone
             </span>
           </motion.div>
 
@@ -39,7 +39,7 @@ export default function HeroWithRover() {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="font-display text-[clamp(1rem,2vw,1.4rem)] font-medium text-[#0A0A0A]/70 leading-snug max-w-[480px] mb-6"
           >
-            First international team — and first Japanese team — to reach the URC Finals.
+            We became the first international and first Japanese team to reach the URC Finals.
           </motion.p>
 
           <motion.p
@@ -84,7 +84,7 @@ export default function HeroWithRover() {
         >
           <Image
             src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
-            alt="KARURA Mars Rover — hardware detail"
+            alt="KARURA Mars Rover hardware detail"
             fill
             priority
             className="object-cover object-center"
@@ -93,7 +93,7 @@ export default function HeroWithRover() {
           <div className="absolute bottom-8 left-8 right-8">
             <div className="bg-[#0A0A0A]/80 backdrop-blur-sm px-5 py-3 flex items-center justify-between">
               <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/60">
-                KARURA — URC Finals 2024
+                KARURA: URC Finals 2024
               </span>
               <span className="font-mono text-[10px] text-[#E63946] tracking-wider">
                 FINALIST

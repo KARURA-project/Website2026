@@ -15,7 +15,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "KARURA — First International Team in URC Finals",
+  title: "KARURA: First International Team in the URC Finals",
   description:
     "In 2024, KARURA made history as the first international and first Japanese team to reach the University Rover Challenge Finals. A student-led team uniting Texas A&M University and universities across Japan.",
 };

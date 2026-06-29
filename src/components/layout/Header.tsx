@@ -11,7 +11,7 @@ export default function Header() {
     { href: '/about', label: 'About' },
     { href: '/rover', label: 'Rover' },
     { href: '/members', label: 'Members' },
-    { href: '/news', label: 'News' },
+    // { href: '/news', label: 'News' }, // News & Transmissions disabled site-wide — see /src/app/news for reimplementation notes
     { href: '/join', label: 'Join' },
     { href: '/support', label: 'Support' },
   ];

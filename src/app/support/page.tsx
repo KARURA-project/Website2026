@@ -205,7 +205,7 @@ export default function SupportPage() {
         >
           <Image
             src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
-            alt="KARURA Rover — URC Finals hardware"
+            alt="KARURA Rover URC Finals hardware"
             fill
             priority
             className="object-cover object-center"
@@ -215,7 +215,7 @@ export default function SupportPage() {
           <div className="absolute bottom-8 left-8 right-8">
             <div className="bg-[#0A0A0A]/80 backdrop-blur-sm px-5 py-3 flex items-center justify-between">
               <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/60">
-                KARURA III — URC Finals 2024
+                KARURA III: URC Finals 2024
               </span>
               <span className="font-mono text-[10px] text-[#E63946] tracking-wider flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#E63946] animate-pulse inline-block" />
@@ -278,7 +278,7 @@ export default function SupportPage() {
               </h2>
             </div>
             <p className="text-[#0A0A0A]/50 text-sm leading-relaxed self-end max-w-[580px]">
-              Corporate partnerships with KARURA are not logo placements — they are engineering deployments. Your components, your technology, and your brand travel to one of the world's most demanding robotics competitions.
+              Corporate partnerships with KARURA are not just logo placements. They are engineering deployments. Your components, your technology, and your brand travel to one of the world's most demanding robotics competitions.
             </p>
           </div>
 
@@ -288,7 +288,7 @@ export default function SupportPage() {
               {
                 index: '01',
                 title: 'Real-world field testing',
-                body: 'Your technology operates in Mars-analog terrain — extreme UV, loose sediment, and temperature swings. It is the most credible field validation available to a student-engineering partner.',
+                body: 'Your technology operates in Mars-analog terrain, including extreme UV, loose sediment, and temperature swings. It gives a student-engineering partner some of the most credible field validation available.',
               },
               {
                 index: '02',
@@ -488,7 +488,7 @@ export default function SupportPage() {
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-6 h-px bg-[#E63946]" />
                 <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">
-                  2026 Campaign — Open Now
+                  2026 Campaign: open now
                 </span>
               </div>
               <h2 className="font-display text-[clamp(1.8rem,4vw,3.2rem)] font-bold text-[#0A0A0A] leading-tight mb-6">
@@ -640,7 +640,7 @@ export default function SupportPage() {
                         <option value="">Select tier</option>
                         {sponsorTiers.map((t) => (
                           <option key={t.tier} value={t.tier}>
-                            {t.tier} — {t.amount}
+                            {t.tier}: {t.amount}
                           </option>
                         ))}
                         <option value="custom">Custom / In-kind contribution</option>

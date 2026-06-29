@@ -52,10 +52,10 @@ export default function VideoReel() {
               <div className="font-display text-white font-bold text-xl leading-tight mb-2">
                 University Rover Challenge
               </div>
-              <div className="font-mono text-[#E63946] text-sm">Finals — 2024</div>
+              <div className="font-mono text-[#E63946] text-sm">2024 Finals</div>
             </div>
             <p className="text-white/40 text-xs leading-relaxed mt-4">
-              The world's premier robotics competition for university students — held annually in the Utah desert.
+              We compete in the world's premier robotics competition for university students, held every year in the Utah desert.
             </p>
           </motion.div>
 

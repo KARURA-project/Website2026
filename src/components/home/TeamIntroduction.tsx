@@ -2,71 +2,113 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
+import { orgStats } from '@/data/stats';
+
+// Home page only surfaces the three most relevant stats out of the shared set
+const HOME_STAT_LABELS = ['Active Members', 'Departments', 'Countries'];
 
 export default function TeamIntroduction() {
+  const stats = orgStats.filter((s) => HOME_STAT_LABELS.includes(s.label));
+
   return (
-    <section className="py-32 bg-white">
-      <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 xl:px-20">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">Who We Are</h2>
-          <div className="w-16 h-1 bg-mars-red mx-auto mb-10"></div>
+    <section className="py-24 lg:py-32 bg-[#FAFAFA] border-t border-[#0A0A0A]/8">
+      <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
+
+        {/* Header — full width, large, stands on its own above the content */}
+        <div className="mb-12 lg:mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="flex items-center gap-3 mb-5"
+          >
+            <span className="w-6 h-px bg-[#E63946]" />
+            <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
+              Who We Are
+            </span>
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.08 }}
+            className="font-display text-[clamp(2.4rem,5vw,4rem)] font-bold text-[#0A0A0A] leading-[0.98] tracking-tight max-w-[720px]"
+          >
+            A Cross-Pacific Engineering Team
+          </motion.h2>
         </div>
 
-        <div className="flex justify-center">
-          <div className="grid lg:grid-cols-2 gap-20 items-center max-w-6xl w-full">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="flex flex-col"
+        {/* Body text row */}
+        <div className="grid md:grid-cols-2 gap-12 mb-12 lg:mb-14">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <p className="font-display text-[1.1rem] font-semibold text-[#0A0A0A] leading-snug mb-4">
+              KARURA unites passionate students from Texas A&amp;M University and leading universities across Japan.
+            </p>
+            <p className="text-[#0A0A0A]/55 text-sm leading-relaxed">
+              Together, we're pushing the boundaries of Mars exploration technology — building, testing, and competing with hardware that performs under real pressure.
+            </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.08 }}
+          >
+            <p className="text-[#0A0A0A]/55 text-sm leading-relaxed mb-5">
+              Our team brings together mechanical engineering, electrical systems, software development, scientific research, and business operations — all working toward a common goal.
+            </p>
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.15em] uppercase text-[#0A0A0A]/60 hover:text-[#0A0A0A] transition-colors group"
             >
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                KARURA is an international collaboration uniting passionate students from 
-                Texas A&M University and leading universities across Japan. Together, we're 
-                pushing the boundaries of Mars exploration technology.
-              </p>
-              
-              <p className="text-lg text-gray-700 mb-10 leading-relaxed">
-                Our team brings together expertise in mechanical engineering, electrical systems, 
-                software development, scientific research, and business operations—all working 
-                toward a common goal: advancing humanity's reach into space.
-              </p>
+              <span className="w-5 h-px bg-current transition-all group-hover:w-8" />
+              Meet Our Team
+            </Link>
+          </motion.div>
+        </div>
 
-              <div className="grid grid-cols-3 gap-10 mb-10">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-mars-red mb-3">46+</div>
-                  <div className="text-sm text-gray-600">Team Members</div>
+        {/* Image + stats — image now dominant, fills the rectangle */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.12 }}
+          className="grid lg:grid-cols-[1fr_260px] border border-[#0A0A0A]/10"
+        >
+          {/* Image panel — large, fills available space */}
+          <div className="relative h-[420px] sm:h-[520px] lg:h-[640px] border-b lg:border-b-0 lg:border-r border-[#0A0A0A]/10">
+            <Image
+              src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
+              alt="KARURA Team"
+              fill
+              className="object-cover object-center"
+            />
+          </div>
+
+          {/* Stats — compressed into a narrower rail so the image takes the space */}
+          <div className="grid grid-cols-3 lg:grid-cols-1 divide-x lg:divide-x-0 lg:divide-y divide-[#0A0A0A]/10">
+            {stats.map((s) => (
+              <div key={s.label} className="px-6 py-6 lg:py-8 flex flex-col justify-center">
+                <div className="font-mono text-2xl lg:text-3xl font-bold text-[#0A0A0A] leading-none mb-1">
+                  {s.value}
                 </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-mars-red mb-3">5</div>
-                  <div className="text-sm text-gray-600">Departments</div>
+                <div className="font-display text-xs font-semibold text-[#0A0A0A]/60 mb-0.5">
+                  {s.label}
                 </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-mars-red mb-3">2</div>
-                  <div className="text-sm text-gray-600">Countries</div>
+                <div className="font-mono text-[9px] tracking-[0.15em] uppercase text-[#0A0A0A]/25">
+                  {s.sub}
                 </div>
               </div>
-
-              <a href="/about" className="inline-flex items-center text-charcoal hover:text-mars-red font-medium transition-colors">
-                Meet Our Team
-                <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative h-[500px] w-full"
-            >
-              <Image src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png" alt="KARURA Team" fill className="object-cover rounded-lg shadow-xl" />
-            </motion.div>
+            ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

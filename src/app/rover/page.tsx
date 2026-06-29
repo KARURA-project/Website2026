@@ -6,108 +6,13 @@ import Footer from '@/components/layout/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { rovers, generationTimeline } from '@/data/rovers';
 
 // ─── Data ────────────────────────────────────────────────────────────────────
-
-const rovers = [
-  {
-    id: 'karura-3',
-    designation: 'KARURA III',
-    callsign: 'K-III',
-    cycle: '2024 — 2026',
-    status: 'ACTIVE BUILD',
-    statusClass: 'text-[#E63946]',
-    milestone: 'Historic URC Finals — First Japanese & International Team',
-    description:
-      'Third-generation competition platform built for the URC 2024 Finals. Features a fully autonomous navigation stack, 5-DOF manipulation arm, and modular science payload. Competed as the first international and first Japanese team to reach the URC Finals.',
-    image:
-      'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png',
-    params: [
-      { label: 'CONFIGURATION', value: '4-WHEEL DRIVE', unit: '' },
-      { label: 'SUSPENSION', value: 'ROCKER-BOGIE', unit: '' },
-      { label: 'DRIVE MOTORS', value: '4 × BRUSHLESS DC', unit: '' },
-      { label: 'ARM DOF', value: '5', unit: 'degrees of freedom' },
-      { label: 'LOCOMOTION', value: 'DIFFERENTIAL', unit: 'steering geometry' },
-      { label: 'COMMS', value: '5.8 GHz', unit: 'RF + ROS2 bridge' },
-      { label: 'COMPUTE', value: 'NVIDIA JETSON', unit: 'onboard SBC' },
-      { label: 'POWER BUS', value: 'LiPo MULTI-CELL', unit: 'redundant rails' },
-    ],
-    subsystems: [
-      'ROS2 Navigation Stack',
-      'SLAM-based Localization',
-      'Computer Vision Pipeline',
-      '5-DOF Manipulator Arm',
-      'Spectrometer Payload',
-      'Soil Sample Collection',
-      'Stereo Camera Array',
-      'IMU + GPS Fusion',
-    ],
-  },
-  {
-    id: 'karura-2',
-    designation: 'KARURA II',
-    callsign: 'K-II',
-    cycle: '2023 — 2024',
-    status: 'RETIRED',
-    statusClass: 'text-[#0A0A0A]/30',
-    milestone: 'URC System Acceptance Review — Qualified',
-    description:
-      'Second-generation build focused on reliability and mobility improvements following lessons from KARURA I. Introduced a dedicated electrical architecture with centralized CAN-bus communication and an upgraded 5-DOF arm.',
-    image:
-      'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png',
-    params: [
-      { label: 'CONFIGURATION', value: '6-WHEEL DRIVE', unit: '' },
-      { label: 'SUSPENSION', value: 'ROCKER-BOGIE', unit: '' },
-      { label: 'DRIVE MOTORS', value: '6 × BRUSHLESS DC', unit: '' },
-      { label: 'ARM DOF', value: '5', unit: 'degrees of freedom' },
-      { label: 'COMMS', value: 'CAN-BUS', unit: 'centralized architecture' },
-      { label: 'COMPUTE', value: 'RASPBERRY PI', unit: '+ co-processors' },
-      { label: 'NAVIGATION', value: 'GPS + IMU', unit: 'waypoint-based' },
-      { label: 'POWER BUS', value: 'LiPo PACK', unit: 'single rail' },
-    ],
-    subsystems: [
-      'GPS Waypoint Navigation',
-      'CAN-Bus Electrical Arch.',
-      '5-DOF Manipulator Arm',
-      'HD Camera System',
-      'Basic Science Payload',
-      'Object Detection (CV)',
-      'Wireless RC Fallback',
-      'Custom Motor Controllers',
-    ],
-  },
-  {
-    id: 'karura-1',
-    designation: 'KARURA I',
-    callsign: 'K-I',
-    cycle: '2022 — 2023',
-    status: 'ARCHIVED',
-    statusClass: 'text-[#0A0A0A]/20',
-    milestone: 'Program Launch — First Prototype Complete',
-    description:
-      "Founding prototype that established KARURA's core engineering framework and demonstrated the viability of the Japan–USA co-development model. Manual operation with basic sensing and a simple 3-DOF arm.",
-    image:
-      'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png',
-    params: [
-      { label: 'CONFIGURATION', value: '4-WHEEL DRIVE', unit: '' },
-      { label: 'SUSPENSION', value: 'RIGID FRAME', unit: 'v1 prototype' },
-      { label: 'ARM DOF', value: '3', unit: 'degrees of freedom' },
-      { label: 'CONTROL', value: 'MANUAL RC', unit: 'radio 2.4 GHz' },
-      { label: 'COMPUTE', value: 'RASPBERRY PI 4', unit: '' },
-      { label: 'CAMERAS', value: '2 × STANDARD', unit: 'forward + arm' },
-      { label: 'POWER', value: 'LiPo 14.8V', unit: 'basic distribution' },
-      { label: 'BUILD TYPE', value: 'PROOF OF CONCEPT', unit: '' },
-    ],
-    subsystems: [
-      'Manual Radio Control',
-      '3-DOF Arm Prototype',
-      'Standard Camera Feed',
-      'Basic Telemetry',
-      'Prototype Chassis',
-      'International Co-Dev Model',
-    ],
-  },
-];
+// Rover generation data (specs, subsystems, milestones) now lives in
+// src/data/rovers.ts — shared with the home page's RoverHistory section
+// and /about's program timeline. Only page-specific content (URC task
+// breakdown, subsystem inventory) stays local to this file.
 
 const urcTasks = [
   {
@@ -128,7 +33,7 @@ const urcTasks = [
     index: '02',
     name: 'Equipment Servicing',
     description:
-      'Rover must operate a cache of hand tools — including levers, buttons, and valves — using only the robotic arm and end-effector.',
+      'The rover must operate a cache of hand tools, including levers, buttons, and valves, using only the robotic arm and end-effector.',
     challenge: 'Requires sub-centimeter arm precision. All tools resemble real-world industrial hardware.',
     systems: [
       { label: 'ARM CONFIG', value: '5-DOF SERIAL MANIPULATOR' },
@@ -165,37 +70,6 @@ const urcTasks = [
       { label: 'GPS LOG', value: 'RTK-CAPABLE MODULE' },
       { label: 'ANALYSIS', value: 'ONBOARD CHEMISTRY PROTOCOL' },
     ],
-  },
-];
-
-const generationTimeline = [
-  {
-    year: '2022',
-    label: 'GEN 01',
-    designation: 'KARURA I',
-    note: 'Program launch. First cross-Pacific co-development. 3-DOF prototype arm. Manual RC operation.',
-    status: 'ARCHIVED',
-  },
-  {
-    year: '2023',
-    label: 'GEN 02',
-    designation: 'KARURA II',
-    note: 'CAN-bus electrical architecture. 5-DOF arm. GPS navigation. SAR qualification achieved.',
-    status: 'RETIRED',
-  },
-  {
-    year: '2024',
-    label: 'GEN 03',
-    designation: 'KARURA III',
-    note: 'ROS2 stack. SLAM autonomy. URC Finals — historic milestone. Full science payload integration.',
-    status: 'COMPETED',
-  },
-  {
-    year: '2026',
-    label: 'GEN 04',
-    designation: 'KARURA IV',
-    note: 'In active development. Upgraded autonomy, redesigned arm, next-gen science instruments.',
-    status: 'IN DEV',
   },
 ];
 
@@ -257,8 +131,8 @@ export default function RoverPage() {
             className="flex flex-wrap gap-6 border-t border-[#0A0A0A]/10 pt-8"
           >
             {[
-              { label: 'ACTIVE PLATFORM', value: 'KARURA III' },
-              { label: 'NEXT COMPETITION', value: 'URC 2026' },
+              { label: 'ACTIVE PLATFORM', value: 'KARURA VI' },
+              { label: 'NEXT COMPETITION', value: 'URC 2027' },
               { label: 'BUILD STATUS', value: 'IN PROGRESS' },
             ].map((item) => (
               <div key={item.label}>
@@ -290,7 +164,7 @@ export default function RoverPage() {
           <div className="absolute bottom-8 left-8 right-8">
             <div className="bg-[#0A0A0A]/80 backdrop-blur-sm px-5 py-3 flex items-center justify-between">
               <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/60">
-                KARURA — URC Finals 2024
+                KARURA: URC Finals 2026
               </span>
               <span className="font-mono text-[10px] text-[#E63946] tracking-wider">
                 FINALIST
@@ -408,7 +282,7 @@ export default function RoverPage() {
 
           <div className="flex items-center gap-3 mb-12">
             <span className="w-6 h-px bg-[#E63946]" />
-            <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">Program History</span>
+            <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">Program Timeline</span>
           </div>
 
           <div className="grid md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-[#0A0A0A]/8 border border-[#0A0A0A]/8">
@@ -581,44 +455,6 @@ export default function RoverPage() {
                   </div>
                 </motion.div>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════
-          CTA — Contact / Sponsors
-      ══════════════════════════════════════════ */}
-      <section className="border-b border-[#0A0A0A]/8 py-20">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
-          <div className="grid md:grid-cols-2 gap-12 items-end">
-            <div>
-              <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/25 mb-5">Technical Partnership</div>
-              <h2 className="font-display text-[clamp(1.6rem,3.5vw,2.8rem)] font-bold text-[#0A0A0A] leading-tight">
-                Partner with KARURA's<br />Engineering Program
-              </h2>
-            </div>
-            <div className="flex flex-col gap-4">
-              <p className="text-[#0A0A0A]/45 text-sm leading-relaxed max-w-sm">
-                Technical sponsors gain direct access to a cross-Pacific engineering team building competition-level hardware. Logo placement, SAR review access, and team presentations available.
-              </p>
-              <div className="flex flex-wrap gap-3 mt-2">
-                <Link
-                  href="/support"
-                  className="inline-flex items-center gap-2 px-7 py-3 bg-[#E63946] text-white text-sm font-medium tracking-wide hover:bg-[#C1121F] transition-colors duration-200"
-                >
-                  Become a Technical Sponsor
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-                <Link
-                  href="/about"
-                  className="inline-flex items-center gap-2 px-7 py-3 border border-[#0A0A0A]/15 text-[#0A0A0A]/60 text-sm font-medium hover:border-[#0A0A0A]/30 hover:text-[#0A0A0A] transition-colors duration-200"
-                >
-                  About the Team
-                </Link>
-              </div>
             </div>
           </div>
         </div>

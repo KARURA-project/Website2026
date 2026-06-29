@@ -1,43 +1,46 @@
 // src/app/page.tsx
 import Header from '@/components/layout/Header';
 import DepartmentCard from '@/components/members/DepartmentCard';
-import { HomeTransmissions } from '@/components/home';
+// import { HomeTransmissions } from '@/components/home'; // News & Transmissions disabled site-wide — see /src/app/news for reimplementation notes
 import Footer from '@/components/layout/Footer';
 import SponsorsCarousel from '@/components/sponsors/SponsorsCarousel';
 import { HeroWithRover, RoverHistory, VideoReel, TeamIntroduction, Countdown as TelemetryCountdown } from '@/components/home';
-import transmissions from '@/data/transmissions';
+// import transmissions from '@/data/transmissions'; // kept in src/data for future reimplementation; unused while News & Transmissions is disabled
 
 export default function Home() {
-  const departments = [
+  const topDepartments = [
     {
       department: 'mechanical',
       title: 'Mechanical',
       description: 'Designing and fabricating the physical structure and mobility systems.',
-      members: 12,
+      members: 32,
     },
     {
       department: 'electrical',
       title: 'Electrical',
       description: 'Developing power distribution and electronic communication systems.',
-      members: 8,
+      members: 29,
     },
     {
       department: 'software',
       title: 'Software',
       description: 'Creating autonomous navigation and control algorithms.',
-      members: 15,
+      members: 24,
     },
+  ];
+
+  const bottomDepartments = [
     {
       department: 'science',
       title: 'Science',
       description: 'Conducting research on astrobiology and life-detection protocols.',
-      members: 6,
+      members: 17,
     },
     {
       department: 'business',
       title: 'Business',
-      description: 'Managing sponsorships, outreach, and team operations.',
-      members: 5,
+      description: 'Marketing, sponsorship, finance, and team engagement.',
+      members: 25,
     },
   ];
 
@@ -72,40 +75,10 @@ export default function Home() {
       {/* ── 4. Team Introduction ── */}
       <TeamIntroduction />
 
-      {/* ── 5. Members Teaser ── */}
-      <section className="py-20 bg-[#FAFAFA] border-t border-[#0A0A0A]/8">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-6 h-px bg-[#E63946]" />
-                <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#0A0A0A]/40">
-                  The Team
-                </span>
-              </div>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0A0A0A]">Meet the Members</h2>
-              <p className="text-[#0A0A0A]/50 mt-3 max-w-md text-sm leading-relaxed">
-                From founders to subteam leads — students driving KARURA forward across Japan and the United States.
-              </p>
-            </div>
-            
-            <a
-              href="/members"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#0A0A0A] text-white text-sm font-medium tracking-wide hover:bg-[#E63946] transition-colors duration-300 self-start"
-            >
-              View All Members
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 6. Rover History ── */}
+      {/* ── 5. Rover History ── */}
       <RoverHistory />
 
-      {/* ── 7. Departments ── */}
+      {/* ── 6. Departments — explicit 3-top / 2-bottom layout ── */}
       <section className="py-24 bg-[#FAFAFA] border-t border-[#0A0A0A]/8">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
           <div className="mb-14">
@@ -118,8 +91,18 @@ export default function Home() {
             <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0A0A0A]">Our Departments</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#0A0A0A]/8">
-            {departments.map((dept) => (
+          {/* Top row — 3 boxes */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#0A0A0A]/8">
+            {topDepartments.map((dept) => (
+              <div key={dept.department} className="bg-[#FAFAFA]">
+                <DepartmentCard {...dept} />
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom row — 2 boxes, hairline continues from row above */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#0A0A0A]/8 mt-px">
+            {bottomDepartments.map((dept) => (
               <div key={dept.department} className="bg-[#FAFAFA]">
                 <DepartmentCard {...dept} />
               </div>
@@ -128,10 +111,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 8. News & Transmissions — synced with news page style ── */}
+      {/* ── 7. News & Transmissions ──
+          DISABLED: site-wide removal of News & Transmissions from viewer-facing
+          surfaces. Component, data, and page architecture left intact in
+          src/components/home/HomeTransmissions.tsx and src/data/transmissions.ts
+          for future reimplementation. To restore, uncomment the import above
+          and the line below.
       <HomeTransmissions transmissions={transmissions} />
+      */}
 
-      {/* ── 9. Sponsors ── */}
+      {/* ── 8. Sponsors ── */}
       <SponsorsCarousel
         sponsors={sponsors.map((s) => ({ id: s.id, name: s.name, logo: s.logo }))}
       />
