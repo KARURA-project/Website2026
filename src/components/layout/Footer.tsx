@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#FAFAFA] border-t border-[#0A0A0A]/10 py-16">
       <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
-        <div className="grid md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-12 items-start pb-12 border-b border-[#0A0A0A]/8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1.4fr] gap-12 items-start pb-12 border-b border-[#0A0A0A]/8">
 
           <div>
             <Link href="/" className="inline-block mb-4 transition-opacity hover:opacity-70">
@@ -38,6 +38,16 @@ export default function Footer() {
             <div className="flex flex-col gap-2.5">
               <Link href="/join" className="text-xs text-[#E63946] font-semibold hover:underline">Join Us</Link>
               <Link href="/support" className="text-xs text-[#0A0A0A]/60 hover:text-[#0A0A0A] transition-colors">Support Us</Link>
+            </div>
+          </div>
+
+          <div>
+            <span className="font-mono text-[9px] tracking-[0.25em] text-[#0A0A0A]/30 uppercase block mb-4">Registered Nonprofit Organization</span>
+            <div className="flex flex-col gap-1.5 font-mono text-[10px] text-[#0A0A0A]/45 leading-relaxed">
+              <span>Karura Robotics</span>
+              <span>315 Boyett St., Apt 200C</span>
+              <span>College Station, TX 77840</span>
+              <span className="pt-2 text-[#0A0A0A]/30">EIN: 39-4115958</span>
             </div>
           </div>
 
