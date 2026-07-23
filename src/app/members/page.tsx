@@ -84,7 +84,7 @@ const departments = [
     memberCount: 29,
     members: [
       {
-        name: 'Nic Medina Deleon',
+        name: 'Nicolas Medina Deleon',
         role: 'Executive Director of Electrical Systems',
         university: 'Texas A&M University',
         country: 'US' as const,

@@ -131,7 +131,7 @@ export default function RoverPage() {
             className="flex flex-wrap gap-6 border-t border-[#0A0A0A]/10 pt-8"
           >
             {[
-              { label: 'ACTIVE PLATFORM', value: 'KARURA VI' },
+              { label: 'ACTIVE PLATFORM', value: 'KARURA IV' },
               { label: 'NEXT COMPETITION', value: 'URC 2027' },
               { label: 'BUILD STATUS', value: 'IN PROGRESS' },
             ].map((item) => (
