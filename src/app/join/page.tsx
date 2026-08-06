@@ -263,7 +263,7 @@ export default function JoinPage() {
                   </div>
 
                   <a
-                    href="https://forms.gle/karuraRecruitment2026"
+                    href="https://docs.google.com/forms/d/1MJhQgfIRbGO-Up2x9Sr15ocGia40k2A-0Nlz3ijXtl8/edit"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-8 block w-full bg-[#E63946] text-white text-center px-6 py-4 font-display font-semibold tracking-wide transition-transform duration-200 hover:-translate-y-0.5"
