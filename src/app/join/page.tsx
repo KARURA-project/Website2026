@@ -10,7 +10,7 @@ const positions = [
   {
     id: '01',
     department: 'Software',
-    openings: '03',
+    openings: '06',
     responsibilities: [
       'ROS2 Navigation',
       'SLAM & Localization',
@@ -21,7 +21,7 @@ const positions = [
   {
     id: '02',
     department: 'MECHANICAL',
-    openings: '04',
+    openings: '09',
     responsibilities: [
       'SolidWorks',
       'FEA',
@@ -32,7 +32,7 @@ const positions = [
   {
     id: '03',
     department: 'ELECTRICAL',
-    openings: '02',
+    openings: '12',
     responsibilities: [
       'PCB Design',
       'CAN Integration',
@@ -43,7 +43,7 @@ const positions = [
   {
     id: '04',
     department: 'SCIENCE',
-    openings: '02',
+    openings: '06',
     responsibilities: [
       'Astrobiology',
       'Spectrometry',
@@ -54,7 +54,7 @@ const positions = [
   {
     id: '05',
     department: 'BUSINESS',
-    openings: '02',
+    openings: '10',
     responsibilities: [
       'Sponsors',
       'Grant Writing',
@@ -252,7 +252,7 @@ export default function JoinPage() {
                       <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#0A0A0A]/35">
                         Positions Open
                       </span>
-                      <span className="font-mono text-xs">13 ACTIVE</span>
+                      <span className="font-mono text-xs">50</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#0A0A0A]/35">
