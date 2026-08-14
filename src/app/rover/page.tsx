@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -14,68 +15,66 @@ import { rovers, generationTimeline } from '@/data/rovers';
 // and /about's program timeline. Only page-specific content (URC task
 // breakdown, subsystem inventory) stays local to this file.
 
-const urcTasks = [
-  {
-    index: '01',
-    name: 'Autonomous Navigation',
-    description:
-      'Rover must navigate 1+ km of rocky Mars-analog terrain, identifying and reaching GPS waypoints without any human intervention.',
-    challenge: 'No-comms zone for portions of the run. Terrain includes loose rock, slopes, and dry river beds.',
-    systems: [
-      { label: 'PRIMARY SENSOR', value: 'STEREO CAMERA + LiDAR' },
-      { label: 'LOCALIZATION', value: 'SLAM + GPS/IMU FUSION' },
-      { label: 'STACK', value: 'ROS2 NAV2 + CUSTOM PLANNER' },
-      { label: 'OBSTACLE AVOID', value: 'COSTMAP 2D + VOXEL GRID' },
-      { label: 'COMMS CUTOFF', value: 'ZERO OPERATOR INPUT' },
-    ],
-  },
-  {
-    index: '02',
-    name: 'Equipment Servicing',
-    description:
-      'The rover must operate a cache of hand tools, including levers, buttons, and valves, using only the robotic arm and end-effector.',
-    challenge: 'Requires sub-centimeter arm precision. All tools resemble real-world industrial hardware.',
-    systems: [
-      { label: 'ARM CONFIG', value: '5-DOF SERIAL MANIPULATOR' },
-      { label: 'END EFFECTOR', value: 'CUSTOM GRIPPER + TOOL ADAPTER' },
-      { label: 'DEPTH SENSING', value: 'STEREO CAMERA + ARUCO' },
-      { label: 'CONTROL MODE', value: 'OPERATOR TELEOPERATION' },
-      { label: 'FEEDBACK', value: 'JOINT ENCODER + FORCE EST.' },
-    ],
-  },
-  {
-    index: '03',
-    name: 'Extreme Retrieval',
-    description:
-      'Navigate extreme terrain gradients and narrow passages to retrieve a cache object from a designated location and return it to base.',
-    challenge: 'Maximum slope angles exceed 40°. Terrain designed to challenge all 6 wheels simultaneously.',
-    systems: [
-      { label: 'SUSPENSION', value: 'ROCKER-BOGIE 4-WHEEL' },
-      { label: 'TRACTION', value: 'BRUSHLESS DC × 4 INDEPENDENT' },
-      { label: 'SLOPE LIMIT', value: 'DESIGN TARGET: 45°' },
-      { label: 'TERRAIN TYPE', value: 'LOOSE SEDIMENT / ROCK FIELD' },
-      { label: 'RETRIEVAL', value: '5-DOF ARM + CLOSED GRIPPER' },
-    ],
-  },
-  {
-    index: '04',
-    name: 'Science Mission',
-    description:
-      'Identify, document, and collect soil and rock samples from a designated site. Perform onboard analysis to detect potential biosignatures.',
-    challenge: 'Samples must be documented in-situ with GPS coordinates, images, and onboard spectral analysis.',
-    systems: [
-      { label: 'SAMPLING', value: 'DRILL + PASSIVE SCOOP ARM' },
-      { label: 'SPECTROSCOPY', value: 'PORTABLE SPECTROMETER' },
-      { label: 'IMAGING', value: 'MACRO CAMERA + MICROSCOPE' },
-      { label: 'GPS LOG', value: 'RTK-CAPABLE MODULE' },
-      { label: 'ANALYSIS', value: 'ONBOARD CHEMISTRY PROTOCOL' },
-    ],
-  },
-];
-
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export default function RoverPage() {
+  const t = useTranslations('rover');
+
+  const urcTasks = [
+    {
+      index: '01',
+      name: t('tasks.navigation.name'),
+      description: t('tasks.navigation.description'),
+      challenge: t('tasks.navigation.challenge'),
+      systems: [
+        { label: t('tasks.navigation.systems.primarySensor.label'), value: t('tasks.navigation.systems.primarySensor.value') },
+        { label: t('tasks.navigation.systems.localization.label'), value: t('tasks.navigation.systems.localization.value') },
+        { label: t('tasks.navigation.systems.stack.label'), value: t('tasks.navigation.systems.stack.value') },
+        { label: t('tasks.navigation.systems.obstacle.label'), value: t('tasks.navigation.systems.obstacle.value') },
+        { label: t('tasks.navigation.systems.comms.label'), value: t('tasks.navigation.systems.comms.value') },
+      ],
+    },
+    {
+      index: '02',
+      name: t('tasks.servicing.name'),
+      description: t('tasks.servicing.description'),
+      challenge: t('tasks.servicing.challenge'),
+      systems: [
+        { label: t('tasks.servicing.systems.arm.label'), value: t('tasks.servicing.systems.arm.value') },
+        { label: t('tasks.servicing.systems.eef.label'), value: t('tasks.servicing.systems.eef.value') },
+        { label: t('tasks.servicing.systems.depth.label'), value: t('tasks.servicing.systems.depth.value') },
+        { label: t('tasks.servicing.systems.control.label'), value: t('tasks.servicing.systems.control.value') },
+        { label: t('tasks.servicing.systems.feedback.label'), value: t('tasks.servicing.systems.feedback.value') },
+      ],
+    },
+    {
+      index: '03',
+      name: t('tasks.retrieval.name'),
+      description: t('tasks.retrieval.description'),
+      challenge: t('tasks.retrieval.challenge'),
+      systems: [
+        { label: t('tasks.retrieval.systems.suspension.label'), value: t('tasks.retrieval.systems.suspension.value') },
+        { label: t('tasks.retrieval.systems.traction.label'), value: t('tasks.retrieval.systems.traction.value') },
+        { label: t('tasks.retrieval.systems.slope.label'), value: t('tasks.retrieval.systems.slope.value') },
+        { label: t('tasks.retrieval.systems.terrain.label'), value: t('tasks.retrieval.systems.terrain.value') },
+        { label: t('tasks.retrieval.systems.retrieval.label'), value: t('tasks.retrieval.systems.retrieval.value') },
+      ],
+    },
+    {
+      index: '04',
+      name: t('tasks.science.name'),
+      description: t('tasks.science.description'),
+      challenge: t('tasks.science.challenge'),
+      systems: [
+        { label: t('tasks.science.systems.sampling.label'), value: t('tasks.science.systems.sampling.value') },
+        { label: t('tasks.science.systems.spectroscopy.label'), value: t('tasks.science.systems.spectroscopy.value') },
+        { label: t('tasks.science.systems.imaging.label'), value: t('tasks.science.systems.imaging.value') },
+        { label: t('tasks.science.systems.gps.label'), value: t('tasks.science.systems.gps.value') },
+        { label: t('tasks.science.systems.analysis.label'), value: t('tasks.science.systems.analysis.value') },
+      ],
+    },
+  ];
+
   const [activeRover, setActiveRover] = useState('karura-3');
   const current = rovers.find((r) => r.id === activeRover) || rovers[0];
 
@@ -99,7 +98,7 @@ export default function RoverPage() {
           >
             <span className="w-6 h-px bg-[#E63946]" />
             <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
-              Engineering / Rover Program
+              {t('hero.eyebrow')}
             </span>
           </motion.div>
 
@@ -109,8 +108,8 @@ export default function RoverPage() {
             transition={{ duration: 0.7, delay: 0.08 }}
             className="font-display text-[clamp(3rem,6vw,5.5rem)] font-bold leading-[0.92] tracking-tight text-[#0A0A0A] mb-8"
           >
-            Mission<br />Hardware<br />
-            <span className="text-[#0A0A0A]/15">Documentation</span>
+            {t('hero.titleLine1')}<br />{t('hero.titleLine2')}<br />
+            <span className="text-[#0A0A0A]/15">{t('hero.titleLine3')}</span>
           </motion.h1>
 
           <motion.p
@@ -119,8 +118,7 @@ export default function RoverPage() {
             transition={{ delay: 0.22 }}
             className="text-[#0A0A0A]/50 text-sm leading-relaxed max-w-[400px] mb-10"
           >
-            Three generations of competition-proven Mars rover hardware.
-            Engineered across two countries, tested in Utah, refined for the next launch window.
+            {t('hero.description')}
           </motion.p>
 
           {/* System status strip */}
@@ -131,9 +129,9 @@ export default function RoverPage() {
             className="flex flex-wrap gap-6 border-t border-[#0A0A0A]/10 pt-8"
           >
             {[
-              { label: 'ACTIVE PLATFORM', value: 'KARURA IV' },
-              { label: 'NEXT COMPETITION', value: 'URC 2027' },
-              { label: 'BUILD STATUS', value: 'IN PROGRESS' },
+              { label: t('hero.status.activePlatformLabel'), value: t('hero.status.activePlatformValue') },
+              { label: t('hero.status.nextCompetitionLabel'), value: t('hero.status.nextCompetitionValue') },
+              { label: t('hero.status.buildStatusLabel'), value: t('hero.status.buildStatusValue') },
             ].map((item) => (
               <div key={item.label}>
                 <div className="font-mono text-[8px] tracking-[0.22em] uppercase text-[#0A0A0A]/30 mb-1">{item.label}</div>
@@ -152,7 +150,7 @@ export default function RoverPage() {
         >
           <Image
             src="/Images/IMG_9105.webp"
-            alt="KARURA Mars Rover hardware"
+            alt={t('hero.imageAlt')}
             fill
             priority
             className="object-cover object-center"
@@ -164,10 +162,10 @@ export default function RoverPage() {
           <div className="absolute bottom-8 left-8 right-8">
             <div className="bg-[#0A0A0A]/80 backdrop-blur-sm px-5 py-3 flex items-center justify-between">
               <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/60">
-                KARURA: URC Finals 2026
+                {t('hero.badge')}
               </span>
               <span className="font-mono text-[10px] text-[#E63946] tracking-wider">
-                FINALIST
+                {t('hero.badgeStatus')}
               </span>
             </div>
           </div>
@@ -258,7 +256,7 @@ export default function RoverPage() {
 
                 {/* Subsystems checklist */}
                 <div className="border border-[#0A0A0A]/8 p-6">
-                  <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30 mb-5">Active Subsystems</div>
+                  <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30 mb-5">{t('activeSubsystems')}</div>
                   <div className="grid grid-cols-2 gap-x-4 gap-y-2.5">
                     {current.subsystems.map((sys) => (
                       <div key={sys} className="flex items-center gap-2">
@@ -284,14 +282,14 @@ export default function RoverPage() {
             <div>
               <div className="flex items-center gap-3 mb-3">
                 <span className="w-6 h-px bg-[#E63946]" />
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">Competition</span>
+                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">{t('competition.eyebrow')}</span>
               </div>
               <h2 className="font-display text-2xl font-bold text-[#0A0A0A] leading-tight">
-                URC Task<br />Breakdown
+                {t('competition.titleLine1')}<br />{t('competition.titleLine2')}
               </h2>
             </div>
             <p className="text-[#0A0A0A]/50 text-sm leading-relaxed self-end max-w-[560px]">
-              The University Rover Challenge scores teams across four mission categories. Each task is evaluated against Mars-analog conditions in the Utah desert, with scoring weighted by task completion percentage and time.
+              {t('competition.description')}
             </p>
           </div>
 
@@ -308,7 +306,7 @@ export default function RoverPage() {
                 <div className="flex items-start justify-between mb-6">
                   <div>
                     <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-[#0A0A0A]/25 mb-2">
-                      TASK {task.index}
+                      {t('competition.taskLabel')} {task.index}
                     </div>
                     <h3 className="font-display text-lg font-bold text-[#0A0A0A] leading-snug">
                       {task.name}
@@ -324,7 +322,7 @@ export default function RoverPage() {
 
                 <div className="border-t border-[#0A0A0A]/8 pt-5 space-y-0 divide-y divide-[#0A0A0A]/6 mt-auto">
                   <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-[#0A0A0A]/20 pb-3">
-                    Responsible Systems
+                    {t('competition.responsibleSystems')}
                   </div>
                   {task.systems.map((sys) => (
                     <div key={sys.label} className="grid grid-cols-[1fr_auto] gap-4 py-2">
@@ -350,10 +348,10 @@ export default function RoverPage() {
             <div>
               <div className="flex items-center gap-3 mb-3">
                 <span className="w-6 h-px bg-[#E63946]" />
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">Architecture</span>
+                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">{t('architecture.eyebrow')}</span>
               </div>
               <h2 className="font-display text-2xl font-bold text-[#0A0A0A] leading-tight">
-                Subsystem<br />Inventory
+                {t('architecture.titleLine1')}<br />{t('architecture.titleLine2')}
               </h2>
             </div>
 
@@ -416,7 +414,7 @@ export default function RoverPage() {
                       className="font-mono text-[8px] tracking-[0.15em] uppercase text-[#0A0A0A]/20 hover:text-[#0A0A0A]/50 transition-colors flex md:justify-end items-center gap-1.5 group"
                     >
                       <span className="w-3 h-px bg-current" />
-                      Team
+                      {t('architecture.teamLink')}
                     </Link>
                   </div>
                 </motion.div>

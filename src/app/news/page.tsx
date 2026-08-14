@@ -1,13 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
-import TransmissionHero from '@/components/news/TransmissionHero';
-import TransmissionArchive from '@/components/news/TransmissionArchive';
 import transmissions from '@/data/transmissions';
 
 const categories = [
@@ -20,6 +19,7 @@ const categories = [
 ];
 
 export default function NewsPage() {
+  const t = useTranslations('news');
   const [activeCategory, setActiveCategory] = useState('All');
 
 
@@ -47,7 +47,7 @@ const filtered =
             <span className="w-6 h-px bg-[#0A0A0A]" />
 
             <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
-              Mission Archive
+              {t('hero.eyebrow')}
             </span>
           </motion.div>
 
@@ -57,9 +57,9 @@ const filtered =
             transition={{ delay: 0.08 }}
             className="font-display text-[clamp(3rem,7vw,6rem)] font-bold leading-[0.92] tracking-tight text-[#0A0A0A]"
           >
-            NEWS &
+            {t('hero.titleLine1')}
             <br />
-            TRANSMISSIONS
+            {t('hero.titleLine2')}
           </motion.h1>
 
           <motion.h2
@@ -68,7 +68,7 @@ const filtered =
             transition={{ delay: 0.16 }}
             className="font-display text-3xl font-bold mb-6 mt-8"
           >
-            Latest Transmission
+            {t('hero.subtitle')}
           </motion.h2>
 
           <motion.p
@@ -77,7 +77,7 @@ const filtered =
             transition={{ delay: 0.16 }}
             className="max-w-[520px] mt-4 text-sm leading-relaxed text-[#0A0A0A]/50"
           >
-            Engineering milestones, competition campaigns, sponsor announcements, and operational updates documenting KARURA's journey across Japan and Texas.
+            {t('hero.description')}
           </motion.p>
 
         </div>
@@ -123,12 +123,12 @@ const filtered =
               <span className="w-6 h-px bg-[#0A0A0A]" />
 
               <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
-                Featured Mission Log
+                {t('featured.eyebrow')}
               </span>
             </div>
 
             <h2 className="font-display text-3xl font-bold mb-10">
-              Latest Transmission
+              {t('featured.heading')}
             </h2>
 
             <motion.div
@@ -162,7 +162,7 @@ const filtered =
 
                   <div>
                     <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/35 mb-2">
-                      Date
+                      {t('meta.dateLabel')}
                     </div>
 
                     <div className="font-mono text-xs">
@@ -176,7 +176,7 @@ const filtered =
 
                   <div>
                     <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/35 mb-2">
-                      Category
+                      {t('meta.categoryLabel')}
                     </div>
 
                     <div className="font-mono text-xs">
@@ -186,7 +186,7 @@ const filtered =
 
                   <div>
                     <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/35 mb-2">
-                      Read Time
+                      {t('meta.readTimeLabel')}
                     </div>
 
                     <div className="font-mono text-xs">
@@ -196,11 +196,11 @@ const filtered =
 
                   <div>
                     <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/35 mb-2">
-                      Status
+                      {t('meta.statusLabel')}
                     </div>
 
                     <div className="font-mono text-xs">
-                      ARCHIVED
+                      {t('meta.statusValue')}
                     </div>
                   </div>
 
@@ -269,7 +269,7 @@ const filtered =
               </div>
 
               <h2 className="font-display text-3xl font-bold mb-10">
-                Mission Archive
+                {t('archive.heading')}
               </h2>
 
               <div className="border-y border-[#0A0A0A]/10 divide-y divide-[#0A0A0A]/10">
@@ -293,7 +293,7 @@ const filtered =
                         <div>
 
                           <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30 mb-2">
-                            Date
+                            {t('meta.dateLabel')}
                           </div>
 
                           <div className="font-mono text-xs">

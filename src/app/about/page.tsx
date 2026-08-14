@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -94,6 +95,8 @@ const departments = [
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export default function AboutPage() {
+  const t = useTranslations('about');
+
   return (
     <main className="bg-[#FAFAFA] min-h-screen">
       <Header />
@@ -114,7 +117,7 @@ export default function AboutPage() {
           >
             <span className="w-6 h-px bg-[#E63946]" />
             <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
-              About KARURA
+              {t('eyebrow')}
             </span>
           </motion.div>
 
@@ -124,9 +127,9 @@ export default function AboutPage() {
             transition={{ duration: 0.7, delay: 0.08 }}
             className="font-display text-[clamp(2.8rem,5.5vw,5rem)] font-bold leading-[0.95] tracking-tight text-[#0A0A0A] mb-6"
           >
-            International<br />
-            Rover<br />
-            Development
+            {t('heroTitleLine1')}<br />
+            {t('heroTitleLine2')}<br />
+            {t('heroTitleLine3')}
           </motion.h1>
 
           <motion.p
@@ -135,8 +138,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 0.18 }}
             className="text-[#0A0A0A]/50 text-base leading-relaxed max-w-[460px]"
           >
-            KARURA unites students from{' '}
-            <span className="text-[#0A0A0A]/80 font-medium">30+ institutions</span> across Japan and the U.S. to build, test, and compete with a Mars rover, and to show that international engineering collaboration at the student level is both possible and world-class.
+            {t('heroDescription', { count: '30+' })}
           </motion.p>
         </div>
 
@@ -149,7 +151,7 @@ export default function AboutPage() {
         >
           <Image
             src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3022x3327_v-frms_webp_d339df29-d451-447f-a4a6-111324ea758e.png"
-            alt="KARURA Mars Rover hardware"
+            alt={t('heroImageAlt')}
             fill
             priority
             className="object-cover object-center opacity-90"
@@ -196,10 +198,10 @@ export default function AboutPage() {
             <div className="lg:pt-2">
               <div className="flex items-center gap-3 mb-3">
                 <span className="w-6 h-px bg-[#E63946]" />
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">Mission</span>
+                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">{t('mission')}</span>
               </div>
               <h2 className="font-display text-2xl font-bold text-[#0A0A0A] leading-tight">
-                Why We<br />Build Rovers
+                {t('missionTitleLine1')}<br />{t('missionTitleLine2')}
               </h2>
             </div>
 
@@ -207,18 +209,18 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <p className="font-display text-[1.15rem] font-semibold text-[#0A0A0A] leading-snug mb-4">
-                  The University Rover Challenge is the world's most demanding robotics competition for university students, held every year on Mars-analog terrain in Utah.
+                  {t('missionLead')}
                 </p>
                 <p className="text-[#0A0A0A]/55 text-sm leading-relaxed">
-                  KARURA was built on a simple thesis: the most advanced rover on the field should also be the most internationally diverse team on the field. We compete at URC every year, and in 2024 we proved that thesis true by reaching the Finals as the first Japanese and first international team in competition history.
+                  {t('missionBody')}
                 </p>
               </div>
               <div>
                 <p className="text-[#0A0A0A]/55 text-sm leading-relaxed mb-5">
-                  Our mission is not limited to competition podiums. Every system we engineer, every student who joins from a new university, and every sponsor sponsorship we build moves the needle on international space collaboration as a practical, replicable model.
+                  {t('missionBody2')}
                 </p>
                 <p className="text-[#0A0A0A]/55 text-sm leading-relaxed">
-                  KARURA connects Japanese engineering excellence with the American aerospace research ecosystem at Texas A&M, combining complementary perspectives to solve hard engineering problems.
+                  {t('missionBody3')}
                 </p>
                 <div className="mt-8 pt-6 border-t border-[#0A0A0A]/8">
                   <Link
@@ -226,7 +228,7 @@ export default function AboutPage() {
                     className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.15em] uppercase text-[#0A0A0A]/60 hover:text-[#0A0A0A] transition-colors group"
                   >
                     <span className="w-5 h-px bg-current transition-all group-hover:w-8" />
-                    View Rover Specs
+                    {t('viewRoverSpecs')}
                   </Link>
                 </div>
               </div>
@@ -245,10 +247,10 @@ export default function AboutPage() {
             <div className="lg:pt-2">
               <div className="flex items-center gap-3 mb-3">
                 <span className="w-6 h-px bg-[#E63946]" />
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-white/30">Differentiators</span>
+                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-white/30">{t('differentiators')}</span>
               </div>
               <h2 className="font-display text-2xl font-bold text-white leading-tight">
-                What Sets<br />Us Apart
+                {t('differentiatorsTitleLine1')}<br />{t('differentiatorsTitleLine2')}
               </h2>
             </div>
 
@@ -256,18 +258,18 @@ export default function AboutPage() {
               {[
                 {
                   index: '01',
-                  title: 'True Cross-Pacific Structure',
-                  body: 'We are not an exchange program. We are a permanent dual-node organization with engineering operations running in Japan and Texas at the same time.',
+                  title: t('differentiatorsItem1Title'),
+                  body: t('differentiatorsItem1Body'),
                 },
                 {
                   index: '02',
-                  title: 'Competition-Proven Hardware',
-                  body: 'Every subsystem has been field-tested at URC on Mars-analog desert terrain. Our 2024 build reached the Finals, and the hardware performs under pressure.',
+                  title: t('differentiatorsItem2Title'),
+                  body: t('differentiatorsItem2Body'),
                 },
                 {
                   index: '03',
-                  title: 'Academic Network Depth',
-                  body: '30+ institutions across Japan and the U.S., giving KARURA unrivaled access to diverse engineering talent and research resources.',
+                  title: t('differentiatorsItem3Title'),
+                  body: t('differentiatorsItem3Body'),
                 },
               ].map((item) => (
                 <div key={item.index} className="px-0 sm:px-8 py-8 first:pl-0 last:pr-0">
@@ -293,25 +295,25 @@ export default function AboutPage() {
             <div>
               <div className="flex items-center gap-3 mb-3">
                 <span className="w-6 h-px bg-[#E63946]" />
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">Academic Network</span>
+                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">{t('academicNetwork')}</span>
               </div>
               <h2 className="font-display text-2xl font-bold text-[#0A0A0A] leading-tight mb-6">
-                Institutions
+                {t('institutions')}
               </h2>
               <p className="text-[#0A0A0A]/45 text-xs leading-relaxed mb-8 max-w-[220px]">
-                Students from these institutions form the engineering backbone of KARURA across all five departments.
+                {t('networkDescription')}
               </p>
               <div className="space-y-3">
                 <div className="flex items-center justify-between border-b border-[#0A0A0A]/8 pb-3">
-                  <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-[#0A0A0A]/40">Japan</span>
+                  <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-[#0A0A0A]/40">{t('japan')}</span>
                   <span className="font-mono text-sm font-bold text-[#0A0A0A]">27</span>
                 </div>
                 <div className="flex items-center justify-between border-b border-[#0A0A0A]/8 pb-3">
-                  <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-[#0A0A0A]/40">United States</span>
+                  <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-[#0A0A0A]/40">{t('unitedStates')}</span>
                   <span className="font-mono text-sm font-bold text-[#0A0A0A]">4</span>
                 </div>
                 <div className="flex items-center justify-between pt-1">
-                  <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-[#0A0A0A]/40">Total</span>
+                  <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-[#0A0A0A]/40">{t('total')}</span>
                   <span className="font-mono text-sm font-bold text-[#E63946]">31</span>
                 </div>
               </div>
@@ -352,10 +354,10 @@ export default function AboutPage() {
             <div className="lg:pt-2">
               <div className="flex items-center gap-3 mb-3">
                 <span className="w-6 h-px bg-[#E63946]" />
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">Schedule</span>
+                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">{t('schedule')}</span>
               </div>
               <h2 className="font-display text-2xl font-bold text-[#0A0A0A] leading-tight">
-                Program<br />Timeline
+                {t('programTimelineLine1')}<br />{t('programTimelineLine2')}
               </h2>
             </div>
 
@@ -402,9 +404,9 @@ export default function AboutPage() {
           <div className="mb-14">
             <div className="flex items-center gap-3 mb-3">
               <span className="w-6 h-px bg-[#E63946]" />
-              <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">Engineering</span>
+              <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">{t('engineering')}</span>
             </div>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0A0A0A]">Departments</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0A0A0A]">{t('departments')}</h2>
           </div>
 
           <div className="divide-y divide-[#0A0A0A]/8 border-t border-b border-[#0A0A0A]/8">
@@ -428,7 +430,7 @@ export default function AboutPage() {
                 <p className="text-[#0A0A0A]/50 text-sm leading-relaxed">{dept.body}</p>
                 <div className="text-right">
                   <div className="font-mono text-xl font-bold text-[#0A0A0A]">{dept.members}</div>
-                  <div className="font-mono text-[8px] tracking-[0.15em] uppercase text-[#0A0A0A]/25">members</div>
+                  <div className="font-mono text-[8px] tracking-[0.15em] uppercase text-[#0A0A0A]/25">{t('members')}</div>
                 </div>
               </motion.div>
             ))}

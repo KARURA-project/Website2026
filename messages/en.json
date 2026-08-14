@@ -1,0 +1,266 @@
+{
+  "nav": {
+    "about": "About",
+    "rover": "Rover",
+    "members": "Members",
+    "join": "Join",
+    "support": "Support"
+  },
+  "about": {
+    "eyebrow": "About KARURA",
+    "heroTitleLine1": "International",
+    "heroTitleLine2": "Rover",
+    "heroTitleLine3": "Development",
+    "heroDescription": "KARURA unites students from {count} institutions across Japan and the U.S. to build, test, and compete with a Mars rover, and to show that international engineering collaboration at the student level is both possible and world-class.",
+    "heroImageAlt": "KARURA Mars Rover hardware",
+    "mission": "Mission",
+    "missionTitleLine1": "Why We",
+    "missionTitleLine2": "Build Rovers",
+    "missionLead": "The University Rover Challenge is the world's most demanding robotics competition for university students, held every year on Mars-analog terrain in Utah.",
+    "missionBody": "KARURA was built on a simple thesis: the most advanced rover on the field should also be the most internationally diverse team on the field. We compete at URC every year, and in 2024 we proved that thesis true by reaching the Finals as the first Japanese and first international team in competition history.",
+    "missionBody2": "Our mission is not limited to competition podiums. Every system we engineer, every student who joins from a new university, and every sponsorship we build moves the needle on international space collaboration as a practical, replicable model.",
+    "missionBody3": "KARURA connects Japanese engineering excellence with the American aerospace research ecosystem at Texas A&M, combining complementary perspectives to solve hard engineering problems.",
+    "viewRoverSpecs": "View Rover Specs",
+    "differentiators": "Differentiators",
+    "differentiatorsTitleLine1": "What Sets",
+    "differentiatorsTitleLine2": "Us Apart",
+    "differentiatorsItem1Title": "True Cross-Pacific Structure",
+    "differentiatorsItem1Body": "We are not an exchange program. We are a permanent dual-node organization with engineering operations running in Japan and Texas at the same time.",
+    "differentiatorsItem2Title": "Competition-Proven Hardware",
+    "differentiatorsItem2Body": "Every subsystem has been field-tested at URC on Mars-analog desert terrain. Our 2024 build reached the Finals, and the hardware performs under pressure.",
+    "differentiatorsItem3Title": "Academic Network Depth",
+    "differentiatorsItem3Body": "30+ institutions across Japan and the U.S., giving KARURA unrivaled access to diverse engineering talent and research resources.",
+    "academicNetwork": "Academic Network",
+    "institutions": "Institutions",
+    "networkDescription": "Students from these institutions form the engineering backbone of KARURA across all five departments.",
+    "japan": "Japan",
+    "unitedStates": "United States",
+    "total": "Total",
+    "schedule": "Schedule",
+    "programTimelineLine1": "Program",
+    "programTimelineLine2": "Timeline",
+    "engineering": "Engineering",
+    "departments": "Departments",
+    "members": "Members"
+  },
+  "support": {
+    "hero": {
+      "eyebrow": "Sponsorship / 2026–27",
+      "titleLine1": "We don't do",
+      "titleAccent": "Tier Tables.",
+      "description": "Each sponsorship opportunity is developed on a case-by-case basis, ensuring that every collaboration aligns with your organization's objectives, audience, and desired impact. We work closely with partners to create meaningful opportunities that deliver value for both your brand and our mission.",
+      "imageAlt": "KARURA Rover — URC Finals hardware",
+      "badge": "KARURA III — URC Finals 2026",
+      "live": "ARCHIVED"
+    },
+    "contact": {
+      "directContact": "Direct Contact",
+      "reply": "Our business team responds to all inquiries within 48 hours. Every sponsorship is scoped individually around your organization's goals.",
+      "businessLeadLabel": "Business Lead",
+      "businessLeadValue": "Brady Wood — Business Lead, KARURA Project",
+      "scopeLabel": "Sponsorship Scope",
+      "scopeItems": {
+        "hardware": "Hardware & component funding",
+        "materials": "In-kind material contributions",
+        "mentorship": "Engineering mentorship hours",
+        "branding": "Co-branding & field presence",
+        "talent": "Talent pipeline access"
+      }
+    },
+    "sponsors": {
+      "heading": "Current Sponsors",
+      "title": "2026–27 Sponsors",
+      "description": "Click any logo to visit the sponsor's website."
+    },
+    "whySponsor": {
+      "eyebrow": "Why Sponsor",
+      "titleLine1": "The case",
+      "titleLine2": "for KARURA",
+      "description": "Sponsorships with KARURA are not logo placements, they are engineering deployments. Your components, your technology, and your brand travel to one of the world's most demanding robotics competitions."
+    },
+    "benefits": {
+      "realWorld": {
+        "title": "Real-world field testing",
+        "body": "Your technology operates in Mars-like terrain, extreme UV, loose sediment, and temperature swings. It is the most credible field validation available to a student-engineering sponsor."
+      },
+      "pipeline": {
+        "title": "Cross-Pacific talent pipeline",
+        "body": "100+ engineers from 30+ universities across Japan and Texas A&M. Sponsors gain direct access to a bilingual, internationally collaborative engineering cohort before they enter industry."
+      },
+      "brand": {
+        "title": "Institutional brand placement",
+        "body": "KARURA competes in front of NASA judges, aerospace industry observers, and a global press audience. Your logo is on the hardware being filmed and photographed throughout."
+      }
+    },
+    "impact": {
+      "heading": "Sponsor Impact"
+    }
+  },
+  "rover": {
+    "hero": {
+      "eyebrow": "Engineering / Rover Program",
+      "titleLine1": "Mission",
+      "titleLine2": "Hardware",
+      "titleLine3": "Documentation",
+      "description": "Three generations of competition-proven Mars rover hardware. Engineered across two countries, tested in Utah, refined for the next launch window.",
+      "imageAlt": "KARURA Mars Rover hardware",
+      "badge": "KARURA: URC Finals 2026",
+      "badgeStatus": "FINALIST",
+      "status": {
+        "activePlatformLabel": "ACTIVE PLATFORM",
+        "activePlatformValue": "KARURA IV",
+        "nextCompetitionLabel": "NEXT COMPETITION",
+        "nextCompetitionValue": "URC 2027",
+        "buildStatusLabel": "BUILD STATUS",
+        "buildStatusValue": "IN PROGRESS"
+      }
+    },
+    "competition": {
+      "eyebrow": "Competition",
+      "titleLine1": "URC Task",
+      "titleLine2": "Breakdown",
+      "description": "The University Rover Challenge scores teams across four mission categories. Each task is evaluated against Mars-analog conditions in the Utah desert, with scoring weighted by task completion percentage and time.",
+      "taskLabel": "TASK",
+      "responsibleSystems": "Responsible Systems"
+    },
+    "architecture": {
+      "eyebrow": "Architecture",
+      "titleLine1": "Subsystem",
+      "titleLine2": "Inventory",
+      "teamLink": "Team"
+    },
+    "activeSubsystems": "Active Subsystems",
+    "tasks": {
+      "navigation": {
+        "name": "Autonomous Navigation",
+        "description": "Rover must navigate 1+ km of rocky Mars-analog terrain, identifying and reaching GPS waypoints without any human intervention.",
+        "challenge": "No-comms zone for portions of the run. Terrain includes loose rock, slopes, and dry river beds.",
+        "systems": {
+          "primarySensor": { "label": "PRIMARY SENSOR", "value": "STEREO CAMERA + LiDAR" },
+          "localization": { "label": "LOCALIZATION", "value": "SLAM + GPS/IMU FUSION" },
+          "stack": { "label": "STACK", "value": "ROS2 NAV2 + CUSTOM PLANNER" },
+          "obstacle": { "label": "OBSTACLE AVOID", "value": "COSTMAP 2D + VOXEL GRID" },
+          "comms": { "label": "COMMS CUTOFF", "value": "ZERO OPERATOR INPUT" }
+        }
+      },
+      "servicing": {
+        "name": "Equipment Servicing",
+        "description": "The rover must operate a cache of hand tools, including levers, buttons, and valves, using only the robotic arm and end-effector.",
+        "challenge": "Requires sub-centimeter arm precision. All tools resemble real-world industrial hardware.",
+        "systems": {
+          "arm": { "label": "ARM CONFIG", "value": "5-DOF SERIAL MANIPULATOR" },
+          "eef": { "label": "END EFFECTOR", "value": "CUSTOM GRIPPER + TOOL ADAPTER" },
+          "depth": { "label": "DEPTH SENSING", "value": "STEREO CAMERA + ARUCO" },
+          "control": { "label": "CONTROL MODE", "value": "OPERATOR TELEOPERATION" },
+          "feedback": { "label": "FEEDBACK", "value": "JOINT ENCODER + FORCE EST." }
+        }
+      },
+      "retrieval": {
+        "name": "Extreme Retrieval",
+        "description": "Navigate extreme terrain gradients and narrow passages to retrieve a cache object from a designated location and return it to base.",
+        "challenge": "Maximum slope angles exceed 40°. Terrain designed to challenge all 6 wheels simultaneously.",
+        "systems": {
+          "suspension": { "label": "SUSPENSION", "value": "ROCKER-BOGIE 4-WHEEL" },
+          "traction": { "label": "TRACTION", "value": "BRUSHLESS DC × 4 INDEPENDENT" },
+          "slope": { "label": "SLOPE LIMIT", "value": "DESIGN TARGET: 45°" },
+          "terrain": { "label": "TERRAIN TYPE", "value": "LOOSE SEDIMENT / ROCK FIELD" },
+          "retrieval": { "label": "RETRIEVAL", "value": "5-DOF ARM + CLOSED GRIPPER" }
+        }
+      },
+      "science": {
+        "name": "Science Mission",
+        "description": "Identify, document, and collect soil and rock samples from a designated site. Perform onboard analysis to detect potential biosignatures.",
+        "challenge": "Samples must be documented in-situ with GPS coordinates, images, and onboard spectral analysis.",
+        "systems": {
+          "sampling": { "label": "SAMPLING", "value": "DRILL + PASSIVE SCOOP ARM" },
+          "spectroscopy": { "label": "SPECTROSCOPY", "value": "PORTABLE SPECTROMETER" },
+          "imaging": { "label": "IMAGING", "value": "MACRO CAMERA + MICROSCOPE" },
+          "gps": { "label": "GPS LOG", "value": "RTK-CAPABLE MODULE" },
+          "analysis": { "label": "ANALYSIS", "value": "ONBOARD CHEMISTRY PROTOCOL" }
+        }
+      }
+    }
+  },
+  "join": {
+    "hero": {
+      "eyebrow": "Recruitment & Deployment",
+      "titleLine1": "Join",
+      "titleLine2": "The",
+      "titleLine3": "Team",
+      "description": "Build competition-proven Mars rover systems alongside students across Japan and Texas. Explore open roles, understand our international workflow, and become part of the next URC campaign.",
+      "imageAlt": "KARURA Mars Rover"
+    },
+    "positions": {
+      "eyebrow": "Open Positions",
+      "heading": "Current Recruitment Tracks",
+      "openingsLabel": "Openings"
+    },
+    "portal": {
+      "eyebrow": "Recruitment Portal",
+      "heading": "Build the next generation of Martian systems.",
+      "description": "From autonomous navigation and science instrumentation to sponsorship strategy and field operations, every subsystem contributes directly to competition readiness.",
+      "campaignLabel": "Campaign",
+      "campaignValue": "URC 2027",
+      "nodesLabel": "Collaboration Nodes",
+      "nodesValue": "TX / JP",
+      "positionsLabel": "Positions Open",
+      "positionsValue": "50",
+      "deploymentLabel": "Deployment",
+      "deploymentValue": "COLLEGE STATION",
+      "submitButton": "SUBMIT APPLICATION"
+    },
+    "pipeline": {
+      "eyebrow": "Cross-Institutional Pipeline",
+      "heading": "How We Operate Across Oceans"
+    }
+  },
+  "members": {
+    "hero": {
+      "eyebrow": "Team Directory / AY 2026–27",
+      "titleLine1": "The people",
+      "titleLine2": "behind the",
+      "titleLine3": "mission.",
+      "description": "100+ engineers, scientists, and operators span 15 universities across Japan and Texas A&M as they build competition-level Mars rover hardware."
+    }
+  },
+  "news": {
+    "hero": {
+      "eyebrow": "Mission Archive",
+      "titleLine1": "NEWS &",
+      "titleLine2": "TRANSMISSIONS",
+      "subtitle": "Latest Transmission",
+      "description": "Engineering milestones, competition campaigns, sponsor announcements, and operational updates documenting KARURA's journey across Japan and Texas."
+    },
+    "featured": {
+      "eyebrow": "Featured Mission Log",
+      "heading": "Latest Transmission"
+    },
+    "archive": {
+      "eyebrow": "Recent Transmissions",
+      "heading": "Mission Archive"
+    },
+    "meta": {
+      "dateLabel": "Date",
+      "categoryLabel": "Category",
+      "readTimeLabel": "Read Time",
+      "statusLabel": "Status",
+      "statusValue": "ARCHIVED"
+    }
+  },
+  "footer": {
+    "logoAlt": "KARURA Logo",
+    "description": "Cross-Pacific Engineering Organization. Connecting 30+ technical cohorts across the world.",
+    "navStackLabel": "Nav Stack",
+    "ourTeam": "Our Team",
+    "gatewaysLabel": "Gateways",
+    "joinUs": "Join Us",
+    "supportUs": "Support Us",
+    "nonprofitLabel": "Registered Nonprofit Organization",
+    "organizationName": "Karura Robotics",
+    "addressLine1": "315 Boyett St., Apt 200C",
+    "addressLine2": "College Station, TX 77840",
+    "ein": "EIN: 39-4115958",
+    "copyright": "© 2026 KARURA PROJECT.",
+    "stations": "STATION: COLLEGE STATION, TX / TOKYO, JP"
+  }
+}

@@ -1,6 +1,7 @@
 // src/app/join/page.tsx
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Image from 'next/image';
@@ -88,6 +89,8 @@ const pipeline = [
 ];
 
 export default function JoinPage() {
+  const t = useTranslations('join');
+
   return (
     <main className="bg-[#FAFAFA] min-h-screen">
       <Header />
@@ -108,7 +111,7 @@ export default function JoinPage() {
           >
             <span className="w-6 h-px bg-[#E63946]" />
             <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
-              Recruitment &amp; Deployment
+              {t('hero.eyebrow')}
             </span>
           </motion.div>
 
@@ -118,9 +121,9 @@ export default function JoinPage() {
             transition={{ duration: 0.7, delay: 0.08 }}
             className="font-display text-[clamp(2.8rem,5.5vw,5rem)] font-bold leading-[0.95] tracking-tight text-[#0A0A0A] mb-6"
           >
-            Join<br />
-            The<br />
-            Team
+            {t('hero.titleLine1')}<br />
+            {t('hero.titleLine2')}<br />
+            {t('hero.titleLine3')}
           </motion.h1>
 
           <motion.p
@@ -129,7 +132,7 @@ export default function JoinPage() {
             transition={{ duration: 0.6, delay: 0.18 }}
             className="text-[#0A0A0A]/50 text-base leading-relaxed max-w-[460px]"
           >
-            Build competition-proven Mars rover systems alongside students across Japan and Texas. Explore open roles, understand our international workflow, and become part of the next URC campaign.
+            {t('hero.description')}
           </motion.p>
         </div>
 
@@ -163,12 +166,12 @@ export default function JoinPage() {
               <div className="flex items-center gap-3 mb-5">
                 <span className="w-6 h-px bg-[#E63946]" />
                 <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
-                  Open Positions
+                  {t('positions.eyebrow')}
                 </span>
               </div>
 
               <h2 className="font-display text-3xl font-bold mb-10">
-                Current Recruitment Tracks
+                {t('positions.heading')}
               </h2>
 
               <div className="divide-y divide-[#0A0A0A]/10 border-y border-[#0A0A0A]/10">
@@ -200,7 +203,7 @@ export default function JoinPage() {
                     <div className="space-y-4">
                       <div>
                         <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30">
-                          Openings
+                          {t('positions.openingsLabel')}
                         </div>
                         <div className="font-mono text-xl font-bold">
                           {position.openings}
@@ -224,41 +227,41 @@ export default function JoinPage() {
                 <div className="border border-[#0A0A0A]/10 p-8">
 
                   <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35 mb-4">
-                    Recruitment Portal
+                    {t('portal.eyebrow')}
                   </div>
 
                   <h2 className="font-display text-3xl font-bold leading-tight mb-6">
-                    Build the next generation of Martian systems.
+                    {t('portal.heading')}
                   </h2>
 
                   <p className="text-sm leading-relaxed text-[#0A0A0A]/50 mb-8">
-                    From autonomous navigation and science instrumentation to sponsorship strategy and field operations, every subsystem contributes directly to competition readiness.
+                    {t('portal.description')}
                   </p>
 
                   <div className="space-y-5 border-y border-[#0A0A0A]/10 py-6">
                     <div className="flex justify-between items-center">
                       <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#0A0A0A]/35">
-                        Campaign
+                        {t('portal.campaignLabel')}
                       </span>
-                      <span className="font-mono text-xs">URC 2027</span>
+                      <span className="font-mono text-xs">{t('portal.campaignValue')}</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#0A0A0A]/35">
-                        Collaboration Nodes
+                        {t('portal.nodesLabel')}
                       </span>
-                      <span className="font-mono text-xs">TX / JP</span>
+                      <span className="font-mono text-xs">{t('portal.nodesValue')}</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#0A0A0A]/35">
-                        Positions Open
+                        {t('portal.positionsLabel')}
                       </span>
-                      <span className="font-mono text-xs">50</span>
+                      <span className="font-mono text-xs">{t('portal.positionsValue')}</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#0A0A0A]/35">
-                        Deployment
+                        {t('portal.deploymentLabel')}
                       </span>
-                      <span className="font-mono text-xs">COLLEGE STATION</span>
+                      <span className="font-mono text-xs">{t('portal.deploymentValue')}</span>
                     </div>
                   </div>
 
@@ -268,7 +271,7 @@ export default function JoinPage() {
                     rel="noopener noreferrer"
                     className="mt-8 block w-full bg-[#E63946] text-white text-center px-6 py-4 font-display font-semibold tracking-wide transition-transform duration-200 hover:-translate-y-0.5"
                   >
-                    SUBMIT APPLICATION
+                    {t('portal.submitButton')}
                   </a>
                 </div>
               </div>
@@ -278,12 +281,12 @@ export default function JoinPage() {
                 <div className="flex items-center gap-3 mb-5">
                   <span className="w-6 h-px bg-[#E63946]" />
                   <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
-                    Cross-Institutional Pipeline
+                    {t('pipeline.eyebrow')}
                   </span>
                 </div>
 
                 <h2 className="font-display text-3xl font-bold mb-10">
-                  How We Operate Across Oceans
+                  {t('pipeline.heading')}
                 </h2>
 
                 <div className="relative">
