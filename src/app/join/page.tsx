@@ -243,7 +243,7 @@ export default function JoinPage() {
                       <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#0A0A0A]/35">
                         {t('portal.campaignLabel')}
                       </span>
-                      <span className="font-mono text-xs">{t('portal.campaignValue')}</span>
+                      <span className="font-mono text-xs">URC 2027</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#0A0A0A]/35">
