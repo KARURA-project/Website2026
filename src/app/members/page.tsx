@@ -1,9 +1,9 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import Link from 'next/link';
 import MemberCard from '@/components/members/MemberCard';
 
 // ─── Data — all TBD entries stripped, only real personnel ────────────────────
@@ -24,7 +24,7 @@ const founders = [
     university: 'Shinshu University',
     country: 'JP' as const,
     node: 'Nagano, Japan',
-    bio: 'Mechanical Systems Engineering. Co-architect of the KARURA cross-Pacific engineering model from the program\'s founding in 2022.',
+    bio: 'Mechanical Systems Engineering. Co-architect of the KARURA cross-Pacific engineering model from the program&apos;s founding in 2022.',
     scope: 'Mechanical Systems · Program Architecture',
   },
 ];
@@ -238,6 +238,8 @@ const stats = [
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function MembersPage() {
+  const t = useTranslations('members');
+
   return (
     <main className="bg-[#FAFAFA] min-h-screen text-[#0A0A0A]">
       <Header />
@@ -256,7 +258,7 @@ export default function MembersPage() {
           >
             <span className="w-6 h-px bg-[#E63946]" />
             <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
-              Team Directory / AY 2026–27
+              {t('hero.eyebrow')}
             </span>
           </motion.div>
 
@@ -267,12 +269,12 @@ export default function MembersPage() {
               transition={{ duration: 0.6, delay: 0.08 }}
             >
               <h1 className="font-display text-[clamp(3rem,6vw,5.5rem)] font-bold leading-[0.92] tracking-tight text-[#0A0A0A] mb-6">
-                The people<br />
-                behind the<br />
-                <span className="text-[#0A0A0A]/20">mission.</span>
+                {t('hero.titleLine1')}<br />
+                {t('hero.titleLine2')}<br />
+                <span className="text-[#0A0A0A]/20">{t('hero.titleLine3')}</span>
               </h1>
               <p className="text-[#0A0A0A]/50 text-base leading-relaxed max-w-[480px]">
-                100+ engineers, scientists, and operators span 15 universities across Japan and Texas A&M as they build competition-level Mars rover hardware.
+                {t('hero.description')}
               </p>
             </motion.div>
 
@@ -319,7 +321,7 @@ export default function MembersPage() {
               </h2>
             </div>
             <p className="text-[#0A0A0A]/45 text-sm leading-relaxed self-end max-w-[540px]">
-              KARURA started in 2022 with a small group of students who believed a cross-Pacific engineering team could compete in the world's most demanding student robotics competition, and in 2024 they proved it.
+              KARURA started in 2022 with a small group of students who believed a cross-Pacific engineering team could compete in the world&apos;s most demanding student robotics competition, and in 2024 they proved it.
             </p>
           </div>
 

@@ -1,0 +1,266 @@
+{
+  "nav": {
+    "about": "概要",
+    "rover": "ローバー",
+    "members": "メンバー",
+    "join": "参加する",
+    "support": "支援する"
+  },
+  "about": {
+    "eyebrow": "KARURAについて",
+    "heroTitleLine1": "国際共同",
+    "heroTitleLine2": "ローバー",
+    "heroTitleLine3": "開発",
+    "heroDescription": "KARURAは、日本と米国の{count}を超える大学の学生が協力して火星ローバーを設計、試験、競技に参加させ、学生レベルでの国際的な技術協力が可能であり、世界クラスであることを示しています。",
+    "heroImageAlt": "KARURAの火星ローバー機器",
+    "mission": "ミッション",
+    "missionTitleLine1": "私たちは",
+    "missionTitleLine2": "ローバーを作る",
+    "missionLead": "University Rover Challengeは、大学生向けの最も過酷なロボット競技会であり、毎年ユタ州の火星環境を模した地形で開催されます。",
+    "missionBody": "KARURAは、フィールド上で最も高度なローバーを開発するだけでなく、最も国際的に多様なチームでもあるという考えのもとに設立されました。私たちは毎年URCに出場し、2024年には日本初、かつ史上初の国際チームとして決勝進出を果たしました。",
+    "missionBody2": "私たちのミッションは表彰台にとどまりません。設計するすべてのシステム、参加する新しい大学の学生、取り組むスポンサーシップのすべてが、実践的かつ再現可能な国際宇宙協力モデルを強く押し進めます。",
+    "missionBody3": "KARURAは、日本の技術力とテキサスA&Mの米国航空宇宙研究の連携を結び、相補的な視点を組み合わせて難しい工学課題に取り組んでいます。",
+    "viewRoverSpecs": "ローバー仕様を見る",
+    "differentiators": "差別化要素",
+    "differentiatorsTitleLine1": "私たちを",
+    "differentiatorsTitleLine2": "特別にするもの",
+    "differentiatorsItem1Title": "真の太平洋横断構造",
+    "differentiatorsItem1Body": "私たちは交換留学プログラムではありません。日本とテキサスで同時に設計・製造を進める常設の二拠点組織です。",
+    "differentiatorsItem2Title": "競技で実証されたハードウェア",
+    "differentiatorsItem2Body": "すべてのサブシステムは、火星のような砂漠地形でのURCで実地検証されています。2024年の機体は決勝に進出し、高い性能を発揮しました。",
+    "differentiatorsItem3Title": "学術ネットワークの広さ",
+    "differentiatorsItem3Body": "日本と米国の30以上の機関から学生が参加し、KARURAは多様な技術人材と研究資源へのアクセスを持っています。",
+    "academicNetwork": "学術ネットワーク",
+    "institutions": "参加機関",
+    "networkDescription": "これらの機関の学生たちが、KARURAの5つの部門を支える技術基盤となっています。",
+    "japan": "日本",
+    "unitedStates": "米国",
+    "total": "合計",
+    "schedule": "スケジュール",
+    "programTimelineLine1": "プログラム",
+    "programTimelineLine2": "タイムライン",
+    "engineering": "エンジニアリング",
+    "departments": "部門",
+    "members": "メンバー"
+  },
+  "support": {
+    "hero": {
+      "eyebrow": "スポンサーシップ / 2026–27",
+      "titleLine1": "階層表は",
+      "titleAccent": "作りません。",
+      "description": "各スポンサーシップは個別に設計され、あなたの組織の目的、対象者、期待する効果に合うように調整します。私たちはパートナーと密に連携し、ブランドとミッションの両方に価値をもたらす意味のある機会を作ります。",
+      "imageAlt": "KARURAローバー — URC決勝機体",
+      "badge": "KARURA III — URC決勝 2026",
+      "live": "アーカイブ"
+    },
+    "contact": {
+      "directContact": "直接お問い合わせ",
+      "reply": "私たちの事業チームは、すべての問い合わせに48時間以内に対応します。スポンサーシップは、各組織の目標に合わせて個別に設計されます。",
+      "businessLeadLabel": "事業責任者",
+      "businessLeadValue": "Brady Wood — KARURAプロジェクト事業責任者",
+      "scopeLabel": "スポンサーシップ範囲",
+      "scopeItems": {
+        "hardware": "ハードウェア・部材費支援",
+        "materials": "現物支給",
+        "mentorship": "技術メンタリング時間",
+        "branding": "共同ブランディングと現場プレゼンス",
+        "talent": "人材パイプラインアクセス"
+      }
+    },
+    "sponsors": {
+      "heading": "現在のスポンサー",
+      "title": "2026–27スポンサー",
+      "description": "ロゴをクリックするとスポンサーのWebサイトへ移動します。"
+    },
+    "whySponsor": {
+      "eyebrow": "スポンサーの理由",
+      "titleLine1": "KARURAの",
+      "titleLine2": "価値",
+      "description": "KARURAのスポンサーシップは、ロゴの掲載だけではありません。技術の実装と実証の機会です。あなたの部材、技術、ブランドが、世界でも最も過酷なロボティクス競技の一つに携わります。"
+    },
+    "benefits": {
+      "realWorld": {
+        "title": "実地での現場検証",
+        "body": "あなたの技術は、火星に似た地形、強い紫外線、細かな土砂、気温変動の中で動作します。これは学生技術のスポンサーにとって、最も信頼できる現場検証です。"
+      },
+      "pipeline": {
+        "title": "太平洋を越えた人材パイプライン",
+        "body": "日本とテキサスA&Mの30以上の大学から集まる100人超のエンジニア。スポンサーは、業界に入る前から国際協働型のバイリンガル技術者群に直接アクセスできます。"
+      },
+      "brand": {
+        "title": "機関ブランドの露出",
+        "body": "KARURAはNASA審査員、航空宇宙業界の関係者、世界中の報道の前で競技します。あなたのロゴは、撮影や写真撮影の対象となる機体に掲載されます。"
+      }
+    },
+    "impact": {
+      "heading": "スポンサーへのインパクト"
+    }
+  },
+  "rover": {
+    "hero": {
+      "eyebrow": "エンジニアリング / ローバープログラム",
+      "titleLine1": "ミッション",
+      "titleLine2": "ハードウェア",
+      "titleLine3": "ドキュメンテーション",
+      "description": "競技で実証された火星ローバーのハードウェアは3世代にわたります。日本と米国で設計され、ユタで試験し、次の発進に向けて洗練されました。",
+      "imageAlt": "KARURA火星ローバー機器",
+      "badge": "KARURA: URC決勝 2026",
+      "badgeStatus": "ファイナリスト",
+      "status": {
+        "activePlatformLabel": "稼働プラットフォーム",
+        "activePlatformValue": "KARURA IV",
+        "nextCompetitionLabel": "次回競技",
+        "nextCompetitionValue": "URC 2027",
+        "buildStatusLabel": "建設状況",
+        "buildStatusValue": "進行中"
+      }
+    },
+    "competition": {
+      "eyebrow": "競技",
+      "titleLine1": "URCタスク",
+      "titleLine2": "内訳",
+      "description": "University Rover Challengeは4つのミッションカテゴリでチームを評価します。各タスクはユタ砂漠の火星模擬環境で評価され、完了率と時間に応じてスコアが決まります。",
+      "taskLabel": "タスク",
+      "responsibleSystems": "担当システム"
+    },
+    "architecture": {
+      "eyebrow": "アーキテクチャ",
+      "titleLine1": "サブシステム",
+      "titleLine2": "一覧",
+      "teamLink": "チーム"
+    },
+    "activeSubsystems": "稼働中のサブシステム",
+    "tasks": {
+      "navigation": {
+        "name": "自律走行",
+        "description": "ローバーは1km以上の岩が多い火星模擬地形を走行し、人手を介さずにGPSウェイポイントを認識して到達しなければなりません。",
+        "challenge": "一部区間では通信不能ゾーンが発生します。地形には岩、傾斜、乾いた川床が含まれます。",
+        "systems": {
+          "primarySensor": { "label": "主センサー", "value": "ステレオカメラ + LiDAR" },
+          "localization": { "label": "位置推定", "value": "SLAM + GPS/IMU 融合" },
+          "stack": { "label": "スタック", "value": "ROS2 NAV2 + カスタムプランナー" },
+          "obstacle": { "label": "障害物回避", "value": "COSTMAP 2D + ボクセルグリッド" },
+          "comms": { "label": "通信遮断", "value": "オペレータ入力なし" }
+        }
+      },
+      "servicing": {
+        "name": "機材操作",
+        "description": "ローバーは、レバー、ボタン、バルブを含む工具群を、ロボットアームとエンドエフェクタだけで操作しなければなりません。",
+        "challenge": "サブセンチメートル単位のアーム精度が必要です。すべての工具は実際の産業用ハードウェアに似ています。",
+        "systems": {
+          "arm": { "label": "アーム構成", "value": "5自由度直列マニピュレータ" },
+          "eef": { "label": "エンドエフェクタ", "value": "カスタムグリッパー + 工具アダプタ" },
+          "depth": { "label": "深度検知", "value": "ステレオカメラ + ARUCO" },
+          "control": { "label": "制御モード", "value": "オペレータ遠隔操作" },
+          "feedback": { "label": "フィードバック", "value": "関節エンコーダ + 力推定" }
+        }
+      },
+      "retrieval": {
+        "name": "極限回収",
+        "description": "急な傾斜と狭い通路を通過し、指定位置のキャッシュを回収して基地まで戻します。",
+        "challenge": "最大傾斜角は40°を超えます。地形は6つの車輪を同時に試すよう設計されています。",
+        "systems": {
+          "suspension": { "label": "サスペンション", "value": "ロッカーボギー 4輪" },
+          "traction": { "label": "牽引", "value": "ブラシレスDC × 4独立制御" },
+          "slope": { "label": "傾斜制限", "value": "設計目標: 45°" },
+          "terrain": { "label": "地形種別", "value": "緩い堆積物 / 岩場" },
+          "retrieval": { "label": "回収", "value": "5自由度アーム + 閉じたグリッパー" }
+        }
+      },
+      "science": {
+        "name": "サイエンスミッション",
+        "description": "指定地で土や岩の試料を確認、記録、採取し、搭載解析を行って生命痕跡の可能性を探します。",
+        "challenge": "試料はGPS座標、画像、搭載分光分析とともに現地で記録する必要があります。",
+        "systems": {
+          "sampling": { "label": "採取", "value": "ドリル + 受動スコップアーム" },
+          "spectroscopy": { "label": "分光", "value": "ポータブル分光計" },
+          "imaging": { "label": "イメージング", "value": "マクロカメラ + 顕微鏡" },
+          "gps": { "label": "GPS記録", "value": "RTK対応モジュール" },
+          "analysis": { "label": "分析", "value": "オンボード化学プロトコル" }
+        }
+      }
+    }
+  },
+  "join": {
+    "hero": {
+      "eyebrow": "Recruitment & Deployment",
+      "titleLine1": "Join",
+      "titleLine2": "The",
+      "titleLine3": "Team",
+      "description": "Build competition-proven Mars rover systems alongside students across Japan and Texas. Explore open roles, understand our international workflow, and become part of the next URC campaign.",
+      "imageAlt": "KARURA Mars Rover"
+    },
+    "positions": {
+      "eyebrow": "Open Positions",
+      "heading": "Current Recruitment Tracks",
+      "openingsLabel": "Openings"
+    },
+    "portal": {
+      "eyebrow": "Recruitment Portal",
+      "heading": "Build the next generation of Martian systems.",
+      "description": "From autonomous navigation and science instrumentation to sponsorship strategy and field operations, every subsystem contributes directly to competition readiness.",
+      "campaignLabel": "Campaign",
+      "campaignValue": "URC 2027",
+      "nodesLabel": "Collaboration Nodes",
+      "nodesValue": "TX / JP",
+      "positionsLabel": "Positions Open",
+      "positionsValue": "50",
+      "deploymentLabel": "Deployment",
+      "deploymentValue": "COLLEGE STATION",
+      "submitButton": "SUBMIT APPLICATION"
+    },
+    "pipeline": {
+      "eyebrow": "Cross-Institutional Pipeline",
+      "heading": "How We Operate Across Oceans"
+    }
+  },
+  "members": {
+    "hero": {
+      "eyebrow": "Team Directory / AY 2026–27",
+      "titleLine1": "The people",
+      "titleLine2": "behind the",
+      "titleLine3": "mission.",
+      "description": "100+ engineers, scientists, and operators span 15 universities across Japan and Texas A&M as they build competition-level Mars rover hardware."
+    }
+  },
+  "news": {
+    "hero": {
+      "eyebrow": "Mission Archive",
+      "titleLine1": "NEWS &",
+      "titleLine2": "TRANSMISSIONS",
+      "subtitle": "Latest Transmission",
+      "description": "Engineering milestones, competition campaigns, sponsor announcements, and operational updates documenting KARURA's journey across Japan and Texas."
+    },
+    "featured": {
+      "eyebrow": "Featured Mission Log",
+      "heading": "Latest Transmission"
+    },
+    "archive": {
+      "eyebrow": "Recent Transmissions",
+      "heading": "Mission Archive"
+    },
+    "meta": {
+      "dateLabel": "Date",
+      "categoryLabel": "Category",
+      "readTimeLabel": "Read Time",
+      "statusLabel": "Status",
+      "statusValue": "ARCHIVED"
+    }
+  },
+  "footer": {
+    "logoAlt": "KARURA Logo",
+    "description": "Cross-Pacific Engineering Organization. Connecting 30+ technical cohorts across the world.",
+    "navStackLabel": "Nav Stack",
+    "ourTeam": "Our Team",
+    "gatewaysLabel": "Gateways",
+    "joinUs": "Join Us",
+    "supportUs": "Support Us",
+    "nonprofitLabel": "Registered Nonprofit Organization",
+    "organizationName": "Karura Robotics",
+    "addressLine1": "315 Boyett St., Apt 200C",
+    "addressLine2": "College Station, TX 77840",
+    "ein": "EIN: 39-4115958",
+    "copyright": "© 2026 KARURA PROJECT.",
+    "stations": "STATION: COLLEGE STATION, TX / TOKYO, JP"
+  }
+}

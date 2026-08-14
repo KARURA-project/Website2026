@@ -1,9 +1,13 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Footer() {
+  const t = useTranslations('nav');
+  const tFooter = useTranslations('footer');
+
   return (
     <footer className="bg-[#FAFAFA] border-t border-[#0A0A0A]/10 py-16">
       <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
@@ -13,49 +17,49 @@ export default function Footer() {
             <Link href="/" className="inline-block mb-4 transition-opacity hover:opacity-70">
               <Image
                 src="https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-462x174_webp_eeddf8f4-d769-4e9a-968b-9f9551bda5d7.webp"
-                alt="KARURA Logo"
+                alt={tFooter('logoAlt')}
                 width={116}
                 height={44}
                 className="h-9 w-auto object-contain"
               />
             </Link>
             <p className="text-[#0A0A0A]/40 text-xs max-w-sm leading-relaxed font-mono">
-              Cross-Pacific Engineering Organization. Connecting 30+ technical cohorts across the world.
+              {tFooter('description')}
             </p>
           </div>
 
           <div>
-            <span className="font-mono text-[9px] tracking-[0.25em] text-[#0A0A0A]/30 uppercase block mb-4">Nav Stack</span>
+            <span className="font-mono text-[9px] tracking-[0.25em] text-[#0A0A0A]/30 uppercase block mb-4">{tFooter('navStackLabel')}</span>
             <div className="flex flex-col gap-2.5">
-              <Link href="/about" className="text-xs text-[#0A0A0A]/60 hover:text-[#0A0A0A] transition-colors">About</Link>
-              <Link href="/rover" className="text-xs text-[#0A0A0A]/60 hover:text-[#0A0A0A] transition-colors">Rover</Link>
-              <Link href="/members" className="text-xs text-[#0A0A0A]/60 hover:text-[#0A0A0A] transition-colors">Our Team</Link>
+              <Link href="/about" className="text-xs text-[#0A0A0A]/60 hover:text-[#0A0A0A] transition-colors">{t('about')}</Link>
+              <Link href="/rover" className="text-xs text-[#0A0A0A]/60 hover:text-[#0A0A0A] transition-colors">{t('rover')}</Link>
+              <Link href="/members" className="text-xs text-[#0A0A0A]/60 hover:text-[#0A0A0A] transition-colors">{tFooter('ourTeam')}</Link>
             </div>
           </div>
 
           <div>
-            <span className="font-mono text-[9px] tracking-[0.25em] text-[#0A0A0A]/30 uppercase block mb-4">Gateways</span>
+            <span className="font-mono text-[9px] tracking-[0.25em] text-[#0A0A0A]/30 uppercase block mb-4">{tFooter('gatewaysLabel')}</span>
             <div className="flex flex-col gap-2.5">
-              <Link href="/join" className="text-xs text-[#E63946] font-semibold hover:underline">Join Us</Link>
-              <Link href="/support" className="text-xs text-[#0A0A0A]/60 hover:text-[#0A0A0A] transition-colors">Support Us</Link>
+              <Link href="/join" className="text-xs text-[#E63946] font-semibold hover:underline">{tFooter('joinUs')}</Link>
+              <Link href="/support" className="text-xs text-[#0A0A0A]/60 hover:text-[#0A0A0A] transition-colors">{tFooter('supportUs')}</Link>
             </div>
           </div>
 
           <div>
-            <span className="font-mono text-[9px] tracking-[0.25em] text-[#0A0A0A]/30 uppercase block mb-4">Registered Nonprofit Organization</span>
+            <span className="font-mono text-[9px] tracking-[0.25em] text-[#0A0A0A]/30 uppercase block mb-4">{tFooter('nonprofitLabel')}</span>
             <div className="flex flex-col gap-1.5 font-mono text-[10px] text-[#0A0A0A]/45 leading-relaxed">
-              <span>Karura Robotics</span>
-              <span>315 Boyett St., Apt 200C</span>
-              <span>College Station, TX 77840</span>
-              <span className="pt-2 text-[#0A0A0A]/30">EIN: 39-4115958</span>
+              <span>{tFooter('organizationName')}</span>
+              <span>{tFooter('addressLine1')}</span>
+              <span>{tFooter('addressLine2')}</span>
+              <span className="pt-2 text-[#0A0A0A]/30">{tFooter('ein')}</span>
             </div>
           </div>
 
         </div>
 
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[9px] text-[#0A0A0A]/30 tracking-widest uppercase">
-          <span>© 2026 KARURA PROJECT.</span>
-          <span>STATION: COLLEGE STATION, TX / TOKYO, JP</span>
+          <span>{tFooter('copyright')}</span>
+          <span>{tFooter('stations')}</span>
         </div>
       </div>
     </footer>

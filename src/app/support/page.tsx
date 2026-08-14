@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -318,6 +319,8 @@ const impactMetrics = [
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export default function SupportPage() {
+  const t = useTranslations('support');
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -356,7 +359,7 @@ export default function SupportPage() {
           >
             <span className="w-6 h-px bg-[#E63946]" />
             <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
-              Sponsorship / 2026–27
+              {t('hero.eyebrow')}
             </span>
           </motion.div>
 
@@ -366,8 +369,8 @@ export default function SupportPage() {
             transition={{ duration: 0.7, delay: 0.08 }}
             className="font-display text-[clamp(2.8rem,5.5vw,5rem)] font-bold leading-[0.93] tracking-tight text-[#0A0A0A] mb-6"
           >
-            We don't do<br />
-            <span className="text-[#E63946]">Tier Tables.</span>
+            {t('hero.titleLine1')}<br />
+            <span className="text-[#E63946]">{t('hero.titleAccent')}</span>
           </motion.h1>
 
           <motion.p
@@ -376,7 +379,7 @@ export default function SupportPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-[#0A0A0A]/55 text-base leading-relaxed max-w-[480px] mb-10"
           >
-            Each sponsorship opportunity is developed on a case-by-case basis, ensuring that every collaboration aligns with your organization's objectives, audience, and desired impact. We work closely with partners to create meaningful opportunities that deliver value for both your brand and our mission.
+            {t('hero.description')}
           </motion.p>
 
           {/* Impact metrics strip */}
@@ -405,7 +408,7 @@ export default function SupportPage() {
         >
           <Image
             src="/Images/IMG_9088.webp"
-            alt="KARURA Rover — URC Finals hardware"
+            alt={t('hero.imageAlt')}
             fill
             priority
             className="object-cover object-center"
@@ -414,11 +417,11 @@ export default function SupportPage() {
           <div className="absolute bottom-8 left-8 right-8">
             <div className="bg-[#0A0A0A]/80 backdrop-blur-sm px-5 py-3 flex items-center justify-between">
               <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/60">
-                KARURA III — URC Finals 2026
+                {t('hero.badge')}
               </span>
               <span className="font-mono text-[10px] text-[#E63946] tracking-wider flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#E63946] animate-pulse inline-block" />
-                ARCHIVED
+                {t('hero.live')}
               </span>
             </div>
           </div>
@@ -436,14 +439,14 @@ export default function SupportPage() {
               <div className="flex items-center gap-3 mb-5">
                 <span className="w-6 h-px bg-[#E63946]" />
                 <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-white/30">
-                  Direct Contact
+                  {t('contact.directContact')}
                 </span>
               </div>
               <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-[440px]">
-                Our business team responds to all inquiries within 48 hours. Every sponsorship is scoped individually around your organization's goals.
+                {t('contact.reply')}
               </p>
               <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-white/20 mb-2">
-                Business Lead
+                {t('contact.businessLeadLabel')}
               </div>
               <a
                 href="mailto:Karura.urc.us@gmail.com"
@@ -452,21 +455,21 @@ export default function SupportPage() {
                 Karura.urc.us@gmail.com
               </a>
               <div className="font-mono text-[9px] text-white/25 mt-1">
-                Brady Wood — Business Lead, KARURA Project
+                {t('contact.businessLeadValue')}
               </div>
             </div>
 
             <div className="py-12 lg:pl-16 flex flex-col justify-center">
               <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-white/20 mb-6">
-                Sponsorship Scope
+                {t('contact.scopeLabel')}
               </div>
               <div className="space-y-3">
                 {[
-                  'Hardware & component funding',
-                  'In-kind material contributions',
-                  'Engineering mentorship hours',
-                  'Co-branding & field presence',
-                  'Talent pipeline access',
+                  t('contact.scopeItems.hardware'),
+                  t('contact.scopeItems.materials'),
+                  t('contact.scopeItems.mentorship'),
+                  t('contact.scopeItems.branding'),
+                  t('contact.scopeItems.talent'),
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <span className="w-3 h-px bg-[#E63946] flex-shrink-0" />
@@ -492,17 +495,17 @@ export default function SupportPage() {
             <div className="flex items-center justify-center gap-4 mb-4">
               <span className="w-8 h-px bg-[#E63946]" />
               <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
-                Current Sponsors
+                {t('sponsors.heading')}
               </span>
               <span className="w-8 h-px bg-[#E63946]" />
             </div>
             
             <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0A0A0A] leading-tight mb-4">
-              2026–27 Sponsors
+              {t('sponsors.title')}
             </h2>
             
             <p className="text-[#0A0A0A]/50 text-sm md:text-base leading-relaxed max-w-[420px] mx-auto">
-              Click any logo to visit the sponsor's website.
+              {t('sponsors.description')}
             </p>
           </div>
 
@@ -548,14 +551,14 @@ export default function SupportPage() {
             <div>
               <div className="flex items-center gap-3 mb-3">
                 <span className="w-6 h-px bg-[#E63946]" />
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">Why Sponsor</span>
+                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">{t('whySponsor.eyebrow')}</span>
               </div>
               <h2 className="font-display text-2xl font-bold text-[#0A0A0A] leading-tight">
-                The case<br />for KARURA
+                {t('whySponsor.titleLine1')}<br />{t('whySponsor.titleLine2')}
               </h2>
             </div>
             <p className="text-[#0A0A0A]/50 text-sm leading-relaxed self-end max-w-[580px]">
-              Sponsorships with KARURA are not logo placements, they are engineering deployments. Your components, your technology, and your brand travel to one of the world's most demanding robotics competitions.
+              {t('whySponsor.description')}
             </p>
           </div>
 
@@ -563,18 +566,18 @@ export default function SupportPage() {
             {[
               {
                 index: '01',
-                title: 'Real-world field testing',
-                body: 'Your technology operates in Mars-like terrain, extreme UV, loose sediment, and temperature swings. It is the most credible field validation available to a student-engineering sponsor.',
+                title: t('benefits.realWorld.title'),
+                body: t('benefits.realWorld.body'),
               },
               {
                 index: '02',
-                title: 'Cross-Pacific talent pipeline',
-                body: '100+ engineers from 30+ universities across Japan and Texas A&M. Sponsors gain direct access to a bilingual, internationally collaborative engineering cohort before they enter industry.',
+                title: t('benefits.pipeline.title'),
+                body: t('benefits.pipeline.body'),
               },
               {
                 index: '03',
-                title: 'Institutional brand placement',
-                body: 'KARURA competes in front of NASA judges, aerospace industry observers, and a global press audience. Your logo is on the hardware being filmed and photographed throughout.',
+                title: t('benefits.brand.title'),
+                body: t('benefits.brand.body'),
               },
             ].map((item, i) => (
               <motion.div
@@ -603,7 +606,7 @@ export default function SupportPage() {
           <div className="flex items-center gap-3 mb-14">
             <span className="w-6 h-px bg-[#E63946]" />
             <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">
-              Sponsor Impact
+              {t('impact.heading')}
             </span>
           </div>
 

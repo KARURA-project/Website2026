@@ -1,25 +1,40 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLocale, useTranslations } from 'next-intl';
+
+function setLocaleCookie(locale: string) {
+  document.cookie = `locale=${locale}; path=/; max-age=31536000`;
+}
 
 export default function Header() {
   const pathname = usePathname();
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isPending, startTransition] = useTransition();
+  const locale = useLocale();
+  const t = useTranslations('nav');
 
   const navLinks = [
-    { href: '/about', label: 'About' },
-    { href: '/rover', label: 'Rover' },
-    { href: '/members', label: 'Members' },
-    // { href: '/news', label: 'News' }, // News & Transmissions disabled site-wide
-    { href: '/join', label: 'Join' },
-    { href: '/support', label: 'Support' },
+    { href: '/about', label: t('about') },
+    { href: '/rover', label: t('rover') },
+    { href: '/members', label: t('members') },
+    // { href: '/news', label: t('news') }, // News & Transmissions disabled site-wide
+    { href: '/join', label: t('join') },
+    { href: '/support', label: t('support') },
   ];
 
   const closeMenu = () => setMenuOpen(false);
+
+  const toggleLocale = () => {
+    const next = locale === 'en' ? 'ja' : 'en';
+    setLocaleCookie(next);
+    startTransition(() => router.refresh());
+  };
 
   return (
     <>
@@ -59,6 +74,15 @@ export default function Header() {
                 </Link>
               );
             })}
+
+            {/* LOCALE TOGGLE — desktop */}
+            <button
+              onClick={toggleLocale}
+              disabled={isPending}
+              className="font-mono text-[10px] tracking-[0.2em] uppercase border border-[#0A0A0A]/15 px-3 py-1.5 text-[#0A0A0A]/50 hover:text-[#0A0A0A] hover:border-[#0A0A0A]/30 transition-all duration-200 disabled:opacity-40"
+            >
+              {locale === 'en' ? 'JP' : 'EN'}
+            </button>
           </nav>
 
           {/* MOBILE BURGER */}
@@ -137,6 +161,17 @@ export default function Header() {
                     </motion.div>
                   );
                 })}
+
+                {/* LOCALE TOGGLE — mobile drawer */}
+                <div className="px-8 py-5">
+                  <button
+                    onClick={() => { toggleLocale(); closeMenu(); }}
+                    disabled={isPending}
+                    className="font-mono text-[10px] tracking-[0.2em] uppercase border border-[#0A0A0A]/15 px-3 py-1.5 text-[#0A0A0A]/50 hover:text-[#0A0A0A] hover:border-[#0A0A0A]/30 transition-all duration-200 disabled:opacity-40"
+                  >
+                    {locale === 'en' ? 'Switch to Japanese / 日本語' : 'Switch to English / 英語'}
+                  </button>
+                </div>
               </div>
             </motion.nav>
           </>
