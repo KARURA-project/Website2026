@@ -31,10 +31,10 @@ export default function TeamIntroduction() {
         <div className="grid md:grid-cols-2 gap-12 mb-12 lg:mb-14">
           <Reveal duration={0.5}>
             <p className="font-display text-[1.1rem] font-semibold text-ink leading-snug mb-4">{t('lead')}</p>
-            <p className="text-ink/55 text-sm leading-relaxed">{t('body1')}</p>
+            <p className="text-ink/60 text-sm leading-relaxed">{t('body1')}</p>
           </Reveal>
           <Reveal duration={0.5} delay={0.08}>
-            <p className="text-ink/55 text-sm leading-relaxed mb-5">{t('body2')}</p>
+            <p className="text-ink/60 text-sm leading-relaxed mb-5">{t('body2')}</p>
             <Link
               href="/about"
               className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.15em] uppercase text-ink/60 hover:text-ink transition-colors group"
@@ -56,7 +56,7 @@ export default function TeamIntroduction() {
               <div key={s.key} className="px-6 py-6 lg:py-8 flex flex-col justify-center">
                 <div className="font-mono text-2xl lg:text-3xl font-bold text-ink leading-none mb-1">{s.value}</div>
                 <div className="font-display text-xs font-semibold text-ink/60 mb-0.5">{tStats(`${s.key}.label`)}</div>
-                <div className="font-mono text-[9px] tracking-[0.15em] uppercase text-ink/25">{tStats(`${s.key}.sub`)}</div>
+                <div className="font-mono text-[9px] tracking-[0.15em] uppercase text-ink/60">{tStats(`${s.key}.sub`)}</div>
               </div>
             ))}
           </div>

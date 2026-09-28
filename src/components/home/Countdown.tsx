@@ -41,7 +41,7 @@ export default function Countdown() {
             <h2 className="font-display text-3xl md:text-4xl font-bold text-ink">{t('heading')}</h2>
           </Reveal>
           <Reveal y={0} delay={0.2}>
-            <p className="font-mono text-xs text-ink/40 mt-2 tracking-wider">{t('subtitle')}</p>
+            <p className="font-mono text-xs text-ink/60 mt-2 tracking-wider">{t('subtitle')}</p>
           </Reveal>
         </div>
 
@@ -54,7 +54,7 @@ export default function Countdown() {
               <span className="font-mono font-bold tabular-nums leading-none text-ink text-[clamp(3rem,7vw,6.5rem)]">
                 {field.value}
               </span>
-              <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-ink/30 mt-1">{field.label}</span>
+              <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-ink/60 mt-1">{field.label}</span>
             </div>
           ))}
         </Reveal>

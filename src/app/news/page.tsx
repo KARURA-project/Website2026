@@ -36,7 +36,7 @@ export default function NewsPage() {
           </Reveal>
           <Reveal onMount y={18} delay={0.16}>
             <h2 className="font-display text-3xl font-bold mb-6 mt-8">{t('hero.subtitle')}</h2>
-            <p className="max-w-[520px] mt-4 text-sm leading-relaxed text-ink/50">{t('hero.description')}</p>
+            <p className="max-w-[520px] mt-4 text-sm leading-relaxed text-ink/60">{t('hero.description')}</p>
           </Reveal>
         </Container>
       </section>
@@ -51,7 +51,7 @@ export default function NewsPage() {
               className={`px-5 py-3 border font-mono text-[10px] tracking-[0.18em] uppercase transition-all duration-200 ${
                 activeCategory === cat
                   ? 'bg-ink text-white border-ink'
-                  : 'border-ink/10 text-ink/45 hover:border-ink hover:text-ink'
+                  : 'border-ink/10 text-ink/60 hover:border-ink hover:text-ink'
               }`}
             >
               {t(`categories.${cat}`)}

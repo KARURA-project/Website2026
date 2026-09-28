@@ -17,7 +17,7 @@ export default function HeroWithRover() {
         <div className="flex flex-col justify-center px-page pt-32 pb-20 lg:py-0">
           <Reveal onMount x={-20} y={0} duration={0.5} className="flex items-center gap-3 mb-10">
             <span className="w-8 h-px bg-mars-red" />
-            <span className="font-mono text-xs tracking-[0.2em] uppercase text-ink/50">{t('eyebrow')}</span>
+            <span className="font-mono text-xs tracking-[0.2em] uppercase text-ink/60">{t('eyebrow')}</span>
           </Reveal>
 
           <Reveal onMount y={30} duration={0.7} delay={0.1}>
@@ -35,7 +35,7 @@ export default function HeroWithRover() {
           </Reveal>
 
           <Reveal onMount y={20} duration={0.6} delay={0.35}>
-            <p className="text-ink/50 text-base leading-relaxed max-w-[420px] mb-12">{t('body')}</p>
+            <p className="text-ink/60 text-base leading-relaxed max-w-[420px] mb-12">{t('body')}</p>
           </Reveal>
 
           <Reveal onMount y={20} duration={0.6} delay={0.55} className="flex flex-wrap gap-4">
@@ -65,7 +65,7 @@ export default function HeroWithRover() {
           <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-canvas to-transparent pointer-events-none" />
           <ImageBadge>
             <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/60">{t('badge')}</span>
-            <span className="font-mono text-[10px] text-mars-red tracking-wider">{t('badgeStatus')}</span>
+            <span className="font-mono text-[10px] text-mars-red-light tracking-wider">{t('badgeStatus')}</span>
           </ImageBadge>
         </motion.div>
       </div>

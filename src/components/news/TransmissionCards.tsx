@@ -47,7 +47,7 @@ export function FeaturedTransmission({ item, badge }: { item: Transmission; badg
         </div>
 
         <h3 className="font-display text-3xl font-bold leading-tight mb-6">{text.title}</h3>
-        <p className="text-sm leading-relaxed text-ink/55">{text.description}</p>
+        <p className="text-sm leading-relaxed text-ink/60">{text.description}</p>
 
         <div className="mt-auto pt-10">
           <div className="mb-8">
@@ -82,7 +82,7 @@ export function TransmissionRow({ item, index }: { item: Transmission; index: nu
             <h3 className="font-display text-xl font-bold leading-snug mb-3 group-hover:text-mars-red transition-colors">
               {text.title}
             </h3>
-            <p className="text-sm leading-relaxed text-ink/50 mb-5">{text.description}</p>
+            <p className="text-sm leading-relaxed text-ink/60 mb-5">{text.description}</p>
             <Tags tags={text.tags} />
           </div>
 

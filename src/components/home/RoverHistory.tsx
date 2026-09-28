@@ -23,7 +23,7 @@ export default function RoverHistory() {
             </Reveal>
           </div>
           <Reveal duration={0.5} delay={0.1} className="self-end">
-            <p className="text-ink/50 text-sm leading-relaxed max-w-[560px]">{t('description')}</p>
+            <p className="text-ink/60 text-sm leading-relaxed max-w-[560px]">{t('description')}</p>
           </Reveal>
         </div>
 
@@ -44,7 +44,7 @@ export default function RoverHistory() {
 
                 <h3 className="font-display text-lg font-bold text-ink mb-2 leading-snug">{rover.designation}</h3>
                 <p className="font-mono text-[10px] tracking-[0.05em] text-mars-red mb-4">{roverText[rover.id].achievement}</p>
-                <p className="text-ink/50 text-sm leading-relaxed mb-6 flex-1">{roverText[rover.id].description}</p>
+                <p className="text-ink/60 text-sm leading-relaxed mb-6 flex-1">{roverText[rover.id].description}</p>
 
                 <Link
                   href="/rover"

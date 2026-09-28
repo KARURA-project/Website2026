@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Container } from '@/components/ui';
 import { LOGO_URL } from '@/data/assets';
 
-const columnLabel = 'font-mono text-[9px] tracking-[0.25em] text-ink/30 uppercase block mb-4';
+const columnLabel = 'font-mono text-[9px] tracking-[0.25em] text-ink/60 uppercase block mb-4';
 const navLink = 'text-xs text-ink/60 hover:text-ink transition-colors';
 
 export default function Footer() {
@@ -19,7 +19,7 @@ export default function Footer() {
             <Link href="/" className="inline-block mb-4 transition-opacity hover:opacity-70">
               <Image src={LOGO_URL} alt={tFooter('logoAlt')} width={116} height={44} className="h-9 w-auto object-contain" />
             </Link>
-            <p className="text-ink/40 text-xs max-w-sm leading-relaxed font-mono">{tFooter('description')}</p>
+            <p className="text-ink/60 text-xs max-w-sm leading-relaxed font-mono">{tFooter('description')}</p>
           </div>
 
           <div>
@@ -41,16 +41,16 @@ export default function Footer() {
 
           <div>
             <span className={columnLabel}>{tFooter('nonprofitLabel')}</span>
-            <div className="flex flex-col gap-1.5 font-mono text-[10px] text-ink/45 leading-relaxed">
+            <div className="flex flex-col gap-1.5 font-mono text-[10px] text-ink/60 leading-relaxed">
               <span>{tFooter('organizationName')}</span>
               <span>{tFooter('addressLine1')}</span>
               <span>{tFooter('addressLine2')}</span>
-              <span className="pt-2 text-ink/30">{tFooter('ein')}</span>
+              <span className="pt-2 text-ink/60">{tFooter('ein')}</span>
             </div>
           </div>
         </div>
 
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[9px] text-ink/30 tracking-widest uppercase">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[9px] text-ink/60 tracking-widest uppercase">
           <span>{tFooter('copyright')}</span>
           <span>{tFooter('stations')}</span>
         </div>

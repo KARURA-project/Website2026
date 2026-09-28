@@ -27,7 +27,7 @@ export default function HomeTransmissions({ transmissions }: { transmissions: Tr
           </div>
           <Link
             href="/news"
-            className="font-mono text-xs tracking-[0.15em] uppercase text-ink/45 hover:text-ink transition-colors flex items-center gap-2 pb-1"
+            className="font-mono text-xs tracking-[0.15em] uppercase text-ink/60 hover:text-ink transition-colors flex items-center gap-2 pb-1"
           >
             {t('fullArchive')}
             <ArrowIcon className="w-3.5 h-3.5" />
@@ -42,12 +42,12 @@ export default function HomeTransmissions({ transmissions }: { transmissions: Tr
               <TransmissionRow key={item.id} item={item} index={i} />
             ))}
             <div className="py-6 flex items-center justify-between">
-              <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-ink/25">
+              <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-ink/60">
                 {t('archiveCount', { count: transmissions.length })}
               </span>
               <Link
                 href="/news"
-                className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.15em] uppercase text-ink/40 hover:text-ink transition-colors"
+                className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.15em] uppercase text-ink/60 hover:text-ink transition-colors"
               >
                 {t('viewArchive')}
                 <ArrowIcon className="w-3 h-3" />

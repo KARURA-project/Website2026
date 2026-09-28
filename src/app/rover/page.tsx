@@ -46,7 +46,7 @@ export default function RoverPage() {
         badge={
           <>
             <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/60">{t('hero.badge')}</span>
-            <span className="font-mono text-[10px] text-mars-red tracking-wider">{t('hero.badgeStatus')}</span>
+            <span className="font-mono text-[10px] text-mars-red-light tracking-wider">{t('hero.badgeStatus')}</span>
           </>
         }
       >
@@ -56,16 +56,16 @@ export default function RoverPage() {
         <Reveal onMount y={28} duration={0.7} delay={0.08}>
           <h1 className="font-display text-[clamp(3rem,6vw,5.5rem)] font-bold leading-[0.92] tracking-tight text-ink mb-8">
             {t('hero.titleLine1')}<br />{t('hero.titleLine2')}<br />
-            <span className="text-ink/15">{t('hero.titleLine3')}</span>
+            <span className="text-ink/45">{t('hero.titleLine3')}</span>
           </h1>
         </Reveal>
         <Reveal onMount y={0} delay={0.22}>
-          <p className="text-ink/50 text-sm leading-relaxed max-w-[400px] mb-10">{t('hero.description')}</p>
+          <p className="text-ink/60 text-sm leading-relaxed max-w-[400px] mb-10">{t('hero.description')}</p>
         </Reveal>
         <Reveal onMount y={0} delay={0.35} className="flex flex-wrap gap-6 border-t border-ink/10 pt-8">
           {heroStatus.map((item) => (
             <div key={item.label}>
-              <div className="font-mono text-[8px] tracking-[0.22em] uppercase text-ink/30 mb-1">{item.label}</div>
+              <div className="font-mono text-[8px] tracking-[0.22em] uppercase text-ink/60 mb-1">{item.label}</div>
               <div className="font-mono text-sm font-bold text-ink/80">{item.value}</div>
             </div>
           ))}
@@ -86,11 +86,11 @@ export default function RoverPage() {
                   active ? 'bg-ink text-canvas' : 'hover:bg-ink/4 text-ink'
                 }`}
               >
-                <span className={`font-mono text-[8px] tracking-[0.22em] uppercase ${active ? 'text-white/40' : 'text-ink/30'}`}>
+                <span className={`font-mono text-[8px] tracking-[0.22em] uppercase ${active ? 'text-white/60' : 'text-ink/60'}`}>
                   {r.callsign}
                 </span>
                 <span className="font-display text-sm font-bold">{r.designation}</span>
-                <span className={`font-mono text-[9px] ${r.statusClass} ${active && r.status !== 'active' ? 'opacity-50' : ''}`}>
+                <span className={`font-mono text-[9px] ${active ? (r.status === 'active' ? 'text-mars-red-light' : 'text-white/60') : r.statusClass}`}>
                   {messages.rovers.status[r.status]}
                 </span>
               </button>
@@ -112,17 +112,17 @@ export default function RoverPage() {
         >
           <Container className="grid lg:grid-cols-[1fr_420px] gap-12 lg:gap-20 items-start">
             <div>
-              <Eyebrow tone="text-ink/35">{currentText.cycle}</Eyebrow>
+              <Eyebrow tone="text-ink/60">{currentText.cycle}</Eyebrow>
               <h2 className="font-display text-[clamp(2rem,4.5vw,3.8rem)] font-bold text-ink leading-tight mb-2">{current.designation}</h2>
               <p className={`font-mono text-sm mb-8 ${current.statusClass}`}>{currentText.milestone}</p>
-              <p className="text-ink/55 text-sm leading-relaxed max-w-[500px] mb-10">{currentText.description}</p>
+              <p className="text-ink/60 text-sm leading-relaxed max-w-[500px] mb-10">{currentText.description}</p>
 
               <div className="border-t border-ink/8">
                 {Object.entries(currentText.params).map(([key, p]) => (
                   <div key={key} className="grid grid-cols-[140px_1fr_auto] gap-4 items-baseline py-3.5 border-b border-ink/6">
-                    <span className="font-mono text-[8px] tracking-[0.18em] uppercase text-ink/25">{p.label}</span>
+                    <span className="font-mono text-[8px] tracking-[0.18em] uppercase text-ink/60">{p.label}</span>
                     <span className="font-mono text-sm font-bold text-ink">{p.value}</span>
-                    {'unit' in p && <span className="font-mono text-[9px] text-ink/30 text-right">{p.unit}</span>}
+                    {'unit' in p && <span className="font-mono text-[9px] text-ink/60 text-right">{p.unit}</span>}
                   </div>
                 ))}
               </div>
@@ -134,7 +134,7 @@ export default function RoverPage() {
               </div>
 
               <div className="border border-ink/8 p-6">
-                <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-ink/30 mb-5">{t('activeSubsystems')}</div>
+                <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-ink/60 mb-5">{t('activeSubsystems')}</div>
                 <div className="grid grid-cols-2 gap-x-4 gap-y-2.5">
                   {Object.entries(currentText.subsystems).map(([key, sys]) => (
                     <div key={key} className="flex items-center gap-2">
@@ -154,12 +154,12 @@ export default function RoverPage() {
         <Container>
           <div className="grid lg:grid-cols-[280px_1fr] gap-16 lg:gap-24 mb-16">
             <div>
-              <Eyebrow tone="text-ink/35">{t('competition.eyebrow')}</Eyebrow>
+              <Eyebrow tone="text-ink/60">{t('competition.eyebrow')}</Eyebrow>
               <h2 className="font-display text-2xl font-bold text-ink leading-tight">
                 {t('competition.titleLine1')}<br />{t('competition.titleLine2')}
               </h2>
             </div>
-            <p className="text-ink/50 text-sm leading-relaxed self-end max-w-[560px]">{t('competition.description')}</p>
+            <p className="text-ink/60 text-sm leading-relaxed self-end max-w-[560px]">{t('competition.description')}</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 border-t border-l border-ink/8">
@@ -169,7 +169,7 @@ export default function RoverPage() {
                 <Reveal key={key} delay={i * 0.07} className="border-b border-r border-ink/8 p-8 flex flex-col">
                   <div className="flex items-start justify-between mb-6">
                     <div>
-                      <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-ink/25 mb-2">
+                      <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-ink/60 mb-2">
                         {t('competition.taskLabel')} {index}
                       </div>
                       <h3 className="font-display text-lg font-bold text-ink leading-snug">{task.name}</h3>
@@ -177,14 +177,14 @@ export default function RoverPage() {
                     <span className="font-mono text-[28px] font-bold text-ink/5 leading-none select-none">{index}</span>
                   </div>
 
-                  <p className="text-ink/50 text-xs leading-relaxed mb-2">{task.description}</p>
-                  <p className="text-ink/30 text-[10px] leading-relaxed mb-7 italic">{task.challenge}</p>
+                  <p className="text-ink/60 text-xs leading-relaxed mb-2">{task.description}</p>
+                  <p className="text-ink/60 text-[10px] leading-relaxed mb-7 italic">{task.challenge}</p>
 
                   <div className="border-t border-ink/8 pt-5 divide-y divide-ink/6 mt-auto">
-                    <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-ink/20 pb-3">{t('competition.responsibleSystems')}</div>
+                    <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-ink/60 pb-3">{t('competition.responsibleSystems')}</div>
                     {Object.entries(task.systems).map(([sysKey, sys]) => (
                       <div key={sysKey} className="grid grid-cols-[1fr_auto] gap-4 py-2">
-                        <span className="font-mono text-[9px] tracking-[0.1em] uppercase text-ink/25">{sys.label}</span>
+                        <span className="font-mono text-[9px] tracking-[0.1em] uppercase text-ink/60">{sys.label}</span>
                         <span className="font-mono text-[9px] font-bold text-ink/60 text-right">{sys.value}</span>
                       </div>
                     ))}
@@ -200,7 +200,7 @@ export default function RoverPage() {
       <section className="border-b border-ink/8 py-24">
         <Container className="grid lg:grid-cols-[280px_1fr] gap-16 lg:gap-24">
           <div>
-            <Eyebrow tone="text-ink/35">{t('architecture.eyebrow')}</Eyebrow>
+            <Eyebrow tone="text-ink/60">{t('architecture.eyebrow')}</Eyebrow>
             <h2 className="font-display text-2xl font-bold text-ink leading-tight">
               {t('architecture.titleLine1')}<br />{t('architecture.titleLine2')}
             </h2>
@@ -215,16 +215,16 @@ export default function RoverPage() {
                 delay={i * 0.07}
                 className="grid md:grid-cols-[80px_180px_1fr_120px] gap-6 lg:gap-10 items-start py-7 scroll-mt-24"
               >
-                <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-ink/20 pt-1">{sub.label}</div>
+                <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-ink/60 pt-1">{sub.label}</div>
                 <div>
                   <div className="font-display text-sm font-bold text-ink mb-1">{sub.title}</div>
-                  <div className="font-mono text-[8px] tracking-[0.1em] uppercase text-ink/25">{sub.dept}</div>
+                  <div className="font-mono text-[8px] tracking-[0.1em] uppercase text-ink/60">{sub.dept}</div>
                 </div>
-                <p className="text-ink/45 text-xs leading-relaxed">{sub.systems}</p>
+                <p className="text-ink/60 text-xs leading-relaxed">{sub.systems}</p>
                 <div className="md:text-right">
                   <Link
                     href={`/about#${SUBSYSTEM_TEAMS[id as keyof typeof SUBSYSTEM_TEAMS]}`}
-                    className="font-mono text-[8px] tracking-[0.15em] uppercase text-ink/20 hover:text-ink/50 transition-colors flex md:justify-end items-center gap-1.5 group"
+                    className="font-mono text-[8px] tracking-[0.15em] uppercase text-ink/60 hover:text-ink transition-colors flex md:justify-end items-center gap-1.5 group"
                   >
                     <span className="w-3 h-px bg-current" />
                     {t('architecture.teamLink')}

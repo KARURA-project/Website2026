@@ -22,7 +22,7 @@ export default function SponsorsCarousel({ sponsors }: { sponsors: Sponsor[] }) 
         </div>
         <Link
           href="/support"
-          className="font-mono text-xs tracking-[0.15em] uppercase text-ink/40 hover:text-ink transition-colors flex items-center gap-2 pb-1"
+          className="font-mono text-xs tracking-[0.15em] uppercase text-ink/60 hover:text-ink transition-colors flex items-center gap-2 pb-1"
         >
           {t('cta')}
           <ArrowIcon className="w-3.5 h-3.5" />
@@ -30,7 +30,7 @@ export default function SponsorsCarousel({ sponsors }: { sponsors: Sponsor[] }) 
       </Container>
 
       {/* Pure-CSS marquee */}
-      <div className="overflow-hidden border-y border-ink/8">
+      <div className="overflow-hidden motion-reduce:overflow-x-auto border-y border-ink/8">
         <div className="flex w-max animate-marquee">
           {track.map((sponsor, index) => (
             <div

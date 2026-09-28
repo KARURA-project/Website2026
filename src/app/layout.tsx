@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import { MotionConfig } from 'framer-motion';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getLocale, getTranslations } from 'next-intl/server';
 import Header from '@/components/layout/Header';
@@ -34,11 +35,14 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={`${spaceGrotesk.variable} ${ibmPlexMono.variable}`}>
       <body className="flex min-h-screen flex-col">
-        <NextIntlClientProvider messages={messages}>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </NextIntlClientProvider>
+        {/* "user": skip transform animations when the OS asks for reduced motion */}
+        <MotionConfig reducedMotion="user">
+          <NextIntlClientProvider messages={messages}>
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </NextIntlClientProvider>
+        </MotionConfig>
       </body>
     </html>
   );

@@ -28,22 +28,22 @@ export default function MemberCard({ avatarSrc, name, role, department, universi
           <img src={avatarSrc} alt={name} className="w-full h-full object-cover object-top" loading="lazy" />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
-            <span className="font-mono text-3xl font-bold text-ink/20 select-none">{initials(name)}</span>
+            <span aria-hidden className="font-mono text-3xl font-bold text-ink/20 select-none">{initials(name)}</span>
           </div>
         )}
       </div>
 
       <div className="p-5 flex flex-col flex-1 border-t border-ink/8">
-        <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-ink/30 mb-2">
+        <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-ink/60 mb-2">
           {department}
-          {country && <span className="ml-2 text-ink/20">· {country}</span>}
+          {country && <span className="ml-2">· {country}</span>}
         </div>
         <h4 className="font-display text-sm font-bold text-ink leading-snug mb-1">{name}</h4>
-        <p className="font-mono text-[9px] tracking-[0.1em] text-ink/45 mb-3">{role}</p>
+        <p className="font-mono text-[9px] tracking-[0.1em] text-ink/60 mb-3">{role}</p>
         {university ? (
-          <p className={`font-mono text-[9px] text-ink/30 ${footnote}`}>{university}</p>
+          <p className={`font-mono text-[9px] text-ink/60 ${footnote}`}>{university}</p>
         ) : (
-          bio && <p className={`text-ink/45 text-[10px] leading-relaxed line-clamp-2 ${footnote}`}>{bio}</p>
+          bio && <p className={`text-ink/60 text-[10px] leading-relaxed line-clamp-2 ${footnote}`}>{bio}</p>
         )}
       </div>
     </div>
