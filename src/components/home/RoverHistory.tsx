@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, useInView, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { useMessages, useTranslations } from 'next-intl';
 import { Container, Eyebrow, Reveal } from '@/components/ui';
 import { rovers, type Rover } from '@/data/rovers';
@@ -93,9 +93,10 @@ function Chapter({
   onActive: (index: number) => void;
 }) {
   const ref = useRef<HTMLElement>(null);
-  const reduced = useReducedMotion();
   // A thin band at viewport center marks this chapter "active" for the rail.
   const centered = useInView(ref, { margin: '-50% 0px -50% 0px' });
+  // Reduced motion is handled in CSS (motion-reduce:transform-none!), not JS: the server can't
+  // know the preference, so a JS branch would mismatch on hydration.
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
   const bgY = useTransform(scrollYProgress, [0, 1], ['-8%', '8%']);
   const yearY = useTransform(scrollYProgress, [0, 1], ['30%', '-30%']);
@@ -108,8 +109,8 @@ function Chapter({
     <section ref={ref} className="relative min-h-screen overflow-hidden flex items-end bg-ink border-b border-white/10 last:border-b-0">
       <motion.div
         aria-hidden
-        className="absolute inset-0"
-        style={{ y: reduced ? 0 : bgY, willChange: reduced ? undefined : 'transform' }}
+        className="absolute inset-0 motion-reduce:transform-none! motion-reduce:will-change-auto"
+        style={{ y: bgY, willChange: 'transform' }}
       >
         <Image src={rover.image} alt="" fill sizes="100vw" className="object-cover object-center" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/20" />
@@ -117,8 +118,8 @@ function Chapter({
 
       <motion.span
         aria-hidden
-        className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center font-mono font-bold text-white/10 leading-none select-none pointer-events-none text-[clamp(8rem,22vw,20rem)]"
-        style={{ y: reduced ? 0 : yearY, willChange: reduced ? undefined : 'transform' }}
+        className="absolute inset-x-0 top-1/2 -translate-y-1/2 motion-reduce:transform-none! motion-reduce:will-change-auto text-center font-mono font-bold text-white/10 leading-none select-none pointer-events-none text-[clamp(8rem,22vw,20rem)]"
+        style={{ y: yearY, willChange: 'transform' }}
       >
         {rover.year}
       </motion.span>

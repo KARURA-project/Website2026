@@ -30,8 +30,8 @@ export default function SponsorsCarousel({ sponsors }: { sponsors: Sponsor[] }) 
       </Container>
 
       {/* Pure-CSS marquee */}
-      <div className="overflow-hidden motion-reduce:overflow-x-auto border-y border-ink/8">
-        <div className="flex w-max animate-marquee">
+      <div className="overflow-hidden border-y border-ink/8">
+        <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
           {track.map((sponsor, index) => (
             <div
               key={`${sponsor.name}-${index}`}
