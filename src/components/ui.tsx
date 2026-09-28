@@ -33,7 +33,7 @@ export function Container({ className = '', children }: { className?: string; ch
 export function Eyebrow({
   children,
   className = 'mb-3',
-  tone = 'text-ink/40',
+  tone = 'text-ink/60',
   rule = 'bg-mars-red',
 }: {
   children: ReactNode;
@@ -55,15 +55,17 @@ export function Meta({
   children,
   labelClass = 'mb-1.5',
   valueClass = 'text-xs text-ink',
+  labelTone = 'text-ink/60',
 }: {
   label: ReactNode;
   children: ReactNode;
   labelClass?: string;
   valueClass?: string;
+  labelTone?: string;
 }) {
   return (
     <div>
-      <div className={`font-mono text-[9px] tracking-[0.2em] uppercase text-ink/30 ${labelClass}`}>{label}</div>
+      <div className={`font-mono text-[9px] tracking-[0.2em] uppercase ${labelTone} ${labelClass}`}>{label}</div>
       <div className={`font-mono ${valueClass}`}>{children}</div>
     </div>
   );
@@ -88,8 +90,8 @@ export function RailList({ items }: { items: { marker: string; title: string; bo
             <div className="absolute left-0 top-0 w-9 h-9 border border-ink bg-canvas flex items-center justify-center font-mono text-[10px] tracking-[0.15em]">
               {item.marker}
             </div>
-            <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink/35 mb-2">{item.title}</div>
-            <p className="text-sm leading-relaxed text-ink/55">{item.body}</p>
+            <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink/60 mb-2">{item.title}</div>
+            <p className="text-sm leading-relaxed text-ink/60">{item.body}</p>
           </div>
         ))}
       </div>

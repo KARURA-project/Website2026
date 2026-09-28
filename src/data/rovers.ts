@@ -30,7 +30,7 @@ export const rovers: Rover[] = [
     callsign: 'K-III',
     year: 2026,
     status: 'retired',
-    statusClass: 'text-ink/30',
+    statusClass: 'text-ink/60',
     image: '/Images/Copy of IMG_9076.webp',
   },
   {
@@ -39,7 +39,7 @@ export const rovers: Rover[] = [
     callsign: 'K-II',
     year: 2025,
     status: 'archived',
-    statusClass: 'text-ink/20',
+    statusClass: 'text-ink/60',
     image: ROVER_IMAGE_URL,
   },
 ];

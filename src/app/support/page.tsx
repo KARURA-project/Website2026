@@ -336,14 +336,14 @@ export default function SupportPage() {
           </h1>
         </Reveal>
         <Reveal onMount duration={0.6} delay={0.2}>
-          <p className="text-ink/55 text-base leading-relaxed max-w-[480px] mb-10">{t('hero.description')}</p>
+          <p className="text-ink/60 text-base leading-relaxed max-w-[480px] mb-10">{t('hero.description')}</p>
         </Reveal>
         <Reveal onMount duration={0.6} delay={0.3} className="flex flex-wrap gap-8 border-t border-ink/10 pt-8">
           {impactMetrics.map((m) => (
             <div key={m.label}>
               <div className="font-mono text-2xl font-bold text-ink leading-none mb-1">{m.value}</div>
               <div className="font-display text-xs font-semibold text-ink/60 mb-0.5">{m.label}</div>
-              <div className="font-mono text-[9px] tracking-[0.15em] uppercase text-ink/25">{m.sub}</div>
+              <div className="font-mono text-[9px] tracking-[0.15em] uppercase text-ink/60">{m.sub}</div>
             </div>
           ))}
         </Reveal>
@@ -353,25 +353,25 @@ export default function SupportPage() {
       <section className="border-y border-ink/8 bg-ink">
         <Container className="grid lg:grid-cols-[1fr_1fr] divide-y lg:divide-y-0 lg:divide-x divide-white/8">
           <div className="py-12 lg:pr-16">
-            <Eyebrow className="mb-5" tone="text-white/30">{t('contact.directContact')}</Eyebrow>
-            <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-[440px]">{t('contact.reply')}</p>
-            <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-white/20 mb-2">{t('contact.businessLeadLabel')}</div>
+            <Eyebrow className="mb-5" tone="text-white/60">{t('contact.directContact')}</Eyebrow>
+            <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-[440px]">{t('contact.reply')}</p>
+            <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-white/60 mb-2">{t('contact.businessLeadLabel')}</div>
             <a
               href={`mailto:${CONTACT_EMAIL}`}
               className="font-display text-lg font-bold text-white hover:text-mars-red transition-colors duration-200"
             >
               {CONTACT_EMAIL}
             </a>
-            <div className="font-mono text-[9px] text-white/25 mt-1">{t('contact.businessLeadValue')}</div>
+            <div className="font-mono text-[9px] text-white/60 mt-1">{t('contact.businessLeadValue')}</div>
           </div>
 
           <div className="py-12 lg:pl-16 flex flex-col justify-center">
-            <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-white/20 mb-6">{t('contact.scopeLabel')}</div>
+            <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-white/60 mb-6">{t('contact.scopeLabel')}</div>
             <div className="space-y-3">
               {scopeItems.map((item) => (
                 <div key={item} className="flex items-center gap-3">
                   <span className="w-3 h-px bg-mars-red flex-shrink-0" />
-                  <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-white/45">{item}</span>
+                  <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-white/60">{item}</span>
                 </div>
               ))}
             </div>
@@ -385,11 +385,11 @@ export default function SupportPage() {
           <div className="max-w-[900px] mx-auto flex flex-col items-center text-center mb-16">
             <div className="flex items-center justify-center gap-4 mb-4">
               <span className="w-8 h-px bg-mars-red" />
-              <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-ink/40">{t('sponsors.heading')}</span>
+              <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-ink/60">{t('sponsors.heading')}</span>
               <span className="w-8 h-px bg-mars-red" />
             </div>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-ink leading-tight mb-4">{t('sponsors.title')}</h2>
-            <p className="text-ink/50 text-sm md:text-base leading-relaxed max-w-[420px] mx-auto">{t('sponsors.description')}</p>
+            <p className="text-ink/60 text-sm md:text-base leading-relaxed max-w-[420px] mx-auto">{t('sponsors.description')}</p>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 pl-px pt-px">
@@ -423,20 +423,20 @@ export default function SupportPage() {
         <Container>
           <div className="grid lg:grid-cols-[280px_1fr] gap-16 lg:gap-24 mb-16">
             <div>
-              <Eyebrow tone="text-ink/35">{t('whySponsor.eyebrow')}</Eyebrow>
+              <Eyebrow tone="text-ink/60">{t('whySponsor.eyebrow')}</Eyebrow>
               <h2 className="font-display text-2xl font-bold text-ink leading-tight">
                 {t('whySponsor.titleLine1')}<br />{t('whySponsor.titleLine2')}
               </h2>
             </div>
-            <p className="text-ink/50 text-sm leading-relaxed self-end max-w-[580px]">{t('whySponsor.description')}</p>
+            <p className="text-ink/60 text-sm leading-relaxed self-end max-w-[580px]">{t('whySponsor.description')}</p>
           </div>
 
           <div className="grid md:grid-cols-3 border-t border-l border-ink/8">
             {benefits.map((item, i) => (
               <Reveal key={i} delay={i * 0.08} className="border-b border-r border-ink/8 p-8 lg:p-10">
-                <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-ink/20 mb-6">{indexLabel(i)}</div>
+                <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-ink/60 mb-6">{indexLabel(i)}</div>
                 <h3 className="font-display text-lg font-bold text-ink mb-4 leading-snug">{item.title}</h3>
-                <p className="text-ink/50 text-sm leading-relaxed">{item.body}</p>
+                <p className="text-ink/60 text-sm leading-relaxed">{item.body}</p>
               </Reveal>
             ))}
           </div>
@@ -446,7 +446,7 @@ export default function SupportPage() {
       {/* Sponsor testimonials */}
       <section className="border-b border-ink/8 py-24 bg-white">
         <Container>
-          <Eyebrow className="mb-14" tone="text-ink/35">{t('impact.heading')}</Eyebrow>
+          <Eyebrow className="mb-14" tone="text-ink/60">{t('impact.heading')}</Eyebrow>
 
           <div className="grid md:grid-cols-3 border-t border-l border-ink/8">
             {testimonials.map(({ key, company }, i) => {
@@ -456,12 +456,12 @@ export default function SupportPage() {
                   <div className="font-mono text-5xl text-ink/8 leading-none mb-4 select-none">&ldquo;</div>
                   <p className="text-ink/70 text-sm leading-relaxed mb-8 flex-1 italic">{quote.quote}</p>
                   <div className="bg-canvas border border-ink/8 p-4 mb-6">
-                    <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-ink/25 mb-1">{t('fieldResult')}</div>
+                    <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-ink/60 mb-1">{t('fieldResult')}</div>
                     <p className="font-display text-xs font-semibold text-ink/70 leading-snug">{quote.result}</p>
                   </div>
                   <div>
                     <div className="font-display text-sm font-bold text-ink">{company}</div>
-                    <div className="font-mono text-[9px] tracking-[0.12em] uppercase text-ink/30 mt-0.5">{quote.role}</div>
+                    <div className="font-mono text-[9px] tracking-[0.12em] uppercase text-ink/60 mt-0.5">{quote.role}</div>
                   </div>
                 </Reveal>
               );

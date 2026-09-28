@@ -76,7 +76,7 @@ export default function AboutPage() {
           </h1>
         </Reveal>
         <Reveal onMount duration={0.6} delay={0.18}>
-          <p className="text-ink/50 text-base leading-relaxed max-w-[460px]">
+          <p className="text-ink/60 text-base leading-relaxed max-w-[460px]">
             {t('heroDescription', { count: statValue('universities') })}
           </p>
         </Reveal>
@@ -91,7 +91,7 @@ export default function AboutPage() {
               <Reveal key={s.key} y={12} delay={i * 0.07} className="px-8 py-8">
                 <div className="font-mono text-[clamp(2rem,4vw,3rem)] font-bold text-ink leading-none mb-1">{s.value}</div>
                 <div className="font-display text-sm font-semibold text-ink/70 mb-0.5">{tStats(`${s.key}.label`)}</div>
-                <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-ink/30">{tStats(`${s.key}.sub`)}</div>
+                <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-ink/60">{tStats(`${s.key}.sub`)}</div>
               </Reveal>
             ))}
         </Container>
@@ -110,11 +110,11 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <p className="font-display text-[1.15rem] font-semibold text-ink leading-snug mb-4">{t('missionLead')}</p>
-              <p className="text-ink/55 text-sm leading-relaxed">{t('missionBody')}</p>
+              <p className="text-ink/60 text-sm leading-relaxed">{t('missionBody')}</p>
             </div>
             <div>
-              <p className="text-ink/55 text-sm leading-relaxed mb-5">{t('missionBody2')}</p>
-              <p className="text-ink/55 text-sm leading-relaxed">{t('missionBody3')}</p>
+              <p className="text-ink/60 text-sm leading-relaxed mb-5">{t('missionBody2')}</p>
+              <p className="text-ink/60 text-sm leading-relaxed">{t('missionBody3')}</p>
               <div className="mt-8 pt-6 border-t border-ink/8">
                 <Link
                   href="/rover"
@@ -133,7 +133,7 @@ export default function AboutPage() {
       <section className="py-16 border-t border-ink/8 bg-ink">
         <Container className="grid lg:grid-cols-[280px_1fr] gap-16 lg:gap-24">
           <div className="lg:pt-2">
-            <Eyebrow tone="text-white/30">{t('differentiators')}</Eyebrow>
+            <Eyebrow tone="text-white/60">{t('differentiators')}</Eyebrow>
             <h2 className="font-display text-2xl font-bold text-white leading-tight">
               {t('differentiatorsTitleLine1')}<br />{t('differentiatorsTitleLine2')}
             </h2>
@@ -142,9 +142,9 @@ export default function AboutPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/8">
             {differentiators.map((item, i) => (
               <div key={i} className="px-0 sm:px-8 py-8 first:pl-0 last:pr-0">
-                <div className="font-mono text-[10px] tracking-[0.2em] text-white/20 mb-4">{indexLabel(i)}</div>
+                <div className="font-mono text-[10px] tracking-[0.2em] text-white/60 mb-4">{indexLabel(i)}</div>
                 <h3 className="font-display text-base font-bold text-white mb-3 leading-snug">{item.title}</h3>
-                <p className="text-white/40 text-xs leading-relaxed">{item.body}</p>
+                <p className="text-white/60 text-xs leading-relaxed">{item.body}</p>
               </div>
             ))}
           </div>
@@ -157,16 +157,16 @@ export default function AboutPage() {
           <div>
             <Eyebrow>{t('academicNetwork')}</Eyebrow>
             <h2 className="font-display text-2xl font-bold text-ink leading-tight mb-6">{t('institutions')}</h2>
-            <p className="text-ink/45 text-xs leading-relaxed mb-8 max-w-[220px]">{t('networkDescription')}</p>
+            <p className="text-ink/60 text-xs leading-relaxed mb-8 max-w-[220px]">{t('networkDescription')}</p>
             <div className="space-y-3">
               {institutionCounts.map((c) => (
                 <div key={c.label} className="flex items-center justify-between border-b border-ink/8 pb-3">
-                  <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-ink/40">{c.label}</span>
+                  <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-ink/60">{c.label}</span>
                   <span className="font-mono text-sm font-bold text-ink">{c.value}</span>
                 </div>
               ))}
               <div className="flex items-center justify-between pt-1">
-                <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-ink/40">{t('total')}</span>
+                <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-ink/60">{t('total')}</span>
                 <span className="font-mono text-sm font-bold text-mars-red">{universities.length}</span>
               </div>
             </div>
@@ -181,7 +181,7 @@ export default function AboutPage() {
                 delay={i * 0.02}
                 className="bg-canvas px-4 py-4 group hover:bg-ink transition-colors duration-200"
               >
-                <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-ink/25 group-hover:text-white/25 mb-1.5 transition-colors">
+                <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-ink/60 group-hover:text-white/60 mb-1.5 transition-colors">
                   {u.city}
                 </div>
                 <div className="font-display text-xs font-semibold text-ink group-hover:text-white leading-snug transition-colors">
@@ -218,11 +218,11 @@ export default function AboutPage() {
                   <div className="absolute left-0 top-9 w-2 h-2 bg-ink/20 -translate-x-[calc(50%+0.5px)] hidden md:block" />
                   <div>
                     <div className="font-mono text-[clamp(1.4rem,3vw,2rem)] font-bold text-ink leading-none">{gen.phase}</div>
-                    <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-ink/30 mt-1">{gen.season}</div>
+                    <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-ink/60 mt-1">{gen.season}</div>
                   </div>
                   <div>
                     <h3 className="font-display text-lg font-bold text-ink mb-2">{gen.title}</h3>
-                    <p className="text-ink/50 text-sm leading-relaxed">{gen.note}</p>
+                    <p className="text-ink/60 text-sm leading-relaxed">{gen.note}</p>
                   </div>
                 </Reveal>
               ))}
@@ -247,15 +247,15 @@ export default function AboutPage() {
                 delay={i * 0.07}
                 className="grid md:grid-cols-[80px_200px_1fr_100px] gap-6 lg:gap-10 items-start py-8 scroll-mt-24"
               >
-                <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink/25 pt-1">{indexLabel(i)}</div>
+                <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink/60 pt-1">{indexLabel(i)}</div>
                 <div>
                   <h3 className="font-display text-base font-bold text-ink mb-1">{messages.departments[dept.id].title}</h3>
-                  <p className="font-mono text-[9px] tracking-[0.1em] text-ink/35 leading-relaxed">{messages.departments[dept.id].scope}</p>
+                  <p className="font-mono text-[9px] tracking-[0.1em] text-ink/60 leading-relaxed">{messages.departments[dept.id].scope}</p>
                 </div>
-                <p className="text-ink/50 text-sm leading-relaxed">{messages.departments[dept.id].body}</p>
+                <p className="text-ink/60 text-sm leading-relaxed">{messages.departments[dept.id].body}</p>
                 <div className="text-right">
                   <div className="font-mono text-xl font-bold text-ink">{dept.members}</div>
-                  <div className="font-mono text-[8px] tracking-[0.15em] uppercase text-ink/25">{t('members')}</div>
+                  <div className="font-mono text-[8px] tracking-[0.15em] uppercase text-ink/60">{t('members')}</div>
                 </div>
               </Reveal>
             ))}
@@ -266,7 +266,7 @@ export default function AboutPage() {
               <Link
                 key={dept.id}
                 href={`#${dept.id}`}
-                className="font-mono text-[9px] tracking-[0.15em] uppercase px-4 py-2 border border-ink/12 text-ink/40 hover:border-ink/30 hover:text-ink transition-colors duration-200"
+                className="font-mono text-[9px] tracking-[0.15em] uppercase px-4 py-2 border border-ink/12 text-ink/60 hover:border-ink/30 hover:text-ink transition-colors duration-200"
               >
                 {messages.departments[dept.id].title}
               </Link>

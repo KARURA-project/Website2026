@@ -10,7 +10,7 @@ import { Container } from '@/components/ui';
 import { LOGO_URL } from '@/data/assets';
 
 const localeButton =
-  'font-mono text-[10px] tracking-[0.2em] uppercase border border-ink/15 px-3 py-1.5 text-ink/50 hover:text-ink hover:border-ink/30 transition-all duration-200 disabled:opacity-40';
+  'font-mono text-[10px] tracking-[0.2em] uppercase border border-ink/15 px-3 py-1.5 text-ink/60 hover:text-ink hover:border-ink/30 transition-all duration-200 disabled:opacity-40';
 const burgerLine = 'block w-5 h-px bg-ink origin-center';
 
 export default function Header() {
@@ -67,7 +67,7 @@ export default function Header() {
 
           {/* Mobile burger */}
           <button
-            className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] focus:outline-none"
+            className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px]"
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label={menuOpen ? t('closeMenu') : t('openMenu')}
           >

@@ -6,7 +6,7 @@ import { Reveal } from '@/components/ui';
 // placeholder — swap with KARURA's actual competition highlight reel
 const YOUTUBE_ID = 'MaB6N6yUZZI';
 
-const cellLabel = 'font-mono text-[10px] tracking-[0.2em] uppercase text-white/30 block';
+const cellLabel = 'font-mono text-[10px] tracking-[0.2em] uppercase text-white/60 block';
 
 export default function VideoReel() {
   const t = useTranslations('home.video');
@@ -25,7 +25,7 @@ export default function VideoReel() {
             allowFullScreen
           />
           <div className="absolute top-4 left-4 pointer-events-none">
-            <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/40">{t('watermark')}</span>
+            <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/60">{t('watermark')}</span>
           </div>
         </Reveal>
 
@@ -34,16 +34,16 @@ export default function VideoReel() {
             <span className={`${cellLabel} mb-3`}>{t('competitionLabel')}</span>
             <div>
               <div className="font-display text-white font-bold text-xl leading-tight mb-2">{t('competitionName')}</div>
-              <div className="font-mono text-mars-red text-sm">{t('competitionResult')}</div>
+              <div className="font-mono text-mars-red-light text-sm">{t('competitionResult')}</div>
             </div>
-            <p className="text-white/40 text-xs leading-relaxed mt-4">{t('competitionBody')}</p>
+            <p className="text-white/60 text-xs leading-relaxed mt-4">{t('competitionBody')}</p>
           </Reveal>
 
           <Reveal x={20} y={0} duration={0.5} delay={0.2} className="flex-1 px-8 py-8 border-b border-white/5">
             <span className={`${cellLabel} mb-3`}>{t('locationLabel')}</span>
             <div className="font-mono text-white text-sm">
               <div className="mb-1">{t('location')}</div>
-              <div className="text-white/40 text-xs">38.3714° N, 110.7183° W</div>
+              <div className="text-white/60 text-xs">38.3714° N, 110.7183° W</div>
             </div>
           </Reveal>
 

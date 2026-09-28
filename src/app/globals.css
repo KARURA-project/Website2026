@@ -6,6 +6,7 @@
   --color-canvas:   #FAFAFA;
   --color-mist:     #F0F0F0;
   --color-mars-red: #E63946;
+  --color-mars-red-light: #FF6B75; /* red text on ink/photo surfaces (AA on dark) */
 
   /* next/font variables are set on <html> in layout.tsx */
   --font-display: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
@@ -45,5 +46,23 @@
 
   *::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Visible keyboard focus everywhere (mouse clicks don't trigger :focus-visible) */
+  :focus-visible {
+    outline: 2px solid var(--color-mars-red);
+    outline-offset: 3px;
+  }
+
+  /* CSS-side reduced motion (marquee, pulse, smooth scroll); framer-motion is handled by MotionConfig */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      animation-delay: 0s !important;
+      transition-delay: 0s !important;
+    }
   }
 }

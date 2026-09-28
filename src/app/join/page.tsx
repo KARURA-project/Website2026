@@ -37,7 +37,7 @@ export default function JoinPage() {
           </h1>
         </Reveal>
         <Reveal onMount duration={0.6} delay={0.18}>
-          <p className="text-ink/50 text-base leading-relaxed max-w-[460px]">{t('hero.description')}</p>
+          <p className="text-ink/60 text-base leading-relaxed max-w-[460px]">{t('hero.description')}</p>
         </Reveal>
       </SplitHero>
 
@@ -51,7 +51,7 @@ export default function JoinPage() {
             <div className="divide-y divide-ink/10 border-y border-ink/10">
               {joinDepartments.map((dept, i) => (
                 <div key={dept.id} className="grid md:grid-cols-[80px_1fr_150px] gap-8 py-8">
-                  <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink/30">{indexLabel(i)}</div>
+                  <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink/60">{indexLabel(i)}</div>
                   <div>
                     <h3 className="font-display text-lg font-bold uppercase mb-4">{messages.departments[dept.id].name}</h3>
                     <div className="flex flex-wrap gap-2">
@@ -63,7 +63,7 @@ export default function JoinPage() {
                     </div>
                   </div>
                   <div>
-                    <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-ink/30">{t('positions.openingsLabel')}</div>
+                    <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-ink/60">{t('positions.openingsLabel')}</div>
                     <div className="font-mono text-xl font-bold">{String(dept.openings).padStart(2, '0')}</div>
                   </div>
                 </div>
@@ -74,14 +74,14 @@ export default function JoinPage() {
           <aside className="space-y-16">
             {/* Sticky application card */}
             <div className="lg:sticky lg:top-28 border border-ink/10 p-8">
-              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-ink/35 mb-4">{t('portal.eyebrow')}</div>
+              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-ink/60 mb-4">{t('portal.eyebrow')}</div>
               <h2 className="font-display text-3xl font-bold leading-tight mb-6">{t('portal.heading')}</h2>
-              <p className="text-sm leading-relaxed text-ink/50 mb-8">{t('portal.description')}</p>
+              <p className="text-sm leading-relaxed text-ink/60 mb-8">{t('portal.description')}</p>
 
               <div className="space-y-5 border-y border-ink/10 py-6">
                 {portalRows.map((row) => (
                   <div key={row.label} className="flex justify-between items-center">
-                    <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-ink/35">{row.label}</span>
+                    <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-ink/60">{row.label}</span>
                     <span className="font-mono text-xs">{row.value}</span>
                   </div>
                 ))}

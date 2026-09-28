@@ -82,7 +82,7 @@ const roster: Record<Department['id'], Member[]> = {
 
 const stats = orgStats.filter((s) => s.key !== 'competitionCycles');
 
-const smallLabel = 'font-mono text-[8px] tracking-[0.18em] uppercase text-ink/20';
+const smallLabel = 'font-mono text-[8px] tracking-[0.18em] uppercase text-ink/60';
 
 export default function MembersPage() {
   const t = useTranslations('members');
@@ -102,9 +102,9 @@ export default function MembersPage() {
               <h1 className="font-display text-[clamp(3rem,6vw,5.5rem)] font-bold leading-[0.92] tracking-tight text-ink mb-6">
                 {t('hero.titleLine1')}<br />
                 {t('hero.titleLine2')}<br />
-                <span className="text-ink/20">{t('hero.titleLine3')}</span>
+                <span className="text-ink/45">{t('hero.titleLine3')}</span>
               </h1>
-              <p className="text-ink/50 text-base leading-relaxed max-w-[480px]">{t('hero.description')}</p>
+              <p className="text-ink/60 text-base leading-relaxed max-w-[480px]">{t('hero.description')}</p>
             </Reveal>
 
             <Reveal onMount duration={0.5} delay={0.2} className="grid grid-cols-2 border border-ink/10">
@@ -112,7 +112,7 @@ export default function MembersPage() {
                 <div key={s.key} className={`px-6 py-6 border-ink/10 ${i % 2 === 0 ? 'border-r' : ''} ${i < 2 ? 'border-b' : ''}`}>
                   <div className="font-mono text-[clamp(1.6rem,3vw,2.4rem)] font-bold text-ink leading-none mb-1">{s.value}</div>
                   <div className="font-display text-xs font-semibold text-ink/60 mb-0.5">{tStats(`${s.key}.label`)}</div>
-                  <div className="font-mono text-[9px] tracking-[0.15em] uppercase text-ink/25">{tStats(`${s.key}.sub`)}</div>
+                  <div className="font-mono text-[9px] tracking-[0.15em] uppercase text-ink/60">{tStats(`${s.key}.sub`)}</div>
                 </div>
               ))}
             </Reveal>
@@ -125,10 +125,10 @@ export default function MembersPage() {
         <Container>
           <div className="grid lg:grid-cols-[280px_1fr] gap-16 lg:gap-24 mb-14">
             <div>
-              <Eyebrow tone="text-ink/35">{t('foundersEyebrow')}</Eyebrow>
+              <Eyebrow tone="text-ink/60">{t('foundersEyebrow')}</Eyebrow>
               <h2 className="font-display text-2xl font-bold text-ink leading-tight">{t('foundersHeading')}</h2>
             </div>
-            <p className="text-ink/45 text-sm leading-relaxed self-end max-w-[540px]">{t('foundersIntro')}</p>
+            <p className="text-ink/60 text-sm leading-relaxed self-end max-w-[540px]">{t('foundersIntro')}</p>
           </div>
 
           <div className="grid lg:grid-cols-2 border-t border-l border-ink/10">
@@ -148,18 +148,18 @@ export default function MembersPage() {
                   </div>
 
                   <div className="p-8 lg:p-10 flex-1 flex flex-col">
-                    <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-ink/25 mb-2">{t('foundersEyebrow')}</div>
+                    <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-ink/60 mb-2">{t('foundersEyebrow')}</div>
                     <h3 className="font-display text-xl font-bold text-ink mb-1 leading-tight">{founder.name}</h3>
-                    <p className="font-mono text-[10px] tracking-[0.1em] text-ink/45 mb-5">{text.role}</p>
-                    <p className="text-ink/55 text-sm leading-relaxed mb-6 flex-1">{text.bio}</p>
+                    <p className="font-mono text-[10px] tracking-[0.1em] text-ink/60 mb-5">{text.role}</p>
+                    <p className="text-ink/60 text-sm leading-relaxed mb-6 flex-1">{text.bio}</p>
 
                     <div className="border-t border-ink/8 pt-5">
                       <div className={`${smallLabel} mb-2`}>{t('scopeLabel')}</div>
-                      <p className="font-mono text-[9px] text-ink/40 leading-relaxed">{text.scope}</p>
+                      <p className="font-mono text-[9px] text-ink/60 leading-relaxed">{text.scope}</p>
                     </div>
                     <div className="mt-4">
                       <div className={`${smallLabel} mb-1`}>{t('institutionLabel')}</div>
-                      <p className="font-mono text-[10px] text-ink/55">{text.university}</p>
+                      <p className="font-mono text-[10px] text-ink/60">{text.university}</p>
                     </div>
                   </div>
                 </Reveal>
@@ -177,15 +177,15 @@ export default function MembersPage() {
             <Container>
               <Reveal y={12} className="flex flex-wrap items-end justify-between gap-6 mb-12">
                 <div className="flex items-baseline gap-5">
-                  <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-ink/20">{indexLabel(i)}</span>
+                  <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-ink/60">{indexLabel(i)}</span>
                   <div>
                     <h2 className="font-display text-2xl font-bold text-ink leading-tight">{deptText.title}</h2>
-                    <p className="font-mono text-[9px] tracking-[0.12em] text-ink/35 mt-1">{deptText.scope}</p>
+                    <p className="font-mono text-[9px] tracking-[0.12em] text-ink/60 mt-1">{deptText.scope}</p>
                   </div>
                 </div>
                 <div className="text-right">
                   <div className="font-mono text-xl font-bold text-ink">{dept.members}</div>
-                  <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-ink/25">{t('membersLabel')}</div>
+                  <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-ink/60">{t('membersLabel')}</div>
                 </div>
               </Reveal>
 
