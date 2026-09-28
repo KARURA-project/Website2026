@@ -8,9 +8,9 @@ export interface Department {
 }
 
 export const departments: Department[] = [
-  { id: 'hardware', members: 32, openings: 9 },
-  { id: 'electrical', members: 29, openings: 12 },
-  { id: 'software', members: 24, openings: 6 },
-  { id: 'science', members: 17, openings: 6 },
-  { id: 'business', members: 25, openings: 10 },
+  { id: 'hardware', members: 13, openings: 2 },
+  { id: 'electrical', members: 9, openings: 3 },
+  { id: 'software', members: 13, openings: 2 },
+  { id: 'science', members: 6, openings: 4 },
+  { id: 'business', members: 8, openings: 2 },
 ];
