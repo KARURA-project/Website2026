@@ -55,15 +55,17 @@ export function Meta({
   children,
   labelClass = 'mb-1.5',
   valueClass = 'text-xs text-ink',
+  labelTone = 'text-ink/60',
 }: {
   label: ReactNode;
   children: ReactNode;
   labelClass?: string;
   valueClass?: string;
+  labelTone?: string;
 }) {
   return (
     <div>
-      <div className={`font-mono text-[9px] tracking-[0.2em] uppercase text-ink/60 ${labelClass}`}>{label}</div>
+      <div className={`font-mono text-[9px] tracking-[0.2em] uppercase ${labelTone} ${labelClass}`}>{label}</div>
       <div className={`font-mono ${valueClass}`}>{children}</div>
     </div>
   );

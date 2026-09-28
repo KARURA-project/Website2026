@@ -18,6 +18,18 @@ function subscribe(onTick: () => void) {
 
 const pad = (n: number, digits = 2) => String(Math.floor(n)).padStart(digits, '0');
 
+// Engineering-grid background: plain CSS lines, no image.
+const GRID_BG = {
+  backgroundImage:
+    'linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)',
+  backgroundSize: '48px 48px',
+};
+
+/** Small L-shaped corner border, positioned by the `corner` utility classes. */
+function CornerBracket({ corner }: { corner: string }) {
+  return <span aria-hidden className={`absolute w-6 h-6 border-mars-red ${corner}`} />;
+}
+
 export default function Countdown() {
   const t = useTranslations('home.countdown');
   const locale = useLocale();
@@ -31,42 +43,52 @@ export default function Countdown() {
   ];
 
   return (
-    <section className="bg-canvas border-t border-ink/8 py-20">
-      <Container>
+    <section className="relative bg-ink border-t border-white/10 py-20 overflow-hidden">
+      <div aria-hidden className="absolute inset-0 pointer-events-none" style={GRID_BG} />
+
+      <Container className="relative">
         <div className="mb-12">
           <Reveal>
-            <Eyebrow className="mb-4">{t('eyebrow')}</Eyebrow>
+            <Eyebrow className="mb-4" tone="text-white/60">{t('eyebrow')}</Eyebrow>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-ink">{t('heading')}</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-white">{t('heading')}</h2>
           </Reveal>
           <Reveal y={0} delay={0.2}>
-            <p className="font-mono text-xs text-ink/60 mt-2 tracking-wider">{t('subtitle')}</p>
+            <p className="font-mono text-xs text-white/60 mt-2 tracking-wider">{t('subtitle')}</p>
           </Reveal>
         </div>
 
-        <Reveal delay={0.15} y={20} className="flex flex-wrap items-end">
-          {fields.map((field, i) => (
-            <div
-              key={field.label}
-              className={`flex flex-col items-start ${i < fields.length - 1 ? 'pr-6 mr-6 border-r border-ink/10' : ''}`}
-            >
-              <span className="font-mono font-bold tabular-nums leading-none text-ink text-[clamp(3rem,7vw,6.5rem)]">
-                {field.value}
-              </span>
-              <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-ink/60 mt-1">{field.label}</span>
-            </div>
-          ))}
+        <Reveal delay={0.15} y={20} className="relative inline-block p-4 sm:p-8">
+          <CornerBracket corner="top-0 left-0 border-t border-l" />
+          <CornerBracket corner="top-0 right-0 border-t border-r" />
+          <CornerBracket corner="bottom-0 left-0 border-b border-l" />
+          <CornerBracket corner="bottom-0 right-0 border-b border-r" />
+
+          <div className="flex flex-wrap items-end gap-y-4">
+            <span className="font-mono text-white/60 text-sm mb-2 mr-3">T–</span>
+            {fields.map((field, i) => (
+              <div
+                key={field.label}
+                className={`flex flex-col items-start ${i < fields.length - 1 ? 'pr-3 mr-3 sm:pr-6 sm:mr-6 border-r border-white/10' : ''}`}
+              >
+                <span className="font-mono font-bold tabular-nums leading-none text-white text-[clamp(2.5rem,7vw,6.5rem)]">
+                  {field.value}
+                </span>
+                <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-white/60 mt-1">{field.label}</span>
+              </div>
+            ))}
+          </div>
         </Reveal>
 
-        <Reveal y={0} delay={0.3} className="mt-10 pt-8 border-t border-ink/8 flex flex-wrap gap-8 items-center">
-          <Meta label={t('targetDateLabel')} labelClass="mb-1" valueClass="text-sm text-ink/60">
+        <Reveal y={0} delay={0.3} className="mt-10 pt-8 border-t border-white/10 flex flex-wrap gap-8 items-center">
+          <Meta label={t('targetDateLabel')} labelClass="mb-1" labelTone="text-white/60" valueClass="text-sm text-white/60">
             {formatDate(TARGET_DATE, locale, 'long', TARGET.timeZone)}
           </Meta>
-          <Meta label={t('venueLabel')} labelClass="mb-1" valueClass="text-sm text-ink/60">
+          <Meta label={t('venueLabel')} labelClass="mb-1" labelTone="text-white/60" valueClass="text-sm text-white/60">
             {t('venue')}
           </Meta>
-          <Meta label={t('statusLabel')} labelClass="mb-1" valueClass="text-sm text-mars-red flex items-center gap-1.5">
+          <Meta label={t('statusLabel')} labelClass="mb-1" labelTone="text-white/60" valueClass="text-sm text-mars-red-light flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-mars-red animate-pulse inline-block" />
             {t('status')}
           </Meta>
