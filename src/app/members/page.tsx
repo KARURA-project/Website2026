@@ -1,446 +1,211 @@
-'use client';
+import { useMessages, useTranslations } from 'next-intl';
+import { Container, Eyebrow, Reveal, indexLabel } from '@/components/ui';
+import MemberCard, { initials } from '@/components/members/MemberCard';
+import { departments, type Department } from '@/data/departments';
+import { orgStats } from '@/data/stats';
+import type en from '../../../messages/en.json';
 
-import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import MemberCard from '@/components/members/MemberCard';
+type Country = 'JP' | 'US';
+type Messages = typeof en;
 
-// ─── Data — all TBD entries stripped, only real personnel ────────────────────
-
-const founders = [
-  {
-    name: 'Hirokuni Kakiuchi',
-    role: 'Co-Founder',
-    university: 'Texas A&M University',
-    country: 'US' as const,
-    node: 'College Station, TX',
-    bio: 'Aerospace Engineering senior at Texas A&M University. Oversees all mechanical design, fabrication strategy, and the US operational node of KARURA.',
-    scope: 'Mechanical · Program Direction · US Operations',
-  },
-  {
-    name: 'Haruto Seto',
-    role: 'Co-Founder',
-    university: 'Shinshu University',
-    country: 'JP' as const,
-    node: 'Nagano, Japan',
-    bio: 'Mechanical Systems Engineering. Co-architect of the KARURA cross-Pacific engineering model from the program&apos;s founding in 2022.',
-    scope: 'Mechanical Systems · Program Architecture',
-  },
+// Role, bio, university and location text: messages/*.json → members.founders.<key>
+const founders: { key: keyof Messages['members']['founders']; name: string; country: Country }[] = [
+  { key: 'hirokuni', name: 'Hirokuni Kakiuchi', country: 'US' },
+  { key: 'haruto', name: 'Haruto Seto', country: 'JP' },
 ];
 
-// Departments with real members only — no TBD
-const departments = [
-  {
-    id: 'mechanical',
-    index: '01',
-    label: 'Mechanical',
-    scope: 'Chassis · Suspension · Drive Train · Robotic Arm',
-    memberCount: 32,
-    members: [
-      {
-        name: 'Ellie Person',
-        role: 'US Project Co-Manager & US Executive Director of Hardware',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-      {
-        name: 'MJ Seelke',
-        role: 'Mechanical Arm Lead',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-      {
-        name: 'JZ Zabolio',
-        role: 'Mechanical Arm Member',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-      {
-        name: 'Praharshini Nernuru',
-        role: 'Mechanical Arm Member',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-      {
-        name: 'Carter Boland',
-        role: 'CAD Specialist & Drone Manager',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-      {
-        name: 'Sean B',
-        role: 'Mechanical Mobility Member',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-    ],
-  },
-  {
-    id: 'electrical',
-    index: '02',
-    label: 'Electrical',
-    scope: 'Power · PCB Design · Motor Control · Sensors',
-    memberCount: 29,
-    members: [
-      {
-        name: 'Nicolas Medina Deleon',
-        role: 'Executive Director of Electrical Systems',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-      {
-        name: 'Atharva Agarwal',
-        role: 'Power Distribution Members',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-      {
-        name: 'Siddharth Rajasekaran',
-        role: 'Arm Embedded Systems Member',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-      {
-        name: 'Pranav Kalaiselvan',
-        role: 'Arm Embedded Systems Member',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-      {
-        name: 'Gavin Cervantez',
-        role: 'Science Embedded Systems Member',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-      {
-        name: 'Anshi Ravula',
-        role: 'Science Embedded Systems Member',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-    ],
-  },
-  {
-    id: 'software',
-    index: '03',
-    label: 'Software',
-    scope: 'ROS2 · Navigation · Computer Vision · Telemetry GUI',
-    memberCount: 24,
-    members: [
-      {
-        name: 'Zachary Renkema',
-        role: 'Project Co-Manger & Executive Director of Software',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-      {
-        name: 'William Clymire',
-        role: 'Autonomous Navigation Lead',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-      {
-        name: 'Ethan Do',
-        role: 'Control Station Lead & KARURA AI Lead',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-      {
-        name: 'Ikaika Mendoza',
-        role: 'KARURA AI Member',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-      {
-        name: 'Matthew Culver',
-        role: 'Communications Member',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-      {
-        name: 'Oliver Hankins',
-        role: 'Control Station Member',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-    ],
-  },
-  {
-    id: 'science',
-    index: '04',
-    label: 'Science',
-    scope: 'Astrobiology · Life Detection · Sample Analysis',
-    memberCount: 17,
-    members: [
-      {
-        name: 'Shakti Sridhar',
-        role: 'Director of Life Sciences',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-      {
-        name: 'Camille Cordell',
-        role: 'Flourescense Lead',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-      {
-        name: 'Alex Jonasz',
-        role: 'Geology Member',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-      {
-        name: 'Robb Gass',
-        role: 'Geology Member',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-    ],
-  },
-  {
-    id: 'business',
-    index: '05',
-    label: 'Business & Outreach',
-    scope: 'Sponsorship · PR · Operations · Recruitment',
-    memberCount: 25,
-    members: [
-      {
-        name: 'Brady Wood',
-        role: 'Executive Director of Business Operations',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-      {
-        name: 'Fareed Badamosi',
-        role: 'Finance Lead',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-      {
-        name: 'Victoria Corral',
-        role: 'Marketing Lead',
-        university: 'Texas A&M University',
-        country: 'US' as const,
-      },
-    ],
-  },
-];
+// `role` is a key into messages → members.roles. University defaults to Texas A&M (members.defaultUniversity)
+// and country to US; set them on a member to override.
+type Member = { name: string; role: keyof Messages['members']['roles']; university?: string; country?: Country };
 
-const stats = [
-  { value: '100+', label: 'Active Members', sub: 'AY 2026–27' },
-  { value: '30+', label: 'Universities', sub: 'JP & US' },
-  { value: '5', label: 'Departments', sub: 'Full-stack org' },
-  { value: '2', label: 'Countries', sub: 'Japan · USA' },
-];
+const roster: Record<Department['id'], Member[]> = {
+  hardware: [
+    { name: 'Ellie Person', role: 'coManagerHardware' },
+    { name: 'MJ Seelke', role: 'hardwareLead' },
+    { name: 'Carter Boland', role: 'droneLead' },
+    { name: 'Cindy Long', role: 'hardwareMember' },
+    { name: 'Harry Phan', role: 'hardwareMember' },
+    { name: 'Sean Birdwell', role: 'hardwareMember' },
+    { name: 'Supreet Sudharshana', role: 'hardwareMember' },
+    { name: 'Kevin Shu', role: 'hardwareMember' },
+    { name: 'Hannah Liu', role: 'hardwareMember' },
+    { name: 'Aidan Salazar', role: 'hardwareMember' },
+    { name: 'Will Mascorro', role: 'hardwareMember' },
+    { name: 'Kevin Progatsky', role: 'hardwareMember' },
+    { name: 'Karthik Somashekhar', role: 'hardwareMember' },
+  ],
+  electrical: [
+    { name: 'Nicolas Medina Deleon', role: 'electricalDirector' },
+    { name: 'Atharva Agarwal', role: 'powerDistributionMember' },
+    { name: 'Siddharth Rajasekaran', role: 'armEmbeddedMember' },
+    { name: 'Amulya Bissaria', role: 'hardwareMember' },
+    { name: 'Zayan Alam', role: 'hardwareMember' },
+    { name: 'Ishaan Khosla', role: 'hardwareMember' },
+    { name: 'Amogh Kaji', role: 'hardwareMember' },
+    { name: 'Victor Bao', role: 'hardwareMember' },
+    { name: 'Rayyan Arshad', role: 'hardwareMember' },
+  ],
+  software: [
+    { name: 'Zachary Renkema', role: 'coManagerSoftware' },
+    { name: 'Ethan Do', role: 'controlStationAiLead' },
+    { name: 'Pranav Kalaiselvan', role: 'armSoftwareLead' },
+    { name: 'Ikaika Mendoza', role: 'droneScienceCommsLead' },
+    { name: 'Matthew Culver', role: 'navMobilityLead' },
+    { name: 'Gauri Agrawal', role: 'softwareMember' },
+    { name: 'Ryo Kato', role: 'softwareMember' },
+    { name: 'Dunsin Komolafe', role: 'softwareMember' },
+    { name: 'Yashvi Mehta', role: 'softwareMember' },
+    { name: 'Rhea Goyal', role: 'softwareMember' },
+    { name: 'Muhammad Ibrahim Khurram', role: 'softwareMember' },
+    { name: 'Anvay Todkar', role: 'softwareMember' },
+    { name: 'Aidan Morris', role: 'softwareMember' },
+  ],
+  science: [
+    { name: 'Shakti Sridhar', role: 'lifeSciencesDirector' },
+    { name: 'Camille Cordell', role: 'microscopyLead' },
+    { name: 'Alex Jonasz', role: 'geologyLead' },
+    { name: 'Hana Blair', role: 'microscopyMember' },
+    { name: 'Jyotsana Nagarapu', role: 'geologyMember' },
+    { name: 'Ruksana Faizal', role: 'geologyMember' },
+  ],
+  business: [
+    { name: 'Brady Wood', role: 'businessDirector' },
+    { name: 'Fareed Badamosi', role: 'financeLead' },
+    { name: 'Victoria Corral', role: 'marketingLead' },
+    { name: 'Jacob Hanel', role: 'sponsorshipLead' },
+    { name: 'Nick Evans', role: 'engagementLead' },
+    { name: 'Tati Meza', role: 'graphicDesigner' },
+    { name: 'Tiago Silva', role: 'businessMember' },
+    { name: 'Evan Haack', role: 'businessMember' },
+  ],
+};
 
-// ─── Component ────────────────────────────────────────────────────────────────
+const stats = orgStats.filter((s) => s.key !== 'competitionCycles');
+
+const smallLabel = 'font-mono text-[8px] tracking-[0.18em] uppercase text-ink/20';
 
 export default function MembersPage() {
   const t = useTranslations('members');
+  const tStats = useTranslations('stats');
+  const messages = useMessages();
 
   return (
-    <main className="bg-[#FAFAFA] min-h-screen text-[#0A0A0A]">
-      <Header />
-
-      {/* ══════════════════════════════════════════
-          HERO — Left-aligned editorial
-      ══════════════════════════════════════════ */}
-      <section className="pt-36 pb-16 border-b border-[#0A0A0A]/8">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center gap-3 mb-6"
-          >
-            <span className="w-6 h-px bg-[#E63946]" />
-            <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
-              {t('hero.eyebrow')}
-            </span>
-          </motion.div>
+    <>
+      <section className="pt-36 pb-16 border-b border-ink/8">
+        <Container>
+          <Reveal onMount y={20} duration={0.5}>
+            <Eyebrow className="mb-6">{t('hero.eyebrow')}</Eyebrow>
+          </Reveal>
 
           <div className="grid lg:grid-cols-[1fr_420px] gap-12 lg:gap-20 items-end">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.08 }}
-            >
-              <h1 className="font-display text-[clamp(3rem,6vw,5.5rem)] font-bold leading-[0.92] tracking-tight text-[#0A0A0A] mb-6">
+            <Reveal onMount y={24} duration={0.6} delay={0.08}>
+              <h1 className="font-display text-[clamp(3rem,6vw,5.5rem)] font-bold leading-[0.92] tracking-tight text-ink mb-6">
                 {t('hero.titleLine1')}<br />
                 {t('hero.titleLine2')}<br />
-                <span className="text-[#0A0A0A]/20">{t('hero.titleLine3')}</span>
+                <span className="text-ink/20">{t('hero.titleLine3')}</span>
               </h1>
-              <p className="text-[#0A0A0A]/50 text-base leading-relaxed max-w-[480px]">
-                {t('hero.description')}
-              </p>
-            </motion.div>
+              <p className="text-ink/50 text-base leading-relaxed max-w-[480px]">{t('hero.description')}</p>
+            </Reveal>
 
-            {/* Stats grid */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="grid grid-cols-2 border border-[#0A0A0A]/10"
-            >
+            <Reveal onMount duration={0.5} delay={0.2} className="grid grid-cols-2 border border-ink/10">
               {stats.map((s, i) => (
-                <div
-                  key={s.label}
-                  className={`px-6 py-6 ${i % 2 === 0 ? 'border-r' : ''} ${i < 2 ? 'border-b' : ''} border-[#0A0A0A]/10`}
-                >
-                  <div className="font-mono text-[clamp(1.6rem,3vw,2.4rem)] font-bold text-[#0A0A0A] leading-none mb-1">
-                    {s.value}
-                  </div>
-                  <div className="font-display text-xs font-semibold text-[#0A0A0A]/60 mb-0.5">{s.label}</div>
-                  <div className="font-mono text-[9px] tracking-[0.15em] uppercase text-[#0A0A0A]/25">{s.sub}</div>
+                <div key={s.key} className={`px-6 py-6 border-ink/10 ${i % 2 === 0 ? 'border-r' : ''} ${i < 2 ? 'border-b' : ''}`}>
+                  <div className="font-mono text-[clamp(1.6rem,3vw,2.4rem)] font-bold text-ink leading-none mb-1">{s.value}</div>
+                  <div className="font-display text-xs font-semibold text-ink/60 mb-0.5">{tStats(`${s.key}.label`)}</div>
+                  <div className="font-mono text-[9px] tracking-[0.15em] uppercase text-ink/25">{tStats(`${s.key}.sub`)}</div>
                 </div>
               ))}
-            </motion.div>
+            </Reveal>
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* ══════════════════════════════════════════
-          FOUNDERS — Asymmetric large-format cards
-      ══════════════════════════════════════════ */}
-      <section className="py-24 border-b border-[#0A0A0A]/8">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
-
+      {/* Founders */}
+      <section className="py-24 border-b border-ink/8">
+        <Container>
           <div className="grid lg:grid-cols-[280px_1fr] gap-16 lg:gap-24 mb-14">
             <div>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="w-6 h-px bg-[#E63946]" />
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">
-                  Program Leadership
-                </span>
-              </div>
-              <h2 className="font-display text-2xl font-bold text-[#0A0A0A] leading-tight">
-                Founders
-              </h2>
+              <Eyebrow tone="text-ink/35">{t('foundersEyebrow')}</Eyebrow>
+              <h2 className="font-display text-2xl font-bold text-ink leading-tight">{t('foundersHeading')}</h2>
             </div>
-            <p className="text-[#0A0A0A]/45 text-sm leading-relaxed self-end max-w-[540px]">
-              KARURA started in 2022 with a small group of students who believed a cross-Pacific engineering team could compete in the world&apos;s most demanding student robotics competition, and in 2024 they proved it.
-            </p>
+            <p className="text-ink/45 text-sm leading-relaxed self-end max-w-[540px]">{t('foundersIntro')}</p>
           </div>
 
-          {/* Founders in large asymmetric cells */}
-          <div className="grid lg:grid-cols-2 border-t border-l border-[#0A0A0A]/10">
-            {founders.map((founder, i) => (
-              <motion.div
-                key={founder.name}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="border-b border-r border-[#0A0A0A]/10 flex flex-col"
-              >
-                {/* Avatar block — tall, editorial */}
-                <div className="relative w-full bg-[#F0F0F0] overflow-hidden"
-                  style={{ aspectRatio: '4/3' }}>
-                  {/* Monogram fallback */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-mono text-[4rem] font-bold text-[#0A0A0A]/10 select-none leading-none">
-                      {founder.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
-                    </span>
-                  </div>
-                  {/* Country badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className="font-mono text-[9px] tracking-[0.18em] uppercase bg-[#0A0A0A]/80 text-white/70 px-2.5 py-1 backdrop-blur-sm">
-                      {founder.country} — {founder.node}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Info — left-aligned editorial text block */}
-                <div className="p-8 lg:p-10 flex-1 flex flex-col">
-                  <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-[#0A0A0A]/25 mb-2">
-                    Program Leadership
-                  </div>
-                  <h3 className="font-display text-xl font-bold text-[#0A0A0A] mb-1 leading-tight">
-                    {founder.name}
-                  </h3>
-                  <p className="font-mono text-[10px] tracking-[0.1em] text-[#0A0A0A]/45 mb-5">
-                    {founder.role}
-                  </p>
-                  <p className="text-[#0A0A0A]/55 text-sm leading-relaxed mb-6 flex-1">
-                    {founder.bio}
-                  </p>
-
-                  {/* Scope tags */}
-                  <div className="border-t border-[#0A0A0A]/8 pt-5">
-                    <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-[#0A0A0A]/20 mb-2">
-                      Scope
+          <div className="grid lg:grid-cols-2 border-t border-l border-ink/10">
+            {founders.map((founder, i) => {
+              const text = messages.members.founders[founder.key];
+              return (
+                <Reveal key={founder.key} delay={i * 0.1} className="border-b border-r border-ink/10 flex flex-col">
+                  <div className="relative w-full aspect-[4/3] bg-mist overflow-hidden">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="font-mono text-[4rem] font-bold text-ink/10 select-none leading-none">{initials(founder.name)}</span>
                     </div>
-                    <p className="font-mono text-[9px] text-[#0A0A0A]/40 leading-relaxed">
-                      {founder.scope}
-                    </p>
+                    <div className="absolute top-4 left-4">
+                      <span className="font-mono text-[9px] tracking-[0.18em] uppercase bg-ink/80 text-white/70 px-2.5 py-1 backdrop-blur-sm">
+                        {founder.country} — {text.node}
+                      </span>
+                    </div>
                   </div>
 
-                  <div className="mt-4">
-                    <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-[#0A0A0A]/20 mb-1">
-                      Institution
+                  <div className="p-8 lg:p-10 flex-1 flex flex-col">
+                    <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-ink/25 mb-2">{t('foundersEyebrow')}</div>
+                    <h3 className="font-display text-xl font-bold text-ink mb-1 leading-tight">{founder.name}</h3>
+                    <p className="font-mono text-[10px] tracking-[0.1em] text-ink/45 mb-5">{text.role}</p>
+                    <p className="text-ink/55 text-sm leading-relaxed mb-6 flex-1">{text.bio}</p>
+
+                    <div className="border-t border-ink/8 pt-5">
+                      <div className={`${smallLabel} mb-2`}>{t('scopeLabel')}</div>
+                      <p className="font-mono text-[9px] text-ink/40 leading-relaxed">{text.scope}</p>
                     </div>
-                    <p className="font-mono text-[10px] text-[#0A0A0A]/55">
-                      {founder.university}
-                    </p>
+                    <div className="mt-4">
+                      <div className={`${smallLabel} mb-1`}>{t('institutionLabel')}</div>
+                      <p className="font-mono text-[10px] text-ink/55">{text.university}</p>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </Reveal>
+              );
+            })}
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* ══════════════════════════════════════════
-          DEPARTMENT SECTIONS — One per dept
-      ══════════════════════════════════════════ */}
-      {departments.map((dept) => (
-        <section key={dept.id} id={dept.id} className="border-b border-[#0A0A0A]/8 py-20 scroll-mt-24">
-          <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
-
-            {/* Department header — telemetry-style */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="flex flex-wrap items-end justify-between gap-6 mb-12"
-            >
-              <div className="flex items-baseline gap-5">
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/20">{dept.index}</span>
-                <div>
-                  <h2 className="font-display text-2xl font-bold text-[#0A0A0A] leading-tight">{dept.label}</h2>
-                  <p className="font-mono text-[9px] tracking-[0.12em] text-[#0A0A0A]/35 mt-1">{dept.scope}</p>
+      {/* One section per department */}
+      {departments.map((dept, i) => {
+        const deptText = messages.departments[dept.id];
+        return (
+          <section key={dept.id} id={dept.id} className="border-b border-ink/8 py-20 scroll-mt-24">
+            <Container>
+              <Reveal y={12} className="flex flex-wrap items-end justify-between gap-6 mb-12">
+                <div className="flex items-baseline gap-5">
+                  <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-ink/20">{indexLabel(i)}</span>
+                  <div>
+                    <h2 className="font-display text-2xl font-bold text-ink leading-tight">{deptText.title}</h2>
+                    <p className="font-mono text-[9px] tracking-[0.12em] text-ink/35 mt-1">{deptText.scope}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center gap-6">
                 <div className="text-right">
-                  <div className="font-mono text-xl font-bold text-[#0A0A0A]">{dept.memberCount}</div>
-                  <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-[#0A0A0A]/25">members</div>
+                  <div className="font-mono text-xl font-bold text-ink">{dept.members}</div>
+                  <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-ink/25">{t('membersLabel')}</div>
                 </div>
+              </Reveal>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+                {roster[dept.id].map((member) => (
+                  <div key={member.name} className="p-2">
+                    <MemberCard
+                      name={member.name}
+                      role={messages.members.roles[member.role]}
+                      department={deptText.title}
+                      university={member.university ?? t('defaultUniversity')}
+                      country={member.country ?? 'US'}
+                    />
+                  </div>
+                ))}
               </div>
-            </motion.div>
-
-            {/* Member grid — render MemberCard for each member */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
-              {dept.members.map((member) => (
-                <div key={member.name} className="p-2">
-                  <MemberCard
-                    name={member.name}
-                    role={member.role}
-                    department={dept.label}
-                    university={member.university}
-                    country={member.country}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      ))}
-
-      <Footer />
-    </main>
+            </Container>
+          </section>
+        );
+      })}
+    </>
   );
 }

@@ -1,322 +1,111 @@
-// src/app/join/page.tsx
-'use client';
+import { useMessages, useTranslations } from 'next-intl';
+import { Container, Eyebrow, RailList, Reveal, SplitHero, indexLabel } from '@/components/ui';
+import { departments, type Department } from '@/data/departments';
 
-import { useTranslations } from 'next-intl';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+const APPLICATION_FORM_URL = 'https://docs.google.com/forms/d/1MJhQgfIRbGO-Up2x9Sr15ocGia40k2A-0Nlz3ijXtl8/edit';
 
-const positions = [
-  {
-    id: '01',
-    department: 'Software',
-    openings: '06',
-    responsibilities: [
-      'ROS2 Navigation',
-      'SLAM & Localization',
-      'Computer Vision',
-      'Simulation',
-    ],
-  },
-  {
-    id: '02',
-    department: 'MECHANICAL',
-    openings: '09',
-    responsibilities: [
-      'SolidWorks',
-      'FEA',
-      'Suspension Design',
-      'Manufacturing',
-    ],
-  },
-  {
-    id: '03',
-    department: 'ELECTRICAL',
-    openings: '12',
-    responsibilities: [
-      'PCB Design',
-      'CAN Integration',
-      'Power Systems',
-      'Embedded Debugging',
-    ],
-  },
-  {
-    id: '04',
-    department: 'SCIENCE',
-    openings: '06',
-    responsibilities: [
-      'Astrobiology',
-      'Spectrometry',
-      'Sampling Protocols',
-      'Field Validation',
-    ],
-  },
-  {
-    id: '05',
-    department: 'BUSINESS',
-    openings: '10',
-    responsibilities: [
-      'Sponsors',
-      'Grant Writing',
-      'Operations',
-      'Outreach',
-    ],
-  },
-];
-
-const pipeline = [
-  {
-    id: '01',
-    title: 'APPLICATION',
-    body: 'Submit your application and identify your preferred department and technical interests.',
-  },
-  {
-    id: '02',
-    title: 'INTERVIEW',
-    body: 'Sub-team leads review portfolios, coursework, projects, and prior experience.',
-  },
-  {
-    id: '03',
-    title: 'ONBOARDING',
-    body: 'Receive a project overview and complete the onboarding training for your department',
-  },
-  {
-    id: '04',
-    title: 'SUBTEAM ASSIGNMENT',
-    body: 'Placed on a sub-team based on your skills, interests, and availability to contribute to the project.',
-  },
-];
+// /join lists Software first; other pages use the default department order.
+const JOIN_ORDER = ['software', 'hardware', 'electrical', 'science', 'business'] as const satisfies readonly Department['id'][];
+// Sort rather than look up, so a department missing from JOIN_ORDER still shows (at the end) instead of vanishing.
+const joinDepartments = [...departments].sort(
+  (a, b) => (JOIN_ORDER.indexOf(a.id) + 1 || 99) - (JOIN_ORDER.indexOf(b.id) + 1 || 99),
+);
 
 export default function JoinPage() {
   const t = useTranslations('join');
+  const messages = useMessages();
+  const pipeline = Object.values(messages.join.pipeline.steps);
+
+  const portalRows = [
+    { label: t('portal.campaignLabel'), value: t('portal.campaignValue') },
+    { label: t('portal.nodesLabel'), value: t('portal.nodesValue') },
+    { label: t('portal.positionsLabel'), value: t('portal.positionsValue') },
+    { label: t('portal.deploymentLabel'), value: t('portal.deploymentValue') },
+  ];
 
   return (
-    <main className="bg-[#FAFAFA] min-h-screen">
-      <Header />
-
-      {/* ══════════════════════════════════════════
-          HERO — Split layout matching about page
-      ══════════════════════════════════════════ */}
-      <section className="relative min-h-[72vh] grid lg:grid-cols-[1fr_60%] overflow-hidden border-b border-[#0A0A0A]/8">
-
-        {/* Left: text */}
-        <div className="flex flex-col justify-end px-8 md:px-16 lg:px-20 xl:px-28 pt-36 pb-16 lg:pb-20">
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center gap-3 mb-6"
-          >
-            <span className="w-6 h-px bg-[#E63946]" />
-            <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
-              {t('hero.eyebrow')}
-            </span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.08 }}
-            className="font-display text-[clamp(2.8rem,5.5vw,5rem)] font-bold leading-[0.95] tracking-tight text-[#0A0A0A] mb-6"
-          >
+    <>
+      <SplitHero className="min-h-[72vh] lg:grid-cols-[1fr_60%] border-b border-ink/8" image="/Images/Copy of IMG_9569.webp" alt={t('hero.imageAlt')} imageClass="opacity-90">
+        <Reveal onMount y={24} duration={0.6}>
+          <Eyebrow className="mb-6">{t('hero.eyebrow')}</Eyebrow>
+        </Reveal>
+        <Reveal onMount y={28} duration={0.7} delay={0.08}>
+          <h1 className="font-display text-[clamp(2.8rem,5.5vw,5rem)] font-bold leading-[0.95] tracking-tight text-ink mb-6">
             {t('hero.titleLine1')}<br />
             {t('hero.titleLine2')}<br />
             {t('hero.titleLine3')}
-          </motion.h1>
+          </h1>
+        </Reveal>
+        <Reveal onMount duration={0.6} delay={0.18}>
+          <p className="text-ink/50 text-base leading-relaxed max-w-[460px]">{t('hero.description')}</p>
+        </Reveal>
+      </SplitHero>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.18 }}
-            className="text-[#0A0A0A]/50 text-base leading-relaxed max-w-[460px]"
-          >
-            {t('hero.description')}
-          </motion.p>
-        </div>
-
-        {/* Right: rover image, full-bleed */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="relative hidden lg:block bg-[#0A0A0A]"
-        >
-          <Image
-            src="/Images/Copy of IMG_9569.webp"
-            alt="KARURA Mars Rover"
-            fill
-            priority
-            className="object-cover object-center opacity-90"
-          />
-          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#FAFAFA] to-transparent pointer-events-none" />
-        </motion.div>
-      </section>
-
-      {/* ══════════════════════════════════════════
-          MAIN CONTENT — 60/40 split
-      ══════════════════════════════════════════ */}
       <section>
-        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
-          <div className="grid lg:grid-cols-[1.4fr_0.9fr] gap-16 py-24">
+        <Container className="grid lg:grid-cols-[1.4fr_0.9fr] gap-16 py-24">
+          {/* Open positions */}
+          <div>
+            <Eyebrow className="mb-5">{t('positions.eyebrow')}</Eyebrow>
+            <h2 className="font-display text-3xl font-bold mb-10">{t('positions.heading')}</h2>
 
-            {/* LEFT COLUMN — Open Positions */}
-            <div>
-              <div className="flex items-center gap-3 mb-5">
-                <span className="w-6 h-px bg-[#E63946]" />
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
-                  {t('positions.eyebrow')}
-                </span>
-              </div>
-
-              <h2 className="font-display text-3xl font-bold mb-10">
-                {t('positions.heading')}
-              </h2>
-
-              <div className="divide-y divide-[#0A0A0A]/10 border-y border-[#0A0A0A]/10">
-                {positions.map((position) => (
-                  <div
-                    key={position.id}
-                    className="grid md:grid-cols-[80px_1fr_150px] gap-8 py-8"
-                  >
-                    <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#0A0A0A]/30">
-                      {position.id}
+            <div className="divide-y divide-ink/10 border-y border-ink/10">
+              {joinDepartments.map((dept, i) => (
+                <div key={dept.id} className="grid md:grid-cols-[80px_1fr_150px] gap-8 py-8">
+                  <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink/30">{indexLabel(i)}</div>
+                  <div>
+                    <h3 className="font-display text-lg font-bold uppercase mb-4">{messages.departments[dept.id].name}</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {Object.values(messages.departments[dept.id].skills).map((skill) => (
+                        <span key={skill} className="px-3 py-2 border border-ink/10 font-mono text-[10px] tracking-[0.15em] uppercase">
+                          {skill}
+                        </span>
+                      ))}
                     </div>
+                  </div>
+                  <div>
+                    <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-ink/30">{t('positions.openingsLabel')}</div>
+                    <div className="font-mono text-xl font-bold">{String(dept.openings).padStart(2, '0')}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
 
-                    <div>
-                      <h3 className="font-display text-lg font-bold mb-4">
-                        {position.department}
-                      </h3>
-                      <div className="flex flex-wrap gap-2">
-                        {position.responsibilities.map((item) => (
-                          <span
-                            key={item}
-                            className="px-3 py-2 border border-[#0A0A0A]/10 font-mono text-[10px] tracking-[0.15em] uppercase"
-                          >
-                            {item}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+          <aside className="space-y-16">
+            {/* Sticky application card */}
+            <div className="lg:sticky lg:top-28 border border-ink/10 p-8">
+              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-ink/35 mb-4">{t('portal.eyebrow')}</div>
+              <h2 className="font-display text-3xl font-bold leading-tight mb-6">{t('portal.heading')}</h2>
+              <p className="text-sm leading-relaxed text-ink/50 mb-8">{t('portal.description')}</p>
 
-                    <div className="space-y-4">
-                      <div>
-                        <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30">
-                          {t('positions.openingsLabel')}
-                        </div>
-                        <div className="font-mono text-xl font-bold">
-                          {position.openings}
-                        </div>
-                      </div>
-                      <div>
-                      </div>
-                      <div>
-                      </div>
-                    </div>
+              <div className="space-y-5 border-y border-ink/10 py-6">
+                {portalRows.map((row) => (
+                  <div key={row.label} className="flex justify-between items-center">
+                    <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-ink/35">{row.label}</span>
+                    <span className="font-mono text-xs">{row.value}</span>
                   </div>
                 ))}
               </div>
+
+              <a
+                href={APPLICATION_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 block w-full bg-mars-red text-white text-center px-6 py-4 font-display font-semibold tracking-wide transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                {t('portal.submitButton')}
+              </a>
             </div>
 
-            {/* RIGHT COLUMN — Sticky portal + Pipeline */}
-            <aside className="space-y-16">
-
-              {/* Sticky portal card */}
-              <div className="lg:sticky lg:top-28">
-                <div className="border border-[#0A0A0A]/10 p-8">
-
-                  <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35 mb-4">
-                    {t('portal.eyebrow')}
-                  </div>
-
-                  <h2 className="font-display text-3xl font-bold leading-tight mb-6">
-                    {t('portal.heading')}
-                  </h2>
-
-                  <p className="text-sm leading-relaxed text-[#0A0A0A]/50 mb-8">
-                    {t('portal.description')}
-                  </p>
-
-                  <div className="space-y-5 border-y border-[#0A0A0A]/10 py-6">
-                    <div className="flex justify-between items-center">
-                      <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#0A0A0A]/35">
-                        {t('portal.campaignLabel')}
-                      </span>
-                      <span className="font-mono text-xs">URC 2027</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#0A0A0A]/35">
-                        {t('portal.nodesLabel')}
-                      </span>
-                      <span className="font-mono text-xs">{t('portal.nodesValue')}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#0A0A0A]/35">
-                        {t('portal.positionsLabel')}
-                      </span>
-                      <span className="font-mono text-xs">{t('portal.positionsValue')}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#0A0A0A]/35">
-                        {t('portal.deploymentLabel')}
-                      </span>
-                      <span className="font-mono text-xs">{t('portal.deploymentValue')}</span>
-                    </div>
-                  </div>
-
-                  <a
-                    href="https://docs.google.com/forms/d/1MJhQgfIRbGO-Up2x9Sr15ocGia40k2A-0Nlz3ijXtl8/edit"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-8 block w-full bg-[#E63946] text-white text-center px-6 py-4 font-display font-semibold tracking-wide transition-transform duration-200 hover:-translate-y-0.5"
-                  >
-                    {t('portal.submitButton')}
-                  </a>
-                </div>
-              </div>
-
-              {/* Pipeline */}
-              <section>
-                <div className="flex items-center gap-3 mb-5">
-                  <span className="w-6 h-px bg-[#E63946]" />
-                  <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
-                    {t('pipeline.eyebrow')}
-                  </span>
-                </div>
-
-                <h2 className="font-display text-3xl font-bold mb-10">
-                  {t('pipeline.heading')}
-                </h2>
-
-                <div className="relative">
-                  <div className="absolute left-[18px] top-0 bottom-0 w-px bg-[#0A0A0A]/10" />
-                  <div className="space-y-10">
-                    {pipeline.map((step) => (
-                      <div key={step.id} className="relative pl-16">
-                        <div className="absolute left-0 top-0 w-9 h-9 border border-[#0A0A0A] bg-[#FAFAFA] flex items-center justify-center font-mono text-[10px] tracking-[0.15em]">
-                          {step.id}
-                        </div>
-                        <div>
-                          <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#0A0A0A]/35 mb-2">
-                            {step.title}
-                          </div>
-                          <p className="text-sm leading-relaxed text-[#0A0A0A]/55">
-                            {step.body}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </section>
-
-            </aside>
-          </div>
-        </div>
+            {/* Recruitment pipeline */}
+            <section>
+              <Eyebrow className="mb-5">{t('pipeline.eyebrow')}</Eyebrow>
+              <h2 className="font-display text-3xl font-bold mb-10">{t('pipeline.heading')}</h2>
+              <RailList items={pipeline.map((step, i) => ({ marker: indexLabel(i), ...step }))} />
+            </section>
+          </aside>
+        </Container>
       </section>
-
-      <Footer />
-    </main>
+    </>
   );
 }

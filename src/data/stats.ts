@@ -1,28 +1,21 @@
-// src/data/stats.ts
+// Org-wide stats. Labels are translated: messages/*.json → stats.<key>
+// Each page shows a subset:
+// - home/TeamIntroduction.tsx  members, departments, countries
+// - app/about/page.tsx         everything except departments
+// - app/members/page.tsx       everything except competition cycles
+import type en from '../../messages/en.json';
 
 export interface Stat {
+  key: keyof (typeof en)['stats'];
   value: string;
-  label: string;
-  sub: string;
 }
 
-// Canonical org-wide stats. Used by:
-// - home/TeamIntroduction.tsx   (subset: members, departments, countries)
-// - app/about/page.tsx          (full set, includes competition cycles)
-// - app/members/page.tsx        (subset: members, universities, departments, countries)
 export const orgStats: Stat[] = [
-  { value: '100+', label: 'Active Members', sub: 'AY 2025–26' },
-  { value: '30+', label: 'Universities', sub: 'JP & US' },
-  { value: '5', label: 'Departments', sub: 'Full-stack org' },
-  { value: '2', label: 'Countries', sub: 'Japan · USA' },
-  { value: '4', label: 'Competition Cycles', sub: '2022–2027' },
+  { key: 'activeMembers', value: '100+' },
+  { key: 'universities', value: '30+' },
+  { key: 'departments', value: '5' },
+  { key: 'countries', value: '2' },
+  { key: 'competitionCycles', value: '4' },
 ];
 
-// Convenience lookup so pages can pull specific stats by label
-// instead of re-deriving a filtered/reordered array each time.
-export const statsByLabel: Record<string, Stat> = orgStats.reduce(
-  (acc, stat) => ({ ...acc, [stat.label]: stat }),
-  {} as Record<string, Stat>
-);
-
-export default orgStats;
+export const statValue = (key: Stat['key']) => orgStats.find((s) => s.key === key)!.value;

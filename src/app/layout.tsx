@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, getLocale } from 'next-intl/server';
+import { getMessages, getLocale, getTranslations } from 'next-intl/server';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -16,11 +18,10 @@ const ibmPlexMono = IBM_Plex_Mono({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-export const metadata: Metadata = {
-  title: "KARURA: First International Team in the URC Finals",
-  description:
-    "In 2024, KARURA made history as the first international and first Japanese team to reach the University Rover Challenge Finals. A student-led team uniting Texas A&M University and universities across Japan.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('meta');
+  return { title: t('title'), description: t('description') };
+}
 
 export default async function RootLayout({
   children,
@@ -31,10 +32,12 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
-      <body className={`${spaceGrotesk.variable} ${ibmPlexMono.variable} antialiased`}>
+    <html lang={locale} className={`${spaceGrotesk.variable} ${ibmPlexMono.variable}`}>
+      <body className="flex min-h-screen flex-col">
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -4,7 +4,10 @@
     "rover": "Rover",
     "members": "Members",
     "join": "Join",
-    "support": "Support"
+    "support": "Support",
+    "homeLabel": "KARURA Home",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "about": {
     "eyebrow": "About KARURA",
@@ -76,7 +79,7 @@
       "eyebrow": "Why Sponsor",
       "titleLine1": "The case",
       "titleLine2": "for KARURA",
-      "description": "Sponsorships with KARURA are not logo placements, they are engineering deployments. Your components, your technology, and your brand travel to one of the world's most demanding robotics competitions."
+      "description": "Sponsorships with KARURA are not logo placements; they are engineering deployments. Your components, your technology, and your brand travel to one of the world's most demanding robotics competitions."
     },
     "benefits": {
       "realWorld": {
@@ -92,8 +95,30 @@
         "body": "KARURA competes in front of NASA judges, aerospace industry observers, and a global press audience. Your logo is on the hardware being filmed and photographed throughout."
       }
     },
-    "impact": {
-      "heading": "Sponsor Impact"
+    "impact": { "heading": "Sponsor Impact" },
+    "fieldResult": "Field Result",
+    "metrics": {
+      "hardwareFunded": { "value": "$180K+", "label": "Hardware Funded", "sub": "across all generations" },
+      "activeSponsors": { "label": "Active Sponsors", "sub": "2026–27" },
+      "finalists": { "value": "1st", "label": "International Finalists", "sub": "URC history" },
+      "nextCompetition": { "value": "2027", "label": "Next Competition", "sub": "Tottori, Japan" }
+    },
+    "testimonials": {
+      "optosigma": {
+        "quote": "OptoSigma provided the precision optical sensors that enabled our autonomous navigation stack at URC. Their engineering traveled to the desert with us.",
+        "role": "Optics / Navigation Sponsor",
+        "result": "Stereo depth perception system enabling sub-5cm obstacle detection at 2 m/s traverse speed."
+      },
+      "hiwin": {
+        "quote": "Hiwin's linear actuators gave our robotic arm the positional accuracy we needed to pass the equipment servicing task at Finals. Off-the-shelf parts, competition-grade performance.",
+        "role": "Motion Control Sponsor",
+        "result": "Sub-millimeter joint repeatability across 5 DOF under field conditions in the Utah desert."
+      },
+      "kikusui": {
+        "quote": "Kikusui's power supply units powered the entire test bench for KARURA III's electrical validation. When we shipped to Hanksville, our power architecture was battle-tested.",
+        "role": "Power Systems Sponsor",
+        "result": "Zero electrical failures during the 4-day competition. Full power subsystem validation achieved pre-deployment."
+      }
     }
   },
   "rover": {
@@ -127,7 +152,39 @@
       "eyebrow": "Architecture",
       "titleLine1": "Subsystem",
       "titleLine2": "Inventory",
-      "teamLink": "Team"
+      "teamLink": "Team",
+      "items": {
+        "mobility": {
+          "label": "MOBILITY",
+          "title": "Drive & Suspension",
+          "dept": "Hardware",
+          "systems": "4-wheel independent drive · Rocker-bogie passive suspension · Brushless DC motors · Differential steering geometry"
+        },
+        "arm": {
+          "label": "MANIPULATION",
+          "title": "Robotic Arm",
+          "dept": "Hardware / Electrical",
+          "systems": "5-DOF serial manipulator · Custom end-effector · Joint encoders · Tool-change interface · Force estimation via current sensing"
+        },
+        "electrical": {
+          "label": "ELECTRICAL",
+          "title": "Power & Communications",
+          "dept": "Electrical",
+          "systems": "Multi-cell LiPo architecture · CAN-bus backbone · Custom PCB motor controllers · 5.8 GHz RF comms · Redundant E-stop"
+        },
+        "software": {
+          "label": "AUTONOMY",
+          "title": "Navigation & Vision Stack",
+          "dept": "Software",
+          "systems": "ROS2 Humble · Nav2 planner · SLAM Toolbox · Stereo depth estimation · YOLO-based object detection · Operator GUI"
+        },
+        "science": {
+          "label": "SCIENCE",
+          "title": "Onboard Payload",
+          "dept": "Science",
+          "systems": "Portable spectrometer · Soil drill + passive scoop · Macro camera · GPS coordinate logging · Onboard analysis protocol"
+        }
+      }
     },
     "activeSubsystems": "Active Subsystems",
     "tasks": {
@@ -158,7 +215,7 @@
       "retrieval": {
         "name": "Extreme Retrieval",
         "description": "Navigate extreme terrain gradients and narrow passages to retrieve a cache object from a designated location and return it to base.",
-        "challenge": "Maximum slope angles exceed 40°. Terrain designed to challenge all 6 wheels simultaneously.",
+        "challenge": "Maximum slope angles exceed 40°. Terrain designed to challenge all 4 wheels simultaneously.",
         "systems": {
           "suspension": { "label": "SUSPENSION", "value": "ROCKER-BOGIE 4-WHEEL" },
           "traction": { "label": "TRACTION", "value": "BRUSHLESS DC × 4 INDEPENDENT" },
@@ -190,11 +247,7 @@
       "description": "Build competition-proven Mars rover systems alongside students across Japan and Texas. Explore open roles, understand our international workflow, and become part of the next URC campaign.",
       "imageAlt": "KARURA Mars Rover"
     },
-    "positions": {
-      "eyebrow": "Open Positions",
-      "heading": "Current Recruitment Tracks",
-      "openingsLabel": "Openings"
-    },
+    "positions": { "eyebrow": "Open Positions", "heading": "Current Recruitment Tracks", "openingsLabel": "Openings" },
     "portal": {
       "eyebrow": "Recruitment Portal",
       "heading": "Build the next generation of Martian systems.",
@@ -211,7 +264,25 @@
     },
     "pipeline": {
       "eyebrow": "Cross-Institutional Pipeline",
-      "heading": "How We Operate Across Oceans"
+      "heading": "How We Operate Across Oceans",
+      "steps": {
+        "application": {
+          "title": "APPLICATION",
+          "body": "Submit your application and identify your preferred department and technical interests."
+        },
+        "interview": {
+          "title": "INTERVIEW",
+          "body": "Sub-team leads review portfolios, coursework, projects, and prior experience."
+        },
+        "onboarding": {
+          "title": "ONBOARDING",
+          "body": "Receive a project overview and complete the onboarding training for your department."
+        },
+        "assignment": {
+          "title": "SUBTEAM ASSIGNMENT",
+          "body": "Placed on a sub-team based on your skills, interests, and availability to contribute to the project."
+        }
+      }
     }
   },
   "members": {
@@ -221,6 +292,56 @@
       "titleLine2": "behind the",
       "titleLine3": "mission.",
       "description": "100+ engineers, scientists, and operators span 15 universities across Japan and Texas A&M as they build competition-level Mars rover hardware."
+    },
+    "foundersEyebrow": "Program Leadership",
+    "foundersHeading": "Founders",
+    "foundersIntro": "KARURA started in 2022 with a small group of students who believed a cross-Pacific engineering team could compete in the world's most demanding student robotics competition, and in 2024 they proved it.",
+    "scopeLabel": "Scope",
+    "institutionLabel": "Institution",
+    "membersLabel": "members",
+    "defaultUniversity": "Texas A&M University",
+    "founders": {
+      "hirokuni": {
+        "role": "Co-Founder",
+        "university": "Texas A&M University",
+        "node": "College Station, TX",
+        "bio": "Aerospace Engineering senior at Texas A&M University. Oversees all mechanical design, fabrication strategy, and the US operational node of KARURA.",
+        "scope": "Mechanical · Program Direction · US Operations"
+      },
+      "haruto": {
+        "role": "Co-Founder",
+        "university": "Shinshu University",
+        "node": "Nagano, Japan",
+        "bio": "Mechanical Systems Engineering. Co-architect of the KARURA cross-Pacific engineering model from the program's founding in 2022.",
+        "scope": "Mechanical Systems · Program Architecture"
+      }
+    },
+    "roles": {
+      "coManagerHardware": "US Project Co-Manager & Executive Director of Hardware",
+      "hardwareLead": "Hardware Lead",
+      "droneLead": "Drone Lead",
+      "hardwareMember": "Hardware Member",
+      "electricalDirector": "Executive Director of Electrical Systems",
+      "powerDistributionMember": "Power Distribution Member",
+      "armEmbeddedMember": "Arm Embedded Systems Member",
+      "coManagerSoftware": "Project Co-Manager & Executive Director of Software",
+      "controlStationAiLead": "Control Station Lead & KARURA AI Lead",
+      "armSoftwareLead": "Arm Software Lead",
+      "droneScienceCommsLead": "Drone/Science/Communications Software Lead",
+      "navMobilityLead": "Autonomous Navigation/Mobility Software Lead",
+      "softwareMember": "Software Member",
+      "lifeSciencesDirector": "Executive Director of Life Sciences",
+      "microscopyLead": "Microscopy Lead",
+      "geologyLead": "Geology Lead",
+      "microscopyMember": "Microscopy Member",
+      "geologyMember": "Geology Member",
+      "businessDirector": "Executive Director of Business Operations",
+      "financeLead": "Finance Lead",
+      "marketingLead": "Marketing Lead",
+      "sponsorshipLead": "Sponsorship Lead",
+      "engagementLead": "Engagement Lead",
+      "graphicDesigner": "Graphic Designer",
+      "businessMember": "Business Member"
     }
   },
   "news": {
@@ -231,20 +352,64 @@
       "subtitle": "Latest Transmission",
       "description": "Engineering milestones, competition campaigns, sponsor announcements, and operational updates documenting KARURA's journey across Japan and Texas."
     },
-    "featured": {
-      "eyebrow": "Featured Mission Log",
-      "heading": "Latest Transmission"
-    },
-    "archive": {
-      "eyebrow": "Recent Transmissions",
-      "heading": "Mission Archive"
-    },
+    "featured": { "eyebrow": "Featured Mission Log", "heading": "Latest Transmission" },
+    "archive": { "eyebrow": "Recent Transmissions", "heading": "Mission Archive" },
     "meta": {
       "dateLabel": "Date",
       "categoryLabel": "Category",
       "readTimeLabel": "Read Time",
       "statusLabel": "Status",
       "statusValue": "ARCHIVED"
+    },
+    "categories": {
+      "All": "All",
+      "Achievement": "Achievement",
+      "Competition": "Competition",
+      "Update": "Update",
+      "Team": "Team",
+      "Sponsor": "Sponsor"
+    },
+    "typeLabel": "Type",
+    "open": "Open",
+    "readArticle": "Read Article",
+    "readTimeValue": "{minutes} MIN",
+    "published": "Published",
+    "campaignLabel": "Campaign",
+    "timeline": {
+      "eyebrow": "Program Timeline",
+      "heading": "Campaign Status",
+      "items": {
+        "y2026": {
+          "title": "ACTIVE DEVELOPMENT",
+          "body": "Subsystem integration, recruitment expansion, and URC preparation."
+        },
+        "y2025": { "title": "SYSTEM ACCEPTANCE", "body": "Hardware validation, autonomy refinement, and field testing." },
+        "y2024": { "title": "URC FINALS", "body": "Historic finals appearance as the first Japanese team." },
+        "y2023": { "title": "QUALIFIERS", "body": "Foundation established through iterative design cycles." }
+      }
+    },
+    "articles": {
+      "urc-finals-2024": {
+        "title": "KARURA Makes History as First Japanese Team in URC Finals",
+        "description": "In 2024, KARURA became the first international and Japanese team to reach the University Rover Challenge finals.",
+        "content": "At URC 2024, KARURA became the first Japanese team to advance to the University Rover Challenge finals, marking a historic milestone for the organization and international participation in the competition.\n\nThroughout the competition, the rover demonstrated reliable operation across mobility, science, and communications objectives. Months of iterative testing and refinement enabled the team to perform under challenging field conditions.\n\nCompleted critical mobility objectives. Successfully executed science mission workflows. Maintained subsystem reliability throughout deployment.\n\nThis achievement validated KARURA's engineering process and established a foundation for future generations of rover development. Lessons learned during the campaign continue to influence current design decisions.",
+        "imageAlt": "KARURA at URC Finals",
+        "tags": { "urc": "URC", "finals": "Finals", "history": "History" }
+      },
+      "urc-2025-preparation": {
+        "title": "Preparing for URC 2025: Our Winning Strategy",
+        "description": "The team is in the final stages of System Acceptance Review for our 2025 rover.",
+        "content": "As preparations for URC 2025 intensified, KARURA focused on improving reliability, maintainability, and operational efficiency across all rover subsystems.\n\nTeams worked collaboratively across disciplines to finalize designs and validate performance before field deployment.\n\nRefined the autonomy and navigation stack. Improved mechanical tolerances and manufacturability. Expanded testing procedures for mission readiness.\n\nThe completion of System Acceptance Review represented a major milestone toward competition readiness and ensured all teams were aligned on deployment expectations.",
+        "imageAlt": "KARURA 2025 rover preparation",
+        "tags": { "urc": "URC", "preparation": "Preparation" }
+      },
+      "desert-field-test": {
+        "title": "Desert Systems Validation",
+        "description": "The rover completed a full systems validation deployment.",
+        "content": "KARURA conducted a weekend field deployment to evaluate rover performance under realistic operating conditions and identify areas for refinement before future competitions.\n\nThe rover exceeded expectations during navigation exercises, maintaining stable operation across uneven terrain and extended runs.\n\nCompleted all planned mobility checkpoints. Verified suspension and drivetrain reliability. Collected telemetry for post-test analysis.\n\nTeam members also rehearsed operational workflows, communications, and science task execution to simulate competition conditions as closely as possible.\n\nData gathered during the deployment will inform future software updates and hardware iterations ahead of the next campaign cycle.",
+        "imageAlt": "Field testing",
+        "tags": { "fieldTest": "Field Test", "urc": "URC" }
+      }
     }
   },
   "footer": {
@@ -262,5 +427,260 @@
     "ein": "EIN: 39-4115958",
     "copyright": "© 2026 KARURA PROJECT.",
     "stations": "STATION: COLLEGE STATION, TX / TOKYO, JP"
+  },
+  "meta": {
+    "title": "KARURA: First International Team in the URC Finals",
+    "description": "In 2024, KARURA made history as the first international and first Japanese team to reach the University Rover Challenge Finals. A student-led team uniting Texas A&M University and universities across Japan."
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "URC 2024: Historic milestone",
+      "titleLine1": "In 2024,",
+      "titleLine2": "we made",
+      "titleAccent": "history.",
+      "lead": "We became the first international and first Japanese team to reach the URC Finals.",
+      "body": "KARURA unites students from Texas A&M University and leading universities across Japan, pushing the boundaries of Mars exploration technology together.",
+      "ctaStory": "Our Story",
+      "ctaSupport": "Support Us",
+      "imageAlt": "KARURA Mars Rover hardware detail",
+      "mobileImageAlt": "KARURA Mars Rover",
+      "badge": "KARURA: URC Finals 2024",
+      "badgeStatus": "FINALIST"
+    },
+    "video": {
+      "iframeTitle": "KARURA Competition Highlight Reel",
+      "watermark": "URC 2024 // Competition Reel",
+      "competitionLabel": "Competition",
+      "competitionName": "University Rover Challenge",
+      "competitionResult": "2024 Finals",
+      "competitionBody": "We compete in the world's premier robotics competition for university students, held every year in the Utah desert.",
+      "locationLabel": "Location",
+      "location": "Hanksville, Utah",
+      "followLabel": "Follow the Mission",
+      "youtube": "YouTube Channel"
+    },
+    "countdown": {
+      "eyebrow": "Mission Clock",
+      "heading": "Next Competition",
+      "subtitle": "T-minus // TRC 2027 in Tottori, Japan",
+      "days": "DAYS",
+      "hours": "HRS",
+      "minutes": "MIN",
+      "seconds": "SEC",
+      "targetDateLabel": "Target Date",
+      "venueLabel": "Venue",
+      "venue": "Tottori Luna Terrace, Japan",
+      "statusLabel": "Status",
+      "status": "Active Build"
+    },
+    "team": {
+      "eyebrow": "Who We Are",
+      "heading": "A Cross-Pacific Engineering Team",
+      "lead": "KARURA unites passionate students from Texas A&M University and leading universities across Japan.",
+      "body1": "Together, we're pushing the boundaries of Mars exploration technology — building, testing, and competing with hardware that performs under real pressure.",
+      "body2": "Our team brings together hardware engineering, electrical systems, software development, scientific research, and business operations — all working toward a common goal.",
+      "cta": "Meet Our Team",
+      "imageAlt": "KARURA Team"
+    },
+    "history": {
+      "eyebrow": "Program History",
+      "heading": "Our Journey",
+      "description": "Three years of innovation, dedication, and groundbreaking achievements in Mars rover development.",
+      "learnMore": "Learn More"
+    },
+    "departments": {
+      "eyebrow": "Structure",
+      "heading": "Our Departments",
+      "cardLabel": "Department",
+      "membersLabel": "members"
+    },
+    "sponsors": { "eyebrow": "Partners & Sponsors", "heading": "Our Sponsors", "cta": "Become a Sponsor" },
+    "news": {
+      "eyebrow": "Mission Archive",
+      "headingLine1": "News &",
+      "headingLine2": "Transmissions",
+      "fullArchive": "Full Archive",
+      "latestBadge": "Latest Transmission",
+      "archiveCount": "{count} transmissions in archive",
+      "viewArchive": "View Full Archive"
+    }
+  },
+  "stats": {
+    "activeMembers": { "label": "Active Members", "sub": "AY 2026–27" },
+    "universities": { "label": "Universities", "sub": "JP & US" },
+    "departments": { "label": "Departments", "sub": "Full-stack org" },
+    "countries": { "label": "Countries", "sub": "Japan · USA" },
+    "competitionCycles": { "label": "Competition Cycles", "sub": "2022–2027" }
+  },
+  "departments": {
+    "hardware": {
+      "name": "Hardware",
+      "title": "Hardware",
+      "scope": "Chassis · Suspension · Drive Train · Robotic Arm",
+      "summary": "Designing and fabricating the physical structure and mobility systems.",
+      "body": "Structural and kinematic design of the rover frame, four-wheel drive system, rocker-bogie suspension, and multi-DOF manipulator arm for terrain traversal and sample collection.",
+      "skills": {
+        "solidworks": "SolidWorks",
+        "fea": "FEA",
+        "suspension": "Suspension Design",
+        "manufacturing": "Manufacturing"
+      }
+    },
+    "electrical": {
+      "name": "Electrical",
+      "title": "Electrical",
+      "scope": "Power · PCB Design · Motor Control · Sensors",
+      "summary": "Developing power distribution and electronic communication systems.",
+      "body": "Custom PCB design, power distribution architecture, brushless motor controllers, and sensor integration. Ensures system reliability under competition and environmental stress.",
+      "skills": {
+        "pcb": "PCB Design",
+        "can": "CAN Integration",
+        "power": "Power Systems",
+        "embedded": "Embedded Debugging"
+      }
+    },
+    "software": {
+      "name": "Software",
+      "title": "Software / Autonomy",
+      "scope": "ROS2 · Navigation · Computer Vision · Telemetry GUI",
+      "summary": "Creating autonomous navigation and control algorithms.",
+      "body": "ROS2-based control stack, SLAM-driven autonomous navigation, computer vision for obstacle avoidance and task completion, and real-time telemetry UI.",
+      "skills": {
+        "nav": "ROS2 Navigation",
+        "slam": "SLAM & Localization",
+        "vision": "Computer Vision",
+        "simulation": "Simulation"
+      }
+    },
+    "science": {
+      "name": "Science",
+      "title": "Science",
+      "scope": "Astrobiology · Life Detection · Sample Analysis",
+      "summary": "Conducting research on astrobiology and life-detection protocols.",
+      "body": "Designs and validates scientific protocols for detecting biosignatures and soil chemistry. Manages the onboard spectrometry and microscopy payload.",
+      "skills": {
+        "astrobiology": "Astrobiology",
+        "spectrometry": "Spectrometry",
+        "sampling": "Sampling Protocols",
+        "field": "Field Validation"
+      }
+    },
+    "business": {
+      "name": "Business",
+      "title": "Business & Outreach",
+      "scope": "Sponsorship · PR · Operations · Recruitment",
+      "summary": "Marketing, sponsorship, finance, and team engagement.",
+      "body": "Drives sponsorship acquisition, public communications, brand identity, and team logistics. Manages cross-cultural coordination between Japan and US nodes.",
+      "skills": {
+        "sponsors": "Sponsors",
+        "grants": "Grant Writing",
+        "operations": "Operations",
+        "outreach": "Outreach"
+      }
+    }
+  },
+  "rovers": {
+    "status": { "active": "ACTIVE BUILD", "retired": "RETIRED", "archived": "ARCHIVED" },
+    "karura-4": {
+      "cycle": "2026 to 2027",
+      "achievement": "In Development",
+      "milestone": "",
+      "description": "Fourth-generation competition platform built for the URC 2027 Finals. Features a fully autonomous navigation stack, 5-DOF manipulation arm, and modular science payload.",
+      "params": {
+        "configuration": { "label": "CONFIGURATION", "value": "4-WHEEL DRIVE" },
+        "suspension": { "label": "SUSPENSION", "value": "ROCKER-BOGIE" },
+        "driveMotors": { "label": "DRIVE MOTORS", "value": "4 × BRUSHLESS DC" },
+        "armDof": { "label": "ARM DOF", "value": "5", "unit": "degrees of freedom" },
+        "locomotion": { "label": "LOCOMOTION", "value": "DIFFERENTIAL", "unit": "steering geometry" },
+        "comms": { "label": "COMMS", "value": "5.8 GHz", "unit": "RF + ROS2 bridge" },
+        "compute": { "label": "COMPUTE", "value": "NVIDIA JETSON", "unit": "onboard SBC" },
+        "powerBus": { "label": "POWER BUS", "value": "LiPo MULTI-CELL", "unit": "redundant rails" }
+      },
+      "subsystems": {
+        "nav": "ROS2 Navigation Stack",
+        "slam": "SLAM-based Localization",
+        "vision": "Computer Vision Pipeline",
+        "arm": "5-DOF Manipulator Arm",
+        "spectrometer": "Spectrometer Payload",
+        "soil": "Soil Sample Collection",
+        "stereo": "Stereo Camera Array",
+        "imu": "IMU + GPS Fusion"
+      }
+    },
+    "karura-3": {
+      "cycle": "2025 to 2026",
+      "achievement": "URC Qualifiers Success",
+      "milestone": "URC System Acceptance Review: qualified",
+      "description": "Third-generation platform refining the proven KARURA II architecture with an emphasis on robustness, maintainability, and autonomous capability. Retained the centralized CAN-bus electrical system and 5-DOF arm while integrating enhanced navigation, sensing, and system redundancy features.",
+      "params": {
+        "configuration": { "label": "CONFIGURATION", "value": "4-WHEEL DRIVE" },
+        "driveMotors": { "label": "DRIVE MOTORS", "value": "4 × BRUSHLESS DC" },
+        "armDof": { "label": "ARM DOF", "value": "5", "unit": "degrees of freedom" },
+        "comms": { "label": "COMMS", "value": "CAN-BUS", "unit": "centralized architecture" },
+        "compute": { "label": "COMPUTE", "value": "RASPBERRY PI", "unit": "+ co-processors" },
+        "navigation": { "label": "NAVIGATION", "value": "GPS + IMU", "unit": "waypoint-based" },
+        "powerBus": { "label": "POWER BUS", "value": "LiPo PACK", "unit": "single rail" }
+      },
+      "subsystems": {
+        "gps": "GPS Waypoint Navigation",
+        "can": "CAN-Bus Electrical Arch.",
+        "arm": "5-DOF Manipulator Arm",
+        "camera": "HD Camera System",
+        "science": "Basic Science Payload",
+        "detection": "Object Detection (CV)",
+        "rc": "Wireless RC Fallback",
+        "motors": "Custom Motor Controllers"
+      }
+    },
+    "karura-2": {
+      "cycle": "2024 to 2025",
+      "achievement": "URC Finals Historic: first Japanese team",
+      "milestone": "Historic URC Finals: first Japanese team",
+      "description": "Second-generation build focused on reliability and mobility improvements following lessons from KARURA I. Introduced a dedicated electrical architecture with centralized CAN-bus communication and an upgraded 5-DOF arm.",
+      "params": {
+        "configuration": { "label": "CONFIGURATION", "value": "4-WHEEL DRIVE" },
+        "suspension": { "label": "SUSPENSION", "value": "RIGID FRAME", "unit": "v1 prototype" },
+        "armDof": { "label": "ARM DOF", "value": "3", "unit": "degrees of freedom" },
+        "control": { "label": "CONTROL", "value": "MANUAL RC", "unit": "radio 2.4 GHz" },
+        "compute": { "label": "COMPUTE", "value": "RASPBERRY PI 4" },
+        "cameras": { "label": "CAMERAS", "value": "2 × STANDARD", "unit": "forward + arm" },
+        "power": { "label": "POWER", "value": "LiPo 14.8V", "unit": "basic distribution" },
+        "buildType": { "label": "BUILD TYPE", "value": "PROOF OF CONCEPT" }
+      },
+      "subsystems": {
+        "rc": "Manual Radio Control",
+        "arm": "3-DOF Arm Prototype",
+        "camera": "Standard Camera Feed",
+        "telemetry": "Basic Telemetry",
+        "chassis": "Prototype Chassis",
+        "codev": "International Co-Dev Model"
+      }
+    }
+  },
+  "timeline": {
+    "plan": {
+      "phase": "Phase I",
+      "season": "Summer",
+      "title": "Plan",
+      "note": "Define subsystem requirements, establish hardware/software models, and set budgets."
+    },
+    "develop": {
+      "phase": "Phase II",
+      "season": "Fall",
+      "title": "Develop",
+      "note": "Machine mechanical components, manufacture custom PCBs, and write autonomous navigation and control software to fully assemble the rover."
+    },
+    "test": {
+      "phase": "Phase III",
+      "season": "Winter",
+      "title": "Test",
+      "note": "Run hardware stress tests and field simulations to validate sensor feedback, debug software, and fix failure points before deployment."
+    },
+    "compete": {
+      "phase": "Phase IV",
+      "season": "Spring",
+      "title": "Compete",
+      "note": "Prepare for and pass the technical inspection process, then operate and maintain the rover in international competitions."
+    }
   }
 }

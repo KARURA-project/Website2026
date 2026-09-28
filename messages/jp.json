@@ -1,266 +1,667 @@
 {
   "nav": {
-    "about": "概要",
+    "about": "KARURAとは",
     "rover": "ローバー",
     "members": "メンバー",
     "join": "参加する",
-    "support": "支援する"
+    "support": "ご支援",
+    "homeLabel": "KARURA ホーム",
+    "openMenu": "メニューを開く",
+    "closeMenu": "メニューを閉じる"
   },
   "about": {
     "eyebrow": "KARURAについて",
-    "heroTitleLine1": "国際共同",
+    "heroTitleLine1": "国境を越えた",
     "heroTitleLine2": "ローバー",
     "heroTitleLine3": "開発",
-    "heroDescription": "KARURAは、日本と米国の{count}を超える大学の学生が協力して火星ローバーを設計、試験、競技に参加させ、学生レベルでの国際的な技術協力が可能であり、世界クラスであることを示しています。",
-    "heroImageAlt": "KARURAの火星ローバー機器",
+    "heroDescription": "KARURAには、日本とアメリカの{count}の教育機関から学生が集まっています。火星探査ローバーの製作・試験から大会への挑戦までを国境を越えてともに行い、学生主体の国際共同開発でも世界水準のものづくりができることを証明します。",
+    "heroImageAlt": "KARURAの火星探査ローバー",
     "mission": "ミッション",
-    "missionTitleLine1": "私たちは",
-    "missionTitleLine2": "ローバーを作る",
-    "missionLead": "University Rover Challengeは、大学生向けの最も過酷なロボット競技会であり、毎年ユタ州の火星環境を模した地形で開催されます。",
-    "missionBody": "KARURAは、フィールド上で最も高度なローバーを開発するだけでなく、最も国際的に多様なチームでもあるという考えのもとに設立されました。私たちは毎年URCに出場し、2024年には日本初、かつ史上初の国際チームとして決勝進出を果たしました。",
-    "missionBody2": "私たちのミッションは表彰台にとどまりません。設計するすべてのシステム、参加する新しい大学の学生、取り組むスポンサーシップのすべてが、実践的かつ再現可能な国際宇宙協力モデルを強く押し進めます。",
-    "missionBody3": "KARURAは、日本の技術力とテキサスA&Mの米国航空宇宙研究の連携を結び、相補的な視点を組み合わせて難しい工学課題に取り組んでいます。",
-    "viewRoverSpecs": "ローバー仕様を見る",
-    "differentiators": "差別化要素",
-    "differentiatorsTitleLine1": "私たちを",
-    "differentiatorsTitleLine2": "特別にするもの",
-    "differentiatorsItem1Title": "真の太平洋横断構造",
-    "differentiatorsItem1Body": "私たちは交換留学プログラムではありません。日本とテキサスで同時に設計・製造を進める常設の二拠点組織です。",
-    "differentiatorsItem2Title": "競技で実証されたハードウェア",
-    "differentiatorsItem2Body": "すべてのサブシステムは、火星のような砂漠地形でのURCで実地検証されています。2024年の機体は決勝に進出し、高い性能を発揮しました。",
-    "differentiatorsItem3Title": "学術ネットワークの広さ",
-    "differentiatorsItem3Body": "日本と米国の30以上の機関から学生が参加し、KARURAは多様な技術人材と研究資源へのアクセスを持っています。",
-    "academicNetwork": "学術ネットワーク",
-    "institutions": "参加機関",
-    "networkDescription": "これらの機関の学生たちが、KARURAの5つの部門を支える技術基盤となっています。",
+    "missionTitleLine1": "なぜ私たちは",
+    "missionTitleLine2": "ローバーを作るのか",
+    "missionLead": "University Rover Challenge（URC）は、毎年ユタ州の火星類似地形で開催される、大学生を対象とした世界で最も過酷なロボティクス競技会です。",
+    "missionBody": "KARURAは、ひとつのシンプルな信念から始まりました。「最先端のローバーをつくるチームは、同時に最も国際色豊かなチームであるべきだ」。私たちは毎年URCに挑戦し、2024年には大会史上初の日本チーム、そして初の国際チームとして決勝に進出。その信念を結果で証明しました。",
+    "missionBody2": "私たちが目指すのは、競技会の表彰台だけではありません。新しいシステムを生み出すこと。新しい大学から仲間を迎えること。企業や組織との新たなパートナーシップを築くこと。その一つひとつを通して、国境を越えた宇宙開発の協働を、実際に機能し、他でも再現できるモデルへと育てています。",
+    "missionBody3": "KARURAは、日本の高いエンジニアリング力と、Texas A&Mにおけるアメリカの航空宇宙研究環境をつなぎます。互いを補い合う視点を持ち寄り、難しい工学課題の解決に挑んでいます。",
+    "viewRoverSpecs": "ローバーの仕様を見る",
+    "differentiators": "KARURAの特徴",
+    "differentiatorsTitleLine1": "KARURAが",
+    "differentiatorsTitleLine2": "他と違う理由",
+    "differentiatorsItem1Title": "日米2拠点の常設チーム",
+    "differentiatorsItem1Body": "KARURAは、短期の交流プログラムではありません。日本とテキサスの2拠点が常時連携し、同じチームとして開発を進める国際共同組織です。",
+    "differentiatorsItem2Title": "実戦で磨かれたハードウェア",
+    "differentiatorsItem2Body": "すべてのサブシステムは、URCが行われる火星類似の砂漠環境で実地試験を重ねています。2024年には決勝進出を果たし、厳しい競技環境でも機体が力を発揮できることを実証しました。",
+    "differentiatorsItem3Title": "大学を越えて広がるネットワーク",
+    "differentiatorsItem3Body": "日本とアメリカの30以上の教育機関が参加し、KARURAは多様なエンジニア人材と研究リソースに、他に類を見ない形でアクセスできます。",
+    "academicNetwork": "参加校ネットワーク",
+    "institutions": "参加教育機関",
+    "networkDescription": "ここに集う学生たちが、5つの部門に分かれ、KARURAの開発を支える中核メンバーとして活動しています。",
     "japan": "日本",
-    "unitedStates": "米国",
+    "unitedStates": "アメリカ",
     "total": "合計",
     "schedule": "スケジュール",
-    "programTimelineLine1": "プログラム",
-    "programTimelineLine2": "タイムライン",
-    "engineering": "エンジニアリング",
+    "programTimelineLine1": "活動",
+    "programTimelineLine2": "スケジュール",
+    "engineering": "開発",
     "departments": "部門",
     "members": "メンバー"
   },
   "support": {
     "hero": {
       "eyebrow": "スポンサーシップ / 2026–27",
-      "titleLine1": "階層表は",
-      "titleAccent": "作りません。",
-      "description": "各スポンサーシップは個別に設計され、あなたの組織の目的、対象者、期待する効果に合うように調整します。私たちはパートナーと密に連携し、ブランドとミッションの両方に価値をもたらす意味のある機会を作ります。",
-      "imageAlt": "KARURAローバー — URC決勝機体",
-      "badge": "KARURA III — URC決勝 2026",
+      "titleLine1": "決まった",
+      "titleAccent": "支援プランはありません。",
+      "description": "KARURAのスポンサーシップは、すべてオーダーメイドです。ご支援いただく組織の目的や届けたい相手、実現したいインパクトに合わせて、一つひとつ内容を設計します。パートナーの皆さまと対話を重ねながら、ブランドにもKARURAの活動にも、確かな価値が生まれる協働をつくります。",
+      "imageAlt": "URC決勝で使用されたKARURAローバー",
+      "badge": "KARURA III — URC Finals 2026",
       "live": "アーカイブ"
     },
     "contact": {
-      "directContact": "直接お問い合わせ",
-      "reply": "私たちの事業チームは、すべての問い合わせに48時間以内に対応します。スポンサーシップは、各組織の目標に合わせて個別に設計されます。",
-      "businessLeadLabel": "事業責任者",
-      "businessLeadValue": "Brady Wood — KARURAプロジェクト事業責任者",
-      "scopeLabel": "スポンサーシップ範囲",
+      "directContact": "お問い合わせ",
+      "reply": "お問い合わせには、ビジネスチームが48時間以内に返信します。スポンサーシップの内容は、各組織の目的に合わせて個別にご提案します。",
+      "businessLeadLabel": "ビジネス責任者",
+      "businessLeadValue": "Brady Wood — KARURAプロジェクト ビジネス責任者",
+      "scopeLabel": "ご支援いただける分野",
       "scopeItems": {
-        "hardware": "ハードウェア・部材費支援",
-        "materials": "現物支給",
-        "mentorship": "技術メンタリング時間",
-        "branding": "共同ブランディングと現場プレゼンス",
-        "talent": "人材パイプラインアクセス"
+        "hardware": "機体・部品開発への資金支援",
+        "materials": "資材・部品などの現物支援",
+        "mentorship": "技術メンタリング",
+        "branding": "共同ブランディング・大会現地でのPR",
+        "talent": "学生エンジニアとの接点づくり"
       }
     },
-    "sponsors": {
-      "heading": "現在のスポンサー",
-      "title": "2026–27スポンサー",
-      "description": "ロゴをクリックするとスポンサーのWebサイトへ移動します。"
-    },
+    "sponsors": { "heading": "現在のスポンサー", "title": "2026–27 スポンサー", "description": "ロゴをクリックすると、各社・各団体のWebサイトをご覧いただけます。" },
     "whySponsor": {
-      "eyebrow": "スポンサーの理由",
-      "titleLine1": "KARURAの",
-      "titleLine2": "価値",
-      "description": "KARURAのスポンサーシップは、ロゴの掲載だけではありません。技術の実装と実証の機会です。あなたの部材、技術、ブランドが、世界でも最も過酷なロボティクス競技の一つに携わります。"
+      "eyebrow": "KARURAを支援する理由",
+      "titleLine1": "KARURAを",
+      "titleLine2": "支援する価値",
+      "description": "KARURAへのスポンサーシップは、ロゴを掲載して終わりではありません。ご提供いただいた部品や技術は実際の機体に組み込まれ、ブランドとともに、世界屈指の難易度を誇るロボティクス競技会の現場へ向かいます。"
     },
     "benefits": {
       "realWorld": {
-        "title": "実地での現場検証",
-        "body": "あなたの技術は、火星に似た地形、強い紫外線、細かな土砂、気温変動の中で動作します。これは学生技術のスポンサーにとって、最も信頼できる現場検証です。"
+        "title": "実環境で技術を試せる",
+        "body": "火星を思わせる地形、強い紫外線、崩れやすい地面、大きな寒暖差。ご提供いただいた技術は、こうした厳しい条件の中で実際に使われます。学生エンジニアリングへのスポンサーとして得られる、最も信頼性の高いフィールド検証の機会です。"
       },
       "pipeline": {
-        "title": "太平洋を越えた人材パイプライン",
-        "body": "日本とテキサスA&Mの30以上の大学から集まる100人超のエンジニア。スポンサーは、業界に入る前から国際協働型のバイリンガル技術者群に直接アクセスできます。"
+        "title": "日米の次世代人材とつながる",
+        "body": "日本の30以上の大学とTexas A&Mから、100名を超える学生エンジニアが参加しています。スポンサーは、社会に出る前から国際共同開発を経験する、バイリンガルな次世代人材と直接つながることができます。"
       },
       "brand": {
-        "title": "機関ブランドの露出",
-        "body": "KARURAはNASA審査員、航空宇宙業界の関係者、世界中の報道の前で競技します。あなたのロゴは、撮影や写真撮影の対象となる機体に掲載されます。"
+        "title": "世界の舞台でブランドを発信",
+        "body": "KARURAが挑む舞台には、NASAの審査員や航空宇宙業界の関係者、世界各国のメディアが集まります。スポンサーのロゴは実機に掲出され、競技期間を通して写真や映像に記録されます。"
       }
     },
-    "impact": {
-      "heading": "スポンサーへのインパクト"
+    "impact": { "heading": "スポンサーシップの価値" },
+    "fieldResult": "実地での成果",
+    "metrics": {
+      "hardwareFunded": { "value": "$180K+", "label": "機体開発への支援額", "sub": "全世代の累計" },
+      "activeSponsors": { "label": "スポンサー数", "sub": "2026–27" },
+      "finalists": { "value": "史上初", "label": "国際チームとして決勝進出", "sub": "URCの歴史において" },
+      "nextCompetition": { "value": "2027", "label": "次回大会", "sub": "鳥取（日本）" }
+    },
+    "testimonials": {
+      "optosigma": {
+        "quote": "OptoSigmaの高精度光学センサーが、URCでの自律走行スタックを支えてくれました。同社の技術は、私たちとともに砂漠へ渡りました。",
+        "role": "光学 / ナビゲーション スポンサー",
+        "result": "ステレオ深度認識システムにより、秒速2 mでの走行中も5 cm未満の障害物を検知。"
+      },
+      "hiwin": {
+        "quote": "Hiwinのリニアアクチュエータが、決勝の機器操作ミッションを突破するために必要な位置決め精度をロボットアームにもたらしました。市販部品でありながら、競技レベルの性能を発揮しています。",
+        "role": "モーションコントロール スポンサー",
+        "result": "ユタの砂漠の実環境下で、5自由度すべての関節においてサブミリ単位の繰り返し精度を達成。"
+      },
+      "kikusui": {
+        "quote": "Kikusuiの電源装置が、KARURA IIIの電気系検証に使ったテストベンチ全体を支えてくれました。ハンクスビルへ出発する時点で、電源アーキテクチャは十分に鍛え上げられていました。",
+        "role": "電源システム スポンサー",
+        "result": "4日間の大会期間中、電気系のトラブルはゼロ。出発前に電源サブシステムの検証をすべて完了。"
+      }
     }
   },
   "rover": {
     "hero": {
-      "eyebrow": "エンジニアリング / ローバープログラム",
-      "titleLine1": "ミッション",
-      "titleLine2": "ハードウェア",
-      "titleLine3": "ドキュメンテーション",
-      "description": "競技で実証された火星ローバーのハードウェアは3世代にわたります。日本と米国で設計され、ユタで試験し、次の発進に向けて洗練されました。",
-      "imageAlt": "KARURA火星ローバー機器",
-      "badge": "KARURA: URC決勝 2026",
+      "eyebrow": "開発 / ローバープログラム",
+      "titleLine1": "ミッションを支える",
+      "titleLine2": "ローバー",
+      "titleLine3": "技術資料",
+      "description": "3世代にわたり、競技の現場で性能を証明してきたKARURAの火星探査ローバー。日本とアメリカで共同開発し、ユタの実地環境で試験を重ねながら、次の大会へ向けて進化を続けています。",
+      "imageAlt": "KARURAの火星探査ローバー",
+      "badge": "KARURA: URC Finals 2026",
       "badgeStatus": "ファイナリスト",
       "status": {
-        "activePlatformLabel": "稼働プラットフォーム",
+        "activePlatformLabel": "現行機体",
         "activePlatformValue": "KARURA IV",
-        "nextCompetitionLabel": "次回競技",
+        "nextCompetitionLabel": "次回出場",
         "nextCompetitionValue": "URC 2027",
-        "buildStatusLabel": "建設状況",
-        "buildStatusValue": "進行中"
+        "buildStatusLabel": "開発状況",
+        "buildStatusValue": "開発中"
       }
     },
     "competition": {
       "eyebrow": "競技",
-      "titleLine1": "URCタスク",
-      "titleLine2": "内訳",
-      "description": "University Rover Challengeは4つのミッションカテゴリでチームを評価します。各タスクはユタ砂漠の火星模擬環境で評価され、完了率と時間に応じてスコアが決まります。",
-      "taskLabel": "タスク",
-      "responsibleSystems": "担当システム"
+      "titleLine1": "URCの",
+      "titleLine2": "4つのミッション",
+      "description": "University Rover Challengeでは、4つのミッションを通して各チームの総合力が評価されます。舞台はユタ州の火星類似環境。各ミッションの達成度と所要時間をもとに得点が決まります。",
+      "taskLabel": "ミッション",
+      "responsibleSystems": "担当サブシステム"
     },
     "architecture": {
-      "eyebrow": "アーキテクチャ",
+      "eyebrow": "システム構成",
       "titleLine1": "サブシステム",
       "titleLine2": "一覧",
-      "teamLink": "チーム"
+      "teamLink": "担当チーム",
+      "items": {
+        "mobility": {
+          "label": "走行系",
+          "title": "駆動 & サスペンション",
+          "dept": "ハードウェア",
+          "systems": "4輪独立駆動 · ロッカーボギー式パッシブサスペンション · ブラシレスDCモーター · 差動ステアリング"
+        },
+        "arm": {
+          "label": "マニピュレーション",
+          "title": "ロボットアーム",
+          "dept": "ハードウェア / 電気",
+          "systems": "5自由度シリアルマニピュレータ · カスタムエンドエフェクタ · 関節エンコーダ · ツール交換インターフェース · 電流センシングによる力推定"
+        },
+        "electrical": {
+          "label": "電気系",
+          "title": "電源 & 通信",
+          "dept": "電気",
+          "systems": "LiPoマルチセル構成 · CAN-busバックボーン · カスタム基板モーターコントローラ · 5.8 GHz RF通信 · 冗長化された非常停止"
+        },
+        "software": {
+          "label": "自律化",
+          "title": "ナビゲーション & ビジョン",
+          "dept": "ソフトウェア",
+          "systems": "ROS2 Humble · Nav2プランナー · SLAM Toolbox · ステレオ深度推定 · YOLOベースの物体検出 · オペレーターGUI"
+        },
+        "science": {
+          "label": "サイエンス",
+          "title": "搭載ペイロード",
+          "dept": "サイエンス",
+          "systems": "ポータブル分光計 · 土壌ドリル + パッシブスクープ · マクロカメラ · GPS座標の記録 · オンボード分析プロトコル"
+        }
+      }
     },
-    "activeSubsystems": "稼働中のサブシステム",
+    "activeSubsystems": "主要サブシステム",
     "tasks": {
       "navigation": {
         "name": "自律走行",
-        "description": "ローバーは1km以上の岩が多い火星模擬地形を走行し、人手を介さずにGPSウェイポイントを認識して到達しなければなりません。",
-        "challenge": "一部区間では通信不能ゾーンが発生します。地形には岩、傾斜、乾いた川床が含まれます。",
+        "description": "人の操作に頼らず、1kmを超える岩場の火星類似地形を走破し、指定されたGPSウェイポイントを自律的に見つけて到達します。",
+        "challenge": "コースの一部は通信が使えません。浮石や斜面、乾いた河床など、走行を難しくする地形が続きます。",
         "systems": {
-          "primarySensor": { "label": "主センサー", "value": "ステレオカメラ + LiDAR" },
-          "localization": { "label": "位置推定", "value": "SLAM + GPS/IMU 融合" },
-          "stack": { "label": "スタック", "value": "ROS2 NAV2 + カスタムプランナー" },
-          "obstacle": { "label": "障害物回避", "value": "COSTMAP 2D + ボクセルグリッド" },
-          "comms": { "label": "通信遮断", "value": "オペレータ入力なし" }
+          "primarySensor": { "label": "主要センサー", "value": "ステレオカメラ + LiDAR" },
+          "localization": { "label": "自己位置推定", "value": "SLAM + GPS/IMU 統合" },
+          "stack": { "label": "ソフトウェア", "value": "ROS2 NAV2 + カスタムプランナー" },
+          "obstacle": { "label": "障害物回避", "value": "COSTMAP 2D + VOXEL GRID" },
+          "comms": { "label": "通信遮断時", "value": "オペレーター入力なし" }
         }
       },
       "servicing": {
-        "name": "機材操作",
-        "description": "ローバーは、レバー、ボタン、バルブを含む工具群を、ロボットアームとエンドエフェクタだけで操作しなければなりません。",
-        "challenge": "サブセンチメートル単位のアーム精度が必要です。すべての工具は実際の産業用ハードウェアに似ています。",
+        "name": "機器操作",
+        "description": "ロボットアームとエンドエフェクタだけを使い、レバー、ボタン、バルブなど、実際の設備を模したさまざまな操作を行います。",
+        "challenge": "求められるのは1cm未満の高い操作精度。対象となる機器は、実際の産業用ハードウェアを想定して設計されています。",
         "systems": {
-          "arm": { "label": "アーム構成", "value": "5自由度直列マニピュレータ" },
-          "eef": { "label": "エンドエフェクタ", "value": "カスタムグリッパー + 工具アダプタ" },
-          "depth": { "label": "深度検知", "value": "ステレオカメラ + ARUCO" },
-          "control": { "label": "制御モード", "value": "オペレータ遠隔操作" },
+          "arm": { "label": "アーム構成", "value": "5自由度シリアルマニピュレータ" },
+          "eef": { "label": "エンドエフェクタ", "value": "カスタムグリッパー + ツールアダプタ" },
+          "depth": { "label": "深度センシング", "value": "ステレオカメラ + ArUco" },
+          "control": { "label": "操作方法", "value": "オペレーターによる遠隔操作" },
           "feedback": { "label": "フィードバック", "value": "関節エンコーダ + 力推定" }
         }
       },
       "retrieval": {
-        "name": "極限回収",
-        "description": "急な傾斜と狭い通路を通過し、指定位置のキャッシュを回収して基地まで戻します。",
-        "challenge": "最大傾斜角は40°を超えます。地形は6つの車輪を同時に試すよう設計されています。",
+        "name": "難地形走破・回収",
+        "description": "急斜面や狭い通路を走破し、指定地点にある対象物を回収してベースまで持ち帰ります。",
+        "challenge": "最大斜度は40°超。4輪すべてに同時に負荷がかかる、非常に厳しい地形が設定されています。",
         "systems": {
-          "suspension": { "label": "サスペンション", "value": "ロッカーボギー 4輪" },
-          "traction": { "label": "牽引", "value": "ブラシレスDC × 4独立制御" },
-          "slope": { "label": "傾斜制限", "value": "設計目標: 45°" },
-          "terrain": { "label": "地形種別", "value": "緩い堆積物 / 岩場" },
-          "retrieval": { "label": "回収", "value": "5自由度アーム + 閉じたグリッパー" }
+          "suspension": { "label": "サスペンション", "value": "4輪ロッカーボギー" },
+          "traction": { "label": "駆動", "value": "ブラシレスDC × 4独立制御" },
+          "slope": { "label": "登坂性能", "value": "設計目標：45°" },
+          "terrain": { "label": "想定地形", "value": "軟弱地盤 / 岩場" },
+          "retrieval": { "label": "回収機構", "value": "5自由度アーム + クローズドグリッパー" }
         }
       },
       "science": {
         "name": "サイエンスミッション",
-        "description": "指定地で土や岩の試料を確認、記録、採取し、搭載解析を行って生命痕跡の可能性を探します。",
-        "challenge": "試料はGPS座標、画像、搭載分光分析とともに現地で記録する必要があります。",
+        "description": "指定された地点で土壌や岩石を見つけ、記録・採取し、生命の痕跡となり得るバイオシグネチャーの有無をローバー上で分析します。",
+        "challenge": "採取した試料は、その場でGPS座標や画像とひも付け、機体上で行う分光分析の結果とあわせて記録する必要があります。",
         "systems": {
-          "sampling": { "label": "採取", "value": "ドリル + 受動スコップアーム" },
-          "spectroscopy": { "label": "分光", "value": "ポータブル分光計" },
-          "imaging": { "label": "イメージング", "value": "マクロカメラ + 顕微鏡" },
-          "gps": { "label": "GPS記録", "value": "RTK対応モジュール" },
-          "analysis": { "label": "分析", "value": "オンボード化学プロトコル" }
+          "sampling": { "label": "試料採取", "value": "ドリル + パッシブ式スクープアーム" },
+          "spectroscopy": { "label": "分光分析", "value": "ポータブル分光計" },
+          "imaging": { "label": "撮像", "value": "マクロカメラ + 顕微鏡" },
+          "gps": { "label": "位置記録", "value": "RTK対応GPSモジュール" },
+          "analysis": { "label": "分析", "value": "オンボード化学分析プロトコル" }
         }
       }
     }
   },
   "join": {
     "hero": {
-      "eyebrow": "Recruitment & Deployment",
-      "titleLine1": "Join",
-      "titleLine2": "The",
-      "titleLine3": "Team",
-      "description": "Build competition-proven Mars rover systems alongside students across Japan and Texas. Explore open roles, understand our international workflow, and become part of the next URC campaign.",
-      "imageAlt": "KARURA Mars Rover"
+      "eyebrow": "メンバー募集 / フィールド運用",
+      "titleLine1": "チームの",
+      "titleLine2": "一員として",
+      "titleLine3": "次の挑戦へ",
+      "description": "日本とテキサスの学生と一緒に、競技の現場で使われる火星探査ローバーをつくりませんか。募集中のポジションや国際共同開発の進め方を知り、次のURCへの挑戦に加わってください。",
+      "imageAlt": "KARURAの火星探査ローバー"
     },
-    "positions": {
-      "eyebrow": "Open Positions",
-      "heading": "Current Recruitment Tracks",
-      "openingsLabel": "Openings"
-    },
+    "positions": { "eyebrow": "メンバー募集", "heading": "現在募集中のポジション", "openingsLabel": "募集人数" },
     "portal": {
-      "eyebrow": "Recruitment Portal",
-      "heading": "Build the next generation of Martian systems.",
-      "description": "From autonomous navigation and science instrumentation to sponsorship strategy and field operations, every subsystem contributes directly to competition readiness.",
-      "campaignLabel": "Campaign",
+      "eyebrow": "応募案内",
+      "heading": "次の火星探査システムを、その手で。",
+      "description": "自律走行、科学計測、スポンサー戦略、フィールド運用まで。どの役割も、ローバーを大会のスタートラインに立たせるために欠かせません。",
+      "campaignLabel": "目標大会",
       "campaignValue": "URC 2027",
-      "nodesLabel": "Collaboration Nodes",
+      "nodesLabel": "連携拠点",
       "nodesValue": "TX / JP",
-      "positionsLabel": "Positions Open",
+      "positionsLabel": "募集中",
       "positionsValue": "50",
-      "deploymentLabel": "Deployment",
+      "deploymentLabel": "現地活動",
       "deploymentValue": "COLLEGE STATION",
-      "submitButton": "SUBMIT APPLICATION"
+      "submitButton": "応募する"
     },
     "pipeline": {
-      "eyebrow": "Cross-Institutional Pipeline",
-      "heading": "How We Operate Across Oceans"
+      "eyebrow": "大学を越えた連携",
+      "heading": "海を越えて、一つのチームとして動く",
+      "steps": {
+        "application": { "title": "応募", "body": "応募フォームを提出し、希望する部門や技術的な関心分野をお知らせください。" },
+        "interview": { "title": "面接", "body": "サブチームのリーダーが、ポートフォリオ、履修内容、プロジェクト、これまでの経験を確認します。" },
+        "onboarding": { "title": "オンボーディング", "body": "プロジェクトの概要説明を受け、所属部門のオンボーディング研修を修了します。" },
+        "assignment": { "title": "サブチーム配属", "body": "スキル、関心分野、活動できる時間をもとに、サブチームに配属されます。" }
+      }
     }
   },
   "members": {
     "hero": {
-      "eyebrow": "Team Directory / AY 2026–27",
-      "titleLine1": "The people",
-      "titleLine2": "behind the",
-      "titleLine3": "mission.",
-      "description": "100+ engineers, scientists, and operators span 15 universities across Japan and Texas A&M as they build competition-level Mars rover hardware."
+      "eyebrow": "チームメンバー / 2026–27年度",
+      "titleLine1": "ミッションを",
+      "titleLine2": "動かす",
+      "titleLine3": "人たち。",
+      "description": "日本とTexas A&Mにまたがる15大学から、100名を超えるエンジニア、科学系メンバー、オペレーターが参加し、競技で戦える火星探査ローバーをともにつくっています。"
+    },
+    "foundersEyebrow": "プログラムリーダー",
+    "foundersHeading": "創設者",
+    "foundersIntro": "KARURAは2022年、「日米をまたぐエンジニアリングチームでも、世界屈指の過酷な学生ロボティクス競技会で戦える」と信じた少数の学生から始まりました。そして2024年、それを証明しました。",
+    "scopeLabel": "担当領域",
+    "institutionLabel": "所属",
+    "membersLabel": "メンバー",
+    "defaultUniversity": "Texas A&M大学",
+    "founders": {
+      "hirokuni": {
+        "role": "共同創設者",
+        "university": "Texas A&M大学",
+        "node": "テキサス州カレッジステーション",
+        "bio": "Texas A&M大学 航空宇宙工学専攻の4年生。機械設計全般と製作戦略、そしてKARURAの米国拠点の運営を統括しています。",
+        "scope": "機械 · プログラム統括 · 米国拠点運営"
+      },
+      "haruto": {
+        "role": "共同創設者",
+        "university": "信州大学",
+        "node": "長野県（日本）",
+        "bio": "機械システム工学専攻。2022年のプログラム創設時から、KARURAの日米共同開発モデルをともに築いてきました。",
+        "scope": "機械システム · プログラム設計"
+      }
+    },
+    "roles": {
+      "coManagerHardware": "米国プロジェクト共同マネージャー & ハードウェア統括",
+      "hardwareLead": "ハードウェアリード",
+      "droneLead": "ドローンリード",
+      "hardwareMember": "ハードウェアメンバー",
+      "electricalDirector": "電気システム統括",
+      "powerDistributionMember": "電力分配メンバー",
+      "armEmbeddedMember": "アーム組込みシステムメンバー",
+      "coManagerSoftware": "プロジェクト共同マネージャー & ソフトウェア統括",
+      "controlStationAiLead": "コントロールステーションリード & KARURA AIリード",
+      "armSoftwareLead": "アームソフトウェアリード",
+      "droneScienceCommsLead": "ドローン/サイエンス/通信ソフトウェアリード",
+      "navMobilityLead": "自律走行/モビリティソフトウェアリード",
+      "softwareMember": "ソフトウェアメンバー",
+      "lifeSciencesDirector": "ライフサイエンス統括",
+      "microscopyLead": "顕微鏡観察リード",
+      "geologyLead": "地質リード",
+      "microscopyMember": "顕微鏡観察メンバー",
+      "geologyMember": "地質メンバー",
+      "businessDirector": "ビジネス運営統括",
+      "financeLead": "財務リード",
+      "marketingLead": "マーケティングリード",
+      "sponsorshipLead": "スポンサーシップリード",
+      "engagementLead": "エンゲージメントリード",
+      "graphicDesigner": "グラフィックデザイナー",
+      "businessMember": "ビジネスメンバー"
     }
   },
   "news": {
     "hero": {
-      "eyebrow": "Mission Archive",
-      "titleLine1": "NEWS &",
-      "titleLine2": "TRANSMISSIONS",
-      "subtitle": "Latest Transmission",
-      "description": "Engineering milestones, competition campaigns, sponsor announcements, and operational updates documenting KARURA's journey across Japan and Texas."
+      "eyebrow": "活動記録",
+      "titleLine1": "ニュース &",
+      "titleLine2": "活動レポート",
+      "subtitle": "最新レポート",
+      "description": "開発の節目、大会への挑戦、スポンサーに関する発表、チーム運営のアップデート。日本とテキサスを舞台に進むKARURAの歩みを、ここに記録しています。"
     },
-    "featured": {
-      "eyebrow": "Featured Mission Log",
-      "heading": "Latest Transmission"
-    },
-    "archive": {
-      "eyebrow": "Recent Transmissions",
-      "heading": "Mission Archive"
-    },
+    "featured": { "eyebrow": "ピックアップ", "heading": "最新レポート" },
+    "archive": { "eyebrow": "最近の記事", "heading": "活動記録" },
     "meta": {
-      "dateLabel": "Date",
-      "categoryLabel": "Category",
-      "readTimeLabel": "Read Time",
-      "statusLabel": "Status",
-      "statusValue": "ARCHIVED"
+      "dateLabel": "日付",
+      "categoryLabel": "カテゴリー",
+      "readTimeLabel": "読了目安",
+      "statusLabel": "公開状況",
+      "statusValue": "アーカイブ"
+    },
+    "categories": {
+      "All": "すべて",
+      "Achievement": "実績",
+      "Competition": "大会",
+      "Update": "お知らせ",
+      "Team": "チーム",
+      "Sponsor": "スポンサー"
+    },
+    "typeLabel": "種別",
+    "open": "開く",
+    "readArticle": "記事を読む",
+    "readTimeValue": "{minutes}分",
+    "published": "公開日",
+    "campaignLabel": "対象大会",
+    "timeline": {
+      "eyebrow": "活動の歩み",
+      "heading": "シーズンの状況",
+      "items": {
+        "y2026": { "title": "開発進行中", "body": "サブシステムの統合、メンバー募集の拡大、URCに向けた準備。" },
+        "y2025": { "title": "システム審査", "body": "ハードウェアの検証、自律機能の改良、フィールド試験。" },
+        "y2024": { "title": "URC決勝", "body": "日本チームとして初めて決勝に進出する歴史的快挙。" },
+        "y2023": { "title": "予選", "body": "設計サイクルを繰り返し、チームの基盤を確立。" }
+      }
+    },
+    "articles": {
+      "urc-finals-2024": {
+        "title": "KARURA、日本チーム初のURC決勝進出という歴史的快挙",
+        "description": "2024年、KARURAは国際チームとして、そして日本のチームとして初めて、University Rover Challenge決勝に進出しました。",
+        "content": "URC 2024で、KARURAは日本のチームとして初めてUniversity Rover Challenge決勝に進出しました。これはチームにとって、そして大会への国際的な参加にとって歴史的な節目となりました。\n\n大会期間を通じて、ローバーは走行、サイエンス、通信の各課題で安定した動作を見せました。数か月にわたる試験と改良の積み重ねが、厳しいフィールド環境での結果につながりました。\n\n重要な走行課題を達成。サイエンスミッションの手順を遂行。運用期間を通じてサブシステムの信頼性を維持。\n\nこの成果は、KARURAのエンジニアリングプロセスの確かさを裏付けるとともに、次世代のローバー開発に向けた基盤となりました。この大会で得た教訓は、現在の設計判断にも生かされています。",
+        "imageAlt": "URC決勝でのKARURA",
+        "tags": { "urc": "URC", "finals": "決勝", "history": "歴史" }
+      },
+      "urc-2025-preparation": {
+        "title": "URC 2025に向けて：勝利をつかむための戦略",
+        "description": "2025年機体のシステム審査（SAR）は、いよいよ最終段階に入っています。",
+        "content": "URC 2025への準備が本格化するなか、KARURAはすべてのローバーサブシステムで信頼性、保守性、運用効率の向上に取り組みました。\n\n各チームは分野を越えて協力し、フィールドでの運用を前に設計を固め、性能を検証しました。\n\n自律走行スタックを改良。機械部品の公差と製作性を改善。ミッションに備えた試験手順を拡充。\n\nシステム審査の完了は、大会への準備における大きな節目となり、全チームが運用に向けた目標を共有することにつながりました。",
+        "imageAlt": "2025年機体の準備を進めるKARURA",
+        "tags": { "urc": "URC", "preparation": "準備" }
+      },
+      "desert-field-test": {
+        "title": "砂漠でのシステム検証",
+        "description": "ローバーは、全システムの検証を目的としたフィールド運用を完了しました。",
+        "content": "KARURAは週末にフィールド運用を実施し、実際の運用に近い条件でローバーの性能を評価するとともに、今後の大会に向けた改善点を洗い出しました。\n\n走行試験では期待を上回る結果を記録し、凹凸のある地形や長時間の走行でも安定した動作を維持しました。\n\n予定していたすべての走行チェックポイントを達成。サスペンションと駆動系の信頼性を確認。試験後の分析に向けてテレメトリを収集。\n\nメンバーは運用手順、通信、サイエンスミッションの実行もリハーサルし、できる限り本番に近い条件を再現しました。\n\n今回の運用で得られたデータは、次のシーズンに向けたソフトウェアの更新やハードウェアの改良に生かされます。",
+        "imageAlt": "フィールド試験",
+        "tags": { "fieldTest": "フィールド試験", "urc": "URC" }
+      }
     }
   },
   "footer": {
-    "logoAlt": "KARURA Logo",
-    "description": "Cross-Pacific Engineering Organization. Connecting 30+ technical cohorts across the world.",
-    "navStackLabel": "Nav Stack",
-    "ourTeam": "Our Team",
-    "gatewaysLabel": "Gateways",
-    "joinUs": "Join Us",
-    "supportUs": "Support Us",
-    "nonprofitLabel": "Registered Nonprofit Organization",
+    "logoAlt": "KARURAロゴ",
+    "description": "日本とアメリカを結ぶ国際エンジニアリング組織。世界30以上の技術系コミュニティをつなぎます。",
+    "navStackLabel": "メニュー",
+    "ourTeam": "チーム",
+    "gatewaysLabel": "リンク",
+    "joinUs": "参加する",
+    "supportUs": "支援する",
+    "nonprofitLabel": "登録非営利団体",
     "organizationName": "Karura Robotics",
     "addressLine1": "315 Boyett St., Apt 200C",
     "addressLine2": "College Station, TX 77840",
     "ein": "EIN: 39-4115958",
     "copyright": "© 2026 KARURA PROJECT.",
-    "stations": "STATION: COLLEGE STATION, TX / TOKYO, JP"
+    "stations": "拠点：COLLEGE STATION, TX / TOKYO, JP"
+  },
+  "meta": {
+    "title": "KARURA：URC決勝に進出した初の国際チーム",
+    "description": "2024年、KARURAは国際チームとして、そして日本のチームとして初めて、University Rover Challenge決勝に進出する歴史的快挙を成し遂げました。Texas A&M大学と日本各地の大学の学生がともに活動する、学生主体のチームです。"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "URC 2024：歴史的快挙",
+      "titleLine1": "2024年、",
+      "titleLine2": "私たちは",
+      "titleAccent": "歴史をつくった。",
+      "lead": "国際チームとして、そして日本のチームとして初めて、URC決勝に進出しました。",
+      "body": "KARURAには、Texas A&M大学と日本各地の主要大学から学生が集まり、ともに火星探査技術の最前線に挑んでいます。",
+      "ctaStory": "私たちの歩み",
+      "ctaSupport": "支援する",
+      "imageAlt": "KARURA火星探査ローバーの機体ディテール",
+      "mobileImageAlt": "KARURAの火星探査ローバー",
+      "badge": "KARURA: URC Finals 2024",
+      "badgeStatus": "ファイナリスト"
+    },
+    "video": {
+      "iframeTitle": "KARURA 大会ハイライト映像",
+      "watermark": "URC 2024 // 大会ハイライト",
+      "competitionLabel": "大会",
+      "competitionName": "University Rover Challenge",
+      "competitionResult": "2024年 決勝進出",
+      "competitionBody": "大学生向けロボティクス競技会の最高峰に挑戦しています。大会は毎年、ユタ州の砂漠で開催されます。",
+      "locationLabel": "開催地",
+      "location": "ユタ州ハンクスビル",
+      "followLabel": "最新情報をチェック",
+      "youtube": "YouTubeチャンネル"
+    },
+    "countdown": {
+      "eyebrow": "ミッションクロック",
+      "heading": "次の大会",
+      "subtitle": "カウントダウン // TRC 2027（鳥取）",
+      "days": "日",
+      "hours": "時間",
+      "minutes": "分",
+      "seconds": "秒",
+      "targetDateLabel": "開催予定日",
+      "venueLabel": "会場",
+      "venue": "鳥取「ルナテラス」（日本）",
+      "statusLabel": "状況",
+      "status": "開発中"
+    },
+    "team": {
+      "eyebrow": "私たちについて",
+      "heading": "太平洋を越えるエンジニアリングチーム",
+      "lead": "KARURAには、Texas A&M大学と日本各地の主要大学から、情熱あふれる学生が集まっています。",
+      "body1": "私たちはともに火星探査技術の最前線に挑んでいます。本番の厳しい環境でも性能を発揮する機体を製作し、試験を重ね、大会に挑戦しています。",
+      "body2": "ハードウェア、電気システム、ソフトウェア開発、科学研究、ビジネス運営。それぞれの専門を持つメンバーが、一つの目標に向かって力を合わせています。",
+      "cta": "チームを知る",
+      "imageAlt": "KARURAのチーム"
+    },
+    "history": {
+      "eyebrow": "プログラムの歩み",
+      "heading": "これまでの軌跡",
+      "description": "火星探査ローバー開発にかけた3年間の挑戦、情熱、そして画期的な成果。",
+      "learnMore": "詳しく見る"
+    },
+    "departments": {
+      "eyebrow": "組織",
+      "heading": "部門紹介",
+      "cardLabel": "部門",
+      "membersLabel": "メンバー"
+    },
+    "sponsors": { "eyebrow": "パートナー & スポンサー", "heading": "スポンサー", "cta": "スポンサーになる" },
+    "news": {
+      "eyebrow": "活動記録",
+      "headingLine1": "ニュース &",
+      "headingLine2": "活動レポート",
+      "fullArchive": "すべての記事",
+      "latestBadge": "最新レポート",
+      "archiveCount": "アーカイブ：{count}件",
+      "viewArchive": "アーカイブをすべて見る"
+    }
+  },
+  "stats": {
+    "activeMembers": { "label": "活動メンバー", "sub": "2026–27年度" },
+    "universities": { "label": "参加大学", "sub": "日本・アメリカ" },
+    "departments": { "label": "部門", "sub": "開発から運営まで" },
+    "countries": { "label": "活動国", "sub": "日本・アメリカ" },
+    "competitionCycles": { "label": "大会シーズン", "sub": "2022–2027" }
+  },
+  "departments": {
+    "hardware": {
+      "name": "ハードウェア",
+      "title": "ハードウェア",
+      "scope": "シャーシ · サスペンション · 駆動系 · ロボットアーム",
+      "summary": "ローバーの構造体と走行システムを設計・製作します。",
+      "body": "ローバーのフレーム、4輪駆動システム、ロッカーボギー式サスペンション、多自由度マニピュレータアームの構造・機構設計を担当し、難地形の走破と試料採取を実現します。",
+      "skills": {
+        "solidworks": "SolidWorks",
+        "fea": "FEA（有限要素解析）",
+        "suspension": "サスペンション設計",
+        "manufacturing": "製作・加工"
+      }
+    },
+    "electrical": {
+      "name": "電気",
+      "title": "電気",
+      "scope": "電源 · 基板設計 · モーター制御 · センサー",
+      "summary": "電力分配と電子通信システムを開発します。",
+      "body": "カスタム基板の設計、電力分配アーキテクチャ、ブラシレスモーターコントローラ、センサー統合を担当。大会や過酷な環境下でもシステムの信頼性を確保します。",
+      "skills": {
+        "pcb": "基板設計",
+        "can": "CAN統合",
+        "power": "電源システム",
+        "embedded": "組込みデバッグ"
+      }
+    },
+    "software": {
+      "name": "ソフトウェア",
+      "title": "ソフトウェア / 自律化",
+      "scope": "ROS2 · ナビゲーション · コンピュータビジョン · テレメトリGUI",
+      "summary": "自律走行と制御のアルゴリズムを開発します。",
+      "body": "ROS2ベースの制御スタック、SLAMによる自律走行、障害物回避やタスク遂行のためのコンピュータビジョン、リアルタイムのテレメトリUIを開発します。",
+      "skills": {
+        "nav": "ROS2ナビゲーション",
+        "slam": "SLAM・自己位置推定",
+        "vision": "コンピュータビジョン",
+        "simulation": "シミュレーション"
+      }
+    },
+    "science": {
+      "name": "サイエンス",
+      "title": "サイエンス",
+      "scope": "宇宙生物学 · 生命探査 · 試料分析",
+      "summary": "宇宙生物学と生命探査の手法を研究します。",
+      "body": "バイオシグネチャーや土壌の化学組成を検出するための科学的手法を設計・検証し、機体に搭載する分光・顕微鏡観察ペイロードを管理します。",
+      "skills": {
+        "astrobiology": "宇宙生物学",
+        "spectrometry": "分光分析",
+        "sampling": "試料採取手法",
+        "field": "フィールド検証"
+      }
+    },
+    "business": {
+      "name": "ビジネス",
+      "title": "ビジネス & アウトリーチ",
+      "scope": "スポンサーシップ · 広報 · 運営 · メンバー募集",
+      "summary": "マーケティング、スポンサー獲得、財務、チームのエンゲージメントを担います。",
+      "body": "スポンサー獲得、広報、ブランドづくり、チームのロジスティクスを推進。日米両拠点の異文化間の調整も担います。",
+      "skills": {
+        "sponsors": "スポンサー対応",
+        "grants": "助成金申請",
+        "operations": "運営",
+        "outreach": "アウトリーチ"
+      }
+    }
+  },
+  "rovers": {
+    "status": { "active": "開発中", "retired": "退役", "archived": "アーカイブ" },
+    "karura-4": {
+      "cycle": "2026–2027",
+      "achievement": "開発中",
+      "milestone": "",
+      "description": "URC 2027決勝に向けて開発中の第4世代競技機体。完全自律の走行スタック、5自由度マニピュレータアーム、モジュール式サイエンスペイロードを搭載します。",
+      "params": {
+        "configuration": { "label": "構成", "value": "4輪駆動" },
+        "suspension": { "label": "サスペンション", "value": "ロッカーボギー" },
+        "driveMotors": { "label": "駆動モーター", "value": "ブラシレスDC × 4" },
+        "armDof": { "label": "アーム自由度", "value": "5", "unit": "自由度" },
+        "locomotion": { "label": "走行方式", "value": "差動", "unit": "ステアリング方式" },
+        "comms": { "label": "通信", "value": "5.8 GHz", "unit": "RF + ROS2ブリッジ" },
+        "compute": { "label": "計算機", "value": "NVIDIA JETSON", "unit": "オンボードSBC" },
+        "powerBus": { "label": "電源系統", "value": "LiPo マルチセル", "unit": "冗長化レール" }
+      },
+      "subsystems": {
+        "nav": "ROS2ナビゲーションスタック",
+        "slam": "SLAMによる自己位置推定",
+        "vision": "コンピュータビジョン処理",
+        "arm": "5自由度マニピュレータアーム",
+        "spectrometer": "分光計ペイロード",
+        "soil": "土壌試料の採取",
+        "stereo": "ステレオカメラアレイ",
+        "imu": "IMU + GPS 統合"
+      }
+    },
+    "karura-3": {
+      "cycle": "2025–2026",
+      "achievement": "URC予選 通過",
+      "milestone": "URCシステム審査（SAR）：通過",
+      "description": "実績あるKARURA IIの構成をもとに、堅牢性・保守性・自律性能を磨き上げた第3世代機体。集中型CAN-bus電気系統と5自由度アームを引き継ぎながら、ナビゲーション、センシング、冗長化の機能を強化しました。",
+      "params": {
+        "configuration": { "label": "構成", "value": "4輪駆動" },
+        "driveMotors": { "label": "駆動モーター", "value": "ブラシレスDC × 4" },
+        "armDof": { "label": "アーム自由度", "value": "5", "unit": "自由度" },
+        "comms": { "label": "通信", "value": "CAN-BUS", "unit": "集中型アーキテクチャ" },
+        "compute": { "label": "計算機", "value": "RASPBERRY PI", "unit": "+ コプロセッサ" },
+        "navigation": { "label": "ナビゲーション", "value": "GPS + IMU", "unit": "ウェイポイント方式" },
+        "powerBus": { "label": "電源系統", "value": "LiPo パック", "unit": "単一レール" }
+      },
+      "subsystems": {
+        "gps": "GPSウェイポイントナビゲーション",
+        "can": "CAN-bus電気アーキテクチャ",
+        "arm": "5自由度マニピュレータアーム",
+        "camera": "HDカメラシステム",
+        "science": "基本サイエンスペイロード",
+        "detection": "物体検出（CV）",
+        "rc": "無線RCによるバックアップ操縦",
+        "motors": "独自開発モーターコントローラ"
+      }
+    },
+    "karura-2": {
+      "cycle": "2024–2025",
+      "achievement": "URC決勝進出：日本チーム初の快挙",
+      "milestone": "歴史的なURC決勝進出：日本チーム初",
+      "description": "KARURA Iの教訓をもとに、信頼性と走行性能の向上に取り組んだ第2世代機体。集中型CAN-bus通信を備えた専用の電気アーキテクチャと、改良した5自由度アームを導入しました。",
+      "params": {
+        "configuration": { "label": "構成", "value": "4輪駆動" },
+        "suspension": { "label": "サスペンション", "value": "リジッドフレーム", "unit": "v1 プロトタイプ" },
+        "armDof": { "label": "アーム自由度", "value": "3", "unit": "自由度" },
+        "control": { "label": "操縦", "value": "手動RC", "unit": "2.4 GHz 無線" },
+        "compute": { "label": "計算機", "value": "RASPBERRY PI 4" },
+        "cameras": { "label": "カメラ", "value": "標準 × 2", "unit": "前方 + アーム" },
+        "power": { "label": "電源", "value": "LiPo 14.8V", "unit": "基本的な配電" },
+        "buildType": { "label": "機体区分", "value": "概念実証機" }
+      },
+      "subsystems": {
+        "rc": "手動無線操縦",
+        "arm": "3自由度アーム試作",
+        "camera": "標準カメラ映像",
+        "telemetry": "基本テレメトリ",
+        "chassis": "試作シャーシ",
+        "codev": "国際共同開発モデル"
+      }
+    }
+  },
+  "timeline": {
+    "plan": {
+      "phase": "フェーズ I",
+      "season": "夏",
+      "title": "計画",
+      "note": "サブシステムの要件を定義し、ハードウェア/ソフトウェアのモデルと予算を策定します。"
+    },
+    "develop": {
+      "phase": "フェーズ II",
+      "season": "秋",
+      "title": "開発",
+      "note": "機械部品の加工、カスタム基板の製作、自律走行・制御ソフトウェアの開発を進め、ローバーを完成させます。"
+    },
+    "test": {
+      "phase": "フェーズ III",
+      "season": "冬",
+      "title": "試験",
+      "note": "ハードウェアの負荷試験やフィールドシミュレーションでセンサーのフィードバックを検証し、本番前にソフトウェアのデバッグと不具合箇所の修正を行います。"
+    },
+    "compete": {
+      "phase": "フェーズ IV",
+      "season": "春",
+      "title": "競技",
+      "note": "技術審査に向けて準備し、審査を通過したうえで、国際大会でローバーを運用・整備します。"
+    }
   }
 }

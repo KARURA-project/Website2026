@@ -1,13 +1,8 @@
-'use client';
-
-import { useState } from 'react';
-import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import { useMessages, useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { Container, Eyebrow, Reveal, SplitHero, indexLabel } from '@/components/ui';
 
-// ─── Data ────────────────────────────────────────────────────────────────────
+const CONTACT_EMAIL = 'Karura.urc.us@gmail.com';
 
 const currentSponsors = [
   {
@@ -288,357 +283,192 @@ const currentSponsors = [
   },
 ];
 
+// Quote, role and result text: messages/*.json → support.testimonials.<key>
 const testimonials = [
-  {
-    quote: 'OptoSigma provided the precision optical sensors that enabled our autonomous navigation stack at URC. Their engineering traveled to the desert with us.',
-    company: 'OptoSigma',
-    role: 'Optics / Navigation Sponsor',
-    result: 'Stereo depth perception system enabling sub-5cm obstacle detection at 2 m/s traverse speed.',
-  },
-  {
-    quote: 'Hiwin\'s linear actuators gave our robotic arm the positional accuracy we needed to pass the equipment servicing task at Finals. Off-the-shelf parts, competition-grade performance.',
-    company: 'Hiwin',
-    role: 'Motion Control Sponsor',
-    result: 'Sub-millimeter joint repeatability across 5 DOF under field conditions in the Utah desert.',
-  },
-  {
-    quote: 'Kikusui\'s power supply units powered the entire test bench for KARURA III\'s electrical validation. When we shipped to Hanksville, our power architecture was battle-tested.',
-    company: 'Kikusui',
-    role: 'Power Systems Sponsor',
-    result: 'Zero electrical failures during the 4-day competition. Full power subsystem validation achieved pre-deployment.',
-  },
-];
-
-const impactMetrics = [
-  { value: '$180K+', label: 'Hardware Funded', sub: 'across all generations' },
-  { value: '11', label: 'Active Sponsors', sub: '2026–27' },
-  { value: '1st', label: 'International Finalists', sub: 'URC history' },
-  { value: '2027', label: 'Next Competition', sub: 'Tottori, Japan' },
-];
-
-// ─── Component ───────────────────────────────────────────────────────────────
+  { key: 'optosigma', company: 'OptoSigma' },
+  { key: 'hiwin', company: 'Hiwin' },
+  { key: 'kikusui', company: 'Kikusui' },
+] as const;
 
 export default function SupportPage() {
   const t = useTranslations('support');
+  const messages = useMessages();
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    organization: '',
-    message: '',
-  });
-  const [submitted, setSubmitted] = useState(false);
+  const m = messages.support.metrics;
+  const impactMetrics = [
+    { value: m.hardwareFunded.value, label: m.hardwareFunded.label, sub: m.hardwareFunded.sub },
+    { value: String(currentSponsors.length), label: m.activeSponsors.label, sub: m.activeSponsors.sub },
+    { value: m.finalists.value, label: m.finalists.label, sub: m.finalists.sub },
+    { value: m.nextCompetition.value, label: m.nextCompetition.label, sub: m.nextCompetition.sub },
+  ];
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
+  const scopeItems = (['hardware', 'materials', 'mentorship', 'branding', 'talent'] as const).map((k) => t(`contact.scopeItems.${k}`));
+  const benefits = (['realWorld', 'pipeline', 'brand'] as const).map((k) => ({
+    title: t(`benefits.${k}.title`),
+    body: t(`benefits.${k}.body`),
+  }));
 
   return (
-    <main className="bg-[#FAFAFA] min-h-screen text-[#0A0A0A]">
-      <Header />
-
-      {/* ══════════════════════════════════════════
-          HERO — Editorial asymmetric split
-      ══════════════════════════════════════════ */}
-      <section className="relative min-h-[80vh] grid lg:grid-cols-[1fr_52%] overflow-hidden">
-
-        <div className="flex flex-col justify-end px-8 md:px-16 lg:px-20 xl:px-28 pt-36 pb-16 lg:pb-20">
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center gap-3 mb-6"
-          >
-            <span className="w-6 h-px bg-[#E63946]" />
-            <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
-              {t('hero.eyebrow')}
+    <div className="text-ink">
+      <SplitHero
+        className="min-h-[80vh] lg:grid-cols-[1fr_52%]"
+        image="/Images/IMG_9088.webp"
+        alt={t('hero.imageAlt')}
+        imageBg="bg-mist"
+        fade="w-24"
+        badge={
+          <>
+            <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/60">{t('hero.badge')}</span>
+            <span className="font-mono text-[10px] text-mars-red tracking-wider flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-mars-red animate-pulse inline-block" />
+              {t('hero.live')}
             </span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.08 }}
-            className="font-display text-[clamp(2.8rem,5.5vw,5rem)] font-bold leading-[0.93] tracking-tight text-[#0A0A0A] mb-6"
-          >
+          </>
+        }
+      >
+        <Reveal onMount y={20} duration={0.5}>
+          <Eyebrow className="mb-6">{t('hero.eyebrow')}</Eyebrow>
+        </Reveal>
+        <Reveal onMount y={28} duration={0.7} delay={0.08}>
+          <h1 className="font-display text-[clamp(2.8rem,5.5vw,5rem)] font-bold leading-[0.93] tracking-tight text-ink mb-6">
             {t('hero.titleLine1')}<br />
-            <span className="text-[#E63946]">{t('hero.titleAccent')}</span>
-          </motion.h1>
+            <span className="text-mars-red">{t('hero.titleAccent')}</span>
+          </h1>
+        </Reveal>
+        <Reveal onMount duration={0.6} delay={0.2}>
+          <p className="text-ink/55 text-base leading-relaxed max-w-[480px] mb-10">{t('hero.description')}</p>
+        </Reveal>
+        <Reveal onMount duration={0.6} delay={0.3} className="flex flex-wrap gap-8 border-t border-ink/10 pt-8">
+          {impactMetrics.map((m) => (
+            <div key={m.label}>
+              <div className="font-mono text-2xl font-bold text-ink leading-none mb-1">{m.value}</div>
+              <div className="font-display text-xs font-semibold text-ink/60 mb-0.5">{m.label}</div>
+              <div className="font-mono text-[9px] tracking-[0.15em] uppercase text-ink/25">{m.sub}</div>
+            </div>
+          ))}
+        </Reveal>
+      </SplitHero>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-[#0A0A0A]/55 text-base leading-relaxed max-w-[480px] mb-10"
-          >
-            {t('hero.description')}
-          </motion.p>
+      {/* Direct contact */}
+      <section className="border-y border-ink/8 bg-ink">
+        <Container className="grid lg:grid-cols-[1fr_1fr] divide-y lg:divide-y-0 lg:divide-x divide-white/8">
+          <div className="py-12 lg:pr-16">
+            <Eyebrow className="mb-5" tone="text-white/30">{t('contact.directContact')}</Eyebrow>
+            <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-[440px]">{t('contact.reply')}</p>
+            <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-white/20 mb-2">{t('contact.businessLeadLabel')}</div>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="font-display text-lg font-bold text-white hover:text-mars-red transition-colors duration-200"
+            >
+              {CONTACT_EMAIL}
+            </a>
+            <div className="font-mono text-[9px] text-white/25 mt-1">{t('contact.businessLeadValue')}</div>
+          </div>
 
-          {/* Impact metrics strip */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap gap-8 border-t border-[#0A0A0A]/10 pt-8"
-          >
-            {impactMetrics.map((m) => (
-              <div key={m.label}>
-                <div className="font-mono text-2xl font-bold text-[#0A0A0A] leading-none mb-1">{m.value}</div>
-                <div className="font-display text-xs font-semibold text-[#0A0A0A]/60 mb-0.5">{m.label}</div>
-                <div className="font-mono text-[9px] tracking-[0.15em] uppercase text-[#0A0A0A]/25">{m.sub}</div>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Right: rover image */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="relative hidden lg:block bg-[#F0F0F0]"
-        >
-          <Image
-            src="/Images/IMG_9088.webp"
-            alt={t('hero.imageAlt')}
-            fill
-            priority
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#FAFAFA] to-transparent pointer-events-none" />
-          <div className="absolute bottom-8 left-8 right-8">
-            <div className="bg-[#0A0A0A]/80 backdrop-blur-sm px-5 py-3 flex items-center justify-between">
-              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/60">
-                {t('hero.badge')}
-              </span>
-              <span className="font-mono text-[10px] text-[#E63946] tracking-wider flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#E63946] animate-pulse inline-block" />
-                {t('hero.live')}
-              </span>
+          <div className="py-12 lg:pl-16 flex flex-col justify-center">
+            <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-white/20 mb-6">{t('contact.scopeLabel')}</div>
+            <div className="space-y-3">
+              {scopeItems.map((item) => (
+                <div key={item} className="flex items-center gap-3">
+                  <span className="w-3 h-px bg-mars-red flex-shrink-0" />
+                  <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-white/45">{item}</span>
+                </div>
+              ))}
             </div>
           </div>
-        </motion.div>
+        </Container>
       </section>
 
-      {/* ══════════════════════════════════════════
-          CONTACT NOTE — First element post-hero
-      ══════════════════════════════════════════ */}
-      <section className="border-y border-[#0A0A0A]/8 bg-[#0A0A0A]">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
-          <div className="grid lg:grid-cols-[1fr_1fr] divide-y lg:divide-y-0 lg:divide-x divide-white/8">
-
-            <div className="py-12 lg:pr-16">
-              <div className="flex items-center gap-3 mb-5">
-                <span className="w-6 h-px bg-[#E63946]" />
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-white/30">
-                  {t('contact.directContact')}
-                </span>
-              </div>
-              <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-[440px]">
-                {t('contact.reply')}
-              </p>
-              <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-white/20 mb-2">
-                {t('contact.businessLeadLabel')}
-              </div>
-              <a
-                href="mailto:Karura.urc.us@gmail.com"
-                className="font-display text-lg font-bold text-white hover:text-[#E63946] transition-colors duration-200"
-              >
-                Karura.urc.us@gmail.com
-              </a>
-              <div className="font-mono text-[9px] text-white/25 mt-1">
-                {t('contact.businessLeadValue')}
-              </div>
-            </div>
-
-            <div className="py-12 lg:pl-16 flex flex-col justify-center">
-              <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-white/20 mb-6">
-                {t('contact.scopeLabel')}
-              </div>
-              <div className="space-y-3">
-                {[
-                  t('contact.scopeItems.hardware'),
-                  t('contact.scopeItems.materials'),
-                  t('contact.scopeItems.mentorship'),
-                  t('contact.scopeItems.branding'),
-                  t('contact.scopeItems.talent'),
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <span className="w-3 h-px bg-[#E63946] flex-shrink-0" />
-                    <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-white/45">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-  {/* ══════════════════════════════════════════
-         CURRENT SPONSORS — Static full-color grid
-         To add a sponsor: append an entry to
-         currentSponsors above with name, logo, url.
-      ══════════════════════════════════════════ */}
-      <section className="border-b border-[#0A0A0A]/8 py-24">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
-
-          {/* Centered Header Section */}
+      {/* Current sponsors — to add one, append to currentSponsors above */}
+      <section className="border-b border-ink/8 py-24">
+        <Container>
           <div className="max-w-[900px] mx-auto flex flex-col items-center text-center mb-16">
             <div className="flex items-center justify-center gap-4 mb-4">
-              <span className="w-8 h-px bg-[#E63946]" />
-              <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#0A0A0A]/40">
-                {t('sponsors.heading')}
-              </span>
-              <span className="w-8 h-px bg-[#E63946]" />
+              <span className="w-8 h-px bg-mars-red" />
+              <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-ink/40">{t('sponsors.heading')}</span>
+              <span className="w-8 h-px bg-mars-red" />
             </div>
-            
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0A0A0A] leading-tight mb-4">
-              {t('sponsors.title')}
-            </h2>
-            
-            <p className="text-[#0A0A0A]/50 text-sm md:text-base leading-relaxed max-w-[420px] mx-auto">
-              {t('sponsors.description')}
-            </p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-ink leading-tight mb-4">{t('sponsors.title')}</h2>
+            <p className="text-ink/50 text-sm md:text-base leading-relaxed max-w-[420px] mx-auto">{t('sponsors.description')}</p>
           </div>
 
-          {/* Sponsor grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 pl-px pt-px">
             {currentSponsors.map((sponsor, i) => (
-              <motion.a
+              <Reveal
                 key={sponsor.id}
-                href={sponsor.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.04 }}
-                className="group bg-white flex items-center justify-center px-10 py-12 min-h-[140px] md:min-h-[160px] border border-[#0A0A0A]/8 -ml-px -mt-px hover:bg-[#FAFAFA] hover:z-10 transition-colors duration-200 relative"
-                title={sponsor.name}
+                y={0}
+                delay={i * 0.04}
+                className="group relative bg-white border border-ink/8 -ml-px -mt-px hover:bg-canvas hover:z-10 transition-colors duration-200"
               >
-                <div className="relative w-full h-16 md:h-20">
-                  <Image
-                    src={sponsor.logo}
-                    alt={sponsor.name}
-                    fill
-                    className="object-contain transition-opacity duration-200 group-hover:opacity-80"
-                  />
-                </div>
-                {/* Subtle hover indicator */}
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-[#E63946] scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center" />
-              </motion.a>
+                <a
+                  href={sponsor.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={sponsor.name}
+                  className="flex items-center justify-center px-10 py-12 min-h-[140px] md:min-h-[160px]"
+                >
+                  <div className="relative w-full h-16 md:h-20">
+                    <Image src={sponsor.logo} alt={sponsor.name} fill className="object-contain transition-opacity duration-200 group-hover:opacity-80" />
+                  </div>
+                </a>
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-mars-red scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center" />
+              </Reveal>
             ))}
           </div>
-          
-        </div>
+        </Container>
       </section>
 
-      {/* ══════════════════════════════════════════
-          WHY SPONSOR — Proof narrative
-      ══════════════════════════════════════════ */}
-      <section className="border-b border-[#0A0A0A]/8 py-24">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
-
+      {/* Why sponsor */}
+      <section className="border-b border-ink/8 py-24">
+        <Container>
           <div className="grid lg:grid-cols-[280px_1fr] gap-16 lg:gap-24 mb-16">
             <div>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="w-6 h-px bg-[#E63946]" />
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">{t('whySponsor.eyebrow')}</span>
-              </div>
-              <h2 className="font-display text-2xl font-bold text-[#0A0A0A] leading-tight">
+              <Eyebrow tone="text-ink/35">{t('whySponsor.eyebrow')}</Eyebrow>
+              <h2 className="font-display text-2xl font-bold text-ink leading-tight">
                 {t('whySponsor.titleLine1')}<br />{t('whySponsor.titleLine2')}
               </h2>
             </div>
-            <p className="text-[#0A0A0A]/50 text-sm leading-relaxed self-end max-w-[580px]">
-              {t('whySponsor.description')}
-            </p>
+            <p className="text-ink/50 text-sm leading-relaxed self-end max-w-[580px]">{t('whySponsor.description')}</p>
           </div>
 
-          <div className="grid md:grid-cols-3 border-t border-l border-[#0A0A0A]/8">
-            {[
-              {
-                index: '01',
-                title: t('benefits.realWorld.title'),
-                body: t('benefits.realWorld.body'),
-              },
-              {
-                index: '02',
-                title: t('benefits.pipeline.title'),
-                body: t('benefits.pipeline.body'),
-              },
-              {
-                index: '03',
-                title: t('benefits.brand.title'),
-                body: t('benefits.brand.body'),
-              },
-            ].map((item, i) => (
-              <motion.div
-                key={item.index}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="border-b border-r border-[#0A0A0A]/8 p-8 lg:p-10"
-              >
-                <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-[#0A0A0A]/20 mb-6">{item.index}</div>
-                <h3 className="font-display text-lg font-bold text-[#0A0A0A] mb-4 leading-snug">{item.title}</h3>
-                <p className="text-[#0A0A0A]/50 text-sm leading-relaxed">{item.body}</p>
-              </motion.div>
+          <div className="grid md:grid-cols-3 border-t border-l border-ink/8">
+            {benefits.map((item, i) => (
+              <Reveal key={i} delay={i * 0.08} className="border-b border-r border-ink/8 p-8 lg:p-10">
+                <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-ink/20 mb-6">{indexLabel(i)}</div>
+                <h3 className="font-display text-lg font-bold text-ink mb-4 leading-snug">{item.title}</h3>
+                <p className="text-ink/50 text-sm leading-relaxed">{item.body}</p>
+              </Reveal>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* ══════════════════════════════════════════
-          Sponsor TESTIMONIALS
-      ══════════════════════════════════════════ */}
-      <section className="border-b border-[#0A0A0A]/8 py-24 bg-white">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
+      {/* Sponsor testimonials */}
+      <section className="border-b border-ink/8 py-24 bg-white">
+        <Container>
+          <Eyebrow className="mb-14" tone="text-ink/35">{t('impact.heading')}</Eyebrow>
 
-          <div className="flex items-center gap-3 mb-14">
-            <span className="w-6 h-px bg-[#E63946]" />
-            <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#0A0A0A]/35">
-              {t('impact.heading')}
-            </span>
+          <div className="grid md:grid-cols-3 border-t border-l border-ink/8">
+            {testimonials.map(({ key, company }, i) => {
+              const quote = messages.support.testimonials[key];
+              return (
+                <Reveal key={key} delay={i * 0.1} className="border-b border-r border-ink/8 p-8 lg:p-10 flex flex-col">
+                  <div className="font-mono text-5xl text-ink/8 leading-none mb-4 select-none">&ldquo;</div>
+                  <p className="text-ink/70 text-sm leading-relaxed mb-8 flex-1 italic">{quote.quote}</p>
+                  <div className="bg-canvas border border-ink/8 p-4 mb-6">
+                    <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-ink/25 mb-1">{t('fieldResult')}</div>
+                    <p className="font-display text-xs font-semibold text-ink/70 leading-snug">{quote.result}</p>
+                  </div>
+                  <div>
+                    <div className="font-display text-sm font-bold text-ink">{company}</div>
+                    <div className="font-mono text-[9px] tracking-[0.12em] uppercase text-ink/30 mt-0.5">{quote.role}</div>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
-
-          <div className="grid md:grid-cols-3 gap-0 border-t border-l border-[#0A0A0A]/8">
-            {testimonials.map((t, i) => (
-              <motion.div
-                key={t.company}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="border-b border-r border-[#0A0A0A]/8 p-8 lg:p-10 flex flex-col"
-              >
-                <div className="font-mono text-5xl text-[#0A0A0A]/8 leading-none mb-4 select-none">&ldquo;</div>
-                <p className="text-[#0A0A0A]/70 text-sm leading-relaxed mb-8 flex-1 italic">
-                  {t.quote}
-                </p>
-                <div className="bg-[#FAFAFA] border border-[#0A0A0A]/8 p-4 mb-6">
-                  <div className="font-mono text-[8px] tracking-[0.18em] uppercase text-[#0A0A0A]/25 mb-1">Field Result</div>
-                  <p className="font-display text-xs font-semibold text-[#0A0A0A]/70 leading-snug">{t.result}</p>
-                </div>
-                <div>
-                  <div className="font-display text-sm font-bold text-[#0A0A0A]">{t.company}</div>
-                  <div className="font-mono text-[9px] tracking-[0.12em] uppercase text-[#0A0A0A]/30 mt-0.5">{t.role}</div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+        </Container>
       </section>
-
-      <Footer />
-    </main>
+    </div>
   );
 }

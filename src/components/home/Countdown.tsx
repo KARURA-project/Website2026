@@ -1,159 +1,77 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useSyncExternalStore } from 'react';
+import { useLocale, useTranslations } from 'next-intl';
+import { Container, Eyebrow, Meta, Reveal, formatDate } from '@/components/ui';
 
-// URC 2025 typically runs late May/early June in Utah. Set exact date when confirmed.
-// Adjust this to the actual competition start datetime:
-const URC_DATE = new Date('2027-03-19T08:00:00-07:00'); // MDT
+// TRC 2027 start. Update when the exact date is confirmed; change the offset and the zone together.
+// ponytail: still US Mountain time from the URC version; Tottori would be '+09:00' / 'Asia/Tokyo'.
+const TARGET = { iso: '2027-03-19T08:00:00-07:00', timeZone: 'America/Denver' };
+const TARGET_DATE = new Date(TARGET.iso);
 
-interface TimeLeft {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
+const secondsLeft = () => Math.max(0, Math.floor((TARGET_DATE.getTime() - Date.now()) / 1000));
+
+function subscribe(onTick: () => void) {
+  const id = setInterval(onTick, 1000);
+  return () => clearInterval(id);
 }
 
-function getTimeLeft(): TimeLeft {
-  const now = Date.now();
-  const diff = URC_DATE.getTime() - now;
+const pad = (n: number, digits = 2) => String(Math.floor(n)).padStart(digits, '0');
 
-  if (diff <= 0) {
-    return { days: 0, hours: 0, minutes: 0, seconds: 0};
-  }
-
-  return {
-    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
-    minutes: Math.floor((diff / (1000 * 60)) % 60),
-    seconds: Math.floor((diff / 1000) % 60),
-  };
-}
-
-function pad(n: number, digits = 2) {
-  return String(n).padStart(digits, '0');
-}
-
-export default function TelemetryCountdown() {
-  const [time, setTime] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    // initialize once on mount and then start interval
-    setTime(getTimeLeft());
-    const id = setInterval(() => setTime(getTimeLeft()), 50);
-    return () => clearInterval(id);
-  }, []);
-
-  const fields: { label: string; value: string; large?: boolean }[] = [
-    { label: 'DAYS', value: pad(time.days, 3), large: true },
-    { label: 'HRS', value: pad(time.hours), large: true },
-    { label: 'MIN', value: pad(time.minutes), large: true },
-    { label: 'SEC', value: pad(time.seconds), large: true },
+export default function Countdown() {
+  const t = useTranslations('home.countdown');
+  const locale = useLocale();
+  // Server render shows zeros; the client takes over after hydration.
+  const s = useSyncExternalStore(subscribe, secondsLeft, () => 0);
+  const fields = [
+    { label: t('days'), value: pad(s / 86400, 3) },
+    { label: t('hours'), value: pad((s / 3600) % 24) },
+    { label: t('minutes'), value: pad((s / 60) % 60) },
+    { label: t('seconds'), value: pad(s % 60) },
   ];
 
   return (
-    <section className="bg-[#FAFAFA] border-t border-[#0A0A0A]/8 py-20">
-      <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-28">
-
-        {/* Header row — left-aligned, not centered */}
+    <section className="bg-canvas border-t border-ink/8 py-20">
+      <Container>
         <div className="mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-3 mb-4"
-          >
-            <span className="w-6 h-px bg-[#E63946]" />
-            <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#0A0A0A]/40">
-              Mission Clock
-            </span>
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="font-display text-3xl md:text-4xl font-bold text-[#0A0A0A]"
-          >
-            Next Competition
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="font-mono text-xs text-[#0A0A0A]/40 mt-2 tracking-wider"
-          >
-            T-minus // TRC 2027 in Tottori, Japan
-          </motion.p>
+          <Reveal>
+            <Eyebrow className="mb-4">{t('eyebrow')}</Eyebrow>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-ink">{t('heading')}</h2>
+          </Reveal>
+          <Reveal y={0} delay={0.2}>
+            <p className="font-mono text-xs text-ink/40 mt-2 tracking-wider">{t('subtitle')}</p>
+          </Reveal>
         </div>
 
-        {/* Countdown readout */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.15 }}
-          className="flex flex-wrap items-end gap-0"
-        >
+        <Reveal delay={0.15} y={20} className="flex flex-wrap items-end">
           {fields.map((field, i) => (
             <div
               key={field.label}
-              className={`flex flex-col items-start ${
-                i < fields.length - 1 ? 'pr-6 mr-6 border-r border-[#0A0A0A]/10' : ''
-              }`}
+              className={`flex flex-col items-start ${i < fields.length - 1 ? 'pr-6 mr-6 border-r border-ink/10' : ''}`}
             >
-              <span
-                className={`font-mono font-bold tabular-nums leading-none text-[#0A0A0A] ${
-                  field.large
-                    ? 'text-[clamp(3rem,7vw,6.5rem)]'
-                    : 'text-[clamp(1.6rem,3.5vw,3.5rem)] text-[#0A0A0A]/40'
-                }`}
-              >
-                {mounted ? field.value : field.large ? '000' : '00'}
+              <span className="font-mono font-bold tabular-nums leading-none text-ink text-[clamp(3rem,7vw,6.5rem)]">
+                {field.value}
               </span>
-              <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#0A0A0A]/30 mt-1">
-                {field.label}
-              </span>
+              <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-ink/30 mt-1">{field.label}</span>
             </div>
           ))}
-        </motion.div>
+        </Reveal>
 
-        {/* Footer metadata row */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="mt-10 pt-8 border-t border-[#0A0A0A]/8 flex flex-wrap gap-8 items-center"
-        >
-          <div>
-            <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30 block mb-1">
-              Target Date
-            </span>
-            <span className="font-mono text-sm text-[#0A0A0A]/60">
-              {URC_DATE.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-            </span>
-          </div>
-          <div>
-            <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30 block mb-1">
-              Venue
-            </span>
-            <span className="font-mono text-sm text-[#0A0A0A]/60">Tottori Luna Terrace, Japan</span>
-          </div>
-          <div>
-            <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#0A0A0A]/30 block mb-1">
-              Status
-            </span>
-            <span className="font-mono text-sm text-[#E63946] flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E63946] animate-pulse inline-block" />
-              Active Build
-            </span>
-          </div>
-        </motion.div>
-      </div>
+        <Reveal y={0} delay={0.3} className="mt-10 pt-8 border-t border-ink/8 flex flex-wrap gap-8 items-center">
+          <Meta label={t('targetDateLabel')} labelClass="mb-1" valueClass="text-sm text-ink/60">
+            {formatDate(TARGET_DATE, locale, 'long', TARGET.timeZone)}
+          </Meta>
+          <Meta label={t('venueLabel')} labelClass="mb-1" valueClass="text-sm text-ink/60">
+            {t('venue')}
+          </Meta>
+          <Meta label={t('statusLabel')} labelClass="mb-1" valueClass="text-sm text-mars-red flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-mars-red animate-pulse inline-block" />
+            {t('status')}
+          </Meta>
+        </Reveal>
+      </Container>
     </section>
   );
 }
