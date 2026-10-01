@@ -112,7 +112,7 @@
       "hiwin": {
         "quote": "Hiwin's linear actuators gave our robotic arm the positional accuracy we needed to pass the equipment servicing task at Finals. Off-the-shelf parts, competition-grade performance.",
         "role": "Motion Control Sponsor",
-        "result": "Sub-millimeter joint repeatability across 5 DOF under field conditions in the Utah desert."
+        "result": "Sub-millimeter joint repeatability across 6 DOF under field conditions in the Utah desert."
       },
       "kikusui": {
         "quote": "Kikusui's power supply units powered the entire test bench for KARURA III's electrical validation. When we shipped to Hanksville, our power architecture was battle-tested.",
@@ -164,7 +164,7 @@
           "label": "MANIPULATION",
           "title": "Robotic Arm",
           "dept": "Hardware / Electrical",
-          "systems": "5-DOF serial manipulator · Custom end-effector · Joint encoders · Tool-change interface · Force estimation via current sensing"
+          "systems": "6-DOF serial manipulator · Custom end-effector · Joint encoders · Tool-change interface · Force estimation via current sensing"
         },
         "electrical": {
           "label": "ELECTRICAL",
@@ -205,7 +205,7 @@
         "description": "The rover must operate a cache of hand tools, including levers, buttons, and valves, using only the robotic arm and end-effector.",
         "challenge": "Requires sub-centimeter arm precision. All tools resemble real-world industrial hardware.",
         "systems": {
-          "arm": { "label": "ARM CONFIG", "value": "5-DOF SERIAL MANIPULATOR" },
+          "arm": { "label": "ARM CONFIG", "value": "6-DOF SERIAL MANIPULATOR" },
           "eef": { "label": "END EFFECTOR", "value": "CUSTOM GRIPPER + TOOL ADAPTER" },
           "depth": { "label": "DEPTH SENSING", "value": "STEREO CAMERA + ARUCO" },
           "control": { "label": "CONTROL MODE", "value": "OPERATOR TELEOPERATION" },
@@ -221,7 +221,7 @@
           "traction": { "label": "TRACTION", "value": "BRUSHLESS DC × 4 INDEPENDENT" },
           "slope": { "label": "SLOPE LIMIT", "value": "DESIGN TARGET: 45°" },
           "terrain": { "label": "TERRAIN TYPE", "value": "LOOSE SEDIMENT / ROCK FIELD" },
-          "retrieval": { "label": "RETRIEVAL", "value": "5-DOF ARM + CLOSED GRIPPER" }
+          "retrieval": { "label": "RETRIEVAL", "value": "6-DOF ARM + CLOSED GRIPPER" }
         }
       },
       "science": {
@@ -590,7 +590,7 @@
         "configuration": { "label": "CONFIGURATION", "value": "4-WHEEL DRIVE" },
         "suspension": { "label": "SUSPENSION", "value": "ROCKER-BOGIE" },
         "driveMotors": { "label": "DRIVE MOTORS", "value": "4 × BRUSHLESS DC" },
-        "armDof": { "label": "ARM DOF", "value": "5", "unit": "degrees of freedom" },
+        "armDof": { "label": "ARM DOF", "value": "6", "unit": "degrees of freedom" },
         "locomotion": { "label": "LOCOMOTION", "value": "DIFFERENTIAL", "unit": "steering geometry" },
         "comms": { "label": "COMMS", "value": "5.8 GHz", "unit": "RF + ROS2 bridge" },
         "compute": { "label": "COMPUTE", "value": "NVIDIA JETSON", "unit": "onboard SBC" },
@@ -600,7 +600,7 @@
         "nav": "ROS2 Navigation Stack",
         "slam": "SLAM-based Localization",
         "vision": "Computer Vision Pipeline",
-        "arm": "5-DOF Manipulator Arm",
+        "arm": "6-DOF Manipulator Arm",
         "spectrometer": "Spectrometer Payload",
         "soil": "Soil Sample Collection",
         "stereo": "Stereo Camera Array",
@@ -615,7 +615,7 @@
       "params": {
         "configuration": { "label": "CONFIGURATION", "value": "4-WHEEL DRIVE" },
         "driveMotors": { "label": "DRIVE MOTORS", "value": "4 × BRUSHLESS DC" },
-        "armDof": { "label": "ARM DOF", "value": "5", "unit": "degrees of freedom" },
+        "armDof": { "label": "ARM DOF", "value": "6", "unit": "degrees of freedom" },
         "comms": { "label": "COMMS", "value": "CAN-BUS", "unit": "centralized architecture" },
         "compute": { "label": "COMPUTE", "value": "RASPBERRY PI", "unit": "+ co-processors" },
         "navigation": { "label": "NAVIGATION", "value": "GPS + IMU", "unit": "waypoint-based" },
@@ -624,7 +624,7 @@
       "subsystems": {
         "gps": "GPS Waypoint Navigation",
         "can": "CAN-Bus Electrical Arch.",
-        "arm": "5-DOF Manipulator Arm",
+        "arm": "6-DOF Manipulator Arm",
         "camera": "HD Camera System",
         "science": "Basic Science Payload",
         "detection": "Object Detection (CV)",
@@ -636,7 +636,7 @@
       "cycle": "2024 to 2025",
       "achievement": "URC Finals Historic: first Japanese team",
       "milestone": "Historic URC Finals: first Japanese team",
-      "description": "Second-generation build focused on reliability and mobility improvements following lessons from KARURA I. Introduced a dedicated electrical architecture with centralized CAN-bus communication and an upgraded 5-DOF arm.",
+      "description": "Second-generation build focused on reliability and mobility improvements following lessons from KARURA I. Introduced a dedicated electrical architecture with centralized CAN-bus communication and an upgraded 6-DOF arm.",
       "params": {
         "configuration": { "label": "CONFIGURATION", "value": "4-WHEEL DRIVE" },
         "suspension": { "label": "SUSPENSION", "value": "RIGID FRAME", "unit": "v1 prototype" },

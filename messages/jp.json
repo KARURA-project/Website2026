@@ -160,7 +160,7 @@
           "label": "マニピュレーション",
           "title": "ロボットアーム",
           "dept": "ハードウェア / 電気",
-          "systems": "5自由度シリアルマニピュレータ · カスタムエンドエフェクタ · 関節エンコーダ · ツール交換インターフェース · 電流センシングによる力推定"
+          "systems": "6自由度シリアルマニピュレータ · カスタムエンドエフェクタ · 関節エンコーダ · ツール交換インターフェース · 電流センシングによる力推定"
         },
         "electrical": {
           "label": "電気系",
@@ -201,7 +201,7 @@
         "description": "ロボットアームとエンドエフェクタだけを使い、レバー、ボタン、バルブなど、実際の設備を模したさまざまな操作を行います。",
         "challenge": "求められるのは1cm未満の高い操作精度。対象となる機器は、実際の産業用ハードウェアを想定して設計されています。",
         "systems": {
-          "arm": { "label": "アーム構成", "value": "5自由度シリアルマニピュレータ" },
+          "arm": { "label": "アーム構成", "value": "6自由度シリアルマニピュレータ" },
           "eef": { "label": "エンドエフェクタ", "value": "カスタムグリッパー + ツールアダプタ" },
           "depth": { "label": "深度センシング", "value": "ステレオカメラ + ArUco" },
           "control": { "label": "操作方法", "value": "オペレーターによる遠隔操作" },
@@ -217,7 +217,7 @@
           "traction": { "label": "駆動", "value": "ブラシレスDC × 4独立制御" },
           "slope": { "label": "登坂性能", "value": "設計目標：45°" },
           "terrain": { "label": "想定地形", "value": "軟弱地盤 / 岩場" },
-          "retrieval": { "label": "回収機構", "value": "5自由度アーム + クローズドグリッパー" }
+          "retrieval": { "label": "回収機構", "value": "6自由度アーム + クローズドグリッパー" }
         }
       },
       "science": {
@@ -566,12 +566,12 @@
       "cycle": "2026–2027",
       "achievement": "開発中",
       "milestone": "",
-      "description": "URC 2027決勝に向けて開発中の第4世代競技機体。完全自律の走行スタック、5自由度マニピュレータアーム、モジュール式サイエンスペイロードを搭載します。",
+      "description": "URC 2027決勝に向けて開発中の第4世代競技機体。完全自律の走行スタック、6自由度マニピュレータアーム、モジュール式サイエンスペイロードを搭載します。",
       "params": {
         "configuration": { "label": "構成", "value": "4輪駆動" },
         "suspension": { "label": "サスペンション", "value": "ロッカーボギー" },
         "driveMotors": { "label": "駆動モーター", "value": "ブラシレスDC × 4" },
-        "armDof": { "label": "アーム自由度", "value": "5", "unit": "自由度" },
+        "armDof": { "label": "アーム自由度", "value": "6", "unit": "自由度" },
         "locomotion": { "label": "走行方式", "value": "差動", "unit": "ステアリング方式" },
         "comms": { "label": "通信", "value": "5.8 GHz", "unit": "RF + ROS2ブリッジ" },
         "compute": { "label": "計算機", "value": "NVIDIA JETSON", "unit": "オンボードSBC" },
@@ -581,7 +581,7 @@
         "nav": "ROS2ナビゲーションスタック",
         "slam": "SLAMによる自己位置推定",
         "vision": "コンピュータビジョン処理",
-        "arm": "5自由度マニピュレータアーム",
+        "arm": "6自由度マニピュレータアーム",
         "spectrometer": "分光計ペイロード",
         "soil": "土壌試料の採取",
         "stereo": "ステレオカメラアレイ",
@@ -596,7 +596,7 @@
       "params": {
         "configuration": { "label": "構成", "value": "4輪駆動" },
         "driveMotors": { "label": "駆動モーター", "value": "ブラシレスDC × 4" },
-        "armDof": { "label": "アーム自由度", "value": "5", "unit": "自由度" },
+        "armDof": { "label": "アーム自由度", "value": "6", "unit": "自由度" },
         "comms": { "label": "通信", "value": "CAN-BUS", "unit": "集中型アーキテクチャ" },
         "compute": { "label": "計算機", "value": "RASPBERRY PI", "unit": "+ コプロセッサ" },
         "navigation": { "label": "ナビゲーション", "value": "GPS + IMU", "unit": "ウェイポイント方式" },
@@ -605,7 +605,7 @@
       "subsystems": {
         "gps": "GPSウェイポイントナビゲーション",
         "can": "CAN-bus電気アーキテクチャ",
-        "arm": "5自由度マニピュレータアーム",
+        "arm": "6自由度マニピュレータアーム",
         "camera": "HDカメラシステム",
         "science": "基本サイエンスペイロード",
         "detection": "物体検出（CV）",
@@ -617,7 +617,7 @@
       "cycle": "2024–2025",
       "achievement": "URC決勝進出：日本チーム初の快挙",
       "milestone": "歴史的なURC決勝進出：日本チーム初",
-      "description": "KARURA Iの教訓をもとに、信頼性と走行性能の向上に取り組んだ第2世代機体。集中型CAN-bus通信を備えた専用の電気アーキテクチャと、改良した5自由度アームを導入しました。",
+      "description": "KARURA Iの教訓をもとに、信頼性と走行性能の向上に取り組んだ第2世代機体。集中型CAN-bus通信を備えた専用の電気アーキテクチャと、改良した6自由度アームを導入しました。",
       "params": {
         "configuration": { "label": "構成", "value": "4輪駆動" },
         "suspension": { "label": "サスペンション", "value": "リジッドフレーム", "unit": "v1 プロトタイプ" },
