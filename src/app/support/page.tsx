@@ -7,9 +7,9 @@ const CONTACT_EMAIL = 'Karura.urc.us@gmail.com';
 const currentSponsors = [
   {
     id: '1',
-    name: 'Sanso',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2400x740_v-frms_webp_47ab9e3a-894f-4fa5-ae7e-e04e6f6ff0a7_small.webp',
-    url: 'https://www.sanso.co.jp',           // ← replace with actual URL
+    name: 'OMAX corporation',
+    logo: 'https://res.cloudinary.com/do43owox/image/upload/LOGO_OMAX_technology_RGB.jpg',
+    url: 'https://www.omax.com/en/',           // ← replace with actual URL
   },
   {
     id: '2',
