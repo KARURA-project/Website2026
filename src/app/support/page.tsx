@@ -13,273 +13,51 @@ const currentSponsors = [
   },
   {
     id: '2',
-    name: 'Kikusui',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-738x150_v-fs_webp_35ab6be7-00ff-45b5-b575-6589198d4233_small.webp',
-    url: 'https://www.kikusui.co.jp',
+    name: 'FD AI Solutions',
+    logo: 'https://res.cloudinary.com/do43owox/image/upload/f_auto/q_auto/fdaisolutions_logo.jpg',
+    url: 'https://fdaisolutions.com/',
   },
     {
     id: '3',
-    name: 'Gutenberg',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1540x146_v-fms_webp_aa43e6b3-9a3b-4b50-8c88-5390ab14c413_small.webp',
-    url: 'https://gutenberg.co.jp',        // ← replace with actual URL
+    name: 'Send Cut Send',
+    logo: 'https://res.cloudinary.com/do43owox/image/upload/f_auto/q_auto/images.jpg',
+    url: 'https://sendcutsend.com/',        // ← replace with actual URL
   },
   {
     id: '4',
-    name: 'Thor Labs',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-295x50_webp_be9895b1-b65e-402e-9bb0-240a65478fca.png',
-    url: 'https://www.thorlabs.com/',
+    name: 'Aegis Aerospace',
+    logo: 'https://res.cloudinary.com/do43owox/image/upload/f_auto/q_auto/aegis_logo_web_aegis_logo_full_color_rgb_699px_300ppi.jpg',
+    url: 'https://aegisaero.com/',
   },
   {
     id: '5',
-    name: 'rd-stuff',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-258x58_webp_24894403-8386-407c-9d6d-ef5b9594dc47.jpg',
-    url: 'https://www.rd-stuff.com/',
+    name: 'Gedore',
+    logo: 'https://res.cloudinary.com/do43owox/image/upload/f_auto/q_auto/3dee5800ad8b306e101edfa2ba04a6d6.w1500.h1315.png',
+    url: 'https://www.gedore.com/en-de/all-brands/',
   },
   {
     id: '6',
-    name: 'Yoshida',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-584x365_webp_52b3622e-bbc4-4f49-b4e4-50b5b1acb0f8.jpg',
-    url: 'https://yoshidanet.com/',
+    name: 'Wonder Data Labs',
+    logo: 'https://res.cloudinary.com/do43owox/image/upload/f_auto/q_auto/Site-INCIT-3.png',
+    url: 'https://www.wonderdatalabs.com/',
   },
   {
-    id: '7',
-    name: 'Sunhayato',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1290x210_v-fms_webp_9decbc0e-4bd0-4a93-9aa0-71eaa5db8cfa.png',
-    url: 'https://www.sunhayato.co.jp/',
+    id: '7', 
+    name: 'SOFAB tamu',
+    logo: 'https://res.cloudinary.com/do43owox/image/upload/f_auto/q_auto/Screenshot_2026-11-03_164640.png',
+    url: 'https://getinvolved.tamu.edu/org/sofab',
   },
   {
     id: '8',
-    name: 'Hiwin',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-738x150_v-fs_webp_a7752d8d-06eb-465b-bcac-89b642aeef58.png',
-    url: 'https://www.hiwin.co.jp/',
+    name: 'RedBull',
+    logo: 'https://res.cloudinary.com/do43owox/image/upload/f_auto/q_auto/images.png',
+    url: 'https://www.redbull.com/us-en/',
   },
   {
     id: '9',
-    name: 'Argo',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1602x500_v-fms_webp_37610fe1-46c9-438c-b91c-1004de53bc83.jpg',
-    url: 'https://www.argocorp.com/',
-  },
-  {
-    id: '10',
-    name: 'Tenchijin',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1482x370_v-fms_webp_392f814c-2b0f-4bfa-9b98-a4c136832d54.png',
-    url: 'https://tenchijin.co.jp/?hl=ja',             // ← replace with actual URL
-  },
-  {
-    id: '11',
-    name: 'Crecia',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2400x900_v-frms_webp_e4afed17-bd2a-46bb-bc4d-ac6e68d37be9.png',
-    url: 'https://pro.crecia.co.jp/',      // ← replace with actual URL
-  },
-    {
-    id: '12',
-    name: 'Daico',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-3200x1000_v-frms_webp_7fe4f299-a096-4575-ac41-7a20efddc9ca.jpg',
-    url: 'https://www.daico.co.jp/',      // ← replace with actual URL
-  },
-    {
-    id: '13',
-    name: 'Igus',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2279x1182_v-frms_webp_6c74e893-da00-41e0-9e2f-bf2c784d07cf.jpg',
-    url: 'https://www.igus.co.jp/',      // ← replace with actual URL
-  },
-    {
-    id: '14',
-    name: 'Spacegoods',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-800x209_v-fs_webp_5abd98f2-f13a-48f4-924d-29d9c0312265.jpg',
-    url: 'https://spacegoods.net/',      // ← replace with actual URL
-  },
-    {
-    id: '15',
-    name: 'OptoSigma',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2048x512_v-frms_webp_553eb8dc-01cd-4074-80e0-ea1b8a0853f7.png',
-    url: 'https://www.sigma-koki.com/',      // ← replace with actual URL
-  },
-    {
-    id: '16',
-    name: 'EMDgroup',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1632x306_v-fms_webp_f59ffa9a-87d1-4a09-82ab-a8135b4d55a4.png',
-    url: 'https://www.emdgroup.com/en/',           // ← replace with actual URL
-  },
-  {
-    id: '17',
-    name: 'Ni',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-175x132_webp_da483921-1bf0-406f-b34b-fbf224087591.jpg',
-    url: 'https://www.ni.com/en.html',
-  },
-    {
-    id: '18',
-    name: 'Aerodiode',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-841x595_v-fs_webp_d5e15445-4abb-487c-b0b9-b88e7d251d0c.png',
-    url: 'https://www.aerodiode.com/',        // ← replace with actual URL
-  },
-  {
-    id: '19',
-    name: 'IDDK',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-850x850_v-fs_webp_e3e4575e-1057-4143-a29e-bde7a9ff5ea1.png',
-    url: 'https://iddk.co.jp/app-def/S-102/iddk_wp/',
-  },
-  {
-    id: '20',
-    name: 'JA Pritech',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-610x97_v-fs_webp_a7dc40a6-bc2c-4fc2-a92b-03664e173b72.png',
-    url: 'http://www.japritech.co.jp/',
-  },
-  {
-    id: '21',
-    name: 'Maimanelectronics',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1240x315_v-fms_webp_2e90833f-321b-422a-bd35-fdc71833dbe1.png',
-    url: 'https://www.maimanelectronics.com/',
-  },
-  {
-    id: '22',
-    name: 'Makita',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-591x197_webp_4a09a182-0ac1-498b-b287-61b17fa44b41.jpg',
-    url: 'https://www.makita.co.jp/',
-  },
-  {
-    id: '23',
-    name: 'Haneda Innovation City',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1188x568_v-fs_webp_9ed63bcb-6917-4760-9158-4461e22c4ae4.png',
-    url: 'https://haneda-innovation-city.com/',
-  },
-  {
-    id: '24',
-    name: 'Terminal 0',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-900x900_v-fs_webp_f39876b7-01b8-4f2a-aa81-8bc0b983fc95.jpg',
-    url: 'https://www.tokyo-airport-bldg.co.jp/terminal0/',
-  },
-  {
-    id: '25',
-    name: 'Hull Precision Instrument',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2400x1354_v-frms_webp_43068a6f-92c5-44d7-ba69-3453867f0c6b.png',
-    url: 'https://hullprecisioninstrument.com/',             // ← replace with actual URL
-  },
-  {
-    id: '26',
-    name: 'Amulapo',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-666x140_v-fs_webp_c2904793-5b05-4517-8245-9c3657d440e2.png',
-    url: 'https://www.amulapo-inc.com/',      // ← replace with actual URL
-  },
-    {
-    id: '27',
-    name: 'Hanpu',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-967x300_v-fs_webp_438232d1-0256-4f1f-8401-f83b5fafbea8.jpg',
-    url: 'https://hanpu.jp/',      // ← replace with actual URL
-  },
-    {
-    id: '28',
-    name: 'Sinsyo',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2154x236_v-frms_webp_316f9c06-5ada-4498-8776-b0159edc490d.jpg',
-    url: 'https://sinsyo-kk.co.jp/',      // ← replace with actual URL
-  },
-    {
-    id: '29',
-    name: 'Sugino',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2400x346_v-frms_webp_98a4e4ad-e8a8-4764-a861-b471d0281352.png',
-    url: 'https://www.sugino.com/',      // ← replace with actual URL
-  },
-    {
-    id: '30',
-    name: 'Task-Inc',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2103x855_v-frms_webp_fe6d0445-7cce-4fc3-9d9d-96b9e683d51c.jpg',
-    url: 'https://task-inc.tech/',      // ← replace with actual URL
-  },
-    {
-    id: '31',
-    name: 'Nikkan',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-850x108_v-fs_webp_0765e15f-61ca-47e4-b38f-8eb37689c551.png',
-    url: 'https://corp.nikkan.co.jp/',           // ← replace with actual URL
-  },
-  {
-    id: '32',
-    name: 'Shinsu University',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-594x420_webp_13670535-e5d8-4813-9b82-346ff9d348f5.jpg',
-    url: 'https://www.shinshu-u.ac.jp/',
-  },
-    {
-    id: '33',
-    name: 'Toyama College',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-334x61_webp_716ef7e6-a45a-4d90-a695-c99cd429b4e7.png',
-    url: 'https://www.nc-toyama.ac.jp/',        // ← replace with actual URL
-  },
-  {
-    id: '34',
-    name: 'Wakasatokai Shinsu University Engineering Alumni',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2400x614_v-frms_webp_c860e2b5-c352-4469-a960-4785968e3e98.png',
-    url: 'https://wakasatokai.jp/official/',
-  },
-  {
-    id: '35',
-    name: 'UchuBiz',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1500x279_v-fms_webp_de41bd6a-1dcc-4c1d-a96a-fb8c634fd8ab.png',
-    url: 'https://uchubiz.com/',
-  },
-  {
-    id: '36',
-    name: 'Sorae',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1920x480_v-frms_webp_601e4f16-3eb2-442b-b8b4-2a64277b460c.png',
-    url: 'https://sorae.info/',
-  },
-  {
-    id: '37',
-    name: '佐々木亮の宇宙ばなし',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2009x460_v-frms_webp_2f46553c-1401-4a5a-b120-312a267561b0.png',
-    url: 'https://podcasts.apple.com/jp/podcast/%E4%BD%90%E3%80%85%E6%9C%A8%E4%BA%AE%E3%81%AE%E5%AE%87%E5%AE%99%E3%81%B0%E3%81%AA%E3%81%97/id1530818711',
-  },
-  {
-    id: '38',
-    name: 'Spacemedia',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2400x715_v-frms_webp_fa8c543d-fa10-4945-90fd-d741124f764d.png',
-    url: 'https://spacemedia.jp/',
-  },
-  {
-    id: '39',
-    name: 'Space Development Forum',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1425x595_v-fms_webp_ac9fdcb5-0676-4897-a792-980a765faf30.png',
-    url: 'https://www.sdfec.org/',
-  },
-  {
-    id: '40',
-    name: 'ASE-Lab',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1367x646_v-fms_webp_1fa915d6-1c48-4ed1-a601-4526eac61692.png',
-    url: 'https://www.ase-lab.space/',             // ← replace with actual URL
-  },
-  {
-    id: '41',
-    name: 'Innovation City',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-256x256_webp_fda42e6f-6d4a-4682-a1c4-866a5028a965.jpg',
-    url: 'https://innovationcity.jp',      // ← replace with actual URL
-  },
-  {
-    id: '42',
-    name: 'Lyncs',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1188x568_v-fs_webp_9ed63bcb-6917-4760-9158-4461e22c4ae4_small.webp',
-    url: 'https://lyncs-keio.net/',      // ← replace with actual URL
-  },
-  {
-    id: '43',
-    name: 'TohokuSpaceElevato',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2400x1697_v-frms_webp_39fe14e6-8f7b-45ad-be8a-a4e7dc79fe0b.png',
-    url: 'https://tohokuspaceelevato.wixsite.com/mysite',      // ← replace with actual URL
-  },
-  {
-    id: '44',
-    name: 'Lift',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-1020x1008_v-fs_webp_12e15f05-1cce-4a0c-807d-fa3dfcccf844.png',
-    url: 'https://x.com/lift_select',      // ← replace with actual URL
-  },
-  {
-    id: '45',
-    name: 'TelStar',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2118x772_v-frms_webp_08f97322-7734-40c9-81a3-5a18da2465b0.jpg',
-    url: 'https://spacemgz-telstar.com/',      // ← replace with actual URL
-  },
-  {
-    id: '46',
-    name: 'FSIF',
-    logo: 'https://storage.googleapis.com/studio-design-asset-files/projects/RQqJYAoZOg/s-2048x2048_v-frms_webp_04afcf22-41a7-468c-8e61-966fa996210d.jpg',
-    url: 'https://fsifofficial.wixsite.com/future-space-industr',      // ← replace with actual URL
+    name: 'Halliburton Engineering Global Programs',
+    logo: 'https://res.cloudinary.com/do43owox/image/upload/f_auto/q_auto/Screenshot_2026-11-03_164504.png',
+    url: 'https://engineering.tamu.edu/academics/global/index.html',
   },
 ];
 
