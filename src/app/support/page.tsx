@@ -20,7 +20,7 @@ const currentSponsors = [
     {
     id: '3',
     name: 'Send Cut Send',
-    logo: 'https://res.cloudinary.com/do43owox/image/upload/f_auto/q_auto/images.jpg',
+    logo: 'https://res.cloudinary.com/do43owox/image/upload/v1793747403/images.jpg',
     url: 'https://sendcutsend.com/',        // ← replace with actual URL
   },
   {
@@ -44,7 +44,7 @@ const currentSponsors = [
   {
     id: '7', 
     name: 'SOFAB tamu',
-    logo: 'https://res.cloudinary.com/do43owox/image/upload/f_auto/q_auto/Screenshot_2026-11-03_164640.png',
+    logo: 'https://res.cloudinary.com/do43owox/image/upload/v1793747491/Texas-AM-University-Emblem.png',
     url: 'https://getinvolved.tamu.edu/org/sofab',
   },
   {
