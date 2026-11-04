@@ -50,7 +50,7 @@ const currentSponsors = [
   {
     id: '8',
     name: 'RedBull',
-    logo: 'https://res.cloudinary.com/do43owox/image/upload/f_auto/q_auto/images.png',
+    logo: 'https://res.cloudinary.com/do43owox/image/upload/v1793756561/images_1.png',
     url: 'https://www.redbull.com/us-en/',
   },
   {
